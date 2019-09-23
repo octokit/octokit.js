@@ -86,10 +86,64 @@ declare namespace Octokit {
   export interface RequestOptions {
     method?: RequestMethod
     url?: string
-    headers?: { [header: string]: any }
+    headers?: RequestHeaders
     body?:  any
-    request?: { [option: string]: any }
+    request?: OctokitRequestOptions
+    /**
+    * Media type options, see {@link https://developer.github.com/v3/media/|GitHub Developer Guide}
+    */
+    mediaType?: {
+      /**
+      * `json` by default. Can be `raw`, `text`, `html`, `full`, `diff`, `patch`, `sha`, `base64`. Depending on endpoint
+      */
+      format?: string;
+
+      /**
+      * Custom media type names of {@link https://developer.github.com/v3/media/|API Previews} without the `-preview` suffix.
+      * Example for single preview: `['squirrel-girl']`.
+      * Example for multiple previews: `['squirrel-girl', 'mister-fantastic']`.
+      */
+      previews?: string[];
+    };
   }
+
+  export type RequestHeaders = {
+    /**
+     * Avoid setting `accept`, use `mediaFormat.{format|previews}` instead.
+     */
+    accept?: string;
+    /**
+     * Use `authorization` to send authenticated request, remember `token ` / `bearer ` prefixes. Example: `token 1234567890abcdef1234567890abcdef12345678`
+     */
+    authorization?: string;
+    /**
+     * `user-agent` is set do a default and can be overwritten as needed.
+     */
+    "user-agent"?: string;
+  
+    [header: string]: string | number | undefined;
+  };
+
+  export type OctokitRequestOptions = {
+    /**
+     * Node only. Useful for custom proxy, certificate, or dns lookup.
+     */
+    agent?: http.Agent;
+    /**
+     * Custom replacement for built-in fetch method. Useful for testing or request hooks.
+     */
+    fetch?: any;
+    /**
+     * Use an `AbortController` instance to cancel a request. In node you can only cancel streamed requests.
+     */
+    signal?: any;
+    /**
+     * Node only. Request/response timeout in ms, it resets on redirect. 0 to disable (OS limit applies). `options.request.signal` is recommended instead.
+     */
+    timeout?: number;
+  
+    [option: string]: any;
+  };
 
   export interface Log {
     debug: (message: string, additionalInfo?: object) => void
@@ -169,7 +223,7 @@ declare namespace Octokit {
 
   export type Plugin = (octokit: Octokit, options: Octokit.Options) => void
 
-  // See https://github.com/octokit/request.js#octokitrequest
+  // See https://github.com/octokit/request.js#request
   export type HookOptions = {
     baseUrl: string
     headers: { [header: string]: string }
@@ -277,7 +331,7 @@ declare class Octokit {
     {{&jsdoc}}
     {{method}}: {
       {{#paramTypes}}
-      (params?: Octokit.{{type}}): Promise<{{&responseType}}>;
+      (params?: Octokit.RequestOptions & Octokit.{{type}}): Promise<{{&responseType}}>;
       {{/paramTypes}}
 
       endpoint: Octokit.Endpoint

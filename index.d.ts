@@ -95,10 +95,64 @@ declare namespace Octokit {
   export interface RequestOptions {
     method?: RequestMethod;
     url?: string;
-    headers?: { [header: string]: any };
+    headers?: RequestHeaders;
     body?: any;
-    request?: { [option: string]: any };
+    request?: OctokitRequestOptions;
+    /**
+     * Media type options, see {@link https://developer.github.com/v3/media/|GitHub Developer Guide}
+     */
+    mediaType?: {
+      /**
+       * `json` by default. Can be `raw`, `text`, `html`, `full`, `diff`, `patch`, `sha`, `base64`. Depending on endpoint
+       */
+      format?: string;
+
+      /**
+       * Custom media type names of {@link https://developer.github.com/v3/media/|API Previews} without the `-preview` suffix.
+       * Example for single preview: `['squirrel-girl']`.
+       * Example for multiple previews: `['squirrel-girl', 'mister-fantastic']`.
+       */
+      previews?: string[];
+    };
   }
+
+  export type RequestHeaders = {
+    /**
+     * Avoid setting `accept`, use `mediaFormat.{format|previews}` instead.
+     */
+    accept?: string;
+    /**
+     * Use `authorization` to send authenticated request, remember `token ` / `bearer ` prefixes. Example: `token 1234567890abcdef1234567890abcdef12345678`
+     */
+    authorization?: string;
+    /**
+     * `user-agent` is set do a default and can be overwritten as needed.
+     */
+    "user-agent"?: string;
+
+    [header: string]: string | number | undefined;
+  };
+
+  export type OctokitRequestOptions = {
+    /**
+     * Node only. Useful for custom proxy, certificate, or dns lookup.
+     */
+    agent?: http.Agent;
+    /**
+     * Custom replacement for built-in fetch method. Useful for testing or request hooks.
+     */
+    fetch?: any;
+    /**
+     * Use an `AbortController` instance to cancel a request. In node you can only cancel streamed requests.
+     */
+    signal?: any;
+    /**
+     * Node only. Request/response timeout in ms, it resets on redirect. 0 to disable (OS limit applies). `options.request.signal` is recommended instead.
+     */
+    timeout?: number;
+
+    [option: string]: any;
+  };
 
   export interface Log {
     debug: (message: string, additionalInfo?: object) => void;
@@ -178,7 +232,7 @@ declare namespace Octokit {
 
   export type Plugin = (octokit: Octokit, options: Octokit.Options) => void;
 
-  // See https://github.com/octokit/request.js#octokitrequest
+  // See https://github.com/octokit/request.js#request
   export type HookOptions = {
     baseUrl: string;
     headers: { [header: string]: string };
@@ -28593,9 +28647,10 @@ declare class Octokit {
      * Requires for the user to be authenticated.
      */
     checkStarringRepo: {
-      (params?: Octokit.ActivityCheckStarringRepoParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityCheckStarringRepoParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28603,9 +28658,10 @@ declare class Octokit {
      * This endpoint should only be used to stop watching a repository. To control whether or not you wish to receive notifications from a repository, [set the repository's subscription manually](https://developer.github.com/v3/activity/watching/#set-a-repository-subscription).
      */
     deleteRepoSubscription: {
-      (params?: Octokit.ActivityDeleteRepoSubscriptionParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityDeleteRepoSubscriptionParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28613,25 +28669,27 @@ declare class Octokit {
      * Mutes all future notifications for a conversation until you comment on the thread or get **@mention**ed.
      */
     deleteThreadSubscription: {
-      (params?: Octokit.ActivityDeleteThreadSubscriptionParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityDeleteThreadSubscriptionParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getRepoSubscription: {
-      (params?: Octokit.ActivityGetRepoSubscriptionParams): Promise<
-        Octokit.Response<Octokit.ActivityGetRepoSubscriptionResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityGetRepoSubscriptionParams
+      ): Promise<Octokit.Response<Octokit.ActivityGetRepoSubscriptionResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getThread: {
-      (params?: Octokit.ActivityGetThreadParams): Promise<
-        Octokit.Response<Octokit.ActivityGetThreadResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ActivityGetThreadParams
+      ): Promise<Octokit.Response<Octokit.ActivityGetThreadResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28641,7 +28699,10 @@ declare class Octokit {
      * Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were **@mentioned**, or manually subscribe to a thread.
      */
     getThreadSubscription: {
-      (params?: Octokit.ActivityGetThreadSubscriptionParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityGetThreadSubscriptionParams
+      ): Promise<
         Octokit.Response<Octokit.ActivityGetThreadSubscriptionResponse>
       >;
 
@@ -28651,9 +28712,9 @@ declare class Octokit {
      * This is the user's organization dashboard. You must be authenticated as the user to view this.
      */
     listEventsForOrg: {
-      (params?: Octokit.ActivityListEventsForOrgParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ActivityListEventsForOrgParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28661,9 +28722,10 @@ declare class Octokit {
      * If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events.
      */
     listEventsForUser: {
-      (params?: Octokit.ActivityListEventsForUserParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListEventsForUserParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28681,7 +28743,7 @@ declare class Octokit {
      * **Note**: Private feeds are only returned when [authenticating via Basic Auth](https://developer.github.com/v3/#basic-authentication) since current feed URIs use the older, non revocable auth tokens.
      */
     listFeeds: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.ActivityListFeedsResponse>
       >;
 
@@ -28693,9 +28755,10 @@ declare class Octokit {
      * The following example uses the `since` parameter to list notifications that have been updated after the specified time.
      */
     listNotifications: {
-      (params?: Octokit.ActivityListNotificationsParams): Promise<
-        Octokit.Response<Octokit.ActivityListNotificationsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListNotificationsParams
+      ): Promise<Octokit.Response<Octokit.ActivityListNotificationsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28703,7 +28766,10 @@ declare class Octokit {
      * List all notifications for the current user.
      */
     listNotificationsForRepo: {
-      (params?: Octokit.ActivityListNotificationsForRepoParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListNotificationsForRepoParams
+      ): Promise<
         Octokit.Response<Octokit.ActivityListNotificationsForRepoResponse>
       >;
 
@@ -28713,33 +28779,36 @@ declare class Octokit {
      * We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago.
      */
     listPublicEvents: {
-      (params?: Octokit.ActivityListPublicEventsParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ActivityListPublicEventsParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listPublicEventsForOrg: {
-      (params?: Octokit.ActivityListPublicEventsForOrgParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListPublicEventsForOrgParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listPublicEventsForRepoNetwork: {
-      (params?: Octokit.ActivityListPublicEventsForRepoNetworkParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListPublicEventsForRepoNetworkParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listPublicEventsForUser: {
-      (params?: Octokit.ActivityListPublicEventsForUserParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListPublicEventsForUserParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28747,25 +28816,27 @@ declare class Octokit {
      * These are events that you've received by watching repos and following users. If you are authenticated as the given user, you will see private events. Otherwise, you'll only see public events.
      */
     listReceivedEventsForUser: {
-      (params?: Octokit.ActivityListReceivedEventsForUserParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListReceivedEventsForUserParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listReceivedPublicEventsForUser: {
-      (params?: Octokit.ActivityListReceivedPublicEventsForUserParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListReceivedPublicEventsForUserParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listRepoEvents: {
-      (params?: Octokit.ActivityListRepoEventsParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ActivityListRepoEventsParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28774,7 +28845,8 @@ declare class Octokit {
      */
     listReposStarredByAuthenticatedUser: {
       (
-        params?: Octokit.ActivityListReposStarredByAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListReposStarredByAuthenticatedUserParams
       ): Promise<
         Octokit.Response<
           Octokit.ActivityListReposStarredByAuthenticatedUserResponse
@@ -28787,7 +28859,10 @@ declare class Octokit {
      * You can also find out _when_ stars were created by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
      */
     listReposStarredByUser: {
-      (params?: Octokit.ActivityListReposStarredByUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListReposStarredByUserParams
+      ): Promise<
         Octokit.Response<Octokit.ActivityListReposStarredByUserResponse>
       >;
 
@@ -28795,7 +28870,10 @@ declare class Octokit {
     };
 
     listReposWatchedByUser: {
-      (params?: Octokit.ActivityListReposWatchedByUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListReposWatchedByUserParams
+      ): Promise<
         Octokit.Response<Octokit.ActivityListReposWatchedByUserResponse>
       >;
 
@@ -28805,7 +28883,10 @@ declare class Octokit {
      * You can also find out _when_ stars were created by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
      */
     listStargazersForRepo: {
-      (params?: Octokit.ActivityListStargazersForRepoParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListStargazersForRepoParams
+      ): Promise<
         Octokit.Response<Octokit.ActivityListStargazersForRepoResponse>
       >;
 
@@ -28814,7 +28895,8 @@ declare class Octokit {
 
     listWatchedReposForAuthenticatedUser: {
       (
-        params?: Octokit.ActivityListWatchedReposForAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListWatchedReposForAuthenticatedUserParams
       ): Promise<
         Octokit.Response<
           Octokit.ActivityListWatchedReposForAuthenticatedUserResponse
@@ -28825,9 +28907,10 @@ declare class Octokit {
     };
 
     listWatchersForRepo: {
-      (params?: Octokit.ActivityListWatchersForRepoParams): Promise<
-        Octokit.Response<Octokit.ActivityListWatchersForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityListWatchersForRepoParams
+      ): Promise<Octokit.Response<Octokit.ActivityListWatchersForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28835,7 +28918,9 @@ declare class Octokit {
      * Marking a notification as "read" removes it from the [default view on GitHub](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the [List your notifications](https://developer.github.com/v3/activity/notifications/#list-your-notifications) endpoint and pass the query parameter `all=false`.
      */
     markAsRead: {
-      (params?: Octokit.ActivityMarkAsReadParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ActivityMarkAsReadParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28843,17 +28928,18 @@ declare class Octokit {
      * Marking all notifications in a repository as "read" removes them from the [default view on GitHub](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the [List your notifications in a repository](https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository) endpoint and pass the query parameter `all=false`.
      */
     markNotificationsAsReadForRepo: {
-      (params?: Octokit.ActivityMarkNotificationsAsReadForRepoParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivityMarkNotificationsAsReadForRepoParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     markThreadAsRead: {
-      (params?: Octokit.ActivityMarkThreadAsReadParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ActivityMarkThreadAsReadParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28861,9 +28947,10 @@ declare class Octokit {
      * If you would like to watch a repository, set `subscribed` to `true`. If you would like to ignore notifications made within a repository, set `ignored` to `true`. If you would like to stop watching a repository, [delete the repository's subscription](https://developer.github.com/v3/activity/watching/#delete-a-repository-subscription) completely.
      */
     setRepoSubscription: {
-      (params?: Octokit.ActivitySetRepoSubscriptionParams): Promise<
-        Octokit.Response<Octokit.ActivitySetRepoSubscriptionResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivitySetRepoSubscriptionParams
+      ): Promise<Octokit.Response<Octokit.ActivitySetRepoSubscriptionResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28871,7 +28958,10 @@ declare class Octokit {
      * This lets you subscribe or unsubscribe from a conversation.
      */
     setThreadSubscription: {
-      (params?: Octokit.ActivitySetThreadSubscriptionParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActivitySetThreadSubscriptionParams
+      ): Promise<
         Octokit.Response<Octokit.ActivitySetThreadSubscriptionResponse>
       >;
 
@@ -28883,7 +28973,9 @@ declare class Octokit {
      * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
      */
     starRepo: {
-      (params?: Octokit.ActivityStarRepoParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ActivityStarRepoParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28891,7 +28983,9 @@ declare class Octokit {
      * Requires for the user to be authenticated.
      */
     unstarRepo: {
-      (params?: Octokit.ActivityUnstarRepoParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ActivityUnstarRepoParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28903,9 +28997,10 @@ declare class Octokit {
      * You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.
      */
     addRepoToInstallation: {
-      (params?: Octokit.AppsAddRepoToInstallationParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.AppsAddRepoToInstallationParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28915,7 +29010,10 @@ declare class Octokit {
      * GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
      */
     checkAccountIsAssociatedWithAny: {
-      (params?: Octokit.AppsCheckAccountIsAssociatedWithAnyParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.AppsCheckAccountIsAssociatedWithAnyParams
+      ): Promise<
         Octokit.Response<Octokit.AppsCheckAccountIsAssociatedWithAnyResponse>
       >;
 
@@ -28928,7 +29026,8 @@ declare class Octokit {
      */
     checkAccountIsAssociatedWithAnyStubbed: {
       (
-        params?: Octokit.AppsCheckAccountIsAssociatedWithAnyStubbedParams
+        params?: Octokit.RequestOptions &
+          Octokit.AppsCheckAccountIsAssociatedWithAnyStubbedParams
       ): Promise<
         Octokit.Response<
           Octokit.AppsCheckAccountIsAssociatedWithAnyStubbedResponse
@@ -28947,9 +29046,10 @@ declare class Octokit {
      * This example creates a content attachment for the domain `https://errors.ai/`.
      */
     createContentAttachment: {
-      (params?: Octokit.AppsCreateContentAttachmentParams): Promise<
-        Octokit.Response<Octokit.AppsCreateContentAttachmentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.AppsCreateContentAttachmentParams
+      ): Promise<Octokit.Response<Octokit.AppsCreateContentAttachmentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28957,9 +29057,9 @@ declare class Octokit {
      * Use this endpoint to complete the handshake necessary when implementing the [GitHub App Manifest flow](https://developer.github.com/apps/building-github-apps/creating-github-apps-from-a-manifest/). When you create a GitHub App with the manifest flow, you receive a temporary `code` used to retrieve the GitHub App's `id`, `pem` (private key), and `webhook_secret`.
      */
     createFromManifest: {
-      (params?: Octokit.AppsCreateFromManifestParams): Promise<
-        Octokit.Response<Octokit.AppsCreateFromManifestResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsCreateFromManifestParams
+      ): Promise<Octokit.Response<Octokit.AppsCreateFromManifestResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28973,9 +29073,10 @@ declare class Octokit {
      * This example grants the token "Read and write" permission to `issues` and "Read" permission to `contents`, and restricts the token's access to the repository with an `id` of 1296269.
      */
     createInstallationToken: {
-      (params?: Octokit.AppsCreateInstallationTokenParams): Promise<
-        Octokit.Response<Octokit.AppsCreateInstallationTokenResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.AppsCreateInstallationTokenParams
+      ): Promise<Octokit.Response<Octokit.AppsCreateInstallationTokenResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28985,9 +29086,9 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     deleteInstallation: {
-      (params?: Octokit.AppsDeleteInstallationParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsDeleteInstallationParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -28997,9 +29098,9 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     findOrgInstallation: {
-      (params?: Octokit.AppsFindOrgInstallationParams): Promise<
-        Octokit.Response<Octokit.AppsFindOrgInstallationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsFindOrgInstallationParams
+      ): Promise<Octokit.Response<Octokit.AppsFindOrgInstallationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29009,9 +29110,9 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     findRepoInstallation: {
-      (params?: Octokit.AppsFindRepoInstallationParams): Promise<
-        Octokit.Response<Octokit.AppsFindRepoInstallationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsFindRepoInstallationParams
+      ): Promise<Octokit.Response<Octokit.AppsFindRepoInstallationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29021,9 +29122,9 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     findUserInstallation: {
-      (params?: Octokit.AppsFindUserInstallationParams): Promise<
-        Octokit.Response<Octokit.AppsFindUserInstallationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsFindUserInstallationParams
+      ): Promise<Octokit.Response<Octokit.AppsFindUserInstallationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29033,7 +29134,7 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     getAuthenticated: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.AppsGetAuthenticatedResponse>
       >;
 
@@ -29045,7 +29146,7 @@ declare class Octokit {
      * If the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
      */
     getBySlug: {
-      (params?: Octokit.AppsGetBySlugParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.AppsGetBySlugParams): Promise<
         Octokit.Response<Octokit.AppsGetBySlugResponse>
       >;
 
@@ -29055,9 +29156,9 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     getInstallation: {
-      (params?: Octokit.AppsGetInstallationParams): Promise<
-        Octokit.Response<Octokit.AppsGetInstallationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsGetInstallationParams
+      ): Promise<Octokit.Response<Octokit.AppsGetInstallationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29067,9 +29168,9 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     getOrgInstallation: {
-      (params?: Octokit.AppsGetOrgInstallationParams): Promise<
-        Octokit.Response<Octokit.AppsGetOrgInstallationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsGetOrgInstallationParams
+      ): Promise<Octokit.Response<Octokit.AppsGetOrgInstallationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29079,9 +29180,9 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     getRepoInstallation: {
-      (params?: Octokit.AppsGetRepoInstallationParams): Promise<
-        Octokit.Response<Octokit.AppsGetRepoInstallationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsGetRepoInstallationParams
+      ): Promise<Octokit.Response<Octokit.AppsGetRepoInstallationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29091,9 +29192,9 @@ declare class Octokit {
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      */
     getUserInstallation: {
-      (params?: Octokit.AppsGetUserInstallationParams): Promise<
-        Octokit.Response<Octokit.AppsGetUserInstallationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsGetUserInstallationParams
+      ): Promise<Octokit.Response<Octokit.AppsGetUserInstallationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29103,7 +29204,10 @@ declare class Octokit {
      * GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
      */
     listAccountsUserOrOrgOnPlan: {
-      (params?: Octokit.AppsListAccountsUserOrOrgOnPlanParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.AppsListAccountsUserOrOrgOnPlanParams
+      ): Promise<
         Octokit.Response<Octokit.AppsListAccountsUserOrOrgOnPlanResponse>
       >;
 
@@ -29115,7 +29219,10 @@ declare class Octokit {
      * GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
      */
     listAccountsUserOrOrgOnPlanStubbed: {
-      (params?: Octokit.AppsListAccountsUserOrOrgOnPlanStubbedParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.AppsListAccountsUserOrOrgOnPlanStubbedParams
+      ): Promise<
         Octokit.Response<Octokit.AppsListAccountsUserOrOrgOnPlanStubbedResponse>
       >;
 
@@ -29132,7 +29239,8 @@ declare class Octokit {
      */
     listInstallationReposForAuthenticatedUser: {
       (
-        params?: Octokit.AppsListInstallationReposForAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.AppsListInstallationReposForAuthenticatedUserParams
       ): Promise<
         Octokit.Response<
           Octokit.AppsListInstallationReposForAuthenticatedUserResponse
@@ -29147,9 +29255,9 @@ declare class Octokit {
      * The permissions the installation has are included under the `permissions` key.
      */
     listInstallations: {
-      (params?: Octokit.AppsListInstallationsParams): Promise<
-        Octokit.Response<Octokit.AppsListInstallationsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsListInstallationsParams
+      ): Promise<Octokit.Response<Octokit.AppsListInstallationsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29164,7 +29272,8 @@ declare class Octokit {
      */
     listInstallationsForAuthenticatedUser: {
       (
-        params?: Octokit.AppsListInstallationsForAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.AppsListInstallationsForAuthenticatedUserParams
       ): Promise<
         Octokit.Response<
           Octokit.AppsListInstallationsForAuthenticatedUserResponse
@@ -29178,7 +29287,8 @@ declare class Octokit {
      */
     listMarketplacePurchasesForAuthenticatedUser: {
       (
-        params?: Octokit.AppsListMarketplacePurchasesForAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.AppsListMarketplacePurchasesForAuthenticatedUserParams
       ): Promise<
         Octokit.Response<
           Octokit.AppsListMarketplacePurchasesForAuthenticatedUserResponse
@@ -29192,7 +29302,8 @@ declare class Octokit {
      */
     listMarketplacePurchasesForAuthenticatedUserStubbed: {
       (
-        params?: Octokit.AppsListMarketplacePurchasesForAuthenticatedUserStubbedParams
+        params?: Octokit.RequestOptions &
+          Octokit.AppsListMarketplacePurchasesForAuthenticatedUserStubbedParams
       ): Promise<
         Octokit.Response<
           Octokit.AppsListMarketplacePurchasesForAuthenticatedUserStubbedResponse
@@ -29205,7 +29316,7 @@ declare class Octokit {
      * GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
      */
     listPlans: {
-      (params?: Octokit.AppsListPlansParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.AppsListPlansParams): Promise<
         Octokit.Response<Octokit.AppsListPlansResponse>
       >;
 
@@ -29215,9 +29326,9 @@ declare class Octokit {
      * GitHub Apps must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint. OAuth Apps must use [basic authentication](https://developer.github.com/v3/auth/#basic-authentication) with their client ID and client secret to access this endpoint.
      */
     listPlansStubbed: {
-      (params?: Octokit.AppsListPlansStubbedParams): Promise<
-        Octokit.Response<Octokit.AppsListPlansStubbedResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.AppsListPlansStubbedParams
+      ): Promise<Octokit.Response<Octokit.AppsListPlansStubbedResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29227,7 +29338,7 @@ declare class Octokit {
      * You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
      */
     listRepos: {
-      (params?: Octokit.AppsListReposParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.AppsListReposParams): Promise<
         Octokit.Response<Octokit.AppsListReposResponse>
       >;
 
@@ -29239,9 +29350,10 @@ declare class Octokit {
      * You must use a personal access token (which you can create via the [command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)) or [Basic Authentication](https://developer.github.com/v3/auth/#basic-authentication) to access this endpoint.
      */
     removeRepoFromInstallation: {
-      (params?: Octokit.AppsRemoveRepoFromInstallationParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.AppsRemoveRepoFromInstallationParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29253,7 +29365,7 @@ declare class Octokit {
      * Creates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs.
      */
     create: {
-      (params?: Octokit.ChecksCreateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ChecksCreateParams): Promise<
         Octokit.Response<Octokit.ChecksCreateResponse>
       >;
 
@@ -29265,9 +29377,9 @@ declare class Octokit {
      * By default, check suites are automatically created when you create a [check run](https://developer.github.com/v3/checks/runs/). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using "[Set preferences for check suites on a repository](https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)". Your GitHub App must have the `checks:write` permission to create check suites.
      */
     createSuite: {
-      (params?: Octokit.ChecksCreateSuiteParams): Promise<
-        Octokit.Response<Octokit.ChecksCreateSuiteResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ChecksCreateSuiteParams
+      ): Promise<Octokit.Response<Octokit.ChecksCreateSuiteResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29277,7 +29389,7 @@ declare class Octokit {
      * Gets a single check run using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
      */
     get: {
-      (params?: Octokit.ChecksGetParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ChecksGetParams): Promise<
         Octokit.Response<Octokit.ChecksGetResponse>
       >;
 
@@ -29289,7 +29401,7 @@ declare class Octokit {
      * Gets a single check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.
      */
     getSuite: {
-      (params?: Octokit.ChecksGetSuiteParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ChecksGetSuiteParams): Promise<
         Octokit.Response<Octokit.ChecksGetSuiteResponse>
       >;
 
@@ -29299,9 +29411,9 @@ declare class Octokit {
      * Lists annotations for a check run using the annotation `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the `repo` scope to get annotations for a check run in a private repository.
      */
     listAnnotations: {
-      (params?: Octokit.ChecksListAnnotationsParams): Promise<
-        Octokit.Response<Octokit.ChecksListAnnotationsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ChecksListAnnotationsParams
+      ): Promise<Octokit.Response<Octokit.ChecksListAnnotationsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29311,9 +29423,9 @@ declare class Octokit {
      * Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
      */
     listForRef: {
-      (params?: Octokit.ChecksListForRefParams): Promise<
-        Octokit.Response<Octokit.ChecksListForRefResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ChecksListForRefParams
+      ): Promise<Octokit.Response<Octokit.ChecksListForRefResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29323,9 +29435,9 @@ declare class Octokit {
      * Lists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
      */
     listForSuite: {
-      (params?: Octokit.ChecksListForSuiteParams): Promise<
-        Octokit.Response<Octokit.ChecksListForSuiteResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ChecksListForSuiteParams
+      ): Promise<Octokit.Response<Octokit.ChecksListForSuiteResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29335,9 +29447,9 @@ declare class Octokit {
      * Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.
      */
     listSuitesForRef: {
-      (params?: Octokit.ChecksListSuitesForRefParams): Promise<
-        Octokit.Response<Octokit.ChecksListSuitesForRefResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ChecksListSuitesForRefParams
+      ): Promise<Octokit.Response<Octokit.ChecksListSuitesForRefResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29347,9 +29459,9 @@ declare class Octokit {
      * To rerequest a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.
      */
     rerequestSuite: {
-      (params?: Octokit.ChecksRerequestSuiteParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ChecksRerequestSuiteParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29357,9 +29469,10 @@ declare class Octokit {
      * Changes the default automatic flow when creating check suites. By default, the CheckSuiteEvent is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://developer.github.com/v3/checks/suites/#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.
      */
     setSuitesPreferences: {
-      (params?: Octokit.ChecksSetSuitesPreferencesParams): Promise<
-        Octokit.Response<Octokit.ChecksSetSuitesPreferencesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ChecksSetSuitesPreferencesParams
+      ): Promise<Octokit.Response<Octokit.ChecksSetSuitesPreferencesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29369,7 +29482,7 @@ declare class Octokit {
      * Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.
      */
     update: {
-      (params?: Octokit.ChecksUpdateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ChecksUpdateParams): Promise<
         Octokit.Response<Octokit.ChecksUpdateResponse>
       >;
 
@@ -29378,7 +29491,10 @@ declare class Octokit {
   };
   codesOfConduct: {
     getConductCode: {
-      (params?: Octokit.CodesOfConductGetConductCodeParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.CodesOfConductGetConductCodeParams
+      ): Promise<
         Octokit.Response<Octokit.CodesOfConductGetConductCodeResponse>
       >;
 
@@ -29388,15 +29504,15 @@ declare class Octokit {
      * This method returns the contents of the repository's code of conduct file, if one is detected.
      */
     getForRepo: {
-      (params?: Octokit.CodesOfConductGetForRepoParams): Promise<
-        Octokit.Response<Octokit.CodesOfConductGetForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.CodesOfConductGetForRepoParams
+      ): Promise<Octokit.Response<Octokit.CodesOfConductGetForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listConductCodes: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.CodesOfConductListConductCodesResponse>
       >;
 
@@ -29408,16 +29524,18 @@ declare class Octokit {
      * Lists all the emojis available to use on GitHub.
      */
     get: {
-      (params?: Octokit.EmptyParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
   };
   gists: {
     checkIsStarred: {
-      (params?: Octokit.GistsCheckIsStarredParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsCheckIsStarredParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29427,7 +29545,7 @@ declare class Octokit {
      * **Note:** Don't name your files "gistfile" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally.
      */
     create: {
-      (params?: Octokit.GistsCreateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GistsCreateParams): Promise<
         Octokit.Response<Octokit.GistsCreateResponse>
       >;
 
@@ -29435,21 +29553,25 @@ declare class Octokit {
     };
 
     createComment: {
-      (params?: Octokit.GistsCreateCommentParams): Promise<
-        Octokit.Response<Octokit.GistsCreateCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsCreateCommentParams
+      ): Promise<Octokit.Response<Octokit.GistsCreateCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     delete: {
-      (params?: Octokit.GistsDeleteParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.GistsDeleteParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteComment: {
-      (params?: Octokit.GistsDeleteCommentParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsDeleteCommentParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29457,7 +29579,7 @@ declare class Octokit {
      * **Note**: This was previously `/gists/:gist_id/fork`.
      */
     fork: {
-      (params?: Octokit.GistsForkParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GistsForkParams): Promise<
         Octokit.Response<Octokit.GistsForkResponse>
       >;
 
@@ -29465,7 +29587,7 @@ declare class Octokit {
     };
 
     get: {
-      (params?: Octokit.GistsGetParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GistsGetParams): Promise<
         Octokit.Response<Octokit.GistsGetResponse>
       >;
 
@@ -29473,23 +29595,23 @@ declare class Octokit {
     };
 
     getComment: {
-      (params?: Octokit.GistsGetCommentParams): Promise<
-        Octokit.Response<Octokit.GistsGetCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsGetCommentParams
+      ): Promise<Octokit.Response<Octokit.GistsGetCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getRevision: {
-      (params?: Octokit.GistsGetRevisionParams): Promise<
-        Octokit.Response<Octokit.GistsGetRevisionResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsGetRevisionParams
+      ): Promise<Octokit.Response<Octokit.GistsGetRevisionResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     list: {
-      (params?: Octokit.GistsListParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GistsListParams): Promise<
         Octokit.Response<Octokit.GistsListResponse>
       >;
 
@@ -29497,23 +29619,23 @@ declare class Octokit {
     };
 
     listComments: {
-      (params?: Octokit.GistsListCommentsParams): Promise<
-        Octokit.Response<Octokit.GistsListCommentsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsListCommentsParams
+      ): Promise<Octokit.Response<Octokit.GistsListCommentsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listCommits: {
-      (params?: Octokit.GistsListCommitsParams): Promise<
-        Octokit.Response<Octokit.GistsListCommitsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsListCommitsParams
+      ): Promise<Octokit.Response<Octokit.GistsListCommitsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listForks: {
-      (params?: Octokit.GistsListForksParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GistsListForksParams): Promise<
         Octokit.Response<Octokit.GistsListForksResponse>
       >;
 
@@ -29525,17 +29647,17 @@ declare class Octokit {
      * Note: With [pagination](https://developer.github.com/v3/#pagination), you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page.
      */
     listPublic: {
-      (params?: Octokit.GistsListPublicParams): Promise<
-        Octokit.Response<Octokit.GistsListPublicResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsListPublicParams
+      ): Promise<Octokit.Response<Octokit.GistsListPublicResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listPublicForUser: {
-      (params?: Octokit.GistsListPublicForUserParams): Promise<
-        Octokit.Response<Octokit.GistsListPublicForUserResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsListPublicForUserParams
+      ): Promise<Octokit.Response<Octokit.GistsListPublicForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29543,9 +29665,9 @@ declare class Octokit {
      * List the authenticated user's starred gists:
      */
     listStarred: {
-      (params?: Octokit.GistsListStarredParams): Promise<
-        Octokit.Response<Octokit.GistsListStarredResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsListStarredParams
+      ): Promise<Octokit.Response<Octokit.GistsListStarredResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29553,13 +29675,17 @@ declare class Octokit {
      * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
      */
     star: {
-      (params?: Octokit.GistsStarParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.GistsStarParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
 
     unstar: {
-      (params?: Octokit.GistsUnstarParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.GistsUnstarParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29567,7 +29693,7 @@ declare class Octokit {
      * Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.
      */
     update: {
-      (params?: Octokit.GistsUpdateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GistsUpdateParams): Promise<
         Octokit.Response<Octokit.GistsUpdateResponse>
       >;
 
@@ -29575,16 +29701,16 @@ declare class Octokit {
     };
 
     updateComment: {
-      (params?: Octokit.GistsUpdateCommentParams): Promise<
-        Octokit.Response<Octokit.GistsUpdateCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GistsUpdateCommentParams
+      ): Promise<Octokit.Response<Octokit.GistsUpdateCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
   };
   git: {
     createBlob: {
-      (params?: Octokit.GitCreateBlobParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GitCreateBlobParams): Promise<
         Octokit.Response<Octokit.GitCreateBlobResponse>
       >;
 
@@ -29620,9 +29746,9 @@ declare class Octokit {
      * | `valid`                  | None of the above errors applied, so the signature is considered to be verified.                                                  |
      */
     createCommit: {
-      (params?: Octokit.GitCreateCommitParams): Promise<
-        Octokit.Response<Octokit.GitCreateCommitResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GitCreateCommitParams
+      ): Promise<Octokit.Response<Octokit.GitCreateCommitResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29630,7 +29756,7 @@ declare class Octokit {
      * Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches.
      */
     createRef: {
-      (params?: Octokit.GitCreateRefParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GitCreateRefParams): Promise<
         Octokit.Response<Octokit.GitCreateRefResponse>
       >;
 
@@ -29662,7 +29788,7 @@ declare class Octokit {
      * | `valid`                  | None of the above errors applied, so the signature is considered to be verified.                                                  |
      */
     createTag: {
-      (params?: Octokit.GitCreateTagParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GitCreateTagParams): Promise<
         Octokit.Response<Octokit.GitCreateTagResponse>
       >;
 
@@ -29672,7 +29798,7 @@ declare class Octokit {
      * The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out.
      */
     createTree: {
-      (params?: Octokit.GitCreateTreeParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GitCreateTreeParams): Promise<
         Octokit.Response<Octokit.GitCreateTreeResponse>
       >;
 
@@ -29688,7 +29814,9 @@ declare class Octokit {
      * ```
      */
     deleteRef: {
-      (params?: Octokit.GitDeleteRefParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.GitDeleteRefParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29698,7 +29826,7 @@ declare class Octokit {
      * _Note_: This API supports blobs up to 100 megabytes in size.
      */
     getBlob: {
-      (params?: Octokit.GitGetBlobParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GitGetBlobParams): Promise<
         Octokit.Response<Octokit.GitGetBlobResponse>
       >;
 
@@ -29730,7 +29858,7 @@ declare class Octokit {
      * | `valid`                  | None of the above errors applied, so the signature is considered to be verified.                                                  |
      */
     getCommit: {
-      (params?: Octokit.GitGetCommitParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GitGetCommitParams): Promise<
         Octokit.Response<Octokit.GitGetCommitResponse>
       >;
 
@@ -29740,7 +29868,9 @@ declare class Octokit {
      * Returns a branch or tag reference. Other than the [REST API](https://developer.github.com/v3/git/refs/#get-a-reference) it always returns a single reference. If the REST API returns with an array then the method responds with an error.
      */
     getRef: {
-      (params?: Octokit.GitGetRefParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.GitGetRefParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29768,7 +29898,7 @@ declare class Octokit {
      * | `valid`                  | None of the above errors applied, so the signature is considered to be verified.                                                  |
      */
     getTag: {
-      (params?: Octokit.GitGetTagParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GitGetTagParams): Promise<
         Octokit.Response<Octokit.GitGetTagResponse>
       >;
 
@@ -29778,7 +29908,9 @@ declare class Octokit {
      * If `truncated` is `true`, the number of items in the `tree` array exceeded our maximum limit. If you need to fetch more items, you can clone the repository and iterate over the Git data locally.
      */
     getTree: {
-      (params?: Octokit.GitGetTreeParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.GitGetTreeParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29786,13 +29918,15 @@ declare class Octokit {
      * Returns an array of all the references from your Git database, including notes and stashes if they exist on the server. Anything in the namespace is returned, not just `heads` and `tags`. If there are no references to list, a `404` is returned.
      */
     listRefs: {
-      (params?: Octokit.GitListRefsParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.GitListRefsParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
 
     updateRef: {
-      (params?: Octokit.GitUpdateRefParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.GitUpdateRefParams): Promise<
         Octokit.Response<Octokit.GitUpdateRefResponse>
       >;
 
@@ -29806,9 +29940,9 @@ declare class Octokit {
      * Use the raw [media type](https://developer.github.com/v3/media/) to get the raw contents.
      */
     getTemplate: {
-      (params?: Octokit.GitignoreGetTemplateParams): Promise<
-        Octokit.Response<Octokit.GitignoreGetTemplateResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.GitignoreGetTemplateParams
+      ): Promise<Octokit.Response<Octokit.GitignoreGetTemplateResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29816,7 +29950,7 @@ declare class Octokit {
      * List all templates available to pass as an option when [creating a repository](https://developer.github.com/v3/repos/#create).
      */
     listTemplates: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.GitignoreListTemplatesResponse>
       >;
 
@@ -29829,7 +29963,8 @@ declare class Octokit {
      */
     addOrUpdateRestrictionsForOrg: {
       (
-        params?: Octokit.InteractionsAddOrUpdateRestrictionsForOrgParams
+        params?: Octokit.RequestOptions &
+          Octokit.InteractionsAddOrUpdateRestrictionsForOrgParams
       ): Promise<
         Octokit.Response<
           Octokit.InteractionsAddOrUpdateRestrictionsForOrgResponse
@@ -29843,7 +29978,8 @@ declare class Octokit {
      */
     addOrUpdateRestrictionsForRepo: {
       (
-        params?: Octokit.InteractionsAddOrUpdateRestrictionsForRepoParams
+        params?: Octokit.RequestOptions &
+          Octokit.InteractionsAddOrUpdateRestrictionsForRepoParams
       ): Promise<
         Octokit.Response<
           Octokit.InteractionsAddOrUpdateRestrictionsForRepoResponse
@@ -29856,7 +29992,10 @@ declare class Octokit {
      * Shows which group of GitHub users can interact with this organization and when the restriction expires. If there are no restrictions, you will see an empty response.
      */
     getRestrictionsForOrg: {
-      (params?: Octokit.InteractionsGetRestrictionsForOrgParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.InteractionsGetRestrictionsForOrgParams
+      ): Promise<
         Octokit.Response<Octokit.InteractionsGetRestrictionsForOrgResponse>
       >;
 
@@ -29866,7 +30005,10 @@ declare class Octokit {
      * Shows which group of GitHub users can interact with this repository and when the restriction expires. If there are no restrictions, you will see an empty response.
      */
     getRestrictionsForRepo: {
-      (params?: Octokit.InteractionsGetRestrictionsForRepoParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.InteractionsGetRestrictionsForRepoParams
+      ): Promise<
         Octokit.Response<Octokit.InteractionsGetRestrictionsForRepoResponse>
       >;
 
@@ -29876,9 +30018,10 @@ declare class Octokit {
      * Removes all interaction restrictions from public repositories in the given organization. You must be an organization owner to remove restrictions.
      */
     removeRestrictionsForOrg: {
-      (params?: Octokit.InteractionsRemoveRestrictionsForOrgParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.InteractionsRemoveRestrictionsForOrgParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29886,9 +30029,10 @@ declare class Octokit {
      * Removes all interaction restrictions from the given repository. You must have owner or admin access to remove restrictions.
      */
     removeRestrictionsForRepo: {
-      (params?: Octokit.InteractionsRemoveRestrictionsForRepoParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.InteractionsRemoveRestrictionsForRepoParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29900,23 +30044,25 @@ declare class Octokit {
      * This example adds two assignees to the existing `octocat` assignee.
      */
     addAssignees: {
-      (params?: Octokit.IssuesAddAssigneesParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesAddAssigneesResponse>
-      >;
-      (params?: Octokit.IssuesAddAssigneesParams): Promise<
-        Octokit.Response<Octokit.IssuesAddAssigneesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesAddAssigneesParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesAddAssigneesResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesAddAssigneesParams
+      ): Promise<Octokit.Response<Octokit.IssuesAddAssigneesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     addLabels: {
-      (params?: Octokit.IssuesAddLabelsParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesAddLabelsResponse>
-      >;
-      (params?: Octokit.IssuesAddLabelsParams): Promise<
-        Octokit.Response<Octokit.IssuesAddLabelsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesAddLabelsParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesAddLabelsResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesAddLabelsParams
+      ): Promise<Octokit.Response<Octokit.IssuesAddLabelsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29928,9 +30074,9 @@ declare class Octokit {
      * Otherwise a `404` status code is returned.
      */
     checkAssignee: {
-      (params?: Octokit.IssuesCheckAssigneeParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesCheckAssigneeParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -29940,7 +30086,7 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     create: {
-      (params?: Octokit.IssuesCreateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.IssuesCreateParams): Promise<
         Octokit.Response<Octokit.IssuesCreateResponse>
       >;
 
@@ -29950,53 +30096,57 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     createComment: {
-      (params?: Octokit.IssuesCreateCommentParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesCreateCommentResponse>
-      >;
-      (params?: Octokit.IssuesCreateCommentParams): Promise<
-        Octokit.Response<Octokit.IssuesCreateCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesCreateCommentParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesCreateCommentResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesCreateCommentParams
+      ): Promise<Octokit.Response<Octokit.IssuesCreateCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     createLabel: {
-      (params?: Octokit.IssuesCreateLabelParams): Promise<
-        Octokit.Response<Octokit.IssuesCreateLabelResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesCreateLabelParams
+      ): Promise<Octokit.Response<Octokit.IssuesCreateLabelResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     createMilestone: {
-      (params?: Octokit.IssuesCreateMilestoneParams): Promise<
-        Octokit.Response<Octokit.IssuesCreateMilestoneResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesCreateMilestoneParams
+      ): Promise<Octokit.Response<Octokit.IssuesCreateMilestoneResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteComment: {
-      (params?: Octokit.IssuesDeleteCommentParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesDeleteCommentParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteLabel: {
-      (params?: Octokit.IssuesDeleteLabelParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesDeleteLabelParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteMilestone: {
-      (params?: Octokit.IssuesDeleteMilestoneParamsDeprecatedNumber): Promise<
-        Octokit.AnyResponse
-      >;
-      (params?: Octokit.IssuesDeleteMilestoneParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesDeleteMilestoneParamsDeprecatedNumber
+      ): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesDeleteMilestoneParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30008,10 +30158,11 @@ declare class Octokit {
      * Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
      */
     get: {
-      (params?: Octokit.IssuesGetParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesGetResponse>
-      >;
-      (params?: Octokit.IssuesGetParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesGetParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesGetResponse>>;
+      (params?: Octokit.RequestOptions & Octokit.IssuesGetParams): Promise<
         Octokit.Response<Octokit.IssuesGetResponse>
       >;
 
@@ -30019,15 +30170,15 @@ declare class Octokit {
     };
 
     getComment: {
-      (params?: Octokit.IssuesGetCommentParams): Promise<
-        Octokit.Response<Octokit.IssuesGetCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesGetCommentParams
+      ): Promise<Octokit.Response<Octokit.IssuesGetCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getEvent: {
-      (params?: Octokit.IssuesGetEventParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.IssuesGetEventParams): Promise<
         Octokit.Response<Octokit.IssuesGetEventResponse>
       >;
 
@@ -30035,7 +30186,7 @@ declare class Octokit {
     };
 
     getLabel: {
-      (params?: Octokit.IssuesGetLabelParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.IssuesGetLabelParams): Promise<
         Octokit.Response<Octokit.IssuesGetLabelResponse>
       >;
 
@@ -30043,12 +30194,13 @@ declare class Octokit {
     };
 
     getMilestone: {
-      (params?: Octokit.IssuesGetMilestoneParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesGetMilestoneResponse>
-      >;
-      (params?: Octokit.IssuesGetMilestoneParams): Promise<
-        Octokit.Response<Octokit.IssuesGetMilestoneResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesGetMilestoneParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesGetMilestoneResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesGetMilestoneParams
+      ): Promise<Octokit.Response<Octokit.IssuesGetMilestoneResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30058,7 +30210,7 @@ declare class Octokit {
      * Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
      */
     list: {
-      (params?: Octokit.IssuesListParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.IssuesListParams): Promise<
         Octokit.Response<Octokit.IssuesListResponse>
       >;
 
@@ -30068,9 +30220,9 @@ declare class Octokit {
      * Lists the [available assignees](https://help.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/) for issues in a repository.
      */
     listAssignees: {
-      (params?: Octokit.IssuesListAssigneesParams): Promise<
-        Octokit.Response<Octokit.IssuesListAssigneesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesListAssigneesParams
+      ): Promise<Octokit.Response<Octokit.IssuesListAssigneesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30078,12 +30230,13 @@ declare class Octokit {
      * Issue Comments are ordered by ascending ID.
      */
     listComments: {
-      (params?: Octokit.IssuesListCommentsParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesListCommentsResponse>
-      >;
-      (params?: Octokit.IssuesListCommentsParams): Promise<
-        Octokit.Response<Octokit.IssuesListCommentsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListCommentsParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesListCommentsResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesListCommentsParams
+      ): Promise<Octokit.Response<Octokit.IssuesListCommentsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30091,39 +30244,43 @@ declare class Octokit {
      * By default, Issue Comments are ordered by ascending ID.
      */
     listCommentsForRepo: {
-      (params?: Octokit.IssuesListCommentsForRepoParams): Promise<
-        Octokit.Response<Octokit.IssuesListCommentsForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListCommentsForRepoParams
+      ): Promise<Octokit.Response<Octokit.IssuesListCommentsForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listEvents: {
-      (params?: Octokit.IssuesListEventsParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesListEventsResponse>
-      >;
-      (params?: Octokit.IssuesListEventsParams): Promise<
-        Octokit.Response<Octokit.IssuesListEventsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListEventsParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesListEventsResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesListEventsParams
+      ): Promise<Octokit.Response<Octokit.IssuesListEventsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listEventsForRepo: {
-      (params?: Octokit.IssuesListEventsForRepoParams): Promise<
-        Octokit.Response<Octokit.IssuesListEventsForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesListEventsForRepoParams
+      ): Promise<Octokit.Response<Octokit.IssuesListEventsForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listEventsForTimeline: {
       (
-        params?: Octokit.IssuesListEventsForTimelineParamsDeprecatedNumber
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListEventsForTimelineParamsDeprecatedNumber
       ): Promise<Octokit.Response<Octokit.IssuesListEventsForTimelineResponse>>;
-      (params?: Octokit.IssuesListEventsForTimelineParams): Promise<
-        Octokit.Response<Octokit.IssuesListEventsForTimelineResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListEventsForTimelineParams
+      ): Promise<Octokit.Response<Octokit.IssuesListEventsForTimelineResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30133,7 +30290,10 @@ declare class Octokit {
      * Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
      */
     listForAuthenticatedUser: {
-      (params?: Octokit.IssuesListForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.IssuesListForAuthenticatedUserResponse>
       >;
 
@@ -30145,9 +30305,9 @@ declare class Octokit {
      * Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
      */
     listForOrg: {
-      (params?: Octokit.IssuesListForOrgParams): Promise<
-        Octokit.Response<Octokit.IssuesListForOrgResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesListForOrgParams
+      ): Promise<Octokit.Response<Octokit.IssuesListForOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30157,20 +30317,24 @@ declare class Octokit {
      * Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
      */
     listForRepo: {
-      (params?: Octokit.IssuesListForRepoParams): Promise<
-        Octokit.Response<Octokit.IssuesListForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesListForRepoParams
+      ): Promise<Octokit.Response<Octokit.IssuesListForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listLabelsForMilestone: {
       (
-        params?: Octokit.IssuesListLabelsForMilestoneParamsDeprecatedNumber
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListLabelsForMilestoneParamsDeprecatedNumber
       ): Promise<
         Octokit.Response<Octokit.IssuesListLabelsForMilestoneResponse>
       >;
-      (params?: Octokit.IssuesListLabelsForMilestoneParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListLabelsForMilestoneParams
+      ): Promise<
         Octokit.Response<Octokit.IssuesListLabelsForMilestoneResponse>
       >;
 
@@ -30178,28 +30342,30 @@ declare class Octokit {
     };
 
     listLabelsForRepo: {
-      (params?: Octokit.IssuesListLabelsForRepoParams): Promise<
-        Octokit.Response<Octokit.IssuesListLabelsForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesListLabelsForRepoParams
+      ): Promise<Octokit.Response<Octokit.IssuesListLabelsForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listLabelsOnIssue: {
-      (params?: Octokit.IssuesListLabelsOnIssueParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesListLabelsOnIssueResponse>
-      >;
-      (params?: Octokit.IssuesListLabelsOnIssueParams): Promise<
-        Octokit.Response<Octokit.IssuesListLabelsOnIssueResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListLabelsOnIssueParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesListLabelsOnIssueResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesListLabelsOnIssueParams
+      ): Promise<Octokit.Response<Octokit.IssuesListLabelsOnIssueResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listMilestonesForRepo: {
-      (params?: Octokit.IssuesListMilestonesForRepoParams): Promise<
-        Octokit.Response<Octokit.IssuesListMilestonesForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesListMilestonesForRepoParams
+      ): Promise<Octokit.Response<Octokit.IssuesListMilestonesForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30209,10 +30375,13 @@ declare class Octokit {
      * Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
      */
     lock: {
-      (params?: Octokit.IssuesLockParamsDeprecatedNumber): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesLockParamsDeprecatedNumber
+      ): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.IssuesLockParams): Promise<
         Octokit.AnyResponse
       >;
-      (params?: Octokit.IssuesLockParams): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30222,12 +30391,13 @@ declare class Octokit {
      * This example removes two of three assignees, leaving the `octocat` assignee.
      */
     removeAssignees: {
-      (params?: Octokit.IssuesRemoveAssigneesParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesRemoveAssigneesResponse>
-      >;
-      (params?: Octokit.IssuesRemoveAssigneesParams): Promise<
-        Octokit.Response<Octokit.IssuesRemoveAssigneesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesRemoveAssigneesParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesRemoveAssigneesResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesRemoveAssigneesParams
+      ): Promise<Octokit.Response<Octokit.IssuesRemoveAssigneesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30235,32 +30405,37 @@ declare class Octokit {
      * Removes the specified label from the issue, and returns the remaining labels on the issue. This endpoint returns a `404 Not Found` status if the label does not exist.
      */
     removeLabel: {
-      (params?: Octokit.IssuesRemoveLabelParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesRemoveLabelResponse>
-      >;
-      (params?: Octokit.IssuesRemoveLabelParams): Promise<
-        Octokit.Response<Octokit.IssuesRemoveLabelResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesRemoveLabelParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesRemoveLabelResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesRemoveLabelParams
+      ): Promise<Octokit.Response<Octokit.IssuesRemoveLabelResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     removeLabels: {
-      (params?: Octokit.IssuesRemoveLabelsParamsDeprecatedNumber): Promise<
-        Octokit.AnyResponse
-      >;
-      (params?: Octokit.IssuesRemoveLabelsParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesRemoveLabelsParamsDeprecatedNumber
+      ): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesRemoveLabelsParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     replaceLabels: {
-      (params?: Octokit.IssuesReplaceLabelsParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesReplaceLabelsResponse>
-      >;
-      (params?: Octokit.IssuesReplaceLabelsParams): Promise<
-        Octokit.Response<Octokit.IssuesReplaceLabelsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesReplaceLabelsParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesReplaceLabelsResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesReplaceLabelsParams
+      ): Promise<Octokit.Response<Octokit.IssuesReplaceLabelsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30268,10 +30443,13 @@ declare class Octokit {
      * Users with push access can unlock an issue's conversation.
      */
     unlock: {
-      (params?: Octokit.IssuesUnlockParamsDeprecatedNumber): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesUnlockParamsDeprecatedNumber
+      ): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.IssuesUnlockParams): Promise<
         Octokit.AnyResponse
       >;
-      (params?: Octokit.IssuesUnlockParams): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30279,10 +30457,11 @@ declare class Octokit {
      * Issue owners and users with push access can edit an issue.
      */
     update: {
-      (params?: Octokit.IssuesUpdateParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesUpdateResponse>
-      >;
-      (params?: Octokit.IssuesUpdateParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesUpdateParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesUpdateResponse>>;
+      (params?: Octokit.RequestOptions & Octokit.IssuesUpdateParams): Promise<
         Octokit.Response<Octokit.IssuesUpdateResponse>
       >;
 
@@ -30290,35 +30469,36 @@ declare class Octokit {
     };
 
     updateComment: {
-      (params?: Octokit.IssuesUpdateCommentParams): Promise<
-        Octokit.Response<Octokit.IssuesUpdateCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesUpdateCommentParams
+      ): Promise<Octokit.Response<Octokit.IssuesUpdateCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     updateLabel: {
-      (params?: Octokit.IssuesUpdateLabelParams): Promise<
-        Octokit.Response<Octokit.IssuesUpdateLabelResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesUpdateLabelParams
+      ): Promise<Octokit.Response<Octokit.IssuesUpdateLabelResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     updateMilestone: {
-      (params?: Octokit.IssuesUpdateMilestoneParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.IssuesUpdateMilestoneResponse>
-      >;
-      (params?: Octokit.IssuesUpdateMilestoneParams): Promise<
-        Octokit.Response<Octokit.IssuesUpdateMilestoneResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesUpdateMilestoneParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.IssuesUpdateMilestoneResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.IssuesUpdateMilestoneParams
+      ): Promise<Octokit.Response<Octokit.IssuesUpdateMilestoneResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
   };
   licenses: {
     get: {
-      (params?: Octokit.LicensesGetParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.LicensesGetParams): Promise<
         Octokit.Response<Octokit.LicensesGetResponse>
       >;
 
@@ -30330,15 +30510,15 @@ declare class Octokit {
      * Similar to [the repository contents API](https://developer.github.com/v3/repos/contents/#get-contents), this method also supports [custom media types](https://developer.github.com/v3/repos/contents/#custom-media-types) for retrieving the raw license content or rendered license HTML.
      */
     getForRepo: {
-      (params?: Octokit.LicensesGetForRepoParams): Promise<
-        Octokit.Response<Octokit.LicensesGetForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.LicensesGetForRepoParams
+      ): Promise<Octokit.Response<Octokit.LicensesGetForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     list: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.LicensesListResponse>
       >;
 
@@ -30346,7 +30526,7 @@ declare class Octokit {
     };
 
     listCommonlyUsed: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.LicensesListCommonlyUsedResponse>
       >;
 
@@ -30355,7 +30535,9 @@ declare class Octokit {
   };
   markdown: {
     render: {
-      (params?: Octokit.MarkdownRenderParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.MarkdownRenderParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30363,7 +30545,9 @@ declare class Octokit {
      * You must send Markdown as plain text (using a `Content-Type` header of `text/plain` or `text/x-markdown`) to this endpoint, rather than using JSON format. In raw mode, [GitHub Flavored Markdown](https://github.github.com/gfm/) is not supported and Markdown will be rendered in plain format like a README.md file. Markdown content must be 400 KB or less.
      */
     renderRaw: {
-      (params?: Octokit.MarkdownRenderRawParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.MarkdownRenderRawParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30373,7 +30557,7 @@ declare class Octokit {
      * This endpoint provides a list of GitHub's IP addresses. For more information, see "[About GitHub's IP addresses](https://help.github.com/articles/about-github-s-ip-addresses/)."
      */
     get: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.MetaGetResponse>
       >;
 
@@ -30385,9 +30569,9 @@ declare class Octokit {
      * Stop an import for a repository.
      */
     cancelImport: {
-      (params?: Octokit.MigrationsCancelImportParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.MigrationsCancelImportParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30396,7 +30580,8 @@ declare class Octokit {
      */
     deleteArchiveForAuthenticatedUser: {
       (
-        params?: Octokit.MigrationsDeleteArchiveForAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsDeleteArchiveForAuthenticatedUserParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -30405,9 +30590,10 @@ declare class Octokit {
      * Deletes a previous migration archive. Migration archives are automatically deleted after seven days.
      */
     deleteArchiveForOrg: {
-      (params?: Octokit.MigrationsDeleteArchiveForOrgParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsDeleteArchiveForOrgParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30436,7 +30622,8 @@ declare class Octokit {
      */
     getArchiveForAuthenticatedUser: {
       (
-        params?: Octokit.MigrationsGetArchiveForAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsGetArchiveForAuthenticatedUserParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -30445,9 +30632,10 @@ declare class Octokit {
      * Fetches the URL to a migration archive.
      */
     getArchiveForOrg: {
-      (params?: Octokit.MigrationsGetArchiveForOrgParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsGetArchiveForOrgParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30457,9 +30645,10 @@ declare class Octokit {
      * This API method and the "Map a commit author" method allow you to provide correct Git author information.
      */
     getCommitAuthors: {
-      (params?: Octokit.MigrationsGetCommitAuthorsParams): Promise<
-        Octokit.Response<Octokit.MigrationsGetCommitAuthorsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsGetCommitAuthorsParams
+      ): Promise<Octokit.Response<Octokit.MigrationsGetCommitAuthorsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30500,9 +30689,10 @@ declare class Octokit {
      * *   `large_files_count` - the total number of files larger than 100MB found in the originating repository. To see a list of these files, make a "Get Large Files" request.
      */
     getImportProgress: {
-      (params?: Octokit.MigrationsGetImportProgressParams): Promise<
-        Octokit.Response<Octokit.MigrationsGetImportProgressResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsGetImportProgressParams
+      ): Promise<Octokit.Response<Octokit.MigrationsGetImportProgressResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30510,9 +30700,9 @@ declare class Octokit {
      * List files larger than 100MB found during the import
      */
     getLargeFiles: {
-      (params?: Octokit.MigrationsGetLargeFilesParams): Promise<
-        Octokit.Response<Octokit.MigrationsGetLargeFilesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.MigrationsGetLargeFilesParams
+      ): Promise<Octokit.Response<Octokit.MigrationsGetLargeFilesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30527,7 +30717,10 @@ declare class Octokit {
      * Once the migration has been `exported` you can [download the migration archive](https://developer.github.com/v3/migrations/users/#download-a-user-migration-archive).
      */
     getStatusForAuthenticatedUser: {
-      (params?: Octokit.MigrationsGetStatusForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsGetStatusForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<
           Octokit.MigrationsGetStatusForAuthenticatedUserResponse
         >
@@ -30546,9 +30739,10 @@ declare class Octokit {
      * *   `failed`, which means the migration failed.
      */
     getStatusForOrg: {
-      (params?: Octokit.MigrationsGetStatusForOrgParams): Promise<
-        Octokit.Response<Octokit.MigrationsGetStatusForOrgResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsGetStatusForOrgParams
+      ): Promise<Octokit.Response<Octokit.MigrationsGetStatusForOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30556,7 +30750,10 @@ declare class Octokit {
      * Lists all migrations a user has started.
      */
     listForAuthenticatedUser: {
-      (params?: Octokit.MigrationsListForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsListForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.MigrationsListForAuthenticatedUserResponse>
       >;
 
@@ -30566,9 +30763,9 @@ declare class Octokit {
      * Lists the most recent migrations.
      */
     listForOrg: {
-      (params?: Octokit.MigrationsListForOrgParams): Promise<
-        Octokit.Response<Octokit.MigrationsListForOrgResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.MigrationsListForOrgParams
+      ): Promise<Octokit.Response<Octokit.MigrationsListForOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30576,9 +30773,10 @@ declare class Octokit {
      * Update an author's identity for the import. Your application can continue updating authors any time before you push new commits to the repository.
      */
     mapCommitAuthor: {
-      (params?: Octokit.MigrationsMapCommitAuthorParams): Promise<
-        Octokit.Response<Octokit.MigrationsMapCommitAuthorResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsMapCommitAuthorParams
+      ): Promise<Octokit.Response<Octokit.MigrationsMapCommitAuthorResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30586,9 +30784,10 @@ declare class Octokit {
      * You can import repositories from Subversion, Mercurial, and TFS that include files larger than 100MB. This ability is powered by [Git LFS](https://git-lfs.github.com). You can learn more about our LFS feature and working with large files [on our help site](https://help.github.com/articles/versioning-large-files/).
      */
     setLfsPreference: {
-      (params?: Octokit.MigrationsSetLfsPreferenceParams): Promise<
-        Octokit.Response<Octokit.MigrationsSetLfsPreferenceResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsSetLfsPreferenceParams
+      ): Promise<Octokit.Response<Octokit.MigrationsSetLfsPreferenceResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30596,7 +30795,10 @@ declare class Octokit {
      * Initiates the generation of a user migration archive.
      */
     startForAuthenticatedUser: {
-      (params?: Octokit.MigrationsStartForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsStartForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.MigrationsStartForAuthenticatedUserResponse>
       >;
 
@@ -30606,9 +30808,9 @@ declare class Octokit {
      * Initiates the generation of a migration archive.
      */
     startForOrg: {
-      (params?: Octokit.MigrationsStartForOrgParams): Promise<
-        Octokit.Response<Octokit.MigrationsStartForOrgResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.MigrationsStartForOrgParams
+      ): Promise<Octokit.Response<Octokit.MigrationsStartForOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30616,9 +30818,9 @@ declare class Octokit {
      * Start a source import to a GitHub repository using GitHub Importer.
      */
     startImport: {
-      (params?: Octokit.MigrationsStartImportParams): Promise<
-        Octokit.Response<Octokit.MigrationsStartImportResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.MigrationsStartImportParams
+      ): Promise<Octokit.Response<Octokit.MigrationsStartImportResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30627,7 +30829,8 @@ declare class Octokit {
      */
     unlockRepoForAuthenticatedUser: {
       (
-        params?: Octokit.MigrationsUnlockRepoForAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsUnlockRepoForAuthenticatedUserParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -30636,9 +30839,10 @@ declare class Octokit {
      * Unlocks a repository that was locked for migration. You should unlock each migrated repository and [delete them](https://developer.github.com/v3/repos/#delete-a-repository) when the migration is complete and you no longer need the source data.
      */
     unlockRepoForOrg: {
-      (params?: Octokit.MigrationsUnlockRepoForOrgParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsUnlockRepoForOrgParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30652,9 +30856,9 @@ declare class Octokit {
      * To restart an import, no parameters are provided in the update request.
      */
     updateImport: {
-      (params?: Octokit.MigrationsUpdateImportParams): Promise<
-        Octokit.Response<Octokit.MigrationsUpdateImportResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.MigrationsUpdateImportParams
+      ): Promise<Octokit.Response<Octokit.MigrationsUpdateImportResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30664,7 +30868,10 @@ declare class Octokit {
      * OAuth applications can use a special API method for checking OAuth token validity without running afoul of normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing it, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`.
      */
     checkAuthorization: {
-      (params?: Octokit.OauthAuthorizationsCheckAuthorizationParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsCheckAuthorizationParams
+      ): Promise<
         Octokit.Response<Octokit.OauthAuthorizationsCheckAuthorizationResponse>
       >;
 
@@ -30682,7 +30889,10 @@ declare class Octokit {
      * Organizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens in [the GitHub Help documentation](https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on).
      */
     createAuthorization: {
-      (params?: Octokit.OauthAuthorizationsCreateAuthorizationParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsCreateAuthorizationParams
+      ): Promise<
         Octokit.Response<Octokit.OauthAuthorizationsCreateAuthorizationResponse>
       >;
 
@@ -30690,9 +30900,10 @@ declare class Octokit {
     };
 
     deleteAuthorization: {
-      (params?: Octokit.OauthAuthorizationsDeleteAuthorizationParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsDeleteAuthorizationParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30700,15 +30911,19 @@ declare class Octokit {
      * Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).
      */
     deleteGrant: {
-      (params?: Octokit.OauthAuthorizationsDeleteGrantParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsDeleteGrantParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getAuthorization: {
-      (params?: Octokit.OauthAuthorizationsGetAuthorizationParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsGetAuthorizationParams
+      ): Promise<
         Octokit.Response<Octokit.OauthAuthorizationsGetAuthorizationResponse>
       >;
 
@@ -30716,9 +30931,10 @@ declare class Octokit {
     };
 
     getGrant: {
-      (params?: Octokit.OauthAuthorizationsGetGrantParams): Promise<
-        Octokit.Response<Octokit.OauthAuthorizationsGetGrantResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsGetGrantParams
+      ): Promise<Octokit.Response<Octokit.OauthAuthorizationsGetGrantResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30729,7 +30945,8 @@ declare class Octokit {
      */
     getOrCreateAuthorizationForApp: {
       (
-        params?: Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppParams
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppParams
       ): Promise<
         Octokit.Response<
           Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppResponse
@@ -30745,7 +30962,8 @@ declare class Octokit {
      */
     getOrCreateAuthorizationForAppAndFingerprint: {
       (
-        params?: Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppAndFingerprintParams
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppAndFingerprintParams
       ): Promise<
         Octokit.Response<
           Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppAndFingerprintResponse
@@ -30761,7 +30979,8 @@ declare class Octokit {
      */
     getOrCreateAuthorizationForAppFingerprint: {
       (
-        params?: Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppFingerprintParams
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppFingerprintParams
       ): Promise<
         Octokit.Response<
           Octokit.OauthAuthorizationsGetOrCreateAuthorizationForAppFingerprintResponse
@@ -30772,7 +30991,10 @@ declare class Octokit {
     };
 
     listAuthorizations: {
-      (params?: Octokit.OauthAuthorizationsListAuthorizationsParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsListAuthorizationsParams
+      ): Promise<
         Octokit.Response<Octokit.OauthAuthorizationsListAuthorizationsResponse>
       >;
 
@@ -30782,7 +31004,10 @@ declare class Octokit {
      * You can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the [list your authorizations](https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations) API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). The `scopes` returned are the union of scopes authorized for the application. For example, if an application has one token with `repo` scope and another token with `user` scope, the grant will return `["repo", "user"]`.
      */
     listGrants: {
-      (params?: Octokit.OauthAuthorizationsListGrantsParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsListGrantsParams
+      ): Promise<
         Octokit.Response<Octokit.OauthAuthorizationsListGrantsResponse>
       >;
 
@@ -30792,7 +31017,10 @@ declare class Octokit {
      * OAuth applications can use this API method to reset a valid OAuth token without end user involvement. Applications must save the "token" property in the response, because changes take effect immediately. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing it, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`.
      */
     resetAuthorization: {
-      (params?: Octokit.OauthAuthorizationsResetAuthorizationParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsResetAuthorizationParams
+      ): Promise<
         Octokit.Response<Octokit.OauthAuthorizationsResetAuthorizationResponse>
       >;
 
@@ -30803,7 +31031,8 @@ declare class Octokit {
      */
     revokeAuthorizationForApplication: {
       (
-        params?: Octokit.OauthAuthorizationsRevokeAuthorizationForApplicationParams
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsRevokeAuthorizationForApplicationParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -30815,7 +31044,8 @@ declare class Octokit {
      */
     revokeGrantForApplication: {
       (
-        params?: Octokit.OauthAuthorizationsRevokeGrantForApplicationParams
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsRevokeGrantForApplicationParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -30826,7 +31056,10 @@ declare class Octokit {
      * You can only send one of these scope keys at a time.
      */
     updateAuthorization: {
-      (params?: Octokit.OauthAuthorizationsUpdateAuthorizationParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OauthAuthorizationsUpdateAuthorizationParams
+      ): Promise<
         Octokit.Response<Octokit.OauthAuthorizationsUpdateAuthorizationResponse>
       >;
 
@@ -30846,15 +31079,18 @@ declare class Octokit {
      * To prevent abuse, the authenticated user is limited to 50 organization invitations per 24 hour period. If the organization is more than one month old or on a paid plan, the limit is 500 invitations per 24 hour period.
      */
     addOrUpdateMembership: {
-      (params?: Octokit.OrgsAddOrUpdateMembershipParams): Promise<
-        Octokit.Response<Octokit.OrgsAddOrUpdateMembershipResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsAddOrUpdateMembershipParams
+      ): Promise<Octokit.Response<Octokit.OrgsAddOrUpdateMembershipResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     blockUser: {
-      (params?: Octokit.OrgsBlockUserParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.OrgsBlockUserParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30864,9 +31100,9 @@ declare class Octokit {
      * If the user is not blocked:
      */
     checkBlockedUser: {
-      (params?: Octokit.OrgsCheckBlockedUserParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsCheckBlockedUserParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30874,25 +31110,26 @@ declare class Octokit {
      * Check if a user is, publicly or privately, a member of the organization.
      */
     checkMembership: {
-      (params?: Octokit.OrgsCheckMembershipParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsCheckMembershipParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     checkPublicMembership: {
-      (params?: Octokit.OrgsCheckPublicMembershipParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsCheckPublicMembershipParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     concealMembership: {
-      (params?: Octokit.OrgsConcealMembershipParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsConcealMembershipParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30900,7 +31137,10 @@ declare class Octokit {
      * When an organization member is converted to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see "[Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)".
      */
     convertMemberToOutsideCollaborator: {
-      (params?: Octokit.OrgsConvertMemberToOutsideCollaboratorParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsConvertMemberToOutsideCollaboratorParams
+      ): Promise<
         Octokit.Response<Octokit.OrgsConvertMemberToOutsideCollaboratorResponse>
       >;
 
@@ -30910,7 +31150,7 @@ declare class Octokit {
      * Here's how you can create a hook that posts payloads in JSON format:
      */
     createHook: {
-      (params?: Octokit.OrgsCreateHookParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.OrgsCreateHookParams): Promise<
         Octokit.Response<Octokit.OrgsCreateHookResponse>
       >;
 
@@ -30922,15 +31162,17 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     createInvitation: {
-      (params?: Octokit.OrgsCreateInvitationParams): Promise<
-        Octokit.Response<Octokit.OrgsCreateInvitationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsCreateInvitationParams
+      ): Promise<Octokit.Response<Octokit.OrgsCreateInvitationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteHook: {
-      (params?: Octokit.OrgsDeleteHookParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.OrgsDeleteHookParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -30940,7 +31182,7 @@ declare class Octokit {
      * GitHub Apps with the `Organization plan` permission can use this endpoint to retrieve information about an organization's GitHub plan. See "[Authenticating with GitHub Apps](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/)" for details. For an example response, see "[Response with GitHub plan information](https://developer.github.com/v3/orgs/#response-with-github-plan-information)."
      */
     get: {
-      (params?: Octokit.OrgsGetParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.OrgsGetParams): Promise<
         Octokit.Response<Octokit.OrgsGetResponse>
       >;
 
@@ -30948,7 +31190,7 @@ declare class Octokit {
     };
 
     getHook: {
-      (params?: Octokit.OrgsGetHookParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.OrgsGetHookParams): Promise<
         Octokit.Response<Octokit.OrgsGetHookResponse>
       >;
 
@@ -30958,15 +31200,18 @@ declare class Octokit {
      * In order to get a user's membership with an organization, the authenticated user must be an organization member.
      */
     getMembership: {
-      (params?: Octokit.OrgsGetMembershipParams): Promise<
-        Octokit.Response<Octokit.OrgsGetMembershipResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsGetMembershipParams
+      ): Promise<Octokit.Response<Octokit.OrgsGetMembershipResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getMembershipForAuthenticatedUser: {
-      (params?: Octokit.OrgsGetMembershipForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsGetMembershipForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.OrgsGetMembershipForAuthenticatedUserResponse>
       >;
 
@@ -30978,7 +31223,7 @@ declare class Octokit {
      * **Note:** Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of organizations.
      */
     list: {
-      (params?: Octokit.OrgsListParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.OrgsListParams): Promise<
         Octokit.Response<Octokit.OrgsListResponse>
       >;
 
@@ -30988,9 +31233,9 @@ declare class Octokit {
      * List the users blocked by an organization.
      */
     listBlockedUsers: {
-      (params?: Octokit.OrgsListBlockedUsersParams): Promise<
-        Octokit.Response<Octokit.OrgsListBlockedUsersResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsListBlockedUsersParams
+      ): Promise<Octokit.Response<Octokit.OrgsListBlockedUsersResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31002,7 +31247,10 @@ declare class Octokit {
      * This only lists organizations that your authorization allows you to operate on in some way (e.g., you can list teams with `read:org` scope, you can publicize your organization membership with `user` scope, etc.). Therefore, this API requires at least `user` or `read:org` scope. OAuth requests with insufficient scope receive a `403 Forbidden` response.
      */
     listForAuthenticatedUser: {
-      (params?: Octokit.OrgsListForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsListForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.OrgsListForAuthenticatedUserResponse>
       >;
 
@@ -31014,15 +31262,15 @@ declare class Octokit {
      * This method only lists _public_ memberships, regardless of authentication. If you need to fetch all of the organization memberships (public and private) for the authenticated user, use the [List your organizations](https://developer.github.com/v3/orgs/#list-your-organizations) API instead.
      */
     listForUser: {
-      (params?: Octokit.OrgsListForUserParams): Promise<
-        Octokit.Response<Octokit.OrgsListForUserResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsListForUserParams
+      ): Promise<Octokit.Response<Octokit.OrgsListForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listHooks: {
-      (params?: Octokit.OrgsListHooksParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.OrgsListHooksParams): Promise<
         Octokit.Response<Octokit.OrgsListHooksResponse>
       >;
 
@@ -31032,9 +31280,9 @@ declare class Octokit {
      * List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner.
      */
     listInvitationTeams: {
-      (params?: Octokit.OrgsListInvitationTeamsParams): Promise<
-        Octokit.Response<Octokit.OrgsListInvitationTeamsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsListInvitationTeamsParams
+      ): Promise<Octokit.Response<Octokit.OrgsListInvitationTeamsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31042,17 +31290,17 @@ declare class Octokit {
      * List all users who are members of an organization. If the authenticated user is also a member of this organization then both concealed and public members will be returned.
      */
     listMembers: {
-      (params?: Octokit.OrgsListMembersParams): Promise<
-        Octokit.Response<Octokit.OrgsListMembersResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsListMembersParams
+      ): Promise<Octokit.Response<Octokit.OrgsListMembersResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listMemberships: {
-      (params?: Octokit.OrgsListMembershipsParams): Promise<
-        Octokit.Response<Octokit.OrgsListMembershipsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsListMembershipsParams
+      ): Promise<Octokit.Response<Octokit.OrgsListMembershipsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31060,7 +31308,10 @@ declare class Octokit {
      * List all users who are outside collaborators of an organization.
      */
     listOutsideCollaborators: {
-      (params?: Octokit.OrgsListOutsideCollaboratorsParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsListOutsideCollaboratorsParams
+      ): Promise<
         Octokit.Response<Octokit.OrgsListOutsideCollaboratorsResponse>
       >;
 
@@ -31070,9 +31321,10 @@ declare class Octokit {
      * The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.
      */
     listPendingInvitations: {
-      (params?: Octokit.OrgsListPendingInvitationsParams): Promise<
-        Octokit.Response<Octokit.OrgsListPendingInvitationsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsListPendingInvitationsParams
+      ): Promise<Octokit.Response<Octokit.OrgsListPendingInvitationsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31080,9 +31332,9 @@ declare class Octokit {
      * Members of an organization can choose to have their membership publicized or not.
      */
     listPublicMembers: {
-      (params?: Octokit.OrgsListPublicMembersParams): Promise<
-        Octokit.Response<Octokit.OrgsListPublicMembersResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsListPublicMembersParams
+      ): Promise<Octokit.Response<Octokit.OrgsListPublicMembersResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31090,7 +31342,9 @@ declare class Octokit {
      * This will trigger a [ping event](https://developer.github.com/webhooks/#ping-event) to be sent to the hook.
      */
     pingHook: {
-      (params?: Octokit.OrgsPingHookParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.OrgsPingHookParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31100,9 +31354,9 @@ declare class Octokit {
      * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
      */
     publicizeMembership: {
-      (params?: Octokit.OrgsPublicizeMembershipParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsPublicizeMembershipParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31110,7 +31364,9 @@ declare class Octokit {
      * Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories.
      */
     removeMember: {
-      (params?: Octokit.OrgsRemoveMemberParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsRemoveMemberParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31120,9 +31376,9 @@ declare class Octokit {
      * If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.
      */
     removeMembership: {
-      (params?: Octokit.OrgsRemoveMembershipParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsRemoveMembershipParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31130,7 +31386,10 @@ declare class Octokit {
      * Removing a user from this list will remove them from all the organization's repositories.
      */
     removeOutsideCollaborator: {
-      (params?: Octokit.OrgsRemoveOutsideCollaboratorParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsRemoveOutsideCollaboratorParams
+      ): Promise<
         Octokit.Response<Octokit.OrgsRemoveOutsideCollaboratorResponse>
       >;
 
@@ -31138,7 +31397,9 @@ declare class Octokit {
     };
 
     unblockUser: {
-      (params?: Octokit.OrgsUnblockUserParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsUnblockUserParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31152,7 +31413,7 @@ declare class Octokit {
      * *   If you omit `members_allowed_repository_creation_type`, `members_can_create_repositories` is not modified.
      */
     update: {
-      (params?: Octokit.OrgsUpdateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.OrgsUpdateParams): Promise<
         Octokit.Response<Octokit.OrgsUpdateResponse>
       >;
 
@@ -31160,7 +31421,7 @@ declare class Octokit {
     };
 
     updateHook: {
-      (params?: Octokit.OrgsUpdateHookParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.OrgsUpdateHookParams): Promise<
         Octokit.Response<Octokit.OrgsUpdateHookResponse>
       >;
 
@@ -31168,9 +31429,9 @@ declare class Octokit {
     };
 
     updateMembership: {
-      (params?: Octokit.OrgsUpdateMembershipParams): Promise<
-        Octokit.Response<Octokit.OrgsUpdateMembershipResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsUpdateMembershipParams
+      ): Promise<Octokit.Response<Octokit.OrgsUpdateMembershipResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31180,9 +31441,9 @@ declare class Octokit {
      * Adds a collaborator to a an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator.
      */
     addCollaborator: {
-      (params?: Octokit.ProjectsAddCollaboratorParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsAddCollaboratorParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31192,23 +31453,26 @@ declare class Octokit {
      * Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)" endpoint.
      */
     createCard: {
-      (params?: Octokit.ProjectsCreateCardParams): Promise<
-        Octokit.Response<Octokit.ProjectsCreateCardResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsCreateCardParams
+      ): Promise<Octokit.Response<Octokit.ProjectsCreateCardResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     createColumn: {
-      (params?: Octokit.ProjectsCreateColumnParams): Promise<
-        Octokit.Response<Octokit.ProjectsCreateColumnResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsCreateColumnParams
+      ): Promise<Octokit.Response<Octokit.ProjectsCreateColumnResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     createForAuthenticatedUser: {
-      (params?: Octokit.ProjectsCreateForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ProjectsCreateForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.ProjectsCreateForAuthenticatedUserResponse>
       >;
 
@@ -31218,9 +31482,9 @@ declare class Octokit {
      * Creates an organization project board. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
      */
     createForOrg: {
-      (params?: Octokit.ProjectsCreateForOrgParams): Promise<
-        Octokit.Response<Octokit.ProjectsCreateForOrgResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsCreateForOrgParams
+      ): Promise<Octokit.Response<Octokit.ProjectsCreateForOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31228,9 +31492,9 @@ declare class Octokit {
      * Creates a repository project board. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
      */
     createForRepo: {
-      (params?: Octokit.ProjectsCreateForRepoParams): Promise<
-        Octokit.Response<Octokit.ProjectsCreateForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsCreateForRepoParams
+      ): Promise<Octokit.Response<Octokit.ProjectsCreateForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31238,21 +31502,25 @@ declare class Octokit {
      * Deletes a project board. Returns a `404 Not Found` status if projects are disabled.
      */
     delete: {
-      (params?: Octokit.ProjectsDeleteParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.ProjectsDeleteParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteCard: {
-      (params?: Octokit.ProjectsDeleteCardParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsDeleteCardParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteColumn: {
-      (params?: Octokit.ProjectsDeleteColumnParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsDeleteColumnParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31260,7 +31528,7 @@ declare class Octokit {
      * Gets a project by its `id`. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
      */
     get: {
-      (params?: Octokit.ProjectsGetParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ProjectsGetParams): Promise<
         Octokit.Response<Octokit.ProjectsGetResponse>
       >;
 
@@ -31268,25 +31536,25 @@ declare class Octokit {
     };
 
     getCard: {
-      (params?: Octokit.ProjectsGetCardParams): Promise<
-        Octokit.Response<Octokit.ProjectsGetCardResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsGetCardParams
+      ): Promise<Octokit.Response<Octokit.ProjectsGetCardResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getColumn: {
-      (params?: Octokit.ProjectsGetColumnParams): Promise<
-        Octokit.Response<Octokit.ProjectsGetColumnResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsGetColumnParams
+      ): Promise<Octokit.Response<Octokit.ProjectsGetColumnResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listCards: {
-      (params?: Octokit.ProjectsListCardsParams): Promise<
-        Octokit.Response<Octokit.ProjectsListCardsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsListCardsParams
+      ): Promise<Octokit.Response<Octokit.ProjectsListCardsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31294,17 +31562,18 @@ declare class Octokit {
      * Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators.
      */
     listCollaborators: {
-      (params?: Octokit.ProjectsListCollaboratorsParams): Promise<
-        Octokit.Response<Octokit.ProjectsListCollaboratorsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ProjectsListCollaboratorsParams
+      ): Promise<Octokit.Response<Octokit.ProjectsListCollaboratorsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listColumns: {
-      (params?: Octokit.ProjectsListColumnsParams): Promise<
-        Octokit.Response<Octokit.ProjectsListColumnsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsListColumnsParams
+      ): Promise<Octokit.Response<Octokit.ProjectsListColumnsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31314,9 +31583,9 @@ declare class Octokit {
      * s
      */
     listForOrg: {
-      (params?: Octokit.ProjectsListForOrgParams): Promise<
-        Octokit.Response<Octokit.ProjectsListForOrgResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsListForOrgParams
+      ): Promise<Octokit.Response<Octokit.ProjectsListForOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31324,29 +31593,33 @@ declare class Octokit {
      * Lists the projects in a repository. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
      */
     listForRepo: {
-      (params?: Octokit.ProjectsListForRepoParams): Promise<
-        Octokit.Response<Octokit.ProjectsListForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsListForRepoParams
+      ): Promise<Octokit.Response<Octokit.ProjectsListForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listForUser: {
-      (params?: Octokit.ProjectsListForUserParams): Promise<
-        Octokit.Response<Octokit.ProjectsListForUserResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsListForUserParams
+      ): Promise<Octokit.Response<Octokit.ProjectsListForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     moveCard: {
-      (params?: Octokit.ProjectsMoveCardParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsMoveCardParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     moveColumn: {
-      (params?: Octokit.ProjectsMoveColumnParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsMoveColumnParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31354,9 +31627,10 @@ declare class Octokit {
      * Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator.
      */
     removeCollaborator: {
-      (params?: Octokit.ProjectsRemoveCollaboratorParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ProjectsRemoveCollaboratorParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31364,7 +31638,10 @@ declare class Octokit {
      * Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level.
      */
     reviewUserPermissionLevel: {
-      (params?: Octokit.ProjectsReviewUserPermissionLevelParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ProjectsReviewUserPermissionLevelParams
+      ): Promise<
         Octokit.Response<Octokit.ProjectsReviewUserPermissionLevelResponse>
       >;
 
@@ -31374,7 +31651,7 @@ declare class Octokit {
      * Updates a project board's information. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
      */
     update: {
-      (params?: Octokit.ProjectsUpdateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ProjectsUpdateParams): Promise<
         Octokit.Response<Octokit.ProjectsUpdateResponse>
       >;
 
@@ -31382,27 +31659,30 @@ declare class Octokit {
     };
 
     updateCard: {
-      (params?: Octokit.ProjectsUpdateCardParams): Promise<
-        Octokit.Response<Octokit.ProjectsUpdateCardResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsUpdateCardParams
+      ): Promise<Octokit.Response<Octokit.ProjectsUpdateCardResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     updateColumn: {
-      (params?: Octokit.ProjectsUpdateColumnParams): Promise<
-        Octokit.Response<Octokit.ProjectsUpdateColumnResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ProjectsUpdateColumnParams
+      ): Promise<Octokit.Response<Octokit.ProjectsUpdateColumnResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
   };
   pulls: {
     checkIfMerged: {
-      (params?: Octokit.PullsCheckIfMergedParamsDeprecatedNumber): Promise<
-        Octokit.AnyResponse
-      >;
-      (params?: Octokit.PullsCheckIfMergedParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsCheckIfMergedParamsDeprecatedNumber
+      ): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsCheckIfMergedParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31416,7 +31696,7 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     create: {
-      (params?: Octokit.PullsCreateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.PullsCreateParams): Promise<
         Octokit.Response<Octokit.PullsCreateResponse>
       >;
 
@@ -31432,15 +31712,17 @@ declare class Octokit {
      * The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
      */
     createComment: {
-      (params?: Octokit.PullsCreateCommentParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsCreateCommentResponse>
-      >;
-      (params?: Octokit.PullsCreateCommentParamsDeprecatedInReplyTo): Promise<
-        Octokit.Response<Octokit.PullsCreateCommentResponse>
-      >;
-      (params?: Octokit.PullsCreateCommentParams): Promise<
-        Octokit.Response<Octokit.PullsCreateCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsCreateCommentParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsCreateCommentResponse>>;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsCreateCommentParamsDeprecatedInReplyTo
+      ): Promise<Octokit.Response<Octokit.PullsCreateCommentResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsCreateCommentParams
+      ): Promise<Octokit.Response<Octokit.PullsCreateCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31454,23 +31736,25 @@ declare class Octokit {
      * The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
      */
     createCommentReply: {
-      (params?: Octokit.PullsCreateCommentReplyParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsCreateCommentReplyResponse>
-      >;
       (
-        params?: Octokit.PullsCreateCommentReplyParamsDeprecatedInReplyTo
+        params?: Octokit.RequestOptions &
+          Octokit.PullsCreateCommentReplyParamsDeprecatedNumber
       ): Promise<Octokit.Response<Octokit.PullsCreateCommentReplyResponse>>;
-      (params?: Octokit.PullsCreateCommentReplyParams): Promise<
-        Octokit.Response<Octokit.PullsCreateCommentReplyResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsCreateCommentReplyParamsDeprecatedInReplyTo
+      ): Promise<Octokit.Response<Octokit.PullsCreateCommentReplyResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsCreateCommentReplyParams
+      ): Promise<Octokit.Response<Octokit.PullsCreateCommentReplyResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     createFromIssue: {
-      (params?: Octokit.PullsCreateFromIssueParams): Promise<
-        Octokit.Response<Octokit.PullsCreateFromIssueResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsCreateFromIssueParams
+      ): Promise<Octokit.Response<Octokit.PullsCreateFromIssueResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31482,12 +31766,13 @@ declare class Octokit {
      * The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
      */
     createReview: {
-      (params?: Octokit.PullsCreateReviewParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsCreateReviewResponse>
-      >;
-      (params?: Octokit.PullsCreateReviewParams): Promise<
-        Octokit.Response<Octokit.PullsCreateReviewResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsCreateReviewParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsCreateReviewResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsCreateReviewParams
+      ): Promise<Octokit.Response<Octokit.PullsCreateReviewResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31497,7 +31782,10 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     createReviewCommentReply: {
-      (params?: Octokit.PullsCreateReviewCommentReplyParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsCreateReviewCommentReplyParams
+      ): Promise<
         Octokit.Response<Octokit.PullsCreateReviewCommentReplyResponse>
       >;
 
@@ -31508,11 +31796,12 @@ declare class Octokit {
      */
     createReviewRequest: {
       (
-        params?: Octokit.PullsCreateReviewRequestParamsDeprecatedNumber
+        params?: Octokit.RequestOptions &
+          Octokit.PullsCreateReviewRequestParamsDeprecatedNumber
       ): Promise<Octokit.Response<Octokit.PullsCreateReviewRequestResponse>>;
-      (params?: Octokit.PullsCreateReviewRequestParams): Promise<
-        Octokit.Response<Octokit.PullsCreateReviewRequestResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsCreateReviewRequestParams
+      ): Promise<Octokit.Response<Octokit.PullsCreateReviewRequestResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31520,29 +31809,33 @@ declare class Octokit {
      * Deletes a review comment.
      */
     deleteComment: {
-      (params?: Octokit.PullsDeleteCommentParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsDeleteCommentParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deletePendingReview: {
       (
-        params?: Octokit.PullsDeletePendingReviewParamsDeprecatedNumber
+        params?: Octokit.RequestOptions &
+          Octokit.PullsDeletePendingReviewParamsDeprecatedNumber
       ): Promise<Octokit.Response<Octokit.PullsDeletePendingReviewResponse>>;
-      (params?: Octokit.PullsDeletePendingReviewParams): Promise<
-        Octokit.Response<Octokit.PullsDeletePendingReviewResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsDeletePendingReviewParams
+      ): Promise<Octokit.Response<Octokit.PullsDeletePendingReviewResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteReviewRequest: {
       (
-        params?: Octokit.PullsDeleteReviewRequestParamsDeprecatedNumber
+        params?: Octokit.RequestOptions &
+          Octokit.PullsDeleteReviewRequestParamsDeprecatedNumber
       ): Promise<Octokit.AnyResponse>;
-      (params?: Octokit.PullsDeleteReviewRequestParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsDeleteReviewRequestParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31550,12 +31843,13 @@ declare class Octokit {
      * **Note:** To dismiss a pull request review on a [protected branch](https://developer.github.com/v3/repos/branches/), you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews.
      */
     dismissReview: {
-      (params?: Octokit.PullsDismissReviewParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsDismissReviewResponse>
-      >;
-      (params?: Octokit.PullsDismissReviewParams): Promise<
-        Octokit.Response<Octokit.PullsDismissReviewResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsDismissReviewParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsDismissReviewResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsDismissReviewParams
+      ): Promise<Octokit.Response<Octokit.PullsDismissReviewResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31577,10 +31871,10 @@ declare class Octokit {
      * Pass the appropriate [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.
      */
     get: {
-      (params?: Octokit.PullsGetParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsGetResponse>
-      >;
-      (params?: Octokit.PullsGetParams): Promise<
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsGetParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsGetResponse>>;
+      (params?: Octokit.RequestOptions & Octokit.PullsGetParams): Promise<
         Octokit.Response<Octokit.PullsGetResponse>
       >;
 
@@ -31590,29 +31884,32 @@ declare class Octokit {
      * Provides details for a review comment.
      */
     getComment: {
-      (params?: Octokit.PullsGetCommentParams): Promise<
-        Octokit.Response<Octokit.PullsGetCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsGetCommentParams
+      ): Promise<Octokit.Response<Octokit.PullsGetCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getCommentsForReview: {
       (
-        params?: Octokit.PullsGetCommentsForReviewParamsDeprecatedNumber
+        params?: Octokit.RequestOptions &
+          Octokit.PullsGetCommentsForReviewParamsDeprecatedNumber
       ): Promise<Octokit.Response<Octokit.PullsGetCommentsForReviewResponse>>;
-      (params?: Octokit.PullsGetCommentsForReviewParams): Promise<
-        Octokit.Response<Octokit.PullsGetCommentsForReviewResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsGetCommentsForReviewParams
+      ): Promise<Octokit.Response<Octokit.PullsGetCommentsForReviewResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getReview: {
-      (params?: Octokit.PullsGetReviewParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsGetReviewResponse>
-      >;
-      (params?: Octokit.PullsGetReviewParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsGetReviewParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsGetReviewResponse>>;
+      (params?: Octokit.RequestOptions & Octokit.PullsGetReviewParams): Promise<
         Octokit.Response<Octokit.PullsGetReviewResponse>
       >;
 
@@ -31622,7 +31919,7 @@ declare class Octokit {
      * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      */
     list: {
-      (params?: Octokit.PullsListParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.PullsListParams): Promise<
         Octokit.Response<Octokit.PullsListResponse>
       >;
 
@@ -31632,12 +31929,13 @@ declare class Octokit {
      * Lists review comments for a pull request. By default, review comments are in ascending order by ID.
      */
     listComments: {
-      (params?: Octokit.PullsListCommentsParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsListCommentsResponse>
-      >;
-      (params?: Octokit.PullsListCommentsParams): Promise<
-        Octokit.Response<Octokit.PullsListCommentsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsListCommentsParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsListCommentsResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsListCommentsParams
+      ): Promise<Octokit.Response<Octokit.PullsListCommentsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31645,9 +31943,9 @@ declare class Octokit {
      * Lists review comments for all pull requests in a repository. By default, review comments are in ascending order by ID.
      */
     listCommentsForRepo: {
-      (params?: Octokit.PullsListCommentsForRepoParams): Promise<
-        Octokit.Response<Octokit.PullsListCommentsForRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsListCommentsForRepoParams
+      ): Promise<Octokit.Response<Octokit.PullsListCommentsForRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31655,12 +31953,13 @@ declare class Octokit {
      * Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the [Commit List API](https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository).
      */
     listCommits: {
-      (params?: Octokit.PullsListCommitsParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsListCommitsResponse>
-      >;
-      (params?: Octokit.PullsListCommitsParams): Promise<
-        Octokit.Response<Octokit.PullsListCommitsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsListCommitsParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsListCommitsResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsListCommitsParams
+      ): Promise<Octokit.Response<Octokit.PullsListCommitsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31668,10 +31967,11 @@ declare class Octokit {
      * **Note:** The response includes a maximum of 300 files.
      */
     listFiles: {
-      (params?: Octokit.PullsListFilesParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsListFilesResponse>
-      >;
-      (params?: Octokit.PullsListFilesParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsListFilesParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsListFilesResponse>>;
+      (params?: Octokit.RequestOptions & Octokit.PullsListFilesParams): Promise<
         Octokit.Response<Octokit.PullsListFilesResponse>
       >;
 
@@ -31679,12 +31979,13 @@ declare class Octokit {
     };
 
     listReviewRequests: {
-      (params?: Octokit.PullsListReviewRequestsParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsListReviewRequestsResponse>
-      >;
-      (params?: Octokit.PullsListReviewRequestsParams): Promise<
-        Octokit.Response<Octokit.PullsListReviewRequestsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsListReviewRequestsParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsListReviewRequestsResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsListReviewRequestsParams
+      ): Promise<Octokit.Response<Octokit.PullsListReviewRequestsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31692,12 +31993,13 @@ declare class Octokit {
      * The list of reviews returns in chronological order.
      */
     listReviews: {
-      (params?: Octokit.PullsListReviewsParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsListReviewsResponse>
-      >;
-      (params?: Octokit.PullsListReviewsParams): Promise<
-        Octokit.Response<Octokit.PullsListReviewsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsListReviewsParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsListReviewsResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsListReviewsParams
+      ): Promise<Octokit.Response<Octokit.PullsListReviewsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31705,10 +32007,11 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     merge: {
-      (params?: Octokit.PullsMergeParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsMergeResponse>
-      >;
-      (params?: Octokit.PullsMergeParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsMergeParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsMergeResponse>>;
+      (params?: Octokit.RequestOptions & Octokit.PullsMergeParams): Promise<
         Octokit.Response<Octokit.PullsMergeResponse>
       >;
 
@@ -31716,12 +32019,13 @@ declare class Octokit {
     };
 
     submitReview: {
-      (params?: Octokit.PullsSubmitReviewParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsSubmitReviewResponse>
-      >;
-      (params?: Octokit.PullsSubmitReviewParams): Promise<
-        Octokit.Response<Octokit.PullsSubmitReviewResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsSubmitReviewParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsSubmitReviewResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsSubmitReviewParams
+      ): Promise<Octokit.Response<Octokit.PullsSubmitReviewResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31731,10 +32035,11 @@ declare class Octokit {
      * To open or update a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open or update a pull request.
      */
     update: {
-      (params?: Octokit.PullsUpdateParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsUpdateResponse>
-      >;
-      (params?: Octokit.PullsUpdateParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsUpdateParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsUpdateResponse>>;
+      (params?: Octokit.RequestOptions & Octokit.PullsUpdateParams): Promise<
         Octokit.Response<Octokit.PullsUpdateResponse>
       >;
 
@@ -31744,9 +32049,9 @@ declare class Octokit {
      * Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.
      */
     updateBranch: {
-      (params?: Octokit.PullsUpdateBranchParams): Promise<
-        Octokit.Response<Octokit.PullsUpdateBranchResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsUpdateBranchParams
+      ): Promise<Octokit.Response<Octokit.PullsUpdateBranchResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31754,9 +32059,9 @@ declare class Octokit {
      * Enables you to edit a review comment.
      */
     updateComment: {
-      (params?: Octokit.PullsUpdateCommentParams): Promise<
-        Octokit.Response<Octokit.PullsUpdateCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsUpdateCommentParams
+      ): Promise<Octokit.Response<Octokit.PullsUpdateCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31764,12 +32069,13 @@ declare class Octokit {
      * Update the review summary comment with new text.
      */
     updateReview: {
-      (params?: Octokit.PullsUpdateReviewParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.PullsUpdateReviewResponse>
-      >;
-      (params?: Octokit.PullsUpdateReviewParams): Promise<
-        Octokit.Response<Octokit.PullsUpdateReviewResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.PullsUpdateReviewParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.PullsUpdateReviewResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.PullsUpdateReviewParams
+      ): Promise<Octokit.Response<Octokit.PullsUpdateReviewResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31796,7 +32102,7 @@ declare class Octokit {
      * If you're writing new API client code or updating existing code, you should use the `core` object instead of the `rate` object. The `core` object contains the same information that is present in the `rate` object.
      */
     get: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.RateLimitGetResponse>
       >;
 
@@ -31808,7 +32114,10 @@ declare class Octokit {
      * Create a reaction to a [commit comment](https://developer.github.com/v3/repos/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this commit comment.
      */
     createForCommitComment: {
-      (params?: Octokit.ReactionsCreateForCommitCommentParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsCreateForCommitCommentParams
+      ): Promise<
         Octokit.Response<Octokit.ReactionsCreateForCommitCommentResponse>
       >;
 
@@ -31818,12 +32127,13 @@ declare class Octokit {
      * Create a reaction to an [issue](https://developer.github.com/v3/issues/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue.
      */
     createForIssue: {
-      (params?: Octokit.ReactionsCreateForIssueParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.ReactionsCreateForIssueResponse>
-      >;
-      (params?: Octokit.ReactionsCreateForIssueParams): Promise<
-        Octokit.Response<Octokit.ReactionsCreateForIssueResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsCreateForIssueParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.ReactionsCreateForIssueResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReactionsCreateForIssueParams
+      ): Promise<Octokit.Response<Octokit.ReactionsCreateForIssueResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31831,7 +32141,10 @@ declare class Octokit {
      * Create a reaction to an [issue comment](https://developer.github.com/v3/issues/comments/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue comment.
      */
     createForIssueComment: {
-      (params?: Octokit.ReactionsCreateForIssueCommentParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsCreateForIssueCommentParams
+      ): Promise<
         Octokit.Response<Octokit.ReactionsCreateForIssueCommentResponse>
       >;
 
@@ -31842,7 +32155,8 @@ declare class Octokit {
      */
     createForPullRequestReviewComment: {
       (
-        params?: Octokit.ReactionsCreateForPullRequestReviewCommentParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsCreateForPullRequestReviewCommentParams
       ): Promise<
         Octokit.Response<
           Octokit.ReactionsCreateForPullRequestReviewCommentResponse
@@ -31855,7 +32169,10 @@ declare class Octokit {
      * Create a reaction to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion.
      */
     createForTeamDiscussion: {
-      (params?: Octokit.ReactionsCreateForTeamDiscussionParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsCreateForTeamDiscussionParams
+      ): Promise<
         Octokit.Response<Octokit.ReactionsCreateForTeamDiscussionResponse>
       >;
 
@@ -31865,7 +32182,10 @@ declare class Octokit {
      * Create a reaction to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment.
      */
     createForTeamDiscussionComment: {
-      (params?: Octokit.ReactionsCreateForTeamDiscussionCommentParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsCreateForTeamDiscussionCommentParams
+      ): Promise<
         Octokit.Response<
           Octokit.ReactionsCreateForTeamDiscussionCommentResponse
         >
@@ -31877,7 +32197,9 @@ declare class Octokit {
      * OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://developer.github.com/v3/teams/discussions/) or [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/).
      */
     delete: {
-      (params?: Octokit.ReactionsDeleteParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReactionsDeleteParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31885,7 +32207,10 @@ declare class Octokit {
      * List the reactions to a [commit comment](https://developer.github.com/v3/repos/comments/).
      */
     listForCommitComment: {
-      (params?: Octokit.ReactionsListForCommitCommentParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsListForCommitCommentParams
+      ): Promise<
         Octokit.Response<Octokit.ReactionsListForCommitCommentResponse>
       >;
 
@@ -31895,12 +32220,13 @@ declare class Octokit {
      * List the reactions to an [issue](https://developer.github.com/v3/issues/).
      */
     listForIssue: {
-      (params?: Octokit.ReactionsListForIssueParamsDeprecatedNumber): Promise<
-        Octokit.Response<Octokit.ReactionsListForIssueResponse>
-      >;
-      (params?: Octokit.ReactionsListForIssueParams): Promise<
-        Octokit.Response<Octokit.ReactionsListForIssueResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsListForIssueParamsDeprecatedNumber
+      ): Promise<Octokit.Response<Octokit.ReactionsListForIssueResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReactionsListForIssueParams
+      ): Promise<Octokit.Response<Octokit.ReactionsListForIssueResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31908,7 +32234,10 @@ declare class Octokit {
      * List the reactions to an [issue comment](https://developer.github.com/v3/issues/comments/).
      */
     listForIssueComment: {
-      (params?: Octokit.ReactionsListForIssueCommentParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsListForIssueCommentParams
+      ): Promise<
         Octokit.Response<Octokit.ReactionsListForIssueCommentResponse>
       >;
 
@@ -31919,7 +32248,8 @@ declare class Octokit {
      */
     listForPullRequestReviewComment: {
       (
-        params?: Octokit.ReactionsListForPullRequestReviewCommentParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsListForPullRequestReviewCommentParams
       ): Promise<
         Octokit.Response<
           Octokit.ReactionsListForPullRequestReviewCommentResponse
@@ -31932,7 +32262,10 @@ declare class Octokit {
      * List the reactions to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     listForTeamDiscussion: {
-      (params?: Octokit.ReactionsListForTeamDiscussionParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsListForTeamDiscussionParams
+      ): Promise<
         Octokit.Response<Octokit.ReactionsListForTeamDiscussionResponse>
       >;
 
@@ -31942,7 +32275,10 @@ declare class Octokit {
      * List the reactions to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     listForTeamDiscussionComment: {
-      (params?: Octokit.ReactionsListForTeamDiscussionCommentParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReactionsListForTeamDiscussionCommentParams
+      ): Promise<
         Octokit.Response<Octokit.ReactionsListForTeamDiscussionCommentResponse>
       >;
 
@@ -31951,9 +32287,9 @@ declare class Octokit {
   };
   repos: {
     acceptInvitation: {
-      (params?: Octokit.ReposAcceptInvitationParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposAcceptInvitationParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31969,9 +32305,9 @@ declare class Octokit {
      * To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.
      */
     addCollaborator: {
-      (params?: Octokit.ReposAddCollaboratorParams): Promise<
-        Octokit.Response<Octokit.ReposAddCollaboratorResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposAddCollaboratorParams
+      ): Promise<Octokit.Response<Octokit.ReposAddCollaboratorResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31979,9 +32315,9 @@ declare class Octokit {
      * Here's how you can create a read-only deploy key:
      */
     addDeployKey: {
-      (params?: Octokit.ReposAddDeployKeyParams): Promise<
-        Octokit.Response<Octokit.ReposAddDeployKeyResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposAddDeployKeyParams
+      ): Promise<Octokit.Response<Octokit.ReposAddDeployKeyResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31991,7 +32327,10 @@ declare class Octokit {
      * Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
      */
     addProtectedBranchAdminEnforcement: {
-      (params?: Octokit.ReposAddProtectedBranchAdminEnforcementParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposAddProtectedBranchAdminEnforcementParams
+      ): Promise<
         Octokit.Response<
           Octokit.ReposAddProtectedBranchAdminEnforcementResponse
         >
@@ -32009,7 +32348,10 @@ declare class Octokit {
      * | `array` | The GitHub Apps that have push access to this branch. Use the app's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
      */
     addProtectedBranchAppRestrictions: {
-      (params?: Octokit.ReposAddProtectedBranchAppRestrictionsParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposAddProtectedBranchAppRestrictionsParams
+      ): Promise<
         Octokit.Response<Octokit.ReposAddProtectedBranchAppRestrictionsResponse>
       >;
 
@@ -32022,7 +32364,8 @@ declare class Octokit {
      */
     addProtectedBranchRequiredSignatures: {
       (
-        params?: Octokit.ReposAddProtectedBranchRequiredSignaturesParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposAddProtectedBranchRequiredSignaturesParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposAddProtectedBranchRequiredSignaturesResponse
@@ -32036,7 +32379,8 @@ declare class Octokit {
      */
     addProtectedBranchRequiredStatusChecksContexts: {
       (
-        params?: Octokit.ReposAddProtectedBranchRequiredStatusChecksContextsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposAddProtectedBranchRequiredStatusChecksContextsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposAddProtectedBranchRequiredStatusChecksContextsResponse
@@ -32055,7 +32399,10 @@ declare class Octokit {
      * | `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
      */
     addProtectedBranchTeamRestrictions: {
-      (params?: Octokit.ReposAddProtectedBranchTeamRestrictionsParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposAddProtectedBranchTeamRestrictionsParams
+      ): Promise<
         Octokit.Response<
           Octokit.ReposAddProtectedBranchTeamRestrictionsResponse
         >
@@ -32073,7 +32420,10 @@ declare class Octokit {
      * | `array` | Usernames for people who can have push access. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
      */
     addProtectedBranchUserRestrictions: {
-      (params?: Octokit.ReposAddProtectedBranchUserRestrictionsParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposAddProtectedBranchUserRestrictionsParams
+      ): Promise<
         Octokit.Response<
           Octokit.ReposAddProtectedBranchUserRestrictionsResponse
         >
@@ -32087,9 +32437,9 @@ declare class Octokit {
      * If you pass the `hellcat-preview` media type, team members will include the members of child teams.
      */
     checkCollaborator: {
-      (params?: Octokit.ReposCheckCollaboratorParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCheckCollaboratorParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32097,9 +32447,10 @@ declare class Octokit {
      * Shows whether vulnerability alerts are enabled or disabled for a repository. The authenticated user must have admin access to the repository. For more information, see "[About security alerts for vulnerable dependencies](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)" in the GitHub Help documentation.
      */
     checkVulnerabilityAlerts: {
-      (params?: Octokit.ReposCheckVulnerabilityAlertsParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposCheckVulnerabilityAlertsParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32139,9 +32490,9 @@ declare class Octokit {
      * | `valid`                  | None of the above errors applied, so the signature is considered to be verified.                                                  |
      */
     compareCommits: {
-      (params?: Octokit.ReposCompareCommitsParams): Promise<
-        Octokit.Response<Octokit.ReposCompareCommitsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCompareCommitsParams
+      ): Promise<Octokit.Response<Octokit.ReposCompareCommitsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32151,12 +32502,13 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     createCommitComment: {
-      (params?: Octokit.ReposCreateCommitCommentParamsDeprecatedSha): Promise<
-        Octokit.Response<Octokit.ReposCreateCommitCommentResponse>
-      >;
-      (params?: Octokit.ReposCreateCommitCommentParams): Promise<
-        Octokit.Response<Octokit.ReposCreateCommitCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposCreateCommitCommentParamsDeprecatedSha
+      ): Promise<Octokit.Response<Octokit.ReposCreateCommitCommentResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateCommitCommentParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateCommitCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32194,9 +32546,9 @@ declare class Octokit {
      * This error happens when the `required_contexts` parameter indicates that one or more contexts need to have a `success` status for the commit to be deployed, but one or more of the required contexts do not have a state of `success`.
      */
     createDeployment: {
-      (params?: Octokit.ReposCreateDeploymentParams): Promise<
-        Octokit.Response<Octokit.ReposCreateDeploymentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateDeploymentParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateDeploymentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32206,9 +32558,10 @@ declare class Octokit {
      * GitHub Apps require `read & write` access to "Deployments" and `read-only` access to "Repo contents" (for private repos). OAuth Apps require the `repo_deployment` scope.
      */
     createDeploymentStatus: {
-      (params?: Octokit.ReposCreateDeploymentStatusParams): Promise<
-        Octokit.Response<Octokit.ReposCreateDeploymentStatusResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposCreateDeploymentStatusParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateDeploymentStatusResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32218,9 +32571,9 @@ declare class Octokit {
      * To give you write access to the repository, you must use a personal access token with the `repo` scope. For more information, see "[Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line)" in the GitHub Help documentation.
      */
     createDispatchEvent: {
-      (params?: Octokit.ReposCreateDispatchEventParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateDispatchEventParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32228,9 +32581,9 @@ declare class Octokit {
      * Creates a new file or updates an existing file in a repository.
      */
     createFile: {
-      (params?: Octokit.ReposCreateFileParams): Promise<
-        Octokit.Response<Octokit.ReposCreateFileResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateFileParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateFileResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32245,7 +32598,10 @@ declare class Octokit {
      * *   `repo` scope to create a private repository
      */
     createForAuthenticatedUser: {
-      (params?: Octokit.ReposCreateForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposCreateForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.ReposCreateForAuthenticatedUserResponse>
       >;
 
@@ -32257,9 +32613,9 @@ declare class Octokit {
      * **Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub Support](https://github.com/contact).
      */
     createFork: {
-      (params?: Octokit.ReposCreateForkParams): Promise<
-        Octokit.Response<Octokit.ReposCreateForkResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateForkParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateForkResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32269,9 +32625,9 @@ declare class Octokit {
      * Here's how you can create a hook that posts payloads in JSON format:
      */
     createHook: {
-      (params?: Octokit.ReposCreateHookParams): Promise<
-        Octokit.Response<Octokit.ReposCreateHookResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateHookParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateHookResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32286,9 +32642,9 @@ declare class Octokit {
      * *   `repo` scope to create a private repository
      */
     createInOrg: {
-      (params?: Octokit.ReposCreateInOrgParams): Promise<
-        Octokit.Response<Octokit.ReposCreateInOrgResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateInOrgParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32296,9 +32652,9 @@ declare class Octokit {
      * Creates a new file or updates an existing file in a repository.
      */
     createOrUpdateFile: {
-      (params?: Octokit.ReposCreateOrUpdateFileParams): Promise<
-        Octokit.Response<Octokit.ReposCreateOrUpdateFileResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateOrUpdateFileParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateOrUpdateFileResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32308,9 +32664,9 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     createRelease: {
-      (params?: Octokit.ReposCreateReleaseParams): Promise<
-        Octokit.Response<Octokit.ReposCreateReleaseResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateReleaseParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateReleaseResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32320,9 +32676,9 @@ declare class Octokit {
      * Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.
      */
     createStatus: {
-      (params?: Octokit.ReposCreateStatusParams): Promise<
-        Octokit.Response<Octokit.ReposCreateStatusResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateStatusParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateStatusResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32339,17 +32695,17 @@ declare class Octokit {
      * \`
      */
     createUsingTemplate: {
-      (params?: Octokit.ReposCreateUsingTemplateParams): Promise<
-        Octokit.Response<Octokit.ReposCreateUsingTemplateResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposCreateUsingTemplateParams
+      ): Promise<Octokit.Response<Octokit.ReposCreateUsingTemplateResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     declineInvitation: {
-      (params?: Octokit.ReposDeclineInvitationParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDeclineInvitationParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32359,7 +32715,7 @@ declare class Octokit {
      * If an organization owner has configured the organization to prevent members from deleting organization-owned repositories, a member will get this response:
      */
     delete: {
-      (params?: Octokit.ReposDeleteParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposDeleteParams): Promise<
         Octokit.Response<Octokit.ReposDeleteResponse>
       >;
 
@@ -32367,17 +32723,17 @@ declare class Octokit {
     };
 
     deleteCommitComment: {
-      (params?: Octokit.ReposDeleteCommitCommentParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDeleteCommitCommentParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteDownload: {
-      (params?: Octokit.ReposDeleteDownloadParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDeleteDownloadParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32391,23 +32747,25 @@ declare class Octokit {
      * You must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.
      */
     deleteFile: {
-      (params?: Octokit.ReposDeleteFileParams): Promise<
-        Octokit.Response<Octokit.ReposDeleteFileResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDeleteFileParams
+      ): Promise<Octokit.Response<Octokit.ReposDeleteFileResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteHook: {
-      (params?: Octokit.ReposDeleteHookParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDeleteHookParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteInvitation: {
-      (params?: Octokit.ReposDeleteInvitationParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDeleteInvitationParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32415,15 +32773,17 @@ declare class Octokit {
      * Users with push access to the repository can delete a release.
      */
     deleteRelease: {
-      (params?: Octokit.ReposDeleteReleaseParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDeleteReleaseParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     deleteReleaseAsset: {
-      (params?: Octokit.ReposDeleteReleaseAssetParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDeleteReleaseAssetParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32431,17 +32791,18 @@ declare class Octokit {
      * Disables automated security fixes for a repository. The authenticated user must have admin access to the repository. For more information, see "[Configuring automated security fixes](https://help.github.com/en/articles/configuring-automated-security-fixes)" in the GitHub Help documentation.
      */
     disableAutomatedSecurityFixes: {
-      (params?: Octokit.ReposDisableAutomatedSecurityFixesParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposDisableAutomatedSecurityFixesParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     disablePagesSite: {
-      (params?: Octokit.ReposDisablePagesSiteParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposDisablePagesSiteParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32449,9 +32810,10 @@ declare class Octokit {
      * Disables vulnerability alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see "[About security alerts for vulnerable dependencies](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)" in the GitHub Help documentation.
      */
     disableVulnerabilityAlerts: {
-      (params?: Octokit.ReposDisableVulnerabilityAlertsParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposDisableVulnerabilityAlertsParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32459,17 +32821,18 @@ declare class Octokit {
      * Enables automated security fixes for a repository. The authenticated user must have admin access to the repository. For more information, see "[Configuring automated security fixes](https://help.github.com/en/articles/configuring-automated-security-fixes)" in the GitHub Help documentation.
      */
     enableAutomatedSecurityFixes: {
-      (params?: Octokit.ReposEnableAutomatedSecurityFixesParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposEnableAutomatedSecurityFixesParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     enablePagesSite: {
-      (params?: Octokit.ReposEnablePagesSiteParams): Promise<
-        Octokit.Response<Octokit.ReposEnablePagesSiteResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposEnablePagesSiteParams
+      ): Promise<Octokit.Response<Octokit.ReposEnablePagesSiteResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32477,9 +32840,10 @@ declare class Octokit {
      * Enables vulnerability alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see "[About security alerts for vulnerable dependencies](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)" in the GitHub Help documentation.
      */
     enableVulnerabilityAlerts: {
-      (params?: Octokit.ReposEnableVulnerabilityAlertsParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposEnableVulnerabilityAlertsParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32487,7 +32851,7 @@ declare class Octokit {
      * The `parent` and `source` objects are present when the repository is a fork. `parent` is the repository this repository was forked from, `source` is the ultimate source for the network.
      */
     get: {
-      (params?: Octokit.ReposGetParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposGetParams): Promise<
         Octokit.Response<Octokit.ReposGetResponse>
       >;
 
@@ -32499,7 +32863,10 @@ declare class Octokit {
      * Lists the GitHub Apps that have push access to this branch. Only installed GitHub Apps with `write` access to the `contents` permission can be added as authorized actors on a protected branch.
      */
     getAppsWithAccessToProtectedBranch: {
-      (params?: Octokit.ReposGetAppsWithAccessToProtectedBranchParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetAppsWithAccessToProtectedBranchParams
+      ): Promise<
         Octokit.Response<
           Octokit.ReposGetAppsWithAccessToProtectedBranchResponse
         >
@@ -32515,15 +32882,15 @@ declare class Octokit {
      * To follow redirects with curl, use the `-L` switch:
      */
     getArchiveLink: {
-      (params?: Octokit.ReposGetArchiveLinkParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetArchiveLinkParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getBranch: {
-      (params?: Octokit.ReposGetBranchParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposGetBranchParams): Promise<
         Octokit.Response<Octokit.ReposGetBranchResponse>
       >;
 
@@ -32533,9 +32900,9 @@ declare class Octokit {
      * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      */
     getBranchProtection: {
-      (params?: Octokit.ReposGetBranchProtectionParams): Promise<
-        Octokit.Response<Octokit.ReposGetBranchProtectionResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetBranchProtectionParams
+      ): Promise<Octokit.Response<Octokit.ReposGetBranchProtectionResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32543,7 +32910,7 @@ declare class Octokit {
      * Get the total number of clones and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.
      */
     getClones: {
-      (params?: Octokit.ReposGetClonesParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposGetClonesParams): Promise<
         Octokit.Response<Octokit.ReposGetClonesResponse>
       >;
 
@@ -32553,9 +32920,10 @@ declare class Octokit {
      * Returns a weekly aggregate of the number of additions and deletions pushed to a repository.
      */
     getCodeFrequencyStats: {
-      (params?: Octokit.ReposGetCodeFrequencyStatsParams): Promise<
-        Octokit.Response<Octokit.ReposGetCodeFrequencyStatsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetCodeFrequencyStatsParams
+      ): Promise<Octokit.Response<Octokit.ReposGetCodeFrequencyStatsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32563,7 +32931,10 @@ declare class Octokit {
      * Possible values for the `permission` key: `admin`, `write`, `read`, `none`.
      */
     getCollaboratorPermissionLevel: {
-      (params?: Octokit.ReposGetCollaboratorPermissionLevelParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetCollaboratorPermissionLevelParams
+      ): Promise<
         Octokit.Response<Octokit.ReposGetCollaboratorPermissionLevelResponse>
       >;
 
@@ -32581,7 +32952,10 @@ declare class Octokit {
      * *   **success** if the latest status for all contexts is `success`
      */
     getCombinedStatusForRef: {
-      (params?: Octokit.ReposGetCombinedStatusForRefParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetCombinedStatusForRefParams
+      ): Promise<
         Octokit.Response<Octokit.ReposGetCombinedStatusForRefResponse>
       >;
 
@@ -32617,13 +32991,15 @@ declare class Octokit {
      * | `valid`                  | None of the above errors applied, so the signature is considered to be verified.                                                  |
      */
     getCommit: {
-      (params?: Octokit.ReposGetCommitParamsDeprecatedSha): Promise<
-        Octokit.Response<Octokit.ReposGetCommitResponse>
-      >;
-      (params?: Octokit.ReposGetCommitParamsDeprecatedCommitSha): Promise<
-        Octokit.Response<Octokit.ReposGetCommitResponse>
-      >;
-      (params?: Octokit.ReposGetCommitParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetCommitParamsDeprecatedSha
+      ): Promise<Octokit.Response<Octokit.ReposGetCommitResponse>>;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetCommitParamsDeprecatedCommitSha
+      ): Promise<Octokit.Response<Octokit.ReposGetCommitResponse>>;
+      (params?: Octokit.RequestOptions & Octokit.ReposGetCommitParams): Promise<
         Octokit.Response<Octokit.ReposGetCommitResponse>
       >;
 
@@ -32633,17 +33009,18 @@ declare class Octokit {
      * Returns the last year of commit activity grouped by week. The `days` array is a group of commits per day, starting on `Sunday`.
      */
     getCommitActivityStats: {
-      (params?: Octokit.ReposGetCommitActivityStatsParams): Promise<
-        Octokit.Response<Octokit.ReposGetCommitActivityStatsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetCommitActivityStatsParams
+      ): Promise<Octokit.Response<Octokit.ReposGetCommitActivityStatsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getCommitComment: {
-      (params?: Octokit.ReposGetCommitCommentParams): Promise<
-        Octokit.Response<Octokit.ReposGetCommitCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetCommitCommentParams
+      ): Promise<Octokit.Response<Octokit.ReposGetCommitCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32655,9 +33032,9 @@ declare class Octokit {
      * Returns the SHA-1 of the commit reference. You must have `read` access for the repository to get the SHA-1 of a commit reference. You can use this endpoint to check if a remote reference's SHA-1 is the same as your local reference's SHA-1 by providing the local SHA-1 reference as the ETag.
      */
     getCommitRefSha: {
-      (params?: Octokit.ReposGetCommitRefShaParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetCommitRefShaParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32685,9 +33062,9 @@ declare class Octokit {
      * If the submodule repository is not hosted on github.com, the Git URLs (`git_url` and `_links["git"]`) and the github.com URLs (`html_url` and `_links["html"]`) will have null values.
      */
     getContents: {
-      (params?: Octokit.ReposGetContentsParams): Promise<
-        Octokit.Response<Octokit.ReposGetContentsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetContentsParams
+      ): Promise<Octokit.Response<Octokit.ReposGetContentsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32702,25 +33079,26 @@ declare class Octokit {
      * *   `c` - Number of commits
      */
     getContributorsStats: {
-      (params?: Octokit.ReposGetContributorsStatsParams): Promise<
-        Octokit.Response<Octokit.ReposGetContributorsStatsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetContributorsStatsParams
+      ): Promise<Octokit.Response<Octokit.ReposGetContributorsStatsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getDeployKey: {
-      (params?: Octokit.ReposGetDeployKeyParams): Promise<
-        Octokit.Response<Octokit.ReposGetDeployKeyResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetDeployKeyParams
+      ): Promise<Octokit.Response<Octokit.ReposGetDeployKeyResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getDeployment: {
-      (params?: Octokit.ReposGetDeploymentParams): Promise<
-        Octokit.Response<Octokit.ReposGetDeploymentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetDeploymentParams
+      ): Promise<Octokit.Response<Octokit.ReposGetDeploymentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32728,23 +33106,23 @@ declare class Octokit {
      * Users with pull access can view a deployment status for a deployment:
      */
     getDeploymentStatus: {
-      (params?: Octokit.ReposGetDeploymentStatusParams): Promise<
-        Octokit.Response<Octokit.ReposGetDeploymentStatusResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetDeploymentStatusParams
+      ): Promise<Octokit.Response<Octokit.ReposGetDeploymentStatusResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getDownload: {
-      (params?: Octokit.ReposGetDownloadParams): Promise<
-        Octokit.Response<Octokit.ReposGetDownloadResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetDownloadParams
+      ): Promise<Octokit.Response<Octokit.ReposGetDownloadResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getHook: {
-      (params?: Octokit.ReposGetHookParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposGetHookParams): Promise<
         Octokit.Response<Octokit.ReposGetHookResponse>
       >;
 
@@ -32752,9 +33130,9 @@ declare class Octokit {
     };
 
     getLatestPagesBuild: {
-      (params?: Octokit.ReposGetLatestPagesBuildParams): Promise<
-        Octokit.Response<Octokit.ReposGetLatestPagesBuildResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetLatestPagesBuildParams
+      ): Promise<Octokit.Response<Octokit.ReposGetLatestPagesBuildResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32764,15 +33142,15 @@ declare class Octokit {
      * The latest release is the most recent non-prerelease, non-draft release, sorted by the `created_at` attribute. The `created_at` attribute is the date of the commit used for the release, and not the date when the release was drafted or published.
      */
     getLatestRelease: {
-      (params?: Octokit.ReposGetLatestReleaseParams): Promise<
-        Octokit.Response<Octokit.ReposGetLatestReleaseResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetLatestReleaseParams
+      ): Promise<Octokit.Response<Octokit.ReposGetLatestReleaseResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     getPages: {
-      (params?: Octokit.ReposGetPagesParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposGetPagesParams): Promise<
         Octokit.Response<Octokit.ReposGetPagesResponse>
       >;
 
@@ -32780,9 +33158,9 @@ declare class Octokit {
     };
 
     getPagesBuild: {
-      (params?: Octokit.ReposGetPagesBuildParams): Promise<
-        Octokit.Response<Octokit.ReposGetPagesBuildResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetPagesBuildParams
+      ): Promise<Octokit.Response<Octokit.ReposGetPagesBuildResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32792,9 +33170,10 @@ declare class Octokit {
      * The array order is oldest week (index 0) to most recent week.
      */
     getParticipationStats: {
-      (params?: Octokit.ReposGetParticipationStatsParams): Promise<
-        Octokit.Response<Octokit.ReposGetParticipationStatsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetParticipationStatsParams
+      ): Promise<Octokit.Response<Octokit.ReposGetParticipationStatsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32802,7 +33181,10 @@ declare class Octokit {
      * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      */
     getProtectedBranchAdminEnforcement: {
-      (params?: Octokit.ReposGetProtectedBranchAdminEnforcementParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetProtectedBranchAdminEnforcementParams
+      ): Promise<
         Octokit.Response<
           Octokit.ReposGetProtectedBranchAdminEnforcementResponse
         >
@@ -32815,7 +33197,8 @@ declare class Octokit {
      */
     getProtectedBranchPullRequestReviewEnforcement: {
       (
-        params?: Octokit.ReposGetProtectedBranchPullRequestReviewEnforcementParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetProtectedBranchPullRequestReviewEnforcementParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposGetProtectedBranchPullRequestReviewEnforcementResponse
@@ -32833,7 +33216,8 @@ declare class Octokit {
      */
     getProtectedBranchRequiredSignatures: {
       (
-        params?: Octokit.ReposGetProtectedBranchRequiredSignaturesParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetProtectedBranchRequiredSignaturesParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposGetProtectedBranchRequiredSignaturesResponse
@@ -32847,7 +33231,8 @@ declare class Octokit {
      */
     getProtectedBranchRequiredStatusChecks: {
       (
-        params?: Octokit.ReposGetProtectedBranchRequiredStatusChecksParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetProtectedBranchRequiredStatusChecksParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposGetProtectedBranchRequiredStatusChecksResponse
@@ -32864,7 +33249,10 @@ declare class Octokit {
      * **Note**: Users, apps, and teams `restrictions` are only available for organization-owned repositories.
      */
     getProtectedBranchRestrictions: {
-      (params?: Octokit.ReposGetProtectedBranchRestrictionsParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetProtectedBranchRestrictionsParams
+      ): Promise<
         Octokit.Response<Octokit.ReposGetProtectedBranchRestrictionsResponse>
       >;
 
@@ -32880,9 +33268,9 @@ declare class Octokit {
      * For example, `[2, 14, 25]` indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.
      */
     getPunchCardStats: {
-      (params?: Octokit.ReposGetPunchCardStatsParams): Promise<
-        Octokit.Response<Octokit.ReposGetPunchCardStatsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetPunchCardStatsParams
+      ): Promise<Octokit.Response<Octokit.ReposGetPunchCardStatsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32892,7 +33280,7 @@ declare class Octokit {
      * READMEs support [custom media types](https://developer.github.com/v3/repos/contents/#custom-media-types) for retrieving the raw content or rendered HTML.
      */
     getReadme: {
-      (params?: Octokit.ReposGetReadmeParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposGetReadmeParams): Promise<
         Octokit.Response<Octokit.ReposGetReadmeResponse>
       >;
 
@@ -32902,9 +33290,9 @@ declare class Octokit {
      * **Note:** This returns an `upload_url` key corresponding to the endpoint for uploading release assets. This key is a [hypermedia resource](https://developer.github.com/v3/#hypermedia).
      */
     getRelease: {
-      (params?: Octokit.ReposGetReleaseParams): Promise<
-        Octokit.Response<Octokit.ReposGetReleaseResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetReleaseParams
+      ): Promise<Octokit.Response<Octokit.ReposGetReleaseResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32912,9 +33300,9 @@ declare class Octokit {
      * To download the asset's binary content, set the `Accept` header of the request to [`application/octet-stream`](https://developer.github.com/v3/media/#media-types). The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a `200` or `302` response.
      */
     getReleaseAsset: {
-      (params?: Octokit.ReposGetReleaseAssetParams): Promise<
-        Octokit.Response<Octokit.ReposGetReleaseAssetResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetReleaseAssetParams
+      ): Promise<Octokit.Response<Octokit.ReposGetReleaseAssetResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32922,9 +33310,9 @@ declare class Octokit {
      * Get a published release with the specified tag.
      */
     getReleaseByTag: {
-      (params?: Octokit.ReposGetReleaseByTagParams): Promise<
-        Octokit.Response<Octokit.ReposGetReleaseByTagResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetReleaseByTagParams
+      ): Promise<Octokit.Response<Octokit.ReposGetReleaseByTagResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32935,7 +33323,8 @@ declare class Octokit {
      */
     getTeamsWithAccessToProtectedBranch: {
       (
-        params?: Octokit.ReposGetTeamsWithAccessToProtectedBranchParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetTeamsWithAccessToProtectedBranchParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposGetTeamsWithAccessToProtectedBranchResponse
@@ -32948,9 +33337,9 @@ declare class Octokit {
      * Get the top 10 popular contents over the last 14 days.
      */
     getTopPaths: {
-      (params?: Octokit.ReposGetTopPathsParams): Promise<
-        Octokit.Response<Octokit.ReposGetTopPathsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetTopPathsParams
+      ): Promise<Octokit.Response<Octokit.ReposGetTopPathsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32958,9 +33347,9 @@ declare class Octokit {
      * Get the top 10 referrers over the last 14 days.
      */
     getTopReferrers: {
-      (params?: Octokit.ReposGetTopReferrersParams): Promise<
-        Octokit.Response<Octokit.ReposGetTopReferrersResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposGetTopReferrersParams
+      ): Promise<Octokit.Response<Octokit.ReposGetTopReferrersResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32971,7 +33360,8 @@ declare class Octokit {
      */
     getUsersWithAccessToProtectedBranch: {
       (
-        params?: Octokit.ReposGetUsersWithAccessToProtectedBranchParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposGetUsersWithAccessToProtectedBranchParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposGetUsersWithAccessToProtectedBranchResponse
@@ -32984,7 +33374,7 @@ declare class Octokit {
      * Get the total number of views and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.
      */
     getViews: {
-      (params?: Octokit.ReposGetViewsParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposGetViewsParams): Promise<
         Octokit.Response<Octokit.ReposGetViewsResponse>
       >;
 
@@ -32996,7 +33386,9 @@ declare class Octokit {
      * The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
      */
     list: {
-      (params?: Octokit.ReposListParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.ReposListParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33007,7 +33399,8 @@ declare class Octokit {
      */
     listAppsWithAccessToProtectedBranch: {
       (
-        params?: Octokit.ReposListAppsWithAccessToProtectedBranchParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListAppsWithAccessToProtectedBranchParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposListAppsWithAccessToProtectedBranchResponse
@@ -33018,17 +33411,18 @@ declare class Octokit {
     };
 
     listAssetsForRelease: {
-      (params?: Octokit.ReposListAssetsForReleaseParams): Promise<
-        Octokit.Response<Octokit.ReposListAssetsForReleaseResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListAssetsForReleaseParams
+      ): Promise<Octokit.Response<Octokit.ReposListAssetsForReleaseResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listBranches: {
-      (params?: Octokit.ReposListBranchesParams): Promise<
-        Octokit.Response<Octokit.ReposListBranchesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListBranchesParams
+      ): Promise<Octokit.Response<Octokit.ReposListBranchesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33038,7 +33432,10 @@ declare class Octokit {
      * Returns all branches where the given commit SHA is the HEAD, or latest commit for the branch.
      */
     listBranchesForHeadCommit: {
-      (params?: Octokit.ReposListBranchesForHeadCommitParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListBranchesForHeadCommitParams
+      ): Promise<
         Octokit.Response<Octokit.ReposListBranchesForHeadCommitResponse>
       >;
 
@@ -33050,9 +33447,9 @@ declare class Octokit {
      * If you pass the `hellcat-preview` media type, team members will include the members of child teams.
      */
     listCollaborators: {
-      (params?: Octokit.ReposListCollaboratorsParams): Promise<
-        Octokit.Response<Octokit.ReposListCollaboratorsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListCollaboratorsParams
+      ): Promise<Octokit.Response<Octokit.ReposListCollaboratorsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33060,12 +33457,14 @@ declare class Octokit {
      * Use the `:commit_sha` to specify the commit that will have its comments listed.
      */
     listCommentsForCommit: {
-      (params?: Octokit.ReposListCommentsForCommitParamsDeprecatedRef): Promise<
-        Octokit.Response<Octokit.ReposListCommentsForCommitResponse>
-      >;
-      (params?: Octokit.ReposListCommentsForCommitParams): Promise<
-        Octokit.Response<Octokit.ReposListCommentsForCommitResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListCommentsForCommitParamsDeprecatedRef
+      ): Promise<Octokit.Response<Octokit.ReposListCommentsForCommitResponse>>;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListCommentsForCommitParams
+      ): Promise<Octokit.Response<Octokit.ReposListCommentsForCommitResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33075,9 +33474,9 @@ declare class Octokit {
      * Comments are ordered by ascending ID.
      */
     listCommitComments: {
-      (params?: Octokit.ReposListCommitCommentsParams): Promise<
-        Octokit.Response<Octokit.ReposListCommitCommentsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListCommitCommentsParams
+      ): Promise<Octokit.Response<Octokit.ReposListCommitCommentsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33105,9 +33504,9 @@ declare class Octokit {
      * | `valid`                  | None of the above errors applied, so the signature is considered to be verified.                                                  |
      */
     listCommits: {
-      (params?: Octokit.ReposListCommitsParams): Promise<
-        Octokit.Response<Octokit.ReposListCommitsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListCommitsParams
+      ): Promise<Octokit.Response<Octokit.ReposListCommitsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33117,17 +33516,17 @@ declare class Octokit {
      * GitHub identifies contributors by author email address. This endpoint groups contribution counts by GitHub user, which includes all associated email addresses. To improve performance, only the first 500 author email addresses in the repository link to GitHub users. The rest will appear as anonymous contributors without associated GitHub user information.
      */
     listContributors: {
-      (params?: Octokit.ReposListContributorsParams): Promise<
-        Octokit.Response<Octokit.ReposListContributorsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListContributorsParams
+      ): Promise<Octokit.Response<Octokit.ReposListContributorsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listDeployKeys: {
-      (params?: Octokit.ReposListDeployKeysParams): Promise<
-        Octokit.Response<Octokit.ReposListDeployKeysResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListDeployKeysParams
+      ): Promise<Octokit.Response<Octokit.ReposListDeployKeysResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33135,9 +33534,10 @@ declare class Octokit {
      * Users with pull access can view deployment statuses for a deployment:
      */
     listDeploymentStatuses: {
-      (params?: Octokit.ReposListDeploymentStatusesParams): Promise<
-        Octokit.Response<Octokit.ReposListDeploymentStatusesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListDeploymentStatusesParams
+      ): Promise<Octokit.Response<Octokit.ReposListDeploymentStatusesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33145,17 +33545,17 @@ declare class Octokit {
      * Simple filtering of deployments is available via query parameters:
      */
     listDeployments: {
-      (params?: Octokit.ReposListDeploymentsParams): Promise<
-        Octokit.Response<Octokit.ReposListDeploymentsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListDeploymentsParams
+      ): Promise<Octokit.Response<Octokit.ReposListDeploymentsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listDownloads: {
-      (params?: Octokit.ReposListDownloadsParams): Promise<
-        Octokit.Response<Octokit.ReposListDownloadsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListDownloadsParams
+      ): Promise<Octokit.Response<Octokit.ReposListDownloadsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33163,9 +33563,9 @@ declare class Octokit {
      * Lists repositories for the specified organization.
      */
     listForOrg: {
-      (params?: Octokit.ReposListForOrgParams): Promise<
-        Octokit.Response<Octokit.ReposListForOrgResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListForOrgParams
+      ): Promise<Octokit.Response<Octokit.ReposListForOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33173,13 +33573,15 @@ declare class Octokit {
      * Lists public repositories for the specified user.
      */
     listForUser: {
-      (params?: Octokit.ReposListForUserParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListForUserParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listForks: {
-      (params?: Octokit.ReposListForksParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposListForksParams): Promise<
         Octokit.Response<Octokit.ReposListForksResponse>
       >;
 
@@ -33187,7 +33589,7 @@ declare class Octokit {
     };
 
     listHooks: {
-      (params?: Octokit.ReposListHooksParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposListHooksParams): Promise<
         Octokit.Response<Octokit.ReposListHooksResponse>
       >;
 
@@ -33197,9 +33599,9 @@ declare class Octokit {
      * When authenticating as a user with admin rights to a repository, this endpoint will list all currently open repository invitations.
      */
     listInvitations: {
-      (params?: Octokit.ReposListInvitationsParams): Promise<
-        Octokit.Response<Octokit.ReposListInvitationsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListInvitationsParams
+      ): Promise<Octokit.Response<Octokit.ReposListInvitationsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33208,7 +33610,8 @@ declare class Octokit {
      */
     listInvitationsForAuthenticatedUser: {
       (
-        params?: Octokit.ReposListInvitationsForAuthenticatedUserParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListInvitationsForAuthenticatedUserParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposListInvitationsForAuthenticatedUserResponse
@@ -33221,17 +33624,17 @@ declare class Octokit {
      * Lists languages for the specified repository. The value shown for each language is the number of bytes of code written in that language.
      */
     listLanguages: {
-      (params?: Octokit.ReposListLanguagesParams): Promise<
-        Octokit.Response<Octokit.ReposListLanguagesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListLanguagesParams
+      ): Promise<Octokit.Response<Octokit.ReposListLanguagesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listPagesBuilds: {
-      (params?: Octokit.ReposListPagesBuildsParams): Promise<
-        Octokit.Response<Octokit.ReposListPagesBuildsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListPagesBuildsParams
+      ): Promise<Octokit.Response<Octokit.ReposListPagesBuildsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33240,7 +33643,8 @@ declare class Octokit {
      */
     listProtectedBranchRequiredStatusChecksContexts: {
       (
-        params?: Octokit.ReposListProtectedBranchRequiredStatusChecksContextsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListProtectedBranchRequiredStatusChecksContextsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposListProtectedBranchRequiredStatusChecksContextsResponse
@@ -33256,7 +33660,8 @@ declare class Octokit {
      */
     listProtectedBranchTeamRestrictions: {
       (
-        params?: Octokit.ReposListProtectedBranchTeamRestrictionsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListProtectedBranchTeamRestrictionsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposListProtectedBranchTeamRestrictionsResponse
@@ -33272,7 +33677,8 @@ declare class Octokit {
      */
     listProtectedBranchUserRestrictions: {
       (
-        params?: Octokit.ReposListProtectedBranchUserRestrictionsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListProtectedBranchUserRestrictionsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposListProtectedBranchUserRestrictionsResponse
@@ -33287,9 +33693,9 @@ declare class Octokit {
      * Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of repositories.
      */
     listPublic: {
-      (params?: Octokit.ReposListPublicParams): Promise<
-        Octokit.Response<Octokit.ReposListPublicResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListPublicParams
+      ): Promise<Octokit.Response<Octokit.ReposListPublicResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33298,7 +33704,8 @@ declare class Octokit {
      */
     listPullRequestsAssociatedWithCommit: {
       (
-        params?: Octokit.ReposListPullRequestsAssociatedWithCommitParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListPullRequestsAssociatedWithCommitParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposListPullRequestsAssociatedWithCommitResponse
@@ -33313,9 +33720,9 @@ declare class Octokit {
      * Information about published releases are available to everyone. Only users with push access will receive listings for draft releases.
      */
     listReleases: {
-      (params?: Octokit.ReposListReleasesParams): Promise<
-        Octokit.Response<Octokit.ReposListReleasesResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListReleasesParams
+      ): Promise<Octokit.Response<Octokit.ReposListReleasesResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33325,15 +33732,15 @@ declare class Octokit {
      * This resource is also available via a legacy route: `GET /repos/:owner/:repo/statuses/:ref`.
      */
     listStatusesForRef: {
-      (params?: Octokit.ReposListStatusesForRefParams): Promise<
-        Octokit.Response<Octokit.ReposListStatusesForRefResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListStatusesForRefParams
+      ): Promise<Octokit.Response<Octokit.ReposListStatusesForRefResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listTags: {
-      (params?: Octokit.ReposListTagsParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposListTagsParams): Promise<
         Octokit.Response<Octokit.ReposListTagsResponse>
       >;
 
@@ -33341,7 +33748,7 @@ declare class Octokit {
     };
 
     listTeams: {
-      (params?: Octokit.ReposListTeamsParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposListTeamsParams): Promise<
         Octokit.Response<Octokit.ReposListTeamsResponse>
       >;
 
@@ -33354,7 +33761,8 @@ declare class Octokit {
      */
     listTeamsWithAccessToProtectedBranch: {
       (
-        params?: Octokit.ReposListTeamsWithAccessToProtectedBranchParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListTeamsWithAccessToProtectedBranchParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposListTeamsWithAccessToProtectedBranchResponse
@@ -33365,9 +33773,9 @@ declare class Octokit {
     };
 
     listTopics: {
-      (params?: Octokit.ReposListTopicsParams): Promise<
-        Octokit.Response<Octokit.ReposListTopicsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposListTopicsParams
+      ): Promise<Octokit.Response<Octokit.ReposListTopicsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33378,7 +33786,8 @@ declare class Octokit {
      */
     listUsersWithAccessToProtectedBranch: {
       (
-        params?: Octokit.ReposListUsersWithAccessToProtectedBranchParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposListUsersWithAccessToProtectedBranchParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposListUsersWithAccessToProtectedBranchResponse
@@ -33389,7 +33798,7 @@ declare class Octokit {
     };
 
     merge: {
-      (params?: Octokit.ReposMergeParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposMergeParams): Promise<
         Octokit.Response<Octokit.ReposMergeResponse>
       >;
 
@@ -33399,7 +33808,9 @@ declare class Octokit {
      * This will trigger a [ping event](https://developer.github.com/webhooks/#ping-event) to be sent to the hook.
      */
     pingHook: {
-      (params?: Octokit.ReposPingHookParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.ReposPingHookParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33407,25 +33818,26 @@ declare class Octokit {
      * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      */
     removeBranchProtection: {
-      (params?: Octokit.ReposRemoveBranchProtectionParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveBranchProtectionParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     removeCollaborator: {
-      (params?: Octokit.ReposRemoveCollaboratorParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposRemoveCollaboratorParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     removeDeployKey: {
-      (params?: Octokit.ReposRemoveDeployKeyParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposRemoveDeployKeyParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33436,7 +33848,8 @@ declare class Octokit {
      */
     removeProtectedBranchAdminEnforcement: {
       (
-        params?: Octokit.ReposRemoveProtectedBranchAdminEnforcementParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchAdminEnforcementParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -33452,7 +33865,8 @@ declare class Octokit {
      */
     removeProtectedBranchAppRestrictions: {
       (
-        params?: Octokit.ReposRemoveProtectedBranchAppRestrictionsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchAppRestrictionsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposRemoveProtectedBranchAppRestrictionsResponse
@@ -33466,7 +33880,8 @@ declare class Octokit {
      */
     removeProtectedBranchPullRequestReviewEnforcement: {
       (
-        params?: Octokit.ReposRemoveProtectedBranchPullRequestReviewEnforcementParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchPullRequestReviewEnforcementParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -33478,7 +33893,8 @@ declare class Octokit {
      */
     removeProtectedBranchRequiredSignatures: {
       (
-        params?: Octokit.ReposRemoveProtectedBranchRequiredSignaturesParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchRequiredSignaturesParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -33488,7 +33904,8 @@ declare class Octokit {
      */
     removeProtectedBranchRequiredStatusChecks: {
       (
-        params?: Octokit.ReposRemoveProtectedBranchRequiredStatusChecksParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchRequiredStatusChecksParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
@@ -33498,7 +33915,8 @@ declare class Octokit {
      */
     removeProtectedBranchRequiredStatusChecksContexts: {
       (
-        params?: Octokit.ReposRemoveProtectedBranchRequiredStatusChecksContextsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchRequiredStatusChecksContextsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposRemoveProtectedBranchRequiredStatusChecksContextsResponse
@@ -33513,9 +33931,10 @@ declare class Octokit {
      * Disables the ability to restrict who can push to this branch.
      */
     removeProtectedBranchRestrictions: {
-      (params?: Octokit.ReposRemoveProtectedBranchRestrictionsParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchRestrictionsParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33530,7 +33949,8 @@ declare class Octokit {
      */
     removeProtectedBranchTeamRestrictions: {
       (
-        params?: Octokit.ReposRemoveProtectedBranchTeamRestrictionsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchTeamRestrictionsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposRemoveProtectedBranchTeamRestrictionsResponse
@@ -33550,7 +33970,8 @@ declare class Octokit {
      */
     removeProtectedBranchUserRestrictions: {
       (
-        params?: Octokit.ReposRemoveProtectedBranchUserRestrictionsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRemoveProtectedBranchUserRestrictionsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposRemoveProtectedBranchUserRestrictionsResponse
@@ -33570,7 +33991,8 @@ declare class Octokit {
      */
     replaceProtectedBranchAppRestrictions: {
       (
-        params?: Octokit.ReposReplaceProtectedBranchAppRestrictionsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposReplaceProtectedBranchAppRestrictionsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposReplaceProtectedBranchAppRestrictionsResponse
@@ -33584,7 +34006,8 @@ declare class Octokit {
      */
     replaceProtectedBranchRequiredStatusChecksContexts: {
       (
-        params?: Octokit.ReposReplaceProtectedBranchRequiredStatusChecksContextsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposReplaceProtectedBranchRequiredStatusChecksContextsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposReplaceProtectedBranchRequiredStatusChecksContextsResponse
@@ -33604,7 +34027,8 @@ declare class Octokit {
      */
     replaceProtectedBranchTeamRestrictions: {
       (
-        params?: Octokit.ReposReplaceProtectedBranchTeamRestrictionsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposReplaceProtectedBranchTeamRestrictionsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposReplaceProtectedBranchTeamRestrictionsResponse
@@ -33624,7 +34048,8 @@ declare class Octokit {
      */
     replaceProtectedBranchUserRestrictions: {
       (
-        params?: Octokit.ReposReplaceProtectedBranchUserRestrictionsParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposReplaceProtectedBranchUserRestrictionsParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposReplaceProtectedBranchUserRestrictionsResponse
@@ -33635,9 +34060,9 @@ declare class Octokit {
     };
 
     replaceTopics: {
-      (params?: Octokit.ReposReplaceTopicsParams): Promise<
-        Octokit.Response<Octokit.ReposReplaceTopicsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposReplaceTopicsParams
+      ): Promise<Octokit.Response<Octokit.ReposReplaceTopicsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33647,9 +34072,9 @@ declare class Octokit {
      * Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.
      */
     requestPageBuild: {
-      (params?: Octokit.ReposRequestPageBuildParams): Promise<
-        Octokit.Response<Octokit.ReposRequestPageBuildResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposRequestPageBuildParams
+      ): Promise<Octokit.Response<Octokit.ReposRequestPageBuildResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33657,7 +34082,10 @@ declare class Octokit {
      * This endpoint will return all community profile metrics, including an overall health score, repository description, the presence of documentation, detected code of conduct, detected license, and the presence of ISSUE\_TEMPLATE, PULL\_REQUEST\_TEMPLATE, README, and CONTRIBUTING files.
      */
     retrieveCommunityProfileMetrics: {
-      (params?: Octokit.ReposRetrieveCommunityProfileMetricsParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposRetrieveCommunityProfileMetricsParams
+      ): Promise<
         Octokit.Response<Octokit.ReposRetrieveCommunityProfileMetricsResponse>
       >;
 
@@ -33669,7 +34097,9 @@ declare class Octokit {
      * **Note**: Previously `/repos/:owner/:repo/hooks/:hook_id/test`
      */
     testPushHook: {
-      (params?: Octokit.ReposTestPushHookParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposTestPushHookParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33677,7 +34107,7 @@ declare class Octokit {
      * A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://help.github.com/articles/about-repository-transfers/).
      */
     transfer: {
-      (params?: Octokit.ReposTransferParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposTransferParams): Promise<
         Octokit.Response<Octokit.ReposTransferResponse>
       >;
 
@@ -33687,7 +34117,7 @@ declare class Octokit {
      * **Note**: To edit a repository's topics, use the [`topics` endpoint](https://developer.github.com/v3/repos/#replace-all-topics-for-a-repository).
      */
     update: {
-      (params?: Octokit.ReposUpdateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.ReposUpdateParams): Promise<
         Octokit.Response<Octokit.ReposUpdateResponse>
       >;
 
@@ -33703,17 +34133,18 @@ declare class Octokit {
      * **Note**: The list of users, apps, and teams in total is limited to 100 items.
      */
     updateBranchProtection: {
-      (params?: Octokit.ReposUpdateBranchProtectionParams): Promise<
-        Octokit.Response<Octokit.ReposUpdateBranchProtectionResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposUpdateBranchProtectionParams
+      ): Promise<Octokit.Response<Octokit.ReposUpdateBranchProtectionResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     updateCommitComment: {
-      (params?: Octokit.ReposUpdateCommitCommentParams): Promise<
-        Octokit.Response<Octokit.ReposUpdateCommitCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposUpdateCommitCommentParams
+      ): Promise<Octokit.Response<Octokit.ReposUpdateCommitCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33721,33 +34152,34 @@ declare class Octokit {
      * Creates a new file or updates an existing file in a repository.
      */
     updateFile: {
-      (params?: Octokit.ReposUpdateFileParams): Promise<
-        Octokit.Response<Octokit.ReposUpdateFileResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposUpdateFileParams
+      ): Promise<Octokit.Response<Octokit.ReposUpdateFileResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     updateHook: {
-      (params?: Octokit.ReposUpdateHookParams): Promise<
-        Octokit.Response<Octokit.ReposUpdateHookResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposUpdateHookParams
+      ): Promise<Octokit.Response<Octokit.ReposUpdateHookResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     updateInformationAboutPagesSite: {
-      (params?: Octokit.ReposUpdateInformationAboutPagesSiteParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposUpdateInformationAboutPagesSiteParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     updateInvitation: {
-      (params?: Octokit.ReposUpdateInvitationParams): Promise<
-        Octokit.Response<Octokit.ReposUpdateInvitationResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposUpdateInvitationParams
+      ): Promise<Octokit.Response<Octokit.ReposUpdateInvitationResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33760,7 +34192,8 @@ declare class Octokit {
      */
     updateProtectedBranchPullRequestReviewEnforcement: {
       (
-        params?: Octokit.ReposUpdateProtectedBranchPullRequestReviewEnforcementParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposUpdateProtectedBranchPullRequestReviewEnforcementParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposUpdateProtectedBranchPullRequestReviewEnforcementResponse
@@ -33776,7 +34209,8 @@ declare class Octokit {
      */
     updateProtectedBranchRequiredStatusChecks: {
       (
-        params?: Octokit.ReposUpdateProtectedBranchRequiredStatusChecksParams
+        params?: Octokit.RequestOptions &
+          Octokit.ReposUpdateProtectedBranchRequiredStatusChecksParams
       ): Promise<
         Octokit.Response<
           Octokit.ReposUpdateProtectedBranchRequiredStatusChecksResponse
@@ -33789,9 +34223,9 @@ declare class Octokit {
      * Users with push access to the repository can edit a release.
      */
     updateRelease: {
-      (params?: Octokit.ReposUpdateReleaseParams): Promise<
-        Octokit.Response<Octokit.ReposUpdateReleaseResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposUpdateReleaseParams
+      ): Promise<Octokit.Response<Octokit.ReposUpdateReleaseResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33799,9 +34233,9 @@ declare class Octokit {
      * Users with push access to the repository can edit a release asset.
      */
     updateReleaseAsset: {
-      (params?: Octokit.ReposUpdateReleaseAssetParams): Promise<
-        Octokit.Response<Octokit.ReposUpdateReleaseAssetResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposUpdateReleaseAssetParams
+      ): Promise<Octokit.Response<Octokit.ReposUpdateReleaseAssetResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33817,9 +34251,9 @@ declare class Octokit {
      * GitHub expects the asset data in its raw binary form, rather than JSON. You will send the raw binary content of the asset as the request body. Everything else about the endpoint is the same as the rest of the API. For example, you'll still need to pass your authentication to be able to upload an asset.
      */
     uploadReleaseAsset: {
-      (params?: Octokit.ReposUploadReleaseAssetParams): Promise<
-        Octokit.Response<Octokit.ReposUploadReleaseAssetResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.ReposUploadReleaseAssetParams
+      ): Promise<Octokit.Response<Octokit.ReposUploadReleaseAssetResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33845,7 +34279,7 @@ declare class Octokit {
      * Here, we're searching for the keyword `addClass` within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the `repo:jquery/jquery` repository.
      */
     code: {
-      (params?: Octokit.SearchCodeParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.SearchCodeParams): Promise<
         Octokit.Response<Octokit.SearchCodeResponse>
       >;
 
@@ -33863,7 +34297,7 @@ declare class Octokit {
      * Suppose you want to find commits related to CSS in the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository. Your query would look something like this:
      */
     commits: {
-      (params?: Octokit.SearchCommitsParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.SearchCommitsParams): Promise<
         Octokit.Response<Octokit.SearchCommitsResponse>
       >;
 
@@ -33879,7 +34313,7 @@ declare class Octokit {
      * In this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.
      */
     issues: {
-      (params?: Octokit.SearchIssuesParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.SearchIssuesParams): Promise<
         Octokit.Response<Octokit.SearchIssuesResponse>
       >;
 
@@ -33895,9 +34329,10 @@ declare class Octokit {
      * In this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.
      */
     issuesAndPullRequests: {
-      (params?: Octokit.SearchIssuesAndPullRequestsParams): Promise<
-        Octokit.Response<Octokit.SearchIssuesAndPullRequestsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.SearchIssuesAndPullRequestsParams
+      ): Promise<Octokit.Response<Octokit.SearchIssuesAndPullRequestsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33911,7 +34346,7 @@ declare class Octokit {
      * The labels that best match for the query appear first in the search results.
      */
     labels: {
-      (params?: Octokit.SearchLabelsParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.SearchLabelsParams): Promise<
         Octokit.Response<Octokit.SearchLabelsResponse>
       >;
 
@@ -33929,7 +34364,7 @@ declare class Octokit {
      * In this request, we're searching for repositories with the word `tetris` in the name, the description, or the README. We're limiting the results to only find repositories where the primary language is Assembly. We're sorting by stars in descending order, so that the most popular repositories appear first in the search results.
      */
     repos: {
-      (params?: Octokit.SearchReposParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.SearchReposParams): Promise<
         Octokit.Response<Octokit.SearchReposResponse>
       >;
 
@@ -33949,7 +34384,7 @@ declare class Octokit {
      * **Note:** A search for featured Ruby topics only has 6 total results, so a [Link header](https://developer.github.com/v3/#link-header) indicating pagination is not included in the response.
      */
     topics: {
-      (params?: Octokit.SearchTopicsParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.SearchTopicsParams): Promise<
         Octokit.Response<Octokit.SearchTopicsResponse>
       >;
 
@@ -33965,7 +34400,7 @@ declare class Octokit {
      * Here, we're looking at users with the name Tom. We're only interested in those with more than 42 repositories, and only if they have over 1,000 followers.
      */
     users: {
-      (params?: Octokit.SearchUsersParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.SearchUsersParams): Promise<
         Octokit.Response<Octokit.SearchUsersResponse>
       >;
 
@@ -33987,7 +34422,7 @@ declare class Octokit {
      * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
      */
     addMember: {
-      (params?: Octokit.TeamsAddMemberParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.TeamsAddMemberParams): Promise<
         Octokit.Response<Octokit.TeamsAddMemberResponse>
       >;
 
@@ -34005,9 +34440,10 @@ declare class Octokit {
      * If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.
      */
     addOrUpdateMembership: {
-      (params?: Octokit.TeamsAddOrUpdateMembershipParams): Promise<
-        Octokit.Response<Octokit.TeamsAddOrUpdateMembershipResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsAddOrUpdateMembershipParams
+      ): Promise<Octokit.Response<Octokit.TeamsAddOrUpdateMembershipResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34015,9 +34451,9 @@ declare class Octokit {
      * Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.
      */
     addOrUpdateProject: {
-      (params?: Octokit.TeamsAddOrUpdateProjectParams): Promise<
-        Octokit.Response<Octokit.TeamsAddOrUpdateProjectResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsAddOrUpdateProjectParams
+      ): Promise<Octokit.Response<Octokit.TeamsAddOrUpdateProjectResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34029,9 +34465,9 @@ declare class Octokit {
      * Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
      */
     addOrUpdateRepo: {
-      (params?: Octokit.TeamsAddOrUpdateRepoParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsAddOrUpdateRepoParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34041,9 +34477,9 @@ declare class Octokit {
      * You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
      */
     checkManagesRepo: {
-      (params?: Octokit.TeamsCheckManagesRepoParams): Promise<
-        Octokit.Response<Octokit.TeamsCheckManagesRepoResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsCheckManagesRepoParams
+      ): Promise<Octokit.Response<Octokit.TeamsCheckManagesRepoResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34051,7 +34487,7 @@ declare class Octokit {
      * To create a team, the authenticated user must be a member or owner of `:org`. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see "[Setting team creation permissions](https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization)."
      */
     create: {
-      (params?: Octokit.TeamsCreateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.TeamsCreateParams): Promise<
         Octokit.Response<Octokit.TeamsCreateResponse>
       >;
 
@@ -34063,9 +34499,9 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     createDiscussion: {
-      (params?: Octokit.TeamsCreateDiscussionParams): Promise<
-        Octokit.Response<Octokit.TeamsCreateDiscussionResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsCreateDiscussionParams
+      ): Promise<Octokit.Response<Octokit.TeamsCreateDiscussionResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34075,7 +34511,10 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     createDiscussionComment: {
-      (params?: Octokit.TeamsCreateDiscussionCommentParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsCreateDiscussionCommentParams
+      ): Promise<
         Octokit.Response<Octokit.TeamsCreateDiscussionCommentResponse>
       >;
 
@@ -34087,7 +34526,9 @@ declare class Octokit {
      * If you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.
      */
     delete: {
-      (params?: Octokit.TeamsDeleteParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.TeamsDeleteParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34095,9 +34536,9 @@ declare class Octokit {
      * Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     deleteDiscussion: {
-      (params?: Octokit.TeamsDeleteDiscussionParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsDeleteDiscussionParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34105,15 +34546,16 @@ declare class Octokit {
      * Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     deleteDiscussionComment: {
-      (params?: Octokit.TeamsDeleteDiscussionCommentParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsDeleteDiscussionCommentParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     get: {
-      (params?: Octokit.TeamsGetParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.TeamsGetParams): Promise<
         Octokit.Response<Octokit.TeamsGetResponse>
       >;
 
@@ -34123,7 +34565,7 @@ declare class Octokit {
      * Gets a team using the team's `slug`. GitHub generates the `slug` from the team `name`.
      */
     getByName: {
-      (params?: Octokit.TeamsGetByNameParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.TeamsGetByNameParams): Promise<
         Octokit.Response<Octokit.TeamsGetByNameResponse>
       >;
 
@@ -34133,9 +34575,9 @@ declare class Octokit {
      * Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     getDiscussion: {
-      (params?: Octokit.TeamsGetDiscussionParams): Promise<
-        Octokit.Response<Octokit.TeamsGetDiscussionResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsGetDiscussionParams
+      ): Promise<Octokit.Response<Octokit.TeamsGetDiscussionResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34143,9 +34585,10 @@ declare class Octokit {
      * Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     getDiscussionComment: {
-      (params?: Octokit.TeamsGetDiscussionCommentParams): Promise<
-        Octokit.Response<Octokit.TeamsGetDiscussionCommentResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsGetDiscussionCommentParams
+      ): Promise<Octokit.Response<Octokit.TeamsGetDiscussionCommentResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34157,7 +34600,9 @@ declare class Octokit {
      * To list members in a team, the team must be visible to the authenticated user.
      */
     getMember: {
-      (params?: Octokit.TeamsGetMemberParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.TeamsGetMemberParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34169,15 +34614,15 @@ declare class Octokit {
      * **Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team).
      */
     getMembership: {
-      (params?: Octokit.TeamsGetMembershipParams): Promise<
-        Octokit.Response<Octokit.TeamsGetMembershipResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsGetMembershipParams
+      ): Promise<Octokit.Response<Octokit.TeamsGetMembershipResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     list: {
-      (params?: Octokit.TeamsListParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.TeamsListParams): Promise<
         Octokit.Response<Octokit.TeamsListResponse>
       >;
 
@@ -34187,7 +34632,7 @@ declare class Octokit {
      * At this time, the `hellcat-preview` media type is required to use this endpoint.
      */
     listChild: {
-      (params?: Octokit.TeamsListChildParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.TeamsListChildParams): Promise<
         Octokit.Response<Octokit.TeamsListChildResponse>
       >;
 
@@ -34197,9 +34642,10 @@ declare class Octokit {
      * List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     listDiscussionComments: {
-      (params?: Octokit.TeamsListDiscussionCommentsParams): Promise<
-        Octokit.Response<Octokit.TeamsListDiscussionCommentsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsListDiscussionCommentsParams
+      ): Promise<Octokit.Response<Octokit.TeamsListDiscussionCommentsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34207,9 +34653,9 @@ declare class Octokit {
      * List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     listDiscussions: {
-      (params?: Octokit.TeamsListDiscussionsParams): Promise<
-        Octokit.Response<Octokit.TeamsListDiscussionsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsListDiscussionsParams
+      ): Promise<Octokit.Response<Octokit.TeamsListDiscussionsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34217,7 +34663,10 @@ declare class Octokit {
      * List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-oauth-apps/).
      */
     listForAuthenticatedUser: {
-      (params?: Octokit.TeamsListForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsListForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.TeamsListForAuthenticatedUserResponse>
       >;
 
@@ -34227,9 +34676,9 @@ declare class Octokit {
      * If you pass the `hellcat-preview` media type, team members will include the members of child teams.
      */
     listMembers: {
-      (params?: Octokit.TeamsListMembersParams): Promise<
-        Octokit.Response<Octokit.TeamsListMembersResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsListMembersParams
+      ): Promise<Octokit.Response<Octokit.TeamsListMembersResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34237,9 +34686,10 @@ declare class Octokit {
      * The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.
      */
     listPendingInvitations: {
-      (params?: Octokit.TeamsListPendingInvitationsParams): Promise<
-        Octokit.Response<Octokit.TeamsListPendingInvitationsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsListPendingInvitationsParams
+      ): Promise<Octokit.Response<Octokit.TeamsListPendingInvitationsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34247,9 +34697,9 @@ declare class Octokit {
      * Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.
      */
     listProjects: {
-      (params?: Octokit.TeamsListProjectsParams): Promise<
-        Octokit.Response<Octokit.TeamsListProjectsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsListProjectsParams
+      ): Promise<Octokit.Response<Octokit.TeamsListProjectsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34257,7 +34707,7 @@ declare class Octokit {
      * **Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team.
      */
     listRepos: {
-      (params?: Octokit.TeamsListReposParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.TeamsListReposParams): Promise<
         Octokit.Response<Octokit.TeamsListReposResponse>
       >;
 
@@ -34275,7 +34725,9 @@ declare class Octokit {
      * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
      */
     removeMember: {
-      (params?: Octokit.TeamsRemoveMemberParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsRemoveMemberParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34287,9 +34739,9 @@ declare class Octokit {
      * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
      */
     removeMembership: {
-      (params?: Octokit.TeamsRemoveMembershipParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsRemoveMembershipParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34297,7 +34749,9 @@ declare class Octokit {
      * Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it.
      */
     removeProject: {
-      (params?: Octokit.TeamsRemoveProjectParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsRemoveProjectParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34305,7 +34759,9 @@ declare class Octokit {
      * If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team.
      */
     removeRepo: {
-      (params?: Octokit.TeamsRemoveRepoParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsRemoveRepoParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34313,9 +34769,9 @@ declare class Octokit {
      * Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.
      */
     reviewProject: {
-      (params?: Octokit.TeamsReviewProjectParams): Promise<
-        Octokit.Response<Octokit.TeamsReviewProjectResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsReviewProjectParams
+      ): Promise<Octokit.Response<Octokit.TeamsReviewProjectResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34325,7 +34781,7 @@ declare class Octokit {
      * **Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.
      */
     update: {
-      (params?: Octokit.TeamsUpdateParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.TeamsUpdateParams): Promise<
         Octokit.Response<Octokit.TeamsUpdateResponse>
       >;
 
@@ -34335,9 +34791,9 @@ declare class Octokit {
      * Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     updateDiscussion: {
-      (params?: Octokit.TeamsUpdateDiscussionParams): Promise<
-        Octokit.Response<Octokit.TeamsUpdateDiscussionResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsUpdateDiscussionParams
+      ): Promise<Octokit.Response<Octokit.TeamsUpdateDiscussionResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34345,7 +34801,10 @@ declare class Octokit {
      * Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     updateDiscussionComment: {
-      (params?: Octokit.TeamsUpdateDiscussionCommentParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsUpdateDiscussionCommentParams
+      ): Promise<
         Octokit.Response<Octokit.TeamsUpdateDiscussionCommentResponse>
       >;
 
@@ -34357,7 +34816,7 @@ declare class Octokit {
      * This endpoint is accessible with the `user` scope.
      */
     addEmails: {
-      (params?: Octokit.UsersAddEmailsParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.UsersAddEmailsParams): Promise<
         Octokit.Response<Octokit.UsersAddEmailsResponse>
       >;
 
@@ -34365,7 +34824,9 @@ declare class Octokit {
     };
 
     block: {
-      (params?: Octokit.UsersBlockParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.UsersBlockParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34375,23 +34836,26 @@ declare class Octokit {
      * If the user is not blocked:
      */
     checkBlocked: {
-      (params?: Octokit.UsersCheckBlockedParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersCheckBlockedParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     checkFollowing: {
-      (params?: Octokit.UsersCheckFollowingParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersCheckFollowingParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
 
     checkFollowingForUser: {
-      (params?: Octokit.UsersCheckFollowingForUserParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.UsersCheckFollowingForUserParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34399,9 +34863,9 @@ declare class Octokit {
      * Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     createGpgKey: {
-      (params?: Octokit.UsersCreateGpgKeyParams): Promise<
-        Octokit.Response<Octokit.UsersCreateGpgKeyResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersCreateGpgKeyParams
+      ): Promise<Octokit.Response<Octokit.UsersCreateGpgKeyResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34409,9 +34873,9 @@ declare class Octokit {
      * Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     createPublicKey: {
-      (params?: Octokit.UsersCreatePublicKeyParams): Promise<
-        Octokit.Response<Octokit.UsersCreatePublicKeyResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersCreatePublicKeyParams
+      ): Promise<Octokit.Response<Octokit.UsersCreatePublicKeyResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34419,7 +34883,9 @@ declare class Octokit {
      * This endpoint is accessible with the `user` scope.
      */
     deleteEmails: {
-      (params?: Octokit.UsersDeleteEmailsParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersDeleteEmailsParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34427,7 +34893,9 @@ declare class Octokit {
      * Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     deleteGpgKey: {
-      (params?: Octokit.UsersDeleteGpgKeyParams): Promise<Octokit.AnyResponse>;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersDeleteGpgKeyParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34435,9 +34903,9 @@ declare class Octokit {
      * Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     deletePublicKey: {
-      (params?: Octokit.UsersDeletePublicKeyParams): Promise<
-        Octokit.AnyResponse
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersDeletePublicKeyParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34447,7 +34915,9 @@ declare class Octokit {
      * Following a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.
      */
     follow: {
-      (params?: Octokit.UsersFollowParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.UsersFollowParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34457,7 +34927,7 @@ declare class Octokit {
      * Lists public profile information when authenticated through OAuth without the `user` scope.
      */
     getAuthenticated: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.UsersGetAuthenticatedResponse>
       >;
 
@@ -34473,9 +34943,9 @@ declare class Octokit {
      * The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see "[Emails API](https://developer.github.com/v3/users/emails/)".
      */
     getByUsername: {
-      (params?: Octokit.UsersGetByUsernameParams): Promise<
-        Octokit.Response<Octokit.UsersGetByUsernameResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersGetByUsernameParams
+      ): Promise<Octokit.Response<Octokit.UsersGetByUsernameResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34485,9 +34955,9 @@ declare class Octokit {
      * The `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this:
      */
     getContextForUser: {
-      (params?: Octokit.UsersGetContextForUserParams): Promise<
-        Octokit.Response<Octokit.UsersGetContextForUserResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersGetContextForUserParams
+      ): Promise<Octokit.Response<Octokit.UsersGetContextForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34495,7 +34965,7 @@ declare class Octokit {
      * View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     getGpgKey: {
-      (params?: Octokit.UsersGetGpgKeyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.UsersGetGpgKeyParams): Promise<
         Octokit.Response<Octokit.UsersGetGpgKeyResponse>
       >;
 
@@ -34505,9 +34975,9 @@ declare class Octokit {
      * View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     getPublicKey: {
-      (params?: Octokit.UsersGetPublicKeyParams): Promise<
-        Octokit.Response<Octokit.UsersGetPublicKeyResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersGetPublicKeyParams
+      ): Promise<Octokit.Response<Octokit.UsersGetPublicKeyResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34517,7 +34987,7 @@ declare class Octokit {
      * Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of users.
      */
     list: {
-      (params?: Octokit.UsersListParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.UsersListParams): Promise<
         Octokit.Response<Octokit.UsersListResponse>
       >;
 
@@ -34527,7 +34997,7 @@ declare class Octokit {
      * List the users you've blocked on your personal account.
      */
     listBlocked: {
-      (params?: Octokit.EmptyParams): Promise<
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.UsersListBlockedResponse>
       >;
 
@@ -34537,15 +35007,18 @@ declare class Octokit {
      * Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the `user:email` scope.
      */
     listEmails: {
-      (params?: Octokit.UsersListEmailsParams): Promise<
-        Octokit.Response<Octokit.UsersListEmailsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersListEmailsParams
+      ): Promise<Octokit.Response<Octokit.UsersListEmailsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listFollowersForAuthenticatedUser: {
-      (params?: Octokit.UsersListFollowersForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.UsersListFollowersForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.UsersListFollowersForAuthenticatedUserResponse>
       >;
 
@@ -34553,15 +35026,19 @@ declare class Octokit {
     };
 
     listFollowersForUser: {
-      (params?: Octokit.UsersListFollowersForUserParams): Promise<
-        Octokit.Response<Octokit.UsersListFollowersForUserResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.UsersListFollowersForUserParams
+      ): Promise<Octokit.Response<Octokit.UsersListFollowersForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
 
     listFollowingForAuthenticatedUser: {
-      (params?: Octokit.UsersListFollowingForAuthenticatedUserParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.UsersListFollowingForAuthenticatedUserParams
+      ): Promise<
         Octokit.Response<Octokit.UsersListFollowingForAuthenticatedUserResponse>
       >;
 
@@ -34569,9 +35046,10 @@ declare class Octokit {
     };
 
     listFollowingForUser: {
-      (params?: Octokit.UsersListFollowingForUserParams): Promise<
-        Octokit.Response<Octokit.UsersListFollowingForUserResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.UsersListFollowingForUserParams
+      ): Promise<Octokit.Response<Octokit.UsersListFollowingForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34579,9 +35057,9 @@ declare class Octokit {
      * Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     listGpgKeys: {
-      (params?: Octokit.UsersListGpgKeysParams): Promise<
-        Octokit.Response<Octokit.UsersListGpgKeysResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersListGpgKeysParams
+      ): Promise<Octokit.Response<Octokit.UsersListGpgKeysResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34589,9 +35067,9 @@ declare class Octokit {
      * Lists the GPG keys for a user. This information is accessible by anyone.
      */
     listGpgKeysForUser: {
-      (params?: Octokit.UsersListGpgKeysForUserParams): Promise<
-        Octokit.Response<Octokit.UsersListGpgKeysForUserResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersListGpgKeysForUserParams
+      ): Promise<Octokit.Response<Octokit.UsersListGpgKeysForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34599,9 +35077,9 @@ declare class Octokit {
      * Lists your publicly visible email address, which you can set with the [Toggle primary email visibility](https://developer.github.com/v3/users/emails/#toggle-primary-email-visibility) endpoint. This endpoint is accessible with the `user:email` scope.
      */
     listPublicEmails: {
-      (params?: Octokit.UsersListPublicEmailsParams): Promise<
-        Octokit.Response<Octokit.UsersListPublicEmailsResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersListPublicEmailsParams
+      ): Promise<Octokit.Response<Octokit.UsersListPublicEmailsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34609,9 +35087,9 @@ declare class Octokit {
      * Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
     listPublicKeys: {
-      (params?: Octokit.UsersListPublicKeysParams): Promise<
-        Octokit.Response<Octokit.UsersListPublicKeysResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersListPublicKeysParams
+      ): Promise<Octokit.Response<Octokit.UsersListPublicKeysResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34619,9 +35097,10 @@ declare class Octokit {
      * Lists the _verified_ public SSH keys for a user. This is accessible by anyone.
      */
     listPublicKeysForUser: {
-      (params?: Octokit.UsersListPublicKeysForUserParams): Promise<
-        Octokit.Response<Octokit.UsersListPublicKeysForUserResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.UsersListPublicKeysForUserParams
+      ): Promise<Octokit.Response<Octokit.UsersListPublicKeysForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34629,7 +35108,10 @@ declare class Octokit {
      * Sets the visibility for your primary email addresses.
      */
     togglePrimaryEmailVisibility: {
-      (params?: Octokit.UsersTogglePrimaryEmailVisibilityParams): Promise<
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.UsersTogglePrimaryEmailVisibilityParams
+      ): Promise<
         Octokit.Response<Octokit.UsersTogglePrimaryEmailVisibilityResponse>
       >;
 
@@ -34637,7 +35119,9 @@ declare class Octokit {
     };
 
     unblock: {
-      (params?: Octokit.UsersUnblockParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.UsersUnblockParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34645,7 +35129,9 @@ declare class Octokit {
      * Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.
      */
     unfollow: {
-      (params?: Octokit.UsersUnfollowParams): Promise<Octokit.AnyResponse>;
+      (params?: Octokit.RequestOptions & Octokit.UsersUnfollowParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -34653,9 +35139,9 @@ declare class Octokit {
      * **Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.
      */
     updateAuthenticated: {
-      (params?: Octokit.UsersUpdateAuthenticatedParams): Promise<
-        Octokit.Response<Octokit.UsersUpdateAuthenticatedResponse>
-      >;
+      (
+        params?: Octokit.RequestOptions & Octokit.UsersUpdateAuthenticatedParams
+      ): Promise<Octokit.Response<Octokit.UsersUpdateAuthenticatedResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
