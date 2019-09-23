@@ -87,8 +87,8 @@ module.exports = {
           OctokitApiMethod: {
             name: node => node.name,
             scope: node => node.scope,
-            route: node => `${node.method} ${node.path}`,
-            method: node => `${node.scope}.${camelCase(node.idName)}`,
+            route: node => `${node.method} ${node.url}`,
+            method: node => `${node.example}`,
             slug: node => `#${node.id}`,
             type: node => "API method"
           }
