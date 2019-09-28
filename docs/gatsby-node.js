@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` });
-    const idName = _.kebabCase(node.frontmatter.title);
+    const idName = `${_.kebabCase(node.frontmatter.title)}`;
     createNodeField({
       node,
       name: `slug`,

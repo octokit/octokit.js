@@ -76,7 +76,7 @@ module.exports = {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
-            slug: node => `#octokit-${node.fields.idName}`,
+            slug: node => `#${node.fields.idName}`,
             type: node => "API"
           },
           OctokitApiGroup: {
