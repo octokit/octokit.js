@@ -1,63 +1,12 @@
 const _ = require("lodash");
-const { graphql } = require("@octokit/graphql");
+const ENDPOINTS = require("../../../scripts/update-endpoints/generated/endpoints.json");
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
-  const { endpoints } = await graphql(
-    `
-      {
-        endpoints(filter: { isLegacy: false, isGithubCloudOnly: false }) {
-          isDeprecated
-          documentationUrl
-          scope(format: CAMELCASE)
-          id(format: CAMELCASE)
-          name
-          description
-          method
-          url
-          parameters {
-            name
-            description
-            in
-            type
-            required
-            enum
-            allowNull
-            mapToData
-            validation
-            alias
-            deprecated
-          }
-          headers {
-            name
-            value
-          }
-          previews(required: true) {
-            name
-          }
-          renamed {
-            before(format: CAMELCASE)
-            after(format: CAMELCASE)
-            date
-            note
-          }
-          responses {
-            code
-            description
-            examples {
-              data
-            }
-          }
-        }
-      }
-    `,
-    { url: "https://octokit-routes-graphql-server.now.sh/" }
-  );
-
   const methodsByScope = {};
 
-  endpoints.forEach(endpoint => {
+  ENDPOINTS.forEach(endpoint => {
     const scopeId = `octokit-routes-${endpoint.scope}`;
     if (!methodsByScope[endpoint.scope]) {
       methodsByScope[endpoint.scope] = [];
