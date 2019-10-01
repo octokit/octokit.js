@@ -14,7 +14,7 @@ jobs:
         # try checking out routes-update branch. Ignore error if it does not exist
       - run: git checkout routes-update || true
       - run: npm ci
-      - run: npm run generate-routes
+      - run: npm run update-endpoints
       - name: Create Pull Request
         uses: gr2m/create-or-update-pull-request-action@v1
         env:
@@ -25,6 +25,13 @@ jobs:
             See what changed at https://github.com/octokit/routes/releases/latest.
 
             Make sure to update the commits so that the merge results in helpful release notes, see [Merging the Pull Request & releasing a new version](https://github.com/octokit/rest.js/blob/master/CONTRIBUTING.md#merging-the-pull-request--releasing-a-new-version).
+
+            In general
+
+            - Avoid breaking changes at all costs
+            - If there are no typescript or code changes, use a `docs` prefix
+            - If there are typescript changes but no code changes, use `fix(typescript)` prefix
+            - If there are code changes, use `fix` if a problem was resolved, `feat` if new endpoints / parameters were added, and `feat(deprecation)` if a method was deprecated.
           branch: "routes-update"
           commit-message: "WIP octokit/routes updated"
           author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
