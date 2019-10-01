@@ -5,6 +5,7 @@ const prettier = require("prettier");
 const sortKeys = require("sort-keys");
 
 const ENDPOINTS = require("./generated/endpoints.json");
+const WORKAROUNDS = require("./workarounds");
 
 const ROUTES_PATH = join(
   __dirname,
@@ -20,7 +21,7 @@ const newRoutes = {};
 generateRoutes();
 
 async function generateRoutes() {
-  ENDPOINTS.forEach(endpoint => {
+  ENDPOINTS.concat(WORKAROUNDS).forEach(endpoint => {
     const scope = endpoint.scope;
 
     if (!newRoutes[scope]) {
@@ -98,132 +99,6 @@ async function generateRoutes() {
       ].deprecated = `octokit.${scope}.${idName}() is deprecated, see ${endpoint.documentationUrl}`;
     }
   });
-
-  // temporary workaround to bring back obsolete `octokit.repos.getCommitRefSha()` method
-  newRoutes.repos.getCommitRefSha = {
-    deprecated:
-      '"Get the SHA-1 of a commit reference" will be removed. Use "Get a single commit" instead with media type format set to "sha" instead.',
-    method: "GET",
-    params: {
-      owner: {
-        required: true,
-        type: "string"
-      },
-      ref: {
-        required: true,
-        type: "string"
-      },
-      repo: {
-        required: true,
-        type: "string"
-      }
-    },
-    url: "/repos/:owner/:repo/commits/:ref"
-  };
-
-  // Temporary workarounds to bring back endpoints that got lost due to transition to OpenAPI spec of octokit/routes
-  // New API endpoints that will replace these are in the works, so that workaround can be removed soon
-  newRoutes.git.listRefs = {
-    method: "GET",
-    params: {
-      namespace: {
-        type: "string"
-      },
-      owner: {
-        required: true,
-        type: "string"
-      },
-      page: {
-        type: "integer"
-      },
-      per_page: {
-        type: "integer"
-      },
-      repo: {
-        required: true,
-        type: "string"
-      }
-    },
-    url: "/repos/:owner/:repo/git/refs/:namespace"
-  };
-  newRoutes.issues.updateLabel = {
-    method: "PATCH",
-    params: {
-      color: {
-        type: "string"
-      },
-      current_name: {
-        required: true,
-        type: "string"
-      },
-      description: {
-        type: "string"
-      },
-      name: {
-        type: "string"
-      },
-      owner: {
-        required: true,
-        type: "string"
-      },
-      repo: {
-        required: true,
-        type: "string"
-      }
-    },
-    url: "/repos/:owner/:repo/labels/:current_name"
-  };
-  newRoutes.pulls.createFromIssue = {
-    deprecated:
-      "octokit.pulls.createFromIssue() has been deprecated. Use octokit.pulls.create() instead.",
-    method: "POST",
-    params: {
-      base: { required: true, type: "string" },
-      draft: { type: "boolean" },
-      head: { required: true, type: "string" },
-      issue: { required: true, type: "integer" },
-      maintainer_can_modify: { type: "boolean" },
-      owner: { required: true, type: "string" },
-      repo: { required: true, type: "string" }
-    },
-    url: "/repos/:owner/:repo/pulls"
-  };
-
-  // workaround to bring back the simpler `octokit.repos.uploadReleaseAsset()` method
-  newRoutes.repos.uploadReleaseAsset = {
-    method: "POST",
-    params: {
-      file: {
-        mapTo: "data",
-        required: true,
-        type: "string | object"
-      },
-      headers: {
-        required: true,
-        type: "object"
-      },
-      "headers.content-length": {
-        required: true,
-        type: "integer"
-      },
-      "headers.content-type": {
-        required: true,
-        type: "string"
-      },
-      label: {
-        type: "string"
-      },
-      name: {
-        required: true,
-        type: "string"
-      },
-      url: {
-        required: true,
-        type: "string"
-      }
-    },
-    url: ":url"
-  };
 
   writeFileSync(
     ROUTES_PATH,

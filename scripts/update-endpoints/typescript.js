@@ -12,6 +12,7 @@ const { stringToJsdocComment } = require("string-to-jsdoc-comment");
 const sortKeys = require("sort-keys");
 
 const ENDPOINTS = require("./generated/endpoints.json");
+const WORKAROUNDS = require("./workarounds");
 
 const typeMap = {
   integer: "number",
@@ -261,7 +262,7 @@ async function generateTypes(languageName, templateFile, outputFile) {
 async function getRoutes() {
   const newRoutes = {};
 
-  ENDPOINTS.forEach(endpoint => {
+  ENDPOINTS.concat(WORKAROUNDS).forEach(endpoint => {
     const scope = endpoint.scope;
 
     if (!newRoutes[scope]) {

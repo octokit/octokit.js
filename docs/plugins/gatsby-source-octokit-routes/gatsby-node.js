@@ -1,12 +1,13 @@
 const _ = require("lodash");
 const ENDPOINTS = require("../../../scripts/update-endpoints/generated/endpoints.json");
+const WORKAROUNDS = require("../../../scripts/update-endpoints/workarounds");
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
   const methodsByScope = {};
 
-  ENDPOINTS.forEach(endpoint => {
+  ENDPOINTS.concat(WORKAROUNDS).forEach(endpoint => {
     const scopeId = `octokit-routes-${endpoint.scope}`;
     if (!methodsByScope[endpoint.scope]) {
       methodsByScope[endpoint.scope] = [];
