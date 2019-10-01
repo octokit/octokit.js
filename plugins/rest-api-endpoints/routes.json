@@ -2761,7 +2761,7 @@
       "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
     "createFromIssue": {
-      "deprecated": "octokit.pulls.createFromIssue() has been deprecated. Use octokit.pulls.create() instead.",
+      "deprecated": "octokit.pulls.createFromIssue() is deprecated, see https://developer.github.com/v3/pulls/#create-a-pull-request",
       "method": "POST",
       "params": {
         "base": { "required": true, "type": "string" },
@@ -4076,7 +4076,8 @@
       "url": "/repos/:owner/:repo/comments/:comment_id"
     },
     "getCommitRefSha": {
-      "deprecated": "\"Get the SHA-1 of a commit reference\" will be removed. Use \"Get a single commit\" instead with media type format set to \"sha\" instead.",
+      "deprecated": "octokit.repos.getCommitRefSha() is deprecated, see https://developer.github.com/v3/repos/commits/#get-a-single-commit",
+      "headers": { "accept": "application/vnd.github.v3.sha" },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
