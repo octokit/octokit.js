@@ -11,13 +11,20 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+        # try checking out routes-update branch. Ignore error if it does not exist
+      - run: git checkout routes-update || true
       - run: npm ci
       - run: npm run generate-routes
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v1.2.0
+        uses: gr2m/create-or-update-pull-request-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PULL_REQUEST_BRANCH: octokit-routes-update
-          COMMIT_MESSAGE: "WIP routes.json updated - edit changes and commit message as needed"
-          PULL_REQUEST_TITLE: octokit/routes updated
-          PULL_REQUEST_BODY: "A new version of octokit/routes was released. The update includes changes that require and update for `@octokit/rest`"
+        with:
+          title: "🚧 GitHub REST Endpoints changed"
+          body: |
+            See what changed at https://github.com/octokit/routes/releases/latest.
+
+            Make sure to update the commits so that the merge results in helpful release notes, see [Merging the Pull Request & releasing a new version](https://github.com/octokit/rest.js/blob/master/CONTRIBUTING.md#merging-the-pull-request--releasing-a-new-version).
+          branch: "routes-update"
+          commit-message: "WIP octokit/routes updated"
+          author: "Octokit Bot <33075676+octokitbot@users.noreply.github.com>"
