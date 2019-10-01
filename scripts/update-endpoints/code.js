@@ -3,10 +3,12 @@ const { join } = require("path");
 
 const prettier = require("prettier");
 const sortKeys = require("sort-keys");
-const { graphql } = require("@octokit/graphql");
+
+const ENDPOINTS = require("./generated/endpoints.json");
 
 const ROUTES_PATH = join(
   __dirname,
+  "..",
   "..",
   "plugins",
   "rest-api-endpoints",
@@ -18,49 +20,7 @@ const newRoutes = {};
 generateRoutes();
 
 async function generateRoutes() {
-  const { endpoints } = await graphql(
-    `
-      {
-        endpoints(filter: { isLegacy: false, isGithubCloudOnly: false }) {
-          isDeprecated
-          documentationUrl
-          scope(format: CAMELCASE)
-          id(format: CAMELCASE)
-          method
-          url
-          parameters {
-            name
-            description
-            in
-            type
-            required
-            enum
-            allowNull
-            mapToData
-            validation
-            alias
-            deprecated
-          }
-          headers {
-            name
-            value
-          }
-          previews(required: true) {
-            name
-          }
-          renamed {
-            before(format: CAMELCASE)
-            after(format: CAMELCASE)
-            date
-            note
-          }
-        }
-      }
-    `,
-    { url: "https://octokit-routes-graphql-server.now.sh/" }
-  );
-
-  endpoints.forEach(endpoint => {
+  ENDPOINTS.forEach(endpoint => {
     const scope = endpoint.scope;
 
     if (!newRoutes[scope]) {

@@ -9,8 +9,9 @@ const set = require("lodash.set");
 const TypeWriter = require("@gimenete/type-writer");
 const prettier = require("prettier");
 const { stringToJsdocComment } = require("string-to-jsdoc-comment");
-const { graphql } = require("@octokit/graphql");
 const sortKeys = require("sort-keys");
+
+const ENDPOINTS = require("./generated/endpoints.json");
 
 const typeMap = {
   integer: "number",
@@ -251,7 +252,7 @@ async function generateTypes(languageName, templateFile, outputFile) {
     parser: languageName.toLowerCase()
   });
 
-  const definitionFilePath = pathJoin(__dirname, "..", outputFile);
+  const definitionFilePath = pathJoin(__dirname, "..", "..", outputFile);
 
   writeFileSync(definitionFilePath, source, "utf8");
   console.log(`${languageName} declarations written to ${definitionFilePath}`);
@@ -259,57 +260,8 @@ async function generateTypes(languageName, templateFile, outputFile) {
 
 async function getRoutes() {
   const newRoutes = {};
-  const { endpoints } = await graphql(
-    `
-      {
-        endpoints(filter: { isLegacy: false, isGithubCloudOnly: false }) {
-          isDeprecated
-          documentationUrl
-          scope(format: CAMELCASE)
-          id(format: CAMELCASE)
-          description
-          method
-          url
-          parameters {
-            name
-            description
-            in
-            type
-            required
-            enum
-            allowNull
-            mapToData
-            validation
-            alias
-            deprecated
-          }
-          headers {
-            name
-            value
-          }
-          previews(required: true) {
-            name
-          }
-          renamed {
-            before(format: CAMELCASE)
-            after(format: CAMELCASE)
-            date
-            note
-          }
-          responses {
-            code
-            description
-            examples {
-              data
-            }
-          }
-        }
-      }
-    `,
-    { url: "https://octokit-routes-graphql-server.now.sh/" }
-  );
 
-  endpoints.forEach(endpoint => {
+  ENDPOINTS.forEach(endpoint => {
     const scope = endpoint.scope;
 
     if (!newRoutes[scope]) {
