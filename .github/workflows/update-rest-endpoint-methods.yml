@@ -16,7 +16,7 @@ jobs:
       - run: npm ci
       - run: npm run update-endpoints
       - name: Create Pull Request
-        uses: gr2m/create-or-update-pull-request-action@v1
+        uses: gr2m/create-or-update-pull-request-action@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
