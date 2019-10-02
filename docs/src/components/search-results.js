@@ -22,7 +22,7 @@ class Row extends PureComponent {
               (<code>{page.route}</code>)
             </small>
             <br />
-            <code>octokit.{page.method}</code>
+            <code>{page.method}</code>
           </a>
         </li>
       );
