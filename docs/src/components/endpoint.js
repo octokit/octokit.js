@@ -41,12 +41,29 @@ export default class EndPoint extends Component {
 
   render() {
     const method = this.props.method;
+    if (method.renamed) console.log(method);
     return (
       <React.Fragment>
         <h3 id={method.id} ref={this.headlineRef}>
           {method.name}
         </h3>
 
+        {method.isDeprecated && (
+          <aside className={apiStyles.deprecated}>
+            This method is deprecated.
+          </aside>
+        )}
+
+        {method.renamed && (
+          <aside className={apiStyles.deprecated}>
+            <div>
+              <strong>Deprecated</strong>
+            </div>
+            <span>
+              This method has been renamed from {method.renamed.before} to <a href={`#${method.renamed.afterId}`}>{method.renamed.after}</a>.
+            </span>
+          </aside>
+        )}
         <div dangerouslySetInnerHTML={{ __html: marked(method.description) }} />
 
         <div className="gatsby-highlight" data-language="js">
