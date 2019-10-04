@@ -44,7 +44,6 @@ export const query = graphql`
             example
             documentationUrl
             isDeprecated
-            scope
             parameters {
               name
               required

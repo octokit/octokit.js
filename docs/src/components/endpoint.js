@@ -41,7 +41,6 @@ export default class EndPoint extends Component {
 
   render() {
     const method = this.props.method;
-    if (method.renamed) console.log(method);
     return (
       <React.Fragment>
         <h3 id={method.id} ref={this.headlineRef}>
@@ -60,7 +59,8 @@ export default class EndPoint extends Component {
               <strong>Deprecated</strong>
             </div>
             <span>
-              This method has been renamed from {method.renamed.before} to <a href={`#${method.renamed.afterId}`}>{method.renamed.after}</a>.
+              This method has been renamed from {method.renamed.before} to{" "}
+              <a href={`#${method.renamed.afterId}`}>{method.renamed.after}</a>.
             </span>
           </aside>
         )}
