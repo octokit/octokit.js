@@ -43,10 +43,17 @@ export const query = graphql`
             description
             example
             documentationUrl
+            isDeprecated
+            scope
             parameters {
               name
               required
               description
+            }
+            renamed {
+              before
+              after
+              afterId
             }
           }
         }

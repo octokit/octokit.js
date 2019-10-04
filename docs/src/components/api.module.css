@@ -146,6 +146,13 @@ main h2:first-child {
   font-weight: bold;
 }
 
+.deprecated {
+  background-color: #ffe7e8;
+  padding: 1.25rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
 /* Hide the navigation on small screens, until the toggle button is pressed */
 @media (max-width: 55em) {
   /* --wide-enough-for-two-columns */
