@@ -87,6 +87,7 @@
     "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
     "build": "npm-run-all build:*",
+    "build:ts": "npm run -s update-endpoints:typescript",
     "prebuild:browser": "mkdirp dist/",
     "build:browser": "npm-run-all build:browser:*",
     "build:browser:development": "webpack --mode development --entry . --output-library=Octokit --output=./dist/octokit-rest.js --profile --json > dist/bundle-stats.json",
