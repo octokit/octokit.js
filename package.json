@@ -66,7 +66,7 @@
     "npm-run-all": "^4.1.2",
     "nyc": "^14.0.0",
     "prettier": "^1.14.2",
-    "proxy": "^0.2.4",
+    "proxy": "^1.0.0",
     "semantic-release": "^15.0.0",
     "sinon": "^7.2.4",
     "sinon-chai": "^3.0.0",
