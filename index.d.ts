@@ -21533,13 +21533,13 @@ declare namespace Octokit {
   };
   export type ActivityMarkAsReadParams = {
     /**
-     * Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Default: current date/time
+     * Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Default: The current timestamp.
      */
     last_read_at?: string;
   };
   export type ActivityMarkNotificationsAsReadForRepoParams = {
     /**
-     * Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Default: current date/time
+     * Describes the last point that notifications were checked. Anything updated since this time will not be updated. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Default: The current timestamp.
      */
     last_read_at?: string;
 
@@ -22476,11 +22476,38 @@ declare namespace Octokit {
 
     repo: string;
   };
-  export type IssuesCreateParams = {
+  export type IssuesCreateParamsDeprecatedAssignee = {
     /**
      * Login for the user that this issue should be assigned to. _NOTE: Only users with push access can set the assignee for new issues. The assignee is silently dropped otherwise. **This field is deprecated.**_
+     * @deprecated "assignee" parameter has been deprecated and will be removed in future
      */
     assignee?: string;
+    /**
+     * Logins for Users to assign to this issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
+     */
+    assignees?: string[];
+    /**
+     * The contents of the issue.
+     */
+    body?: string;
+    /**
+     * Labels to associate with this issue. _NOTE: Only users with push access can set labels for new issues. Labels are silently dropped otherwise._
+     */
+    labels?: string[];
+    /**
+     * The `number` of the milestone to associate this issue with. _NOTE: Only users with push access can set the milestone for new issues. The milestone is silently dropped otherwise._
+     */
+    milestone?: number;
+
+    owner: string;
+
+    repo: string;
+    /**
+     * The title of the issue.
+     */
+    title: string;
+  };
+  export type IssuesCreateParams = {
     /**
      * Logins for Users to assign to this issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
      */
@@ -23231,10 +23258,6 @@ declare namespace Octokit {
   };
   export type IssuesUpdateParamsDeprecatedNumber = {
     /**
-     * Login for the user that this issue should be assigned to. **This field is deprecated.**
-     */
-    assignee?: string;
-    /**
      * Logins for Users to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this Issue. Send an empty array (`[]`) to clear all assignees from the Issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
      */
     assignees?: string[];
@@ -23267,11 +23290,44 @@ declare namespace Octokit {
      */
     title?: string;
   };
-  export type IssuesUpdateParams = {
+  export type IssuesUpdateParamsDeprecatedAssignee = {
     /**
      * Login for the user that this issue should be assigned to. **This field is deprecated.**
+     * @deprecated "assignee" parameter has been deprecated and will be removed in future
      */
     assignee?: string;
+    /**
+     * Logins for Users to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this Issue. Send an empty array (`[]`) to clear all assignees from the Issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
+     */
+    assignees?: string[];
+    /**
+     * The contents of the issue.
+     */
+    body?: string;
+
+    issue_number: number;
+    /**
+     * Labels to associate with this issue. Pass one or more Labels to _replace_ the set of Labels on this Issue. Send an empty array (`[]`) to clear all Labels from the Issue. _NOTE: Only users with push access can set labels for issues. Labels are silently dropped otherwise._
+     */
+    labels?: string[];
+    /**
+     * The `number` of the milestone to associate this issue with or `null` to remove current. _NOTE: Only users with push access can set the milestone for issues. The milestone is silently dropped otherwise._
+     */
+    milestone?: number | null;
+
+    owner: string;
+
+    repo: string;
+    /**
+     * State of the issue. Either `open` or `closed`.
+     */
+    state?: "open" | "closed";
+    /**
+     * The title of the issue.
+     */
+    title?: string;
+  };
+  export type IssuesUpdateParams = {
     /**
      * Logins for Users to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this Issue. Send an empty array (`[]`) to clear all assignees from the Issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
      */
@@ -25780,10 +25836,6 @@ declare namespace Octokit {
      * The contents of the comment.
      */
     body: string;
-    /**
-     * **Deprecated**. Use **position** parameter instead. Line number in the file to comment on.
-     */
-    line?: number;
 
     owner: string;
     /**
@@ -25801,7 +25853,7 @@ declare namespace Octokit {
      */
     sha: string;
   };
-  export type ReposCreateCommitCommentParams = {
+  export type ReposCreateCommitCommentParamsDeprecatedLine = {
     /**
      * The contents of the comment.
      */
@@ -25810,8 +25862,29 @@ declare namespace Octokit {
     commit_sha: string;
     /**
      * **Deprecated**. Use **position** parameter instead. Line number in the file to comment on.
+     * @deprecated "line" parameter has been deprecated and will be removed in future
      */
     line?: number;
+
+    owner: string;
+    /**
+     * Relative path of the file to comment on.
+     */
+    path?: string;
+    /**
+     * Line index in the diff to comment on.
+     */
+    position?: number;
+
+    repo: string;
+  };
+  export type ReposCreateCommitCommentParams = {
+    /**
+     * The contents of the comment.
+     */
+    body: string;
+
+    commit_sha: string;
 
     owner: string;
     /**
@@ -27848,7 +27921,7 @@ declare namespace Octokit {
 
     team_id: number;
   };
-  export type TeamsCreateParams = {
+  export type TeamsCreateParamsDeprecatedPermission = {
     /**
      * The description of the team.
      */
@@ -27872,8 +27945,45 @@ declare namespace Octokit {
      * \* `pull` - team members can pull, but not push to or administer newly-added repositories.
      * \* `push` - team members can pull and push, but not administer newly-added repositories.
      * \* `admin` - team members can pull, push and administer newly-added repositories.
+     * @deprecated "permission" parameter has been deprecated and will be removed in future
      */
-    permission?: "pull" | "push" | "admin";
+    permission?: string;
+    /**
+     * The level of privacy this team should have. The options are:
+     * **For a non-nested team:**
+     * \* `secret` - only visible to organization owners and members of this team.
+     * \* `closed` - visible to all members of this organization.
+     * Default: `secret`
+     * **For a parent or child team:**
+     * \* `closed` - visible to all members of this organization.
+     * Default for child team: `closed`
+     * **Note**: You must pass the `hellcat-preview` media type to set privacy default to `closed` for child teams.
+     */
+    privacy?: "secret" | "closed";
+    /**
+     * The full name (e.g., "organization-name/repository-name") of repositories to add the team to.
+     */
+    repo_names?: string[];
+  };
+  export type TeamsCreateParams = {
+    /**
+     * The description of the team.
+     */
+    description?: string;
+    /**
+     * The logins of organization members to add as maintainers of the team.
+     */
+    maintainers?: string[];
+    /**
+     * The name of the team.
+     */
+    name: string;
+
+    org: string;
+    /**
+     * The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
+     */
+    parent_team_id?: number;
     /**
      * The level of privacy this team should have. The options are:
      * **For a non-nested team:**
@@ -28111,7 +28221,7 @@ declare namespace Octokit {
 
     team_id: number;
   };
-  export type TeamsUpdateParams = {
+  export type TeamsUpdateParamsDeprecatedPermission = {
     /**
      * The description of the team.
      */
@@ -28129,8 +28239,34 @@ declare namespace Octokit {
      * \* `pull` - team members can pull, but not push to or administer newly-added repositories.
      * \* `push` - team members can pull and push, but not administer newly-added repositories.
      * \* `admin` - team members can pull, push and administer newly-added repositories.
+     * @deprecated "permission" parameter has been deprecated and will be removed in future
      */
-    permission?: "pull" | "push" | "admin";
+    permission?: string;
+    /**
+     * The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:
+     * **For a non-nested team:**
+     * \* `secret` - only visible to organization owners and members of this team.
+     * \* `closed` - visible to all members of this organization.
+     * **For a parent or child team:**
+     * \* `closed` - visible to all members of this organization.
+     */
+    privacy?: "secret" | "closed";
+
+    team_id: number;
+  };
+  export type TeamsUpdateParams = {
+    /**
+     * The description of the team.
+     */
+    description?: string;
+    /**
+     * The name of the team.
+     */
+    name: string;
+    /**
+     * The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
+     */
+    parent_team_id?: number;
     /**
      * The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:
      * **For a non-nested team:**
@@ -28915,7 +29051,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Marking a notification as "read" removes it from the [default view on GitHub](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the [List your notifications](https://developer.github.com/v3/activity/notifications/#list-your-notifications) endpoint and pass the query parameter `all=false`.
+     * Marks a notification as "read" removes it from the [default view on GitHub](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the [List your notifications](https://developer.github.com/v3/activity/notifications/#list-your-notifications) endpoint and pass the query parameter `all=false`.
      */
     markAsRead: {
       (
@@ -28925,7 +29061,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Marking all notifications in a repository as "read" removes them from the [default view on GitHub](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the [List your notifications in a repository](https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository) endpoint and pass the query parameter `all=false`.
+     * Marks all notifications in a repository as "read" removes them from the [default view on GitHub](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the [List your notifications in a repository](https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository) endpoint and pass the query parameter `all=false`.
      */
     markNotificationsAsReadForRepo: {
       (
@@ -29096,6 +29232,7 @@ declare class Octokit {
      * Enables an authenticated GitHub App to find the organization's installation information.
      *
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+     * @deprecated octokit.apps.findOrgInstallation() has been renamed to octokit.apps.getOrgInstallation() (2019-04-10)
      */
     findOrgInstallation: {
       (
@@ -29108,6 +29245,7 @@ declare class Octokit {
      * Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.
      *
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+     * @deprecated octokit.apps.findRepoInstallation() has been renamed to octokit.apps.getRepoInstallation() (2019-04-10)
      */
     findRepoInstallation: {
       (
@@ -29120,6 +29258,7 @@ declare class Octokit {
      * Enables an authenticated GitHub App to find the user’s installation information.
      *
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+     * @deprecated octokit.apps.findUserInstallation() has been renamed to octokit.apps.getUserInstallation() (2019-04-10)
      */
     findUserInstallation: {
       (
@@ -30086,6 +30225,10 @@ declare class Octokit {
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      */
     create: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesCreateParamsDeprecatedAssignee
+      ): Promise<Octokit.Response<Octokit.IssuesCreateResponse>>;
       (params?: Octokit.RequestOptions & Octokit.IssuesCreateParams): Promise<
         Octokit.Response<Octokit.IssuesCreateResponse>
       >;
@@ -30461,6 +30604,10 @@ declare class Octokit {
         params?: Octokit.RequestOptions &
           Octokit.IssuesUpdateParamsDeprecatedNumber
       ): Promise<Octokit.Response<Octokit.IssuesUpdateResponse>>;
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.IssuesUpdateParamsDeprecatedAssignee
+      ): Promise<Octokit.Response<Octokit.IssuesUpdateResponse>>;
       (params?: Octokit.RequestOptions & Octokit.IssuesUpdateParams): Promise<
         Octokit.Response<Octokit.IssuesUpdateResponse>
       >;
@@ -30516,7 +30663,9 @@ declare class Octokit {
 
       endpoint: Octokit.Endpoint;
     };
-
+    /**
+     * @deprecated octokit.licenses.list() has been renamed to octokit.licenses.listCommonlyUsed() (2019-03-05)
+     */
     list: {
       (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
         Octokit.Response<Octokit.LicensesListResponse>
@@ -30976,6 +31125,7 @@ declare class Octokit {
      * This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.
      *
      * If you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see "[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication)."
+     * @deprecated octokit.oauthAuthorizations.getOrCreateAuthorizationForAppFingerprint() has been renamed to octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint() (2018-12-27)
      */
     getOrCreateAuthorizationForAppFingerprint: {
       (
@@ -31734,6 +31884,7 @@ declare class Octokit {
      * **Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.
      *
      * The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
+     * @deprecated octokit.pulls.createCommentReply() has been renamed to octokit.pulls.createComment() (2019-09-09)
      */
     createCommentReply: {
       (
@@ -32507,6 +32658,10 @@ declare class Octokit {
           Octokit.ReposCreateCommitCommentParamsDeprecatedSha
       ): Promise<Octokit.Response<Octokit.ReposCreateCommitCommentResponse>>;
       (
+        params?: Octokit.RequestOptions &
+          Octokit.ReposCreateCommitCommentParamsDeprecatedLine
+      ): Promise<Octokit.Response<Octokit.ReposCreateCommitCommentResponse>>;
+      (
         params?: Octokit.RequestOptions & Octokit.ReposCreateCommitCommentParams
       ): Promise<Octokit.Response<Octokit.ReposCreateCommitCommentResponse>>;
 
@@ -32579,6 +32734,7 @@ declare class Octokit {
     };
     /**
      * Creates a new file or updates an existing file in a repository.
+     * @deprecated octokit.repos.createFile() has been renamed to octokit.repos.createOrUpdateFile() (2019-06-07)
      */
     createFile: {
       (
@@ -33030,6 +33186,7 @@ declare class Octokit {
      * application/vnd.github.VERSION.sha
      * ```
      * Returns the SHA-1 of the commit reference. You must have `read` access for the repository to get the SHA-1 of a commit reference. You can use this endpoint to check if a remote reference's SHA-1 is the same as your local reference's SHA-1 by providing the local SHA-1 reference as the ETag.
+     * @deprecated "Get the SHA-1 of a commit reference" will be removed. Use "Get a single commit" instead with media type format set to "sha" instead.
      */
     getCommitRefSha: {
       (
@@ -33396,6 +33553,7 @@ declare class Octokit {
      * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      *
      * Lists the GitHub Apps that have push access to this branch. Only installed GitHub Apps with `write` access to the `contents` permission can be added as authorized actors on a protected branch.
+     * @deprecated octokit.repos.listAppsWithAccessToProtectedBranch() has been renamed to octokit.repos.getAppsWithAccessToProtectedBranch() (2019-09-13)
      */
     listAppsWithAccessToProtectedBranch: {
       (
@@ -33657,6 +33815,7 @@ declare class Octokit {
      * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      *
      * Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.
+     * @deprecated octokit.repos.listProtectedBranchTeamRestrictions() has been renamed to octokit.repos.getTeamsWithAccessToProtectedBranch() (2019-09-09)
      */
     listProtectedBranchTeamRestrictions: {
       (
@@ -33674,6 +33833,7 @@ declare class Octokit {
      * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      *
      * Lists the people who have push access to this branch.
+     * @deprecated octokit.repos.listProtectedBranchUserRestrictions() has been renamed to octokit.repos.getUsersWithAccessToProtectedBranch() (2019-09-09)
      */
     listProtectedBranchUserRestrictions: {
       (
@@ -33758,6 +33918,7 @@ declare class Octokit {
      * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      *
      * Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.
+     * @deprecated octokit.repos.listTeamsWithAccessToProtectedBranch() has been renamed to octokit.repos.getTeamsWithAccessToProtectedBranch() (2019-09-13)
      */
     listTeamsWithAccessToProtectedBranch: {
       (
@@ -33783,6 +33944,7 @@ declare class Octokit {
      * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
      *
      * Lists the people who have push access to this branch.
+     * @deprecated octokit.repos.listUsersWithAccessToProtectedBranch() has been renamed to octokit.repos.getUsersWithAccessToProtectedBranch() (2019-09-13)
      */
     listUsersWithAccessToProtectedBranch: {
       (
@@ -34150,6 +34312,7 @@ declare class Octokit {
     };
     /**
      * Creates a new file or updates an existing file in a repository.
+     * @deprecated octokit.repos.updateFile() has been renamed to octokit.repos.createOrUpdateFile() (2019-06-07)
      */
     updateFile: {
       (
@@ -34311,6 +34474,7 @@ declare class Octokit {
      * Let's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.
      *
      * In this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.
+     * @deprecated octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)
      */
     issues: {
       (params?: Octokit.RequestOptions & Octokit.SearchIssuesParams): Promise<
@@ -34420,6 +34584,7 @@ declare class Octokit {
      * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
      *
      * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
+     * @deprecated octokit.teams.addMember() is deprecated, see https://developer.github.com/v3/teams/members/#add-team-member
      */
     addMember: {
       (params?: Octokit.RequestOptions & Octokit.TeamsAddMemberParams): Promise<
@@ -34487,6 +34652,10 @@ declare class Octokit {
      * To create a team, the authenticated user must be a member or owner of `:org`. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see "[Setting team creation permissions](https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization)."
      */
     create: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsCreateParamsDeprecatedPermission
+      ): Promise<Octokit.Response<Octokit.TeamsCreateResponse>>;
       (params?: Octokit.RequestOptions & Octokit.TeamsCreateParams): Promise<
         Octokit.Response<Octokit.TeamsCreateResponse>
       >;
@@ -34598,6 +34767,7 @@ declare class Octokit {
      * We recommend using the [Get team membership API](https://developer.github.com/v3/teams/members/#get-team-membership) instead. It allows you to get both active and pending memberships.
      *
      * To list members in a team, the team must be visible to the authenticated user.
+     * @deprecated octokit.teams.getMember() is deprecated, see https://developer.github.com/v3/teams/members/#get-team-member
      */
     getMember: {
       (params?: Octokit.RequestOptions & Octokit.TeamsGetMemberParams): Promise<
@@ -34723,6 +34893,7 @@ declare class Octokit {
      * To remove a team member, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. Removing a team member does not delete the user, it just removes them from the team.
      *
      * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
+     * @deprecated octokit.teams.removeMember() is deprecated, see https://developer.github.com/v3/teams/members/#remove-team-member
      */
     removeMember: {
       (
@@ -34781,6 +34952,10 @@ declare class Octokit {
      * **Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.
      */
     update: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsUpdateParamsDeprecatedPermission
+      ): Promise<Octokit.Response<Octokit.TeamsUpdateResponse>>;
       (params?: Octokit.RequestOptions & Octokit.TeamsUpdateParams): Promise<
         Octokit.Response<Octokit.TeamsUpdateResponse>
       >;
