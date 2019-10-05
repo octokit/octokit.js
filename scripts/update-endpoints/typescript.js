@@ -120,11 +120,6 @@ async function generateTypes(languageName, templateFile, outputFile) {
             }
 
             const newParamName = entry.params[name].alias;
-
-            if (name === "in_reply_to") {
-              debugger;
-            }
-
             const newParam = Object.assign(
               {
                 type: entry.params[name].type
@@ -214,10 +209,17 @@ async function generateTypes(languageName, templateFile, outputFile) {
           });
         });
 
+        const description = [
+          entry.description,
+          entry.deprecated && `@deprecated ${entry.deprecated}`
+        ]
+          .filter(Boolean)
+          .join("\n");
+
         return methods.concat({
           method: methodName,
           responseType,
-          jsdoc: stringToJsdocComment(entry.description),
+          jsdoc: stringToJsdocComment(description),
           paramTypes
         });
       },
