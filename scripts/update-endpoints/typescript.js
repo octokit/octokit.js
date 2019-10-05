@@ -320,6 +320,12 @@ async function getRoutes() {
             result[param.name].description = param.description;
           }
         }
+        if (
+          typeof param.description === "string" &&
+          param.description.match(/deprecated/i)
+        ) {
+          result[param.name].deprecated = true;
+        }
 
         return result;
       }, {}),
