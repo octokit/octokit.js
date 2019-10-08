@@ -38,6 +38,14 @@ Learn more about [API Previews](#previews).
   previews: ['jean-grey', 'symmetra'],
 ```
 
+A default time zone can be enabled by setting the `timeZone` option.
+
+```js
+  timeZone: 'Europe/Amsterdam',
+```
+
+Learn more about [using time zones with the GitHub API](https://developer.github.com/v3/#using-the-time-zone-header).
+
 In order to use Octokit with GitHub Enterprise, set the `baseUrl` option.
 
 ```js
