@@ -83,6 +83,16 @@ describe("smoke", () => {
     });
   });
 
+  it("timeZone option", () => {
+    const octokit = new Octokit({
+      baseUrl: "https://smoke-test.com",
+      timeZone: "Europe/Amsterdam"
+    });
+
+    const requestOptions = octokit.repos.get.endpoint("GET /");
+    expect(requestOptions.headers["time-zone"]).to.equal("Europe/Amsterdam");
+  });
+
   it("request option", () => {
     const octokit = new Octokit({
       request: {
