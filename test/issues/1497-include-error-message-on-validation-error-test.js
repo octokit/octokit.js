@@ -8,7 +8,7 @@ describe("https://github.com/octokit/rest.js/issues/1497", () => {
     nock("https://request-errors-test.com", {
       reqheaders: {
         accept:
-          "application/vnd.github.v3+json,application/vnd.github.hellcat-preview+json,application/vnd.github.luke-cage-preview+json,application/vnd.github.zzzax-preview+json",
+          "application/vnd.github.machine-man-preview+json,application/vnd.github.hellcat-preview+json,application/vnd.github.luke-cage-preview+json,application/vnd.github.zzzax-preview+json",
         authorization: "Bearer dXNlcm5hbWU6cGFzc3dvcmQ="
       }
     })
