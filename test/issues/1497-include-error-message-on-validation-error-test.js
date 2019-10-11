@@ -24,7 +24,7 @@ describe("https://github.com/octokit/rest.js/issues/1497", () => {
         restrictions: { users: [], teams: [] }
       })
       .reply(403, {
-        message: "Validation Failed",
+        message: "Validation failed",
         errors: [
           "Only organization repositories can have users and team restrictions"
         ],
@@ -58,7 +58,7 @@ describe("https://github.com/octokit/rest.js/issues/1497", () => {
       .catch(error => {
         expect(error).to.have.property(
           "message",
-          "Validation failed: Only organization repositories can have users and team restrictions"
+          `Validation failed: "Only organization repositories can have users and team restrictions"`
         );
       });
   });
