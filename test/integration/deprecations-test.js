@@ -678,7 +678,7 @@ describe("deprecations", () => {
 
     octokit.hook.wrap("request", (request, options) => {
       expect(options.headers["user-agent"]).to.match(
-        /^blah octokit\.js\/0\.0\.0-semantically-released /
+        /^blah octokit\.js\/0\.0\.0-development /
       );
       return "ok";
     });

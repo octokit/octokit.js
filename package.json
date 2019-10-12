@@ -1,6 +1,6 @@
 {
   "name": "@octokit/rest",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"
   },

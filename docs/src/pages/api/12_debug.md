@@ -20,7 +20,7 @@ request { method: 'GET',
   headers:
    { accept: 'application/vnd.github.v3+json',
      'user-agent':
-      'octokit.js/0.0.0-semantically-released Node.js/10.15.0 (macOS Mojave; x64)' },
+      'octokit.js/0.0.0-development Node.js/10.15.0 (macOS Mojave; x64)' },
   request: {},
   url: '/' }
 GET / - 200 in 514ms

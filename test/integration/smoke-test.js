@@ -25,7 +25,7 @@ describe("smoke", () => {
   it("userAgent option", () => {
     nock("https://smoke-test.com", {
       reqheaders: {
-        "user-agent": `blah octokit.js/0.0.0-semantically-released ${getUserAgent()}`
+        "user-agent": `blah octokit.js/0.0.0-development ${getUserAgent()}`
       }
     })
       .get("/")
@@ -158,7 +158,7 @@ describe("smoke", () => {
       url: "https://smoke-test.com/",
       headers: {
         accept: "application/vnd.github.v3+json",
-        "user-agent": `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
+        "user-agent": `octokit.js/0.0.0-development ${getUserAgent()}`
       },
       request: {
         hook: requestOptions.request.hook
@@ -178,7 +178,7 @@ describe("smoke", () => {
       url: "https://smoke-test.com/",
       headers: {
         accept: "application/vnd.github.v3+json",
-        "user-agent": `octokit.js/0.0.0-semantically-released ${getUserAgent()}`
+        "user-agent": `octokit.js/0.0.0-development ${getUserAgent()}`
       },
       request: {
         hook: requestOptions.request.hook,
