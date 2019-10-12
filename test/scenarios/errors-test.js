@@ -23,7 +23,9 @@ describe("api.github.com", () => {
       })
 
       .catch(error => {
-        expect(error.message).to.equal("Validation Failed");
+        expect(error.message).to.equal(
+          `Validation Failed: {"resource":"Label","code":"invalid","field":"color"}`
+        );
         expect(error.errors).to.deep.equal([
           {
             resource: "Label",
