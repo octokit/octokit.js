@@ -1024,7 +1024,7 @@
           "type": "string"
         },
         "tree[].path": { "type": "string" },
-        "tree[].sha": { "type": "string" },
+        "tree[].sha": { "allowNull": true, "type": "string" },
         "tree[].type": { "enum": ["blob", "tree", "commit"], "type": "string" }
       },
       "url": "/repos/:owner/:repo/git/trees"
@@ -1063,7 +1063,7 @@
         "ref": { "required": true, "type": "string" },
         "repo": { "required": true, "type": "string" }
       },
-      "url": "/repos/:owner/:repo/git/refs/:ref"
+      "url": "/repos/:owner/:repo/git/ref/:ref"
     },
     "getTag": {
       "method": "GET",
@@ -1083,6 +1083,17 @@
         "tree_sha": { "required": true, "type": "string" }
       },
       "url": "/repos/:owner/:repo/git/trees/:tree_sha"
+    },
+    "listMatchingRefs": {
+      "method": "GET",
+      "params": {
+        "owner": { "required": true, "type": "string" },
+        "page": { "type": "integer" },
+        "per_page": { "type": "integer" },
+        "ref": { "required": true, "type": "string" },
+        "repo": { "required": true, "type": "string" }
+      },
+      "url": "/repos/:owner/:repo/git/matching-refs/:ref"
     },
     "listRefs": {
       "method": "GET",
@@ -2279,6 +2290,18 @@
       },
       "url": "/orgs/:org/hooks"
     },
+    "listInstallations": {
+      "headers": {
+        "accept": "application/vnd.github.machine-man-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "org": { "required": true, "type": "string" },
+        "page": { "type": "integer" },
+        "per_page": { "type": "integer" }
+      },
+      "url": "/orgs/:org/installations"
+    },
     "listInvitationTeams": {
       "method": "GET",
       "params": {
@@ -2723,6 +2746,7 @@
           "description": "The comment ID to reply to. **Note**: This must be the ID of a top-level comment, not a reply to that comment. Replies to replies are not supported.",
           "type": "integer"
         },
+        "line": { "type": "integer" },
         "number": {
           "alias": "pull_number",
           "deprecated": true,
@@ -2730,9 +2754,12 @@
         },
         "owner": { "required": true, "type": "string" },
         "path": { "required": true, "type": "string" },
-        "position": { "required": true, "type": "integer" },
+        "position": { "type": "integer" },
         "pull_number": { "required": true, "type": "integer" },
-        "repo": { "required": true, "type": "string" }
+        "repo": { "required": true, "type": "string" },
+        "side": { "enum": ["LEFT", "RIGHT"], "type": "string" },
+        "start_line": { "type": "integer" },
+        "start_side": { "enum": ["LEFT", "RIGHT", "side"], "type": "string" }
       },
       "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
@@ -2747,6 +2774,7 @@
           "description": "The comment ID to reply to. **Note**: This must be the ID of a top-level comment, not a reply to that comment. Replies to replies are not supported.",
           "type": "integer"
         },
+        "line": { "type": "integer" },
         "number": {
           "alias": "pull_number",
           "deprecated": true,
@@ -2754,9 +2782,12 @@
         },
         "owner": { "required": true, "type": "string" },
         "path": { "required": true, "type": "string" },
-        "position": { "required": true, "type": "integer" },
+        "position": { "type": "integer" },
         "pull_number": { "required": true, "type": "integer" },
-        "repo": { "required": true, "type": "string" }
+        "repo": { "required": true, "type": "string" },
+        "side": { "enum": ["LEFT", "RIGHT"], "type": "string" },
+        "start_line": { "type": "integer" },
+        "start_side": { "enum": ["LEFT", "RIGHT", "side"], "type": "string" }
       },
       "url": "/repos/:owner/:repo/pulls/:pull_number/comments"
     },
@@ -3668,6 +3699,7 @@
       "headers": { "accept": "application/vnd.github.everest-preview+json" },
       "method": "POST",
       "params": {
+        "client_payload": { "type": "object" },
         "event_type": { "type": "string" },
         "owner": { "required": true, "type": "string" },
         "repo": { "required": true, "type": "string" }
@@ -4884,9 +4916,6 @@
       "url": "/repos/:owner/:repo/topics"
     },
     "requestPageBuild": {
-      "headers": {
-        "accept": "application/vnd.github.mister-fantastic-preview+json"
-      },
       "method": "POST",
       "params": {
         "owner": { "required": true, "type": "string" },

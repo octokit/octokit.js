@@ -8530,13 +8530,19 @@ declare namespace Octokit {
     html_url: string;
     id: number;
     in_reply_to_id: number;
+    line: number;
     node_id: string;
     original_commit_id: string;
+    original_line: number;
     original_position: number;
+    original_start_line: number;
     path: string;
     position: number;
     pull_request_review_id: number;
     pull_request_url: string;
+    side: string;
+    start_line: number;
+    start_side: string;
     updated_at: string;
     url: string;
     user: PullsUpdateCommentResponseUser;
@@ -9275,13 +9281,19 @@ declare namespace Octokit {
     html_url: string;
     id: number;
     in_reply_to_id: number;
+    line: number;
     node_id: string;
     original_commit_id: string;
+    original_line: number;
     original_position: number;
+    original_start_line: number;
     path: string;
     position: number;
     pull_request_review_id: number;
     pull_request_url: string;
+    side: string;
+    start_line: number;
+    start_side: string;
     updated_at: string;
     url: string;
     user: PullsListCommentsForRepoResponseItemUser;
@@ -9324,13 +9336,19 @@ declare namespace Octokit {
     html_url: string;
     id: number;
     in_reply_to_id: number;
+    line: number;
     node_id: string;
     original_commit_id: string;
+    original_line: number;
     original_position: number;
+    original_start_line: number;
     path: string;
     position: number;
     pull_request_review_id: number;
     pull_request_url: string;
+    side: string;
+    start_line: number;
+    start_side: string;
     updated_at: string;
     url: string;
     user: PullsListCommentsResponseItemUser;
@@ -9919,13 +9937,19 @@ declare namespace Octokit {
     html_url: string;
     id: number;
     in_reply_to_id: number;
+    line: number;
     node_id: string;
     original_commit_id: string;
+    original_line: number;
     original_position: number;
+    original_start_line: number;
     path: string;
     position: number;
     pull_request_review_id: number;
     pull_request_url: string;
+    side: string;
+    start_line: number;
+    start_side: string;
     updated_at: string;
     url: string;
     user: PullsGetCommentResponseUser;
@@ -11575,13 +11599,19 @@ declare namespace Octokit {
     html_url: string;
     id: number;
     in_reply_to_id: number;
+    line: number;
     node_id: string;
     original_commit_id: string;
+    original_line: number;
     original_position: number;
+    original_start_line: number;
     path: string;
     position: number;
     pull_request_review_id: number;
     pull_request_url: string;
+    side: string;
+    start_line: number;
+    start_side: string;
     updated_at: string;
     url: string;
     user: PullsCreateCommentReplyResponseUser;
@@ -11624,13 +11654,19 @@ declare namespace Octokit {
     html_url: string;
     id: number;
     in_reply_to_id: number;
+    line: number;
     node_id: string;
     original_commit_id: string;
+    original_line: number;
     original_position: number;
+    original_start_line: number;
     path: string;
     position: number;
     pull_request_review_id: number;
     pull_request_url: string;
+    side: string;
+    start_line: number;
+    start_side: string;
     updated_at: string;
     url: string;
     user: PullsCreateCommentResponseUser;
@@ -12871,6 +12907,52 @@ declare namespace Octokit {
     repositories_url: string;
     slug: string;
     url: string;
+  };
+  type OrgsListInstallationsResponseInstallationsItemPermissions = {
+    deployments: string;
+    metadata: string;
+    pull_requests: string;
+    statuses: string;
+  };
+  type OrgsListInstallationsResponseInstallationsItemAccount = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type OrgsListInstallationsResponseInstallationsItem = {
+    access_tokens_url: string;
+    account: OrgsListInstallationsResponseInstallationsItemAccount;
+    app_id: number;
+    created_at: string;
+    events: Array<string>;
+    html_url: string;
+    id: number;
+    permissions: OrgsListInstallationsResponseInstallationsItemPermissions;
+    repositories_url: string;
+    repository_selection: string;
+    single_file_name: null;
+    target_id: number;
+    target_type: string;
+    updated_at: string;
+  };
+  type OrgsListInstallationsResponse = {
+    installations: Array<OrgsListInstallationsResponseInstallationsItem>;
+    total_count: number;
   };
   type OrgsListHooksResponseItemConfig = { content_type: string; url: string };
   type OrgsListHooksResponseItem = {
@@ -16841,6 +16923,17 @@ declare namespace Octokit {
     ref: string;
     url: string;
   };
+  type GitListMatchingRefsResponseItemObject = {
+    sha: string;
+    type: string;
+    url: string;
+  };
+  type GitListMatchingRefsResponseItem = {
+    node_id: string;
+    object: GitListMatchingRefsResponseItemObject;
+    ref: string;
+    url: string;
+  };
   type GitGetTagResponseVerification = {
     payload: null;
     reason: string;
@@ -16858,6 +16951,13 @@ declare namespace Octokit {
     tagger: GitGetTagResponseTagger;
     url: string;
     verification: GitGetTagResponseVerification;
+  };
+  type GitGetRefResponseObject = { sha: string; type: string; url: string };
+  type GitGetRefResponse = {
+    node_id: string;
+    object: GitGetRefResponseObject;
+    ref: string;
+    url: string;
   };
   type GitGetCommitResponseVerification = {
     payload: null;
@@ -20989,6 +21089,7 @@ declare namespace Octokit {
     GistsListPublicForUserResponseItem
   >;
   type GistsListStarredResponse = Array<GistsListStarredResponseItem>;
+  type GitListMatchingRefsResponse = Array<GitListMatchingRefsResponseItem>;
   type GitignoreListTemplatesResponse = Array<string>;
   type IssuesAddLabelsResponse = Array<IssuesAddLabelsResponseItem>;
   type IssuesListResponse = Array<IssuesListResponseItem>;
@@ -22328,9 +22429,7 @@ declare namespace Octokit {
   };
   export type GitGetRefParams = {
     owner: string;
-    /**
-     * Must be formatted as `heads/branch`, not just `branch`
-     */
+
     ref: string;
 
     repo: string;
@@ -22350,6 +22449,21 @@ declare namespace Octokit {
     repo: string;
 
     tree_sha: string;
+  };
+  export type GitListMatchingRefsParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    ref: string;
+
+    repo: string;
   };
   export type GitListRefsParams = {
     /**
@@ -23967,6 +24081,17 @@ declare namespace Octokit {
      */
     per_page?: number;
   };
+  export type OrgsListInstallationsParams = {
+    org: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+  };
   export type OrgsListInvitationTeamsParams = {
     invitation_id: number;
 
@@ -24509,6 +24634,10 @@ declare namespace Octokit {
      */
     commit_id: string;
     /**
+     * **Required with `comfort-fade` preview**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.
+     */
+    line?: number;
+    /**
      * @deprecated "number" parameter renamed to "pull_number"
      */
     number: number;
@@ -24519,11 +24648,23 @@ declare namespace Octokit {
      */
     path: string;
     /**
-     * The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.
+     * **Required without `comfort-fade` preview**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.
      */
-    position: number;
+    position?: number;
 
     repo: string;
+    /**
+     * **Required with `comfort-fade` preview**. In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see "[Diff view options](https://help.github.com/en/articles/about-comparing-branches-in-pull-requests#diff-view-options)" in the GitHub Help documentation.
+     */
+    side?: "LEFT" | "RIGHT";
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation.
+     */
+    start_line?: number;
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation. See `side` in this table for additional context.
+     */
+    start_side?: "LEFT" | "RIGHT" | "side";
   };
   export type PullsCreateCommentParamsDeprecatedInReplyTo = {
     /**
@@ -24539,6 +24680,10 @@ declare namespace Octokit {
      * @deprecated "in_reply_to" parameter has been deprecated and will be removed in future
      */
     in_reply_to?: number;
+    /**
+     * **Required with `comfort-fade` preview**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.
+     */
+    line?: number;
 
     owner: string;
     /**
@@ -24546,13 +24691,25 @@ declare namespace Octokit {
      */
     path: string;
     /**
-     * The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.
+     * **Required without `comfort-fade` preview**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.
      */
-    position: number;
+    position?: number;
 
     pull_number: number;
 
     repo: string;
+    /**
+     * **Required with `comfort-fade` preview**. In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see "[Diff view options](https://help.github.com/en/articles/about-comparing-branches-in-pull-requests#diff-view-options)" in the GitHub Help documentation.
+     */
+    side?: "LEFT" | "RIGHT";
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation.
+     */
+    start_line?: number;
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation. See `side` in this table for additional context.
+     */
+    start_side?: "LEFT" | "RIGHT" | "side";
   };
   export type PullsCreateCommentParams = {
     /**
@@ -24563,6 +24720,10 @@ declare namespace Octokit {
      * The SHA of the commit needing a comment. Not using the latest commit SHA may render your comment outdated if a subsequent commit modifies the line you specify as the `position`.
      */
     commit_id: string;
+    /**
+     * **Required with `comfort-fade` preview**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.
+     */
+    line?: number;
 
     owner: string;
     /**
@@ -24570,13 +24731,25 @@ declare namespace Octokit {
      */
     path: string;
     /**
-     * The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.
+     * **Required without `comfort-fade` preview**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.
      */
-    position: number;
+    position?: number;
 
     pull_number: number;
 
     repo: string;
+    /**
+     * **Required with `comfort-fade` preview**. In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see "[Diff view options](https://help.github.com/en/articles/about-comparing-branches-in-pull-requests#diff-view-options)" in the GitHub Help documentation.
+     */
+    side?: "LEFT" | "RIGHT";
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation.
+     */
+    start_line?: number;
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation. See `side` in this table for additional context.
+     */
+    start_side?: "LEFT" | "RIGHT" | "side";
   };
   export type PullsCreateCommentReplyParamsDeprecatedNumber = {
     /**
@@ -24588,6 +24761,10 @@ declare namespace Octokit {
      */
     commit_id: string;
     /**
+     * **Required with `comfort-fade` preview**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.
+     */
+    line?: number;
+    /**
      * @deprecated "number" parameter renamed to "pull_number"
      */
     number: number;
@@ -24598,11 +24775,23 @@ declare namespace Octokit {
      */
     path: string;
     /**
-     * The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.
+     * **Required without `comfort-fade` preview**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.
      */
-    position: number;
+    position?: number;
 
     repo: string;
+    /**
+     * **Required with `comfort-fade` preview**. In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see "[Diff view options](https://help.github.com/en/articles/about-comparing-branches-in-pull-requests#diff-view-options)" in the GitHub Help documentation.
+     */
+    side?: "LEFT" | "RIGHT";
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation.
+     */
+    start_line?: number;
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation. See `side` in this table for additional context.
+     */
+    start_side?: "LEFT" | "RIGHT" | "side";
   };
   export type PullsCreateCommentReplyParamsDeprecatedInReplyTo = {
     /**
@@ -24618,6 +24807,10 @@ declare namespace Octokit {
      * @deprecated "in_reply_to" parameter has been deprecated and will be removed in future
      */
     in_reply_to?: number;
+    /**
+     * **Required with `comfort-fade` preview**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.
+     */
+    line?: number;
 
     owner: string;
     /**
@@ -24625,13 +24818,25 @@ declare namespace Octokit {
      */
     path: string;
     /**
-     * The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.
+     * **Required without `comfort-fade` preview**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.
      */
-    position: number;
+    position?: number;
 
     pull_number: number;
 
     repo: string;
+    /**
+     * **Required with `comfort-fade` preview**. In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see "[Diff view options](https://help.github.com/en/articles/about-comparing-branches-in-pull-requests#diff-view-options)" in the GitHub Help documentation.
+     */
+    side?: "LEFT" | "RIGHT";
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation.
+     */
+    start_line?: number;
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation. See `side` in this table for additional context.
+     */
+    start_side?: "LEFT" | "RIGHT" | "side";
   };
   export type PullsCreateCommentReplyParams = {
     /**
@@ -24642,6 +24847,10 @@ declare namespace Octokit {
      * The SHA of the commit needing a comment. Not using the latest commit SHA may render your comment outdated if a subsequent commit modifies the line you specify as the `position`.
      */
     commit_id: string;
+    /**
+     * **Required with `comfort-fade` preview**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.
+     */
+    line?: number;
 
     owner: string;
     /**
@@ -24649,13 +24858,25 @@ declare namespace Octokit {
      */
     path: string;
     /**
-     * The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.
+     * **Required without `comfort-fade` preview**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.
      */
-    position: number;
+    position?: number;
 
     pull_number: number;
 
     repo: string;
+    /**
+     * **Required with `comfort-fade` preview**. In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see "[Diff view options](https://help.github.com/en/articles/about-comparing-branches-in-pull-requests#diff-view-options)" in the GitHub Help documentation.
+     */
+    side?: "LEFT" | "RIGHT";
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation.
+     */
+    start_line?: number;
+    /**
+     * **Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see "[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation. See `side` in this table for additional context.
+     */
+    start_side?: "LEFT" | "RIGHT" | "side";
   };
   export type PullsCreateFromIssueParams = {
     base: string;
@@ -25990,6 +26211,10 @@ declare namespace Octokit {
     target_url?: string;
   };
   export type ReposCreateDispatchEventParams = {
+    /**
+     * JSON payload with extra information about the webhook event that your action or worklow may use.
+     */
+    client_payload?: ReposCreateDispatchEventParamsClientPayload;
     /**
      * **Required:** A custom webhook event name.
      */
@@ -28654,6 +28879,7 @@ declare namespace Octokit {
     path: string;
     position: number;
   };
+  export type ReposCreateDispatchEventParamsClientPayload = {};
   export type ReposCreateFileParamsAuthor = {
     email: string;
     name: string;
@@ -29934,7 +30160,9 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out.
+     * The tree creation API accepts nested entries. If you specify both a tree and a nested path modifying that tree, this endpoint will overwrite the contents of the tree with the new path contents, and create a new tree structure.
+     *
+     * If you use this endpoint to add, delete, or modify the file contents in a tree, you will need to commit the tree and then update a branch to point to the commit. For more information see "[Create a commit](https://developer.github.com/v3/git/commits/#create-a-commit)" and "[Update a reference](https://developer.github.com/v3/git/refs/#update-a-reference)."
      */
     createTree: {
       (params?: Octokit.RequestOptions & Octokit.GitCreateTreeParams): Promise<
@@ -30004,11 +30232,15 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Returns a branch or tag reference. Other than the [REST API](https://developer.github.com/v3/git/refs/#get-a-reference) it always returns a single reference. If the REST API returns with an array then the method responds with an error.
+     * Returns a single reference from your Git database. The `:ref` in the URL must be formatted as `heads/<branch name>` for branches and `tags/<tag name>` for tags. If the `:ref` doesn't match an existing ref, a `404` is returned.
+     *
+     * **Note:** You need to explicitly [request a pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see "[Checking mergeability of pull requests](https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests)".
+     *
+     * To get the reference for a branch named `skunkworkz/featureA`, the endpoint route is:
      */
     getRef: {
       (params?: Octokit.RequestOptions & Octokit.GitGetRefParams): Promise<
-        Octokit.AnyResponse
+        Octokit.Response<Octokit.GitGetRefResponse>
       >;
 
       endpoint: Octokit.Endpoint;
@@ -30050,6 +30282,22 @@ declare class Octokit {
       (params?: Octokit.RequestOptions & Octokit.GitGetTreeParams): Promise<
         Octokit.AnyResponse
       >;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Returns an array of references from your Git database that match the supplied name. The `:ref` in the URL must be formatted as `heads/<branch name>` for branches and `tags/<tag name>` for tags. If the `:ref` doesn't exist in the repository, but existing refs start with `:ref`, they will be returned as an array.
+     *
+     * When you use this endpoint without providing a `:ref`, it will return an array of all the references from your Git database, including notes and stashes if they exist on the server. Anything in the namespace is returned, not just `heads` and `tags`.
+     *
+     * **Note:** You need to explicitly [request a pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see "[Checking mergeability of pull requests](https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests)".
+     *
+     * If you request matching references for a branch named `feature` but the branch `feature` doesn't exist, the response can still include other matching head refs that start with the word `feature`, such as `featureA` and `featureB`.
+     */
+    listMatchingRefs: {
+      (
+        params?: Octokit.RequestOptions & Octokit.GitListMatchingRefsParams
+      ): Promise<Octokit.Response<Octokit.GitListMatchingRefsResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -31427,6 +31675,16 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
+     * Lists all GitHub Apps in an organization. The installation count includes all GitHub Apps installed on repositories in the organization. You must be an organization owner with `admin:read` scope to use this endpoint.
+     */
+    listInstallations: {
+      (
+        params?: Octokit.RequestOptions & Octokit.OrgsListInstallationsParams
+      ): Promise<Octokit.Response<Octokit.OrgsListInstallationsResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
      * List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner.
      */
     listInvitationTeams: {
@@ -31853,13 +32111,31 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Creates a review comment for a pull request.
+     * **Note:** Multi-line comments on pull requests are currently in public beta and subject to change.
+     *
+     * Creates a review comment in the pull request diff. To add a regular comment to a pull request timeline, see "[Comments](https://developer.github.com/v3/issues/comments/#create-a-comment)." We recommend creating a review comment using `line`, `side`, and optionally `start_line` and `start_side` if your comment applies to more than one line in the pull request diff.
+     *
+     * You can still create a review comment using the `position` parameter. When you use `position`, the `line`, `side`, `start_line`, and `start_side` parameters are not required. For more information, see [Multi-line comment summary](https://developer.github.com/v3/pulls/comments/#multi-line-comment-summary-3).
+     *
+     * **Note:** The position value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
      *
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      *
-     * **Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.
+     * **Multi-line comment summary**
      *
-     * The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
+     * **Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.
+     *
+     * Use the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.
+     *
+     * If you use the `comfort-fade` preview header, your response will show:
+     *
+     * *   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.
+     * *   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.
+     *
+     * If you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:
+     *
+     * *   For multi-line comments, the last line of the comment range for the `position` attribute.
+     * *   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.
      */
     createComment: {
       (
@@ -31877,13 +32153,31 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Creates a review comment for a pull request.
+     * **Note:** Multi-line comments on pull requests are currently in public beta and subject to change.
+     *
+     * Creates a review comment in the pull request diff. To add a regular comment to a pull request timeline, see "[Comments](https://developer.github.com/v3/issues/comments/#create-a-comment)." We recommend creating a review comment using `line`, `side`, and optionally `start_line` and `start_side` if your comment applies to more than one line in the pull request diff.
+     *
+     * You can still create a review comment using the `position` parameter. When you use `position`, the `line`, `side`, `start_line`, and `start_side` parameters are not required. For more information, see [Multi-line comment summary](https://developer.github.com/v3/pulls/comments/#multi-line-comment-summary-3).
+     *
+     * **Note:** The position value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
      *
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
      *
-     * **Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.
+     * **Multi-line comment summary**
      *
-     * The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
+     * **Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.
+     *
+     * Use the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.
+     *
+     * If you use the `comfort-fade` preview header, your response will show:
+     *
+     * *   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.
+     * *   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.
+     *
+     * If you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:
+     *
+     * *   For multi-line comments, the last line of the comment range for the `position` attribute.
+     * *   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.
      * @deprecated octokit.pulls.createCommentReply() has been renamed to octokit.pulls.createComment() (2019-09-09)
      */
     createCommentReply: {
@@ -32032,7 +32326,27 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
+     * **Note:** Multi-line comments on pull requests are currently in public beta and subject to change.
+     *
      * Provides details for a review comment.
+     *
+     * **Multi-line comment summary**
+     *
+     * **Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.
+     *
+     * Use the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.
+     *
+     * If you use the `comfort-fade` preview header, your response will show:
+     *
+     * *   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.
+     * *   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.
+     *
+     * If you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:
+     *
+     * *   For multi-line comments, the last line of the comment range for the `position` attribute.
+     * *   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.
+     *
+     * The `reactions` key will have the following payload where `url` can be used to construct the API location for [listing and creating](https://developer.github.com/v3/reactions) reactions.
      */
     getComment: {
       (
@@ -32077,7 +32391,27 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
+     * **Note:** Multi-line comments on pull requests are currently in public beta and subject to change.
+     *
      * Lists review comments for a pull request. By default, review comments are in ascending order by ID.
+     *
+     * **Multi-line comment summary**
+     *
+     * **Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.
+     *
+     * Use the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.
+     *
+     * If you use the `comfort-fade` preview header, your response will show:
+     *
+     * *   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.
+     * *   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.
+     *
+     * If you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:
+     *
+     * *   For multi-line comments, the last line of the comment range for the `position` attribute.
+     * *   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.
+     *
+     * The `reactions` key will have the following payload where `url` can be used to construct the API location for [listing and creating](https://developer.github.com/v3/reactions) reactions.
      */
     listComments: {
       (
@@ -32091,7 +32425,27 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
+     * **Note:** Multi-line comments on pull requests are currently in public beta and subject to change.
+     *
      * Lists review comments for all pull requests in a repository. By default, review comments are in ascending order by ID.
+     *
+     * **Multi-line comment summary**
+     *
+     * **Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.
+     *
+     * Use the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.
+     *
+     * If you use the `comfort-fade` preview header, your response will show:
+     *
+     * *   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.
+     * *   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.
+     *
+     * If you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:
+     *
+     * *   For multi-line comments, the last line of the comment range for the `position` attribute.
+     * *   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.
+     *
+     * The `reactions` key will have the following payload where `url` can be used to construct the API location for [listing and creating](https://developer.github.com/v3/reactions) reactions.
      */
     listCommentsForRepo: {
       (
@@ -32207,7 +32561,25 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
+     * **Note:** Multi-line comments on pull requests are currently in public beta and subject to change.
+     *
      * Enables you to edit a review comment.
+     *
+     * **Multi-line comment summary**
+     *
+     * **Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.
+     *
+     * Use the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.
+     *
+     * If you use the `comfort-fade` preview header, your response will show:
+     *
+     * *   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.
+     * *   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.
+     *
+     * If you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:
+     *
+     * *   For multi-line comments, the last line of the comment range for the `position` attribute.
+     * *   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.
      */
     updateComment: {
       (
@@ -32721,9 +33093,13 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * You can use this endpoint to trigger a webhook event called `repository_dispatch` when you want to trigger a GitHub Actions workflow for activity that happens outside of GitHub. You must configure your GitHub Actions workflow to run when the `repository_dispatch` event occurs. For an example `repository_dispatch` webhook payload, see "[RepositoryDispatchEvent](https://developer.github.com/v3/activity/events/types/#repositorydispatchevent)."
+     * You can use this endpoint to trigger a webhook event called `repository_dispatch` when you want activity that happens outside of GitHub to trigger a GitHub Actions workflow or GitHub App webhook. You must configure your GitHub Actions workflow or GitHub App to run when the `repository_dispatch` event occurs. For an example `repository_dispatch` webhook payload, see "[RepositoryDispatchEvent](https://developer.github.com/v3/activity/events/types/#repositorydispatchevent)."
+     *
+     * The `client_payload` parameter is available for any extra information that your workflow might need. This parameter is a JSON payload that will be passed on when the webhook event is dispatched. For example, the `client_payload` can include a message that a user would like to send using a GitHub Actions workflow. Or the `client_payload` can be used as a test to debug your workflow. For a test example, see the [input example](https://developer.github.com/v3/repos/#example-4).
      *
      * To give you write access to the repository, you must use a personal access token with the `repo` scope. For more information, see "[Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line)" in the GitHub Help documentation.
+     *
+     * This input example shows how you can use the `client_payload` as a test to debug your workflow.
      */
     createDispatchEvent: {
       (
