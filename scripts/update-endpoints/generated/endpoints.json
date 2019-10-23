@@ -4905,6 +4905,76 @@
     }
   },
   {
+    "name": "List installations for an organization",
+    "scope": "orgs",
+    "id": "listInstallations",
+    "method": "GET",
+    "url": "/orgs/{org}/installations",
+    "isDeprecated": false,
+    "description": "Lists all GitHub Apps in an organization. The installation count includes all GitHub Apps installed on repositories in the organization. You must be an organization owner with `admin:read` scope to use this endpoint.",
+    "documentationUrl": "https://developer.github.com/v3/orgs/#list-installations-for-an-organization",
+    "previews": [{ "name": "machine-man" }],
+    "headers": [
+      {
+        "name": "accept",
+        "value": "application/vnd.github.machine-man-preview+json"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "org",
+        "description": "org parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "per_page",
+        "description": "Results per page (max 100)",
+        "in": "QUERY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "page",
+        "description": "Page number of the results to fetch.",
+        "in": "QUERY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "response",
+        "examples": [
+          {
+            "data": "{\"total_count\":2,\"installations\":[{\"id\":25381,\"account\":{\"login\":\"octo-org\",\"id\":6811672,\"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjY4MTE2NzI=\",\"avatar_url\":\"https://avatars3.githubusercontent.com/u/6811672?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octo-org\",\"html_url\":\"https://github.com/octo-org\",\"followers_url\":\"https://api.github.com/users/octo-org/followers\",\"following_url\":\"https://api.github.com/users/octo-org/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octo-org/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octo-org/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octo-org/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octo-org/orgs\",\"repos_url\":\"https://api.github.com/users/octo-org/repos\",\"events_url\":\"https://api.github.com/users/octo-org/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octo-org/received_events\",\"type\":\"Organization\",\"site_admin\":false},\"repository_selection\":\"selected\",\"access_tokens_url\":\"https://api.github.com/app/installations/25381/access_tokens\",\"repositories_url\":\"https://api.github.com/installation/repositories\",\"html_url\":\"https://github.com/organizations/octo-org/settings/installations/25381\",\"app_id\":2218,\"target_id\":6811672,\"target_type\":\"Organization\",\"permissions\":{\"deployments\":\"write\",\"metadata\":\"read\",\"pull_requests\":\"read\",\"statuses\":\"read\"},\"events\":[\"deployment\",\"deployment_status\"],\"created_at\":\"2017-05-16T08:47:09.000-07:00\",\"updated_at\":\"2017-06-06T11:23:23.000-07:00\",\"single_file_name\":null}]}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
     "name": "Get interaction restrictions for an organization",
     "scope": "interactions",
     "id": "getRestrictionsForOrg",
@@ -15810,7 +15880,7 @@
       },
       {
         "name": "committer.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -15849,7 +15919,7 @@
       },
       {
         "name": "author.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -16014,7 +16084,7 @@
       },
       {
         "name": "committer.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -16053,7 +16123,7 @@
       },
       {
         "name": "author.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -16223,7 +16293,7 @@
       },
       {
         "name": "committer.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -16262,7 +16332,7 @@
       },
       {
         "name": "author.email",
-        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.",
+        "description": "The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.",
         "in": "BODY",
         "type": "string",
         "required": true,
@@ -17302,7 +17372,7 @@
     "method": "POST",
     "url": "/repos/{owner}/{repo}/dispatches",
     "isDeprecated": false,
-    "description": "You can use this endpoint to trigger a webhook event called `repository_dispatch` when you want to trigger a GitHub Actions workflow for activity that happens outside of GitHub. You must configure your GitHub Actions workflow to run when the `repository_dispatch` event occurs. For an example `repository_dispatch` webhook payload, see \"[RepositoryDispatchEvent](https://developer.github.com/v3/activity/events/types/#repositorydispatchevent).\"\n\nTo give you write access to the repository, you must use a personal access token with the `repo` scope. For more information, see \"[Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line)\" in the GitHub Help documentation.",
+    "description": "You can use this endpoint to trigger a webhook event called `repository_dispatch` when you want activity that happens outside of GitHub to trigger a GitHub Actions workflow or GitHub App webhook. You must configure your GitHub Actions workflow or GitHub App to run when the `repository_dispatch` event occurs. For an example `repository_dispatch` webhook payload, see \"[RepositoryDispatchEvent](https://developer.github.com/v3/activity/events/types/#repositorydispatchevent).\"\n\nThe `client_payload` parameter is available for any extra information that your workflow might need. This parameter is a JSON payload that will be passed on when the webhook event is dispatched. For example, the `client_payload` can include a message that a user would like to send using a GitHub Actions workflow. Or the `client_payload` can be used as a test to debug your workflow. For a test example, see the [input example](https://developer.github.com/v3/repos/#example-4).\n\nTo give you write access to the repository, you must use a personal access token with the `repo` scope. For more information, see \"[Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line)\" in the GitHub Help documentation.\n\nThis input example shows how you can use the `client_payload` as a test to debug your workflow.",
     "documentationUrl": "https://developer.github.com/v3/repos/#create-a-repository-dispatch-event",
     "previews": [{ "name": "everest" }],
     "headers": [
@@ -17343,6 +17413,19 @@
         "description": "**Required:** A custom webhook event name.",
         "in": "BODY",
         "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "client_payload",
+        "description": "JSON payload with extra information about the webhook event that your action or worklow may use.",
+        "in": "BODY",
+        "type": "object",
         "required": false,
         "enum": null,
         "allowNull": false,
@@ -18194,6 +18277,162 @@
     "renamed": null
   },
   {
+    "name": "List matching references",
+    "scope": "git",
+    "id": "listMatchingRefs",
+    "method": "GET",
+    "url": "/repos/{owner}/{repo}/git/matching-refs/{ref}",
+    "isDeprecated": false,
+    "description": "Returns an array of references from your Git database that match the supplied name. The `:ref` in the URL must be formatted as `heads/<branch name>` for branches and `tags/<tag name>` for tags. If the `:ref` doesn't exist in the repository, but existing refs start with `:ref`, they will be returned as an array.\n\nWhen you use this endpoint without providing a `:ref`, it will return an array of all the references from your Git database, including notes and stashes if they exist on the server. Anything in the namespace is returned, not just `heads` and `tags`.\n\n**Note:** You need to explicitly [request a pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see \"[Checking mergeability of pull requests](https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests)\".\n\nIf you request matching references for a branch named `feature` but the branch `feature` doesn't exist, the response can still include other matching head refs that start with the word `feature`, such as `featureA` and `featureB`.",
+    "documentationUrl": "https://developer.github.com/v3/git/refs/#list-matching-references",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "owner",
+        "description": "owner parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "repo parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "ref",
+        "description": "ref parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "per_page",
+        "description": "Results per page (max 100)",
+        "in": "QUERY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "page",
+        "description": "Page number of the results to fetch.",
+        "in": "QUERY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "response",
+        "examples": [
+          {
+            "data": "[{\"ref\":\"refs/heads/feature-a\",\"node_id\":\"MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlLWE=\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs/heads/feature-a\",\"object\":{\"type\":\"commit\",\"sha\":\"aa218f56b14c9653891f9e74264a383fa43fefbd\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd\"}},{\"ref\":\"refs/heads/feature-b\",\"node_id\":\"MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlLWI=\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs/heads/feature-b\",\"object\":{\"type\":\"commit\",\"sha\":\"612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits/612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac\"}}]"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "Get a single reference",
+    "scope": "git",
+    "id": "getRef",
+    "method": "GET",
+    "url": "/repos/{owner}/{repo}/git/ref/{ref}",
+    "isDeprecated": false,
+    "description": "Returns a single reference from your Git database. The `:ref` in the URL must be formatted as `heads/<branch name>` for branches and `tags/<tag name>` for tags. If the `:ref` doesn't match an existing ref, a `404` is returned.\n\n**Note:** You need to explicitly [request a pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see \"[Checking mergeability of pull requests](https://developer.github.com/v3/git/#checking-mergeability-of-pull-requests)\".\n\nTo get the reference for a branch named `skunkworkz/featureA`, the endpoint route is:",
+    "documentationUrl": "https://developer.github.com/v3/git/refs/#get-a-single-reference",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "owner",
+        "description": "owner parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "repo parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "ref",
+        "description": "ref parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "response",
+        "examples": [
+          {
+            "data": "{\"ref\":\"refs/heads/featureA\",\"node_id\":\"MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlQQ==\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA\",\"object\":{\"type\":\"commit\",\"sha\":\"aa218f56b14c9653891f9e74264a383fa43fefbd\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd\"}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
     "name": "Create a reference",
     "scope": "git",
     "id": "createRef",
@@ -18269,61 +18508,6 @@
         ]
       }
     ],
-    "renamed": null
-  },
-  {
-    "name": "Get a reference",
-    "scope": "git",
-    "id": "getRef",
-    "method": "GET",
-    "url": "/repos/{owner}/{repo}/git/refs/{ref}",
-    "isDeprecated": false,
-    "description": "Returns a branch or tag reference. Other than the [REST API](https://developer.github.com/v3/git/refs/#get-a-reference) it always returns a single reference. If the REST API returns with an array then the method responds with an error.",
-    "documentationUrl": "https://developer.github.com/v3/git/refs/#get-a-reference",
-    "previews": [],
-    "headers": [],
-    "parameters": [
-      {
-        "name": "owner",
-        "description": "owner parameter",
-        "in": "PATH",
-        "type": "string",
-        "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "repo",
-        "description": "repo parameter",
-        "in": "PATH",
-        "type": "string",
-        "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "ref",
-        "description": "Must be formatted as `heads/branch`, not just `branch`",
-        "in": "PATH",
-        "type": "string",
-        "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      }
-    ],
-    "responses": [{ "code": 200, "description": "response", "examples": null }],
     "renamed": null
   },
   {
@@ -18700,7 +18884,7 @@
     "method": "POST",
     "url": "/repos/{owner}/{repo}/git/trees",
     "isDeprecated": false,
-    "description": "The tree creation API will take nested entries as well. If both a tree and a nested path modifying that tree are specified, it will overwrite the contents of that tree with the new path contents and write a new tree out.",
+    "description": "The tree creation API accepts nested entries. If you specify both a tree and a nested path modifying that tree, this endpoint will overwrite the contents of the tree with the new path contents, and create a new tree structure.\n\nIf you use this endpoint to add, delete, or modify the file contents in a tree, you will need to commit the tree and then update a branch to point to the commit. For more information see \"[Create a commit](https://developer.github.com/v3/git/commits/#create-a-commit)\" and \"[Update a reference](https://developer.github.com/v3/git/refs/#update-a-reference).\"",
     "documentationUrl": "https://developer.github.com/v3/git/trees/#create-a-tree",
     "previews": [],
     "headers": [],
@@ -18785,12 +18969,12 @@
       },
       {
         "name": "tree[].sha",
-        "description": "The SHA1 checksum ID of the object in the tree. Also called `tree.sha`.  \n  \n**Note:** Use either `tree.sha` or `content` to specify the contents of the entry. Using both `tree.sha` and `content` will return an error.",
+        "description": "The SHA1 checksum ID of the object in the tree. Also called `tree.sha`. If the value is `null` then the file will be deleted.  \n  \n**Note:** Use either `tree.sha` or `content` to specify the contents of the entry. Using both `tree.sha` and `content` will return an error.",
         "in": "BODY",
         "type": "string",
         "required": false,
         "enum": null,
-        "allowNull": false,
+        "allowNull": true,
         "mapToData": null,
         "validation": null,
         "alias": null,
@@ -25285,13 +25469,8 @@
     "isDeprecated": false,
     "description": "You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.\n\nBuild requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.",
     "documentationUrl": "https://developer.github.com/v3/repos/pages/#request-a-page-build",
-    "previews": [{ "name": "mister-fantastic" }],
-    "headers": [
-      {
-        "name": "accept",
-        "value": "application/vnd.github.mister-fantastic-preview+json"
-      }
-    ],
+    "previews": [],
+    "headers": [],
     "parameters": [
       {
         "name": "owner",
@@ -25987,7 +26166,7 @@
     "method": "GET",
     "url": "/repos/{owner}/{repo}/pulls/comments",
     "isDeprecated": false,
-    "description": "Lists review comments for all pull requests in a repository. By default, review comments are in ascending order by ID.\n\n",
+    "description": "**Note:** Multi-line comments on pull requests are currently in public beta and subject to change.\n\nLists review comments for all pull requests in a repository. By default, review comments are in ascending order by ID.\n\n**Multi-line comment summary**\n\n**Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.\n\nUse the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.\n\nIf you use the `comfort-fade` preview header, your response will show:\n\n*   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.\n*   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.\n\nIf you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:\n\n*   For multi-line comments, the last line of the comment range for the `position` attribute.\n*   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.\n\nThe `reactions` key will have the following payload where `url` can be used to construct the API location for [listing and creating](https://developer.github.com/v3/reactions) reactions.\n\n",
     "documentationUrl": "https://developer.github.com/v3/pulls/comments/#list-comments-in-a-repository",
     "previews": [],
     "headers": [],
@@ -26090,7 +26269,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "[{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}}}]"
+            "data": "[{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}},\"start_line\":1,\"original_start_line\":1,\"start_side\":\"RIGHT\",\"line\":2,\"original_line\":2,\"side\":\"RIGHT\"}]"
           }
         ]
       }
@@ -26104,7 +26283,7 @@
     "method": "GET",
     "url": "/repos/{owner}/{repo}/pulls/comments/{comment_id}",
     "isDeprecated": false,
-    "description": "Provides details for a review comment.\n\n",
+    "description": "**Note:** Multi-line comments on pull requests are currently in public beta and subject to change.\n\nProvides details for a review comment.\n\n**Multi-line comment summary**\n\n**Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.\n\nUse the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.\n\nIf you use the `comfort-fade` preview header, your response will show:\n\n*   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.\n*   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.\n\nIf you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:\n\n*   For multi-line comments, the last line of the comment range for the `position` attribute.\n*   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.\n\nThe `reactions` key will have the following payload where `url` can be used to construct the API location for [listing and creating](https://developer.github.com/v3/reactions) reactions.\n\n",
     "documentationUrl": "https://developer.github.com/v3/pulls/comments/#get-a-single-comment",
     "previews": [],
     "headers": [],
@@ -26155,7 +26334,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}}}"
+            "data": "{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}},\"start_line\":1,\"original_start_line\":1,\"start_side\":\"RIGHT\",\"line\":2,\"original_line\":2,\"side\":\"RIGHT\"}"
           }
         ]
       }
@@ -26169,7 +26348,7 @@
     "method": "PATCH",
     "url": "/repos/{owner}/{repo}/pulls/comments/{comment_id}",
     "isDeprecated": false,
-    "description": "Enables you to edit a review comment.",
+    "description": "**Note:** Multi-line comments on pull requests are currently in public beta and subject to change.\n\nEnables you to edit a review comment.\n\n**Multi-line comment summary**\n\n**Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.\n\nUse the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.\n\nIf you use the `comfort-fade` preview header, your response will show:\n\n*   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.\n*   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.\n\nIf you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:\n\n*   For multi-line comments, the last line of the comment range for the `position` attribute.\n*   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.",
     "documentationUrl": "https://developer.github.com/v3/pulls/comments/#edit-a-comment",
     "previews": [],
     "headers": [],
@@ -26233,7 +26412,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}}}"
+            "data": "{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}},\"start_line\":1,\"original_start_line\":1,\"start_side\":\"RIGHT\",\"line\":2,\"original_line\":2,\"side\":\"RIGHT\"}"
           }
         ]
       }
@@ -26733,7 +26912,7 @@
     "method": "GET",
     "url": "/repos/{owner}/{repo}/pulls/{pull_number}/comments",
     "isDeprecated": false,
-    "description": "Lists review comments for a pull request. By default, review comments are in ascending order by ID.\n\n",
+    "description": "**Note:** Multi-line comments on pull requests are currently in public beta and subject to change.\n\nLists review comments for a pull request. By default, review comments are in ascending order by ID.\n\n**Multi-line comment summary**\n\n**Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.\n\nUse the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.\n\nIf you use the `comfort-fade` preview header, your response will show:\n\n*   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.\n*   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.\n\nIf you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:\n\n*   For multi-line comments, the last line of the comment range for the `position` attribute.\n*   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.\n\nThe `reactions` key will have the following payload where `url` can be used to construct the API location for [listing and creating](https://developer.github.com/v3/reactions) reactions.\n\n",
     "documentationUrl": "https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request",
     "previews": [],
     "headers": [],
@@ -26862,7 +27041,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "[{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}}}]"
+            "data": "[{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}},\"start_line\":1,\"original_start_line\":1,\"start_side\":\"RIGHT\",\"line\":2,\"original_line\":2,\"side\":\"RIGHT\"}]"
           }
         ]
       }
@@ -26876,7 +27055,7 @@
     "method": "POST",
     "url": "/repos/{owner}/{repo}/pulls/{pull_number}/comments",
     "isDeprecated": false,
-    "description": "Creates a review comment for a pull request.\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\n**Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.\n\nThe `position` value equals the number of lines down from the first \"@@\" hunk header in the file you want to add a comment. The line just below the \"@@\" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.",
+    "description": "**Note:** Multi-line comments on pull requests are currently in public beta and subject to change.\n\nCreates a review comment in the pull request diff. To add a regular comment to a pull request timeline, see \"[Comments](https://developer.github.com/v3/issues/comments/#create-a-comment).\" We recommend creating a review comment using `line`, `side`, and optionally `start_line` and `start_side` if your comment applies to more than one line in the pull request diff.\n\nYou can still create a review comment using the `position` parameter. When you use `position`, the `line`, `side`, `start_line`, and `start_side` parameters are not required. For more information, see [Multi-line comment summary](https://developer.github.com/v3/pulls/comments/#multi-line-comment-summary-3).\n\n**Note:** The position value equals the number of lines down from the first \"@@\" hunk header in the file you want to add a comment. The line just below the \"@@\" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\n**Multi-line comment summary**\n\n**Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.\n\nUse the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.\n\nIf you use the `comfort-fade` preview header, your response will show:\n\n*   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.\n*   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.\n\nIf you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:\n\n*   For multi-line comments, the last line of the comment range for the `position` attribute.\n*   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.",
     "documentationUrl": "https://developer.github.com/v3/pulls/comments/#create-a-comment",
     "previews": [],
     "headers": [],
@@ -26961,11 +27140,63 @@
       },
       {
         "name": "position",
-        "description": "The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.",
+        "description": "**Required without `comfort-fade` preview**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.",
         "in": "BODY",
         "type": "integer",
-        "required": true,
+        "required": false,
         "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "side",
+        "description": "**Required with `comfort-fade` preview**. In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see \"[Diff view options](https://help.github.com/en/articles/about-comparing-branches-in-pull-requests#diff-view-options)\" in the GitHub Help documentation.",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": ["LEFT", "RIGHT"],
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "line",
+        "description": "**Required with `comfort-fade` preview**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.",
+        "in": "BODY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "start_line",
+        "description": "**Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see \"[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)\" in the GitHub Help documentation.",
+        "in": "BODY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "start_side",
+        "description": "**Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see \"[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)\" in the GitHub Help documentation. See `side` in this table for additional context.",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": ["LEFT", "RIGHT", "side"],
         "allowNull": false,
         "mapToData": null,
         "validation": null,
@@ -27005,7 +27236,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}}}"
+            "data": "{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}},\"start_line\":1,\"original_start_line\":1,\"start_side\":\"RIGHT\",\"line\":2,\"original_line\":2,\"side\":\"RIGHT\"}"
           }
         ]
       }
@@ -27019,7 +27250,7 @@
     "method": "POST",
     "url": "/repos/{owner}/{repo}/pulls/{pull_number}/comments",
     "isDeprecated": false,
-    "description": "Creates a review comment for a pull request.\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\n**Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.\n\nThe `position` value equals the number of lines down from the first \"@@\" hunk header in the file you want to add a comment. The line just below the \"@@\" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.",
+    "description": "**Note:** Multi-line comments on pull requests are currently in public beta and subject to change.\n\nCreates a review comment in the pull request diff. To add a regular comment to a pull request timeline, see \"[Comments](https://developer.github.com/v3/issues/comments/#create-a-comment).\" We recommend creating a review comment using `line`, `side`, and optionally `start_line` and `start_side` if your comment applies to more than one line in the pull request diff.\n\nYou can still create a review comment using the `position` parameter. When you use `position`, the `line`, `side`, `start_line`, and `start_side` parameters are not required. For more information, see [Multi-line comment summary](https://developer.github.com/v3/pulls/comments/#multi-line-comment-summary-3).\n\n**Note:** The position value equals the number of lines down from the first \"@@\" hunk header in the file you want to add a comment. The line just below the \"@@\" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\n**Multi-line comment summary**\n\n**Note:** New parameters and response fields are available for developers to preview. During the preview period, these response fields may change without advance notice. Please see the [blog post](https://developer.github.com/changes/2019-10-03-multi-line-comments) for full details.\n\nUse the `comfort-fade` preview header and the `line` parameter to show multi-line comment-supported fields in the response.\n\nIf you use the `comfort-fade` preview header, your response will show:\n\n*   For multi-line comments, values for `start_line`, `original_start_line`, `start_side`, `line`, `original_line`, and `side`.\n*   For single-line comments, values for `line`, `original_line`, and `side` and a `null` value for `start_line`, `original_start_line`, and `start_side`.\n\nIf you don't use the `comfort-fade` preview header, multi-line and single-line comments will appear the same way in the response with a single `position` attribute. Your response will show:\n\n*   For multi-line comments, the last line of the comment range for the `position` attribute.\n*   For single-line comments, the diff-positioned way of referencing comments for the `position` attribute. For more information, see `position` in the [input parameters](https://developer.github.com/v3/pulls/comments/#parameters-2) table.",
     "documentationUrl": "https://developer.github.com/v3/pulls/comments/#create-a-comment",
     "previews": [],
     "headers": [],
@@ -27104,11 +27335,63 @@
       },
       {
         "name": "position",
-        "description": "The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.",
+        "description": "**Required without `comfort-fade` preview**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.",
         "in": "BODY",
         "type": "integer",
-        "required": true,
+        "required": false,
         "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "side",
+        "description": "**Required with `comfort-fade` preview**. In a split diff view, the side of the diff that the pull request's changes appear on. Can be `LEFT` or `RIGHT`. Use `LEFT` for deletions that appear in red. Use `RIGHT` for additions that appear in green or unchanged lines that appear in white and are shown for context. For a multi-line comment, side represents whether the last line of the comment range is a deletion or addition. For more information, see \"[Diff view options](https://help.github.com/en/articles/about-comparing-branches-in-pull-requests#diff-view-options)\" in the GitHub Help documentation.",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": ["LEFT", "RIGHT"],
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "line",
+        "description": "**Required with `comfort-fade` preview**. The line of the blob in the pull request diff that the comment applies to. For a multi-line comment, the last line of the range that your comment applies to.",
+        "in": "BODY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "start_line",
+        "description": "**Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_line` is the first line in the pull request diff that your multi-line comment applies to. To learn more about multi-line comments, see \"[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)\" in the GitHub Help documentation.",
+        "in": "BODY",
+        "type": "integer",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "start_side",
+        "description": "**Required when using multi-line comments**. To create multi-line comments, you must use the `comfort-fade` preview header. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see \"[Commenting on a pull request](https://help.github.com/en/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)\" in the GitHub Help documentation. See `side` in this table for additional context.",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": ["LEFT", "RIGHT", "side"],
         "allowNull": false,
         "mapToData": null,
         "validation": null,
@@ -27148,7 +27431,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}}}"
+            "data": "{\"url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\",\"id\":10,\"node_id\":\"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw\",\"pull_request_review_id\":42,\"diff_hunk\":\"@@ -16,33 +16,40 @@ public class Connection : IConnection...\",\"path\":\"file1.txt\",\"position\":1,\"original_position\":4,\"commit_id\":\"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\"original_commit_id\":\"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840\",\"in_reply_to_id\":8,\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\"Great stuff!\",\"created_at\":\"2011-04-14T16:00:49Z\",\"updated_at\":\"2011-04-14T16:00:49Z\",\"html_url\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\",\"pull_request_url\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\",\"author_association\":\"NONE\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/comments/1\"},\"html\":{\"href\":\"https://github.com/octocat/Hello-World/pull/1#discussion-diff-1\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/octocat/Hello-World/pulls/1\"}},\"start_line\":1,\"original_start_line\":1,\"start_side\":\"RIGHT\",\"line\":2,\"original_line\":2,\"side\":\"RIGHT\"}"
           }
         ]
       }
