@@ -256,11 +256,11 @@ declare namespace Octokit {
     (
       Route: string,
       EndpointOptions?: Octokit.EndpointOptions,
-      callback?: (response: Octokit.AnyResponse) => any
+      callback?: (response: Octokit.AnyResponse, done: () => void) => any
     ): Promise<any[]>;
     (
       EndpointOptions: Octokit.EndpointOptions,
-      callback?: (response: Octokit.AnyResponse) => any
+      callback?: (response: Octokit.AnyResponse, done: () => void) => any
     ): Promise<any[]>;
     iterator: (
       EndpointOptions: Octokit.EndpointOptions
