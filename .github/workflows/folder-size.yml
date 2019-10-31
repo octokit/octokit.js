@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
-          version: "12.x"
+          node-version: "12.x"
       - run: npm install --production
       - run: npx get-folder-size --folder=node_modules/ | grep "^[01]\."
