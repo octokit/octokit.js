@@ -281,8 +281,8 @@
     "id": "listGrants",
     "method": "GET",
     "url": "/applications/grants",
-    "isDeprecated": false,
-    "description": "You can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the [list your authorizations](https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations) API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). The `scopes` returned are the union of scopes authorized for the application. For example, if an application has one token with `repo` scope and another token with `user` scope, the grant will return `[\"repo\", \"user\"]`.",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nYou can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the [list your authorizations](https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations) API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). The `scopes` returned are the union of scopes authorized for the application. For example, if an application has one token with `repo` scope and another token with `user` scope, the grant will return `[\"repo\", \"user\"]`.",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#list-your-grants",
     "previews": [],
     "headers": [],
@@ -333,8 +333,8 @@
     "id": "getGrant",
     "method": "GET",
     "url": "/applications/grants/{grant_id}",
-    "isDeprecated": false,
-    "description": "",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#get-a-single-grant",
     "previews": [],
     "headers": [],
@@ -372,8 +372,8 @@
     "id": "deleteGrant",
     "method": "DELETE",
     "url": "/applications/grants/{grant_id}",
-    "isDeprecated": false,
-    "description": "Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nDeleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#delete-a-grant",
     "previews": [],
     "headers": [],
@@ -396,14 +396,61 @@
     "renamed": null
   },
   {
+    "name": "Delete an app authorization",
+    "scope": "apps",
+    "id": "deleteAuthorization",
+    "method": "DELETE",
+    "url": "/applications/{client_id}/grant",
+    "isDeprecated": false,
+    "description": "OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. You must also provide a valid OAuth `access_token` as an input parameter and the grant for the token's owner will be deleted.\n\nDeleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#delete-an-app-authorization",
+    "previews": [{ "name": "doctor-strange" }],
+    "headers": [
+      {
+        "name": "accept",
+        "value": "application/vnd.github.doctor-strange-preview+json"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "client_id",
+        "description": "client_id parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "access_token",
+        "description": "The OAuth access token used to authenticate to the GitHub API.",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [],
+    "renamed": null
+  },
+  {
     "name": "Revoke a grant for an application",
-    "scope": "oauthAuthorizations",
+    "scope": "apps",
     "id": "revokeGrantForApplication",
     "method": "DELETE",
     "url": "/applications/{client_id}/grants/{access_token}",
-    "isDeprecated": false,
-    "description": "OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) for this method, where the username is the OAuth application `client_id` and the password is its `client_secret`. You must also provide a valid token as `:access_token` and the grant for the token's owner will be deleted.\n\nDeleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).",
-    "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will replace and discontinue OAuth endpoints containing `access_token` in the path parameter. We are introducing new endpoints that allow you to securely manage tokens for OAuth Apps by using `access_token` as an input parameter. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nOAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. You must also provide a valid token as `:access_token` and the grant for the token's owner will be deleted.\n\nDeleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the Applications settings page under \"Authorized OAuth Apps\" on GitHub](https://github.com/settings/applications#authorized).",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#revoke-a-grant-for-an-application",
     "previews": [],
     "headers": [],
     "parameters": [
@@ -438,14 +485,334 @@
     "renamed": null
   },
   {
+    "name": "Revoke a grant for an application",
+    "scope": "apps",
+    "id": "revokeGrantForApplication",
+    "method": "DELETE",
+    "url": "/applications/{client_id}/grants/{access_token}",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will replace and discontinue OAuth endpoints containing `access_token` in the path parameter. We are introducing new endpoints that allow you to securely manage tokens for OAuth Apps by using `access_token` as an input parameter. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nOAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. You must also provide a valid token as `:access_token` and the grant for the token's owner will be deleted.\n\nDeleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the Applications settings page under \"Authorized OAuth Apps\" on GitHub](https://github.com/settings/applications#authorized).",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#revoke-a-grant-for-an-application",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "client_id",
+        "description": "client_id parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "access_token",
+        "description": "access_token parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [],
+    "renamed": {
+      "before": {
+        "scope": "oauthAuthorizations",
+        "id": "revokeGrantForApplication"
+      },
+      "after": { "scope": "apps", "id": "revokeGrantForApplication" },
+      "date": "2019-11-05",
+      "note": "\"Revoke a grant for an application\" has been moved from \"OAuth Authorizations\" to \"Apps\""
+    }
+  },
+  {
+    "name": "Check a token",
+    "scope": "apps",
+    "id": "checkToken",
+    "method": "POST",
+    "url": "/applications/{client_id}/token",
+    "isDeprecated": false,
+    "description": "OAuth applications can use a special API method for checking OAuth token validity without exceeding the normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) to use this endpoint, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#check-a-token",
+    "previews": [{ "name": "doctor-strange" }],
+    "headers": [
+      {
+        "name": "accept",
+        "value": "application/vnd.github.doctor-strange-preview+json"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "client_id",
+        "description": "client_id parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "access_token",
+        "description": "The OAuth access token used to authenticate to the GitHub API.",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "response",
+        "examples": [
+          {
+            "data": "{\"id\":1,\"url\":\"https://api.github.com/authorizations/1\",\"scopes\":[\"public_repo\"],\"token\":\"abcdefgh12345678\",\"token_last_eight\":\"12345678\",\"hashed_token\":\"25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8\",\"app\":{\"url\":\"http://my-github-app.com\",\"name\":\"my github app\",\"client_id\":\"abcde12345fghij67890\"},\"note\":\"optional note\",\"note_url\":\"http://optional/note/url\",\"updated_at\":\"2011-09-06T20:39:23Z\",\"created_at\":\"2011-09-06T17:26:27Z\",\"fingerprint\":\"jklmnop12345678\",\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "Reset a token",
+    "scope": "apps",
+    "id": "resetToken",
+    "method": "PATCH",
+    "url": "/applications/{client_id}/token",
+    "isDeprecated": false,
+    "description": "OAuth applications can use this API method to reset a valid OAuth token without end-user involvement. Applications must save the \"token\" property in the response because changes take effect immediately. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. Invalid tokens will return `404 NOT FOUND`.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#reset-a-token",
+    "previews": [{ "name": "doctor-strange" }],
+    "headers": [
+      {
+        "name": "accept",
+        "value": "application/vnd.github.doctor-strange-preview+json"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "client_id",
+        "description": "client_id parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "access_token",
+        "description": "The OAuth access token used to authenticate to the GitHub API.",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "response",
+        "examples": [
+          {
+            "data": "{\"id\":1,\"url\":\"https://api.github.com/authorizations/1\",\"scopes\":[\"public_repo\"],\"token\":\"abcdefgh12345678\",\"token_last_eight\":\"12345678\",\"hashed_token\":\"25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8\",\"app\":{\"url\":\"http://my-github-app.com\",\"name\":\"my github app\",\"client_id\":\"abcde12345fghij67890\"},\"note\":\"optional note\",\"note_url\":\"http://optional/note/url\",\"updated_at\":\"2011-09-06T20:39:23Z\",\"created_at\":\"2011-09-06T17:26:27Z\",\"fingerprint\":\"jklmnop12345678\",\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "Delete an app token",
+    "scope": "apps",
+    "id": "deleteToken",
+    "method": "DELETE",
+    "url": "/applications/{client_id}/token",
+    "isDeprecated": false,
+    "description": "OAuth application owners can revoke a single token for an OAuth application. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#delete-an-app-token",
+    "previews": [{ "name": "doctor-strange" }],
+    "headers": [
+      {
+        "name": "accept",
+        "value": "application/vnd.github.doctor-strange-preview+json"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "client_id",
+        "description": "client_id parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "access_token",
+        "description": "The OAuth access token used to authenticate to the GitHub API.",
+        "in": "BODY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [],
+    "renamed": null
+  },
+  {
     "name": "Check an authorization",
-    "scope": "oauthAuthorizations",
+    "scope": "apps",
     "id": "checkAuthorization",
     "method": "GET",
     "url": "/applications/{client_id}/tokens/{access_token}",
-    "isDeprecated": false,
-    "description": "OAuth applications can use a special API method for checking OAuth token validity without running afoul of normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing it, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`.",
-    "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#check-an-authorization",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will replace and discontinue OAuth endpoints containing `access_token` in the path parameter. We are introducing new endpoints that allow you to securely manage tokens for OAuth Apps by using `access_token` as an input parameter. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nOAuth applications can use a special API method for checking OAuth token validity without exceeding the normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. Invalid tokens will return `404 NOT FOUND`.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#check-an-authorization",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "client_id",
+        "description": "client_id parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "access_token",
+        "description": "access_token parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "response",
+        "examples": [
+          {
+            "data": "{\"id\":1,\"url\":\"https://api.github.com/authorizations/1\",\"scopes\":[\"public_repo\"],\"token\":\"abcdefgh12345678\",\"token_last_eight\":\"12345678\",\"hashed_token\":\"25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8\",\"app\":{\"url\":\"http://my-github-app.com\",\"name\":\"my github app\",\"client_id\":\"abcde12345fghij67890\"},\"note\":\"optional note\",\"note_url\":\"http://optional/note/url\",\"updated_at\":\"2011-09-06T20:39:23Z\",\"created_at\":\"2011-09-06T17:26:27Z\",\"fingerprint\":\"jklmnop12345678\",\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false}}"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
+    "name": "Check an authorization",
+    "scope": "apps",
+    "id": "checkAuthorization",
+    "method": "GET",
+    "url": "/applications/{client_id}/tokens/{access_token}",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will replace and discontinue OAuth endpoints containing `access_token` in the path parameter. We are introducing new endpoints that allow you to securely manage tokens for OAuth Apps by using `access_token` as an input parameter. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nOAuth applications can use a special API method for checking OAuth token validity without exceeding the normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. Invalid tokens will return `404 NOT FOUND`.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#check-an-authorization",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "client_id",
+        "description": "client_id parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "access_token",
+        "description": "access_token parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "response",
+        "examples": [
+          {
+            "data": "{\"id\":1,\"url\":\"https://api.github.com/authorizations/1\",\"scopes\":[\"public_repo\"],\"token\":\"abcdefgh12345678\",\"token_last_eight\":\"12345678\",\"hashed_token\":\"25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8\",\"app\":{\"url\":\"http://my-github-app.com\",\"name\":\"my github app\",\"client_id\":\"abcde12345fghij67890\"},\"note\":\"optional note\",\"note_url\":\"http://optional/note/url\",\"updated_at\":\"2011-09-06T20:39:23Z\",\"created_at\":\"2011-09-06T17:26:27Z\",\"fingerprint\":\"jklmnop12345678\",\"user\":{\"login\":\"octocat\",\"id\":1,\"node_id\":\"MDQ6VXNlcjE=\",\"avatar_url\":\"https://github.com/images/error/octocat_happy.gif\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/octocat\",\"html_url\":\"https://github.com/octocat\",\"followers_url\":\"https://api.github.com/users/octocat/followers\",\"following_url\":\"https://api.github.com/users/octocat/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/octocat/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/octocat/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/octocat/subscriptions\",\"organizations_url\":\"https://api.github.com/users/octocat/orgs\",\"repos_url\":\"https://api.github.com/users/octocat/repos\",\"events_url\":\"https://api.github.com/users/octocat/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/octocat/received_events\",\"type\":\"User\",\"site_admin\":false}}"
+          }
+        ]
+      }
+    ],
+    "renamed": {
+      "before": { "scope": "oauthAuthorizations", "id": "checkAuthorization" },
+      "after": { "scope": "apps", "id": "checkAuthorization" },
+      "date": "2019-11-05",
+      "note": "\"Check an authorization\" has been moved from \"OAuth Authorizations\" to \"Apps\""
+    }
+  },
+  {
+    "name": "Reset an authorization",
+    "scope": "apps",
+    "id": "resetAuthorization",
+    "method": "POST",
+    "url": "/applications/{client_id}/tokens/{access_token}",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will replace and discontinue OAuth endpoints containing `access_token` in the path parameter. We are introducing new endpoints that allow you to securely manage tokens for OAuth Apps by using `access_token` as an input parameter. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nOAuth applications can use this API method to reset a valid OAuth token without end-user involvement. Applications must save the \"token\" property in the response because changes take effect immediately. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. Invalid tokens will return `404 NOT FOUND`.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#reset-an-authorization",
     "previews": [],
     "headers": [],
     "parameters": [
@@ -491,13 +858,13 @@
   },
   {
     "name": "Reset an authorization",
-    "scope": "oauthAuthorizations",
+    "scope": "apps",
     "id": "resetAuthorization",
     "method": "POST",
     "url": "/applications/{client_id}/tokens/{access_token}",
-    "isDeprecated": false,
-    "description": "OAuth applications can use this API method to reset a valid OAuth token without end user involvement. Applications must save the \"token\" property in the response, because changes take effect immediately. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing it, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`.",
-    "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will replace and discontinue OAuth endpoints containing `access_token` in the path parameter. We are introducing new endpoints that allow you to securely manage tokens for OAuth Apps by using `access_token` as an input parameter. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nOAuth applications can use this API method to reset a valid OAuth token without end-user involvement. Applications must save the \"token\" property in the response because changes take effect immediately. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. Invalid tokens will return `404 NOT FOUND`.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#reset-an-authorization",
     "previews": [],
     "headers": [],
     "parameters": [
@@ -539,17 +906,22 @@
         ]
       }
     ],
-    "renamed": null
+    "renamed": {
+      "before": { "scope": "oauthAuthorizations", "id": "resetAuthorization" },
+      "after": { "scope": "apps", "id": "resetAuthorization" },
+      "date": "2019-11-05",
+      "note": "\"Reset an authorization\" has been moved from \"OAuth Authorizations\" to \"Apps\""
+    }
   },
   {
     "name": "Revoke an authorization for an application",
-    "scope": "oauthAuthorizations",
+    "scope": "apps",
     "id": "revokeAuthorizationForApplication",
     "method": "DELETE",
     "url": "/applications/{client_id}/tokens/{access_token}",
-    "isDeprecated": false,
-    "description": "OAuth application owners can revoke a single token for an OAuth application. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) for this method, where the username is the OAuth application `client_id` and the password is its `client_secret`.",
-    "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will replace and discontinue OAuth endpoints containing `access_token` in the path parameter. We are introducing new endpoints that allow you to securely manage tokens for OAuth Apps by using `access_token` as an input parameter. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nOAuth application owners can revoke a single token for an OAuth application. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#revoke-an-authorization-for-an-application",
     "previews": [],
     "headers": [],
     "parameters": [
@@ -582,6 +954,56 @@
     ],
     "responses": [],
     "renamed": null
+  },
+  {
+    "name": "Revoke an authorization for an application",
+    "scope": "apps",
+    "id": "revokeAuthorizationForApplication",
+    "method": "DELETE",
+    "url": "/applications/{client_id}/tokens/{access_token}",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will replace and discontinue OAuth endpoints containing `access_token` in the path parameter. We are introducing new endpoints that allow you to securely manage tokens for OAuth Apps by using `access_token` as an input parameter. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nOAuth application owners can revoke a single token for an OAuth application. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password.",
+    "documentationUrl": "https://developer.github.com/v3/apps/oauth_applications/#revoke-an-authorization-for-an-application",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "client_id",
+        "description": "client_id parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "access_token",
+        "description": "access_token parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [],
+    "renamed": {
+      "before": {
+        "scope": "oauthAuthorizations",
+        "id": "revokeAuthorizationForApplication"
+      },
+      "after": { "scope": "apps", "id": "revokeAuthorizationForApplication" },
+      "date": "2019-11-05",
+      "note": "\"Revoke an authorization for an application\" has been moved from \"OAuth Authorizations\" to \"Apps\""
+    }
   },
   {
     "name": "Get a single GitHub App",
@@ -633,8 +1055,8 @@
     "id": "listAuthorizations",
     "method": "GET",
     "url": "/authorizations",
-    "isDeprecated": false,
-    "description": "",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations",
     "previews": [],
     "headers": [],
@@ -685,8 +1107,8 @@
     "id": "createAuthorization",
     "method": "POST",
     "url": "/authorizations",
-    "isDeprecated": false,
-    "description": "Creates OAuth tokens using [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication). If you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"\n\nYou can use this endpoint to create multiple OAuth tokens instead of implementing the [web flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/).\n\nTo create tokens for a particular OAuth application using this endpoint, you must authenticate as the user you want to create an authorization for and provide the app's client ID and secret, found on your OAuth application's settings page. If your OAuth application intends to create multiple tokens for one user, use `fingerprint` to differentiate between them.\n\nYou can also create tokens on GitHub from the [personal access tokens settings](https://github.com/settings/tokens) page. Read more about these tokens in [the GitHub Help documentation](https://help.github.com/articles/creating-an-access-token-for-command-line-use).\n\nOrganizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens in [the GitHub Help documentation](https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on).",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\n**Warning:** Apps must use the [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to obtain OAuth tokens that work with GitHub SAML organizations. OAuth tokens created using the Authorizations API will be unable to access GitHub SAML organizations. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nCreates OAuth tokens using [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication). If you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"\n\nTo create tokens for a particular OAuth application using this endpoint, you must authenticate as the user you want to create an authorization for and provide the app's client ID and secret, found on your OAuth application's settings page. If your OAuth application intends to create multiple tokens for one user, use `fingerprint` to differentiate between them.\n\nYou can also create tokens on GitHub from the [personal access tokens settings](https://github.com/settings/tokens) page. Read more about these tokens in [the GitHub Help documentation](https://help.github.com/articles/creating-an-access-token-for-command-line-use).\n\nOrganizations that enforce SAML SSO require personal access tokens to be whitelisted. Read more about whitelisting tokens in [the GitHub Help documentation](https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on).",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization",
     "previews": [],
     "headers": [],
@@ -789,8 +1211,8 @@
     "id": "getOrCreateAuthorizationForApp",
     "method": "PUT",
     "url": "/authorizations/clients/{client_id}",
-    "isDeprecated": false,
-    "description": "Creates a new authorization for the specified OAuth application, only if an authorization for that application doesn't already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.\n\nIf you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\n**Warning:** Apps must use the [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to obtain OAuth tokens that work with GitHub SAML organizations. OAuth tokens created using the Authorizations API will be unable to access GitHub SAML organizations. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nCreates a new authorization for the specified OAuth application, only if an authorization for that application doesn't already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.\n\nIf you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"\n\n**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app",
     "previews": [],
     "headers": [],
@@ -886,7 +1308,7 @@
       },
       {
         "code": 201,
-        "description": "Response if returning a new token",
+        "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).",
         "examples": [
           {
             "data": "{\"id\":1,\"url\":\"https://api.github.com/authorizations/1\",\"scopes\":[\"public_repo\"],\"token\":\"abcdefgh12345678\",\"token_last_eight\":\"12345678\",\"hashed_token\":\"25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8\",\"app\":{\"url\":\"http://my-github-app.com\",\"name\":\"my github app\",\"client_id\":\"abcde12345fghij67890\"},\"note\":\"optional note\",\"note_url\":\"http://optional/note/url\",\"updated_at\":\"2011-09-06T20:39:23Z\",\"created_at\":\"2011-09-06T17:26:27Z\",\"fingerprint\":\"\"}"
@@ -902,8 +1324,8 @@
     "id": "getOrCreateAuthorizationForAppAndFingerprint",
     "method": "PUT",
     "url": "/authorizations/clients/{client_id}/{fingerprint}",
-    "isDeprecated": false,
-    "description": "This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.\n\nIf you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\n**Warning:** Apps must use the [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to obtain OAuth tokens that work with GitHub SAML organizations. OAuth tokens created using the Authorizations API will be unable to access GitHub SAML organizations. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nThis method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.\n\nIf you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint",
     "previews": [],
     "headers": [],
@@ -1015,8 +1437,8 @@
     "id": "getOrCreateAuthorizationForAppFingerprint",
     "method": "PUT",
     "url": "/authorizations/clients/{client_id}/{fingerprint}",
-    "isDeprecated": false,
-    "description": "This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.\n\nIf you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\n**Warning:** Apps must use the [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to obtain OAuth tokens that work with GitHub SAML organizations. OAuth tokens created using the Authorizations API will be unable to access GitHub SAML organizations. For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nThis method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.\n\nIf you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint",
     "previews": [],
     "headers": [],
@@ -1121,8 +1543,14 @@
       }
     ],
     "renamed": {
-      "before": "getOrCreateAuthorizationForAppFingerprint",
-      "after": "getOrCreateAuthorizationForAppAndFingerprint",
+      "before": {
+        "scope": "oauthAuthorizations",
+        "id": "getOrCreateAuthorizationForAppFingerprint"
+      },
+      "after": {
+        "scope": "oauthAuthorizations",
+        "id": "getOrCreateAuthorizationForAppAndFingerprint"
+      },
       "date": "2018-12-27",
       "note": "`idName` changed for \"Get-or-create an authorization for a specific app and fingerprint\". It now includes `-and-`"
     }
@@ -1133,8 +1561,8 @@
     "id": "getAuthorization",
     "method": "GET",
     "url": "/authorizations/{authorization_id}",
-    "isDeprecated": false,
-    "description": "",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#get-a-single-authorization",
     "previews": [],
     "headers": [],
@@ -1172,8 +1600,8 @@
     "id": "updateAuthorization",
     "method": "PATCH",
     "url": "/authorizations/{authorization_id}",
-    "isDeprecated": false,
-    "description": "If you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"\n\nYou can only send one of these scope keys at a time.",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).\n\nIf you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see \"[Working with two-factor authentication](https://developer.github.com/v3/auth/#working-with-two-factor-authentication).\"\n\nYou can only send one of these scope keys at a time.",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization",
     "previews": [],
     "headers": [],
@@ -1289,8 +1717,8 @@
     "id": "deleteAuthorization",
     "method": "DELETE",
     "url": "/authorizations/{authorization_id}",
-    "isDeprecated": false,
-    "description": "",
+    "isDeprecated": true,
+    "description": "**Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://developer.github.com/v3/oauth_authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). For more information, see the [blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api).",
     "documentationUrl": "https://developer.github.com/v3/oauth_authorizations/#delete-an-authorization",
     "previews": [],
     "headers": [],
@@ -2854,8 +3282,8 @@
       }
     ],
     "renamed": {
-      "before": "list",
-      "after": "listCommonlyUsed",
+      "before": { "scope": "licenses", "id": "list" },
+      "after": { "scope": "licenses", "id": "listCommonlyUsed" },
       "date": "2019-03-05",
       "note": "\"List all licenses\" renamed to \"List commonly used licenses\""
     }
@@ -4898,8 +5326,8 @@
       }
     ],
     "renamed": {
-      "before": "findOrgInstallation",
-      "after": "getOrgInstallation",
+      "before": { "scope": "apps", "id": "findOrgInstallation" },
+      "after": { "scope": "apps", "id": "getOrgInstallation" },
       "date": "2019-04-10",
       "note": "\"Find organization installation\" renamed to \"Get an organization installation\""
     }
@@ -10978,8 +11406,11 @@
       }
     ],
     "renamed": {
-      "before": "listAppsWithAccessToProtectedBranch",
-      "after": "getAppsWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listAppsWithAccessToProtectedBranch"
+      },
+      "after": { "scope": "repos", "id": "getAppsWithAccessToProtectedBranch" },
       "date": "2019-09-13",
       "note": "\"List apps with access to protected branch\" is now \"Get apps with access to protected branch\""
     }
@@ -11347,8 +11778,14 @@
       }
     ],
     "renamed": {
-      "before": "listProtectedBranchTeamRestrictions",
-      "after": "getTeamsWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listProtectedBranchTeamRestrictions"
+      },
+      "after": {
+        "scope": "repos",
+        "id": "getTeamsWithAccessToProtectedBranch"
+      },
       "date": "2019-09-09",
       "note": "\"List team restrictions of protected branch\" is now \"Get teams with access to protected branch\""
     }
@@ -11417,8 +11854,14 @@
       }
     ],
     "renamed": {
-      "before": "listTeamsWithAccessToProtectedBranch",
-      "after": "getTeamsWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listTeamsWithAccessToProtectedBranch"
+      },
+      "after": {
+        "scope": "repos",
+        "id": "getTeamsWithAccessToProtectedBranch"
+      },
       "date": "2019-09-13",
       "note": "\"List teams with access to protected branch\" is now \"Get teams with access to protected branch\""
     }
@@ -11786,8 +12229,14 @@
       }
     ],
     "renamed": {
-      "before": "listProtectedBranchUserRestrictions",
-      "after": "getUsersWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listProtectedBranchUserRestrictions"
+      },
+      "after": {
+        "scope": "repos",
+        "id": "getUsersWithAccessToProtectedBranch"
+      },
       "date": "2019-09-09",
       "note": "\"List user restrictions of protected branch\" is now \"Get users with access to protected branch\""
     }
@@ -11856,8 +12305,14 @@
       }
     ],
     "renamed": {
-      "before": "listUsersWithAccessToProtectedBranch",
-      "after": "getUsersWithAccessToProtectedBranch",
+      "before": {
+        "scope": "repos",
+        "id": "listUsersWithAccessToProtectedBranch"
+      },
+      "after": {
+        "scope": "repos",
+        "id": "getUsersWithAccessToProtectedBranch"
+      },
       "date": "2019-09-13",
       "note": "\"List users with access to protected branch\" is now \"Get users with access to protected branch\""
     }
@@ -16156,8 +16611,8 @@
       }
     ],
     "renamed": {
-      "before": "createFile",
-      "after": "createOrUpdateFile",
+      "before": { "scope": "repos", "id": "createFile" },
+      "after": { "scope": "repos", "id": "createOrUpdateFile" },
       "date": "2019-06-07",
       "note": "\"Create a file\" replaced by \"Create or update a file\""
     }
@@ -16365,8 +16820,8 @@
       }
     ],
     "renamed": {
-      "before": "updateFile",
-      "after": "createOrUpdateFile",
+      "before": { "scope": "repos", "id": "updateFile" },
+      "after": { "scope": "repos", "id": "createOrUpdateFile" },
       "date": "2019-06-07",
       "note": "\"Update a file\" replaced by \"Create or update a file\""
     }
@@ -20461,8 +20916,8 @@
       }
     ],
     "renamed": {
-      "before": "findRepoInstallation",
-      "after": "getRepoInstallation",
+      "before": { "scope": "apps", "id": "findRepoInstallation" },
+      "after": { "scope": "apps", "id": "getRepoInstallation" },
       "date": "2019-04-10",
       "note": "\"Find repository installation\" renamed to \"Get a repository installation\""
     }
@@ -27437,8 +27892,8 @@
       }
     ],
     "renamed": {
-      "before": "createCommentReply",
-      "after": "createComment",
+      "before": { "scope": "pulls", "id": "createCommentReply" },
+      "after": { "scope": "pulls", "id": "createComment" },
       "date": "2019-09-09",
       "note": "\"Create a comment reply\" is now \"Create a comment\". To create a pull request review comment reply, use the new \"Create a review comment reply\" endpoint"
     }
@@ -31066,8 +31521,10 @@
     "isDeprecated": false,
     "description": "",
     "documentationUrl": "https://developer.github.com/v3/repos/#list-all-topics-for-a-repository",
-    "previews": [],
-    "headers": [],
+    "previews": [{ "name": "mercy" }],
+    "headers": [
+      { "name": "accept", "value": "application/vnd.github.mercy-preview+json" }
+    ],
     "parameters": [
       {
         "name": "owner",
@@ -31116,8 +31573,10 @@
     "isDeprecated": false,
     "description": "",
     "documentationUrl": "https://developer.github.com/v3/repos/#replace-all-topics-for-a-repository",
-    "previews": [],
-    "headers": [],
+    "previews": [{ "name": "mercy" }],
+    "headers": [
+      { "name": "accept", "value": "application/vnd.github.mercy-preview+json" }
+    ],
     "parameters": [
       {
         "name": "owner",
@@ -32259,8 +32718,8 @@
       }
     ],
     "renamed": {
-      "before": "issues",
-      "after": "issuesAndPullRequests",
+      "before": { "scope": "search", "id": "issues" },
+      "after": { "scope": "search", "id": "issuesAndPullRequests" },
       "date": "2018-12-27",
       "note": "\"Search issues\" has been renamed to \"Search issues and pull requests\""
     }
@@ -38366,8 +38825,8 @@
       }
     ],
     "renamed": {
-      "before": "findUserInstallation",
-      "after": "getUserInstallation",
+      "before": { "scope": "apps", "id": "findUserInstallation" },
+      "after": { "scope": "apps", "id": "getUserInstallation" },
       "date": "2019-04-10",
       "note": "\"Find repository installation\" renamed to \"Get a repository installation\""
     }
