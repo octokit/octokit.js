@@ -74,7 +74,10 @@ async function generateRoutes() {
 
         return result;
       }, {}),
-      url
+      url,
+      deprecated: newRoutes[scope][idName]
+        ? newRoutes[scope][idName].deprecated
+        : undefined
     };
 
     const previewHeaders = endpoint.previews
@@ -88,12 +91,21 @@ async function generateRoutes() {
     }
 
     if (endpoint.renamed) {
-      newRoutes[scope][
-        idName
-      ].deprecated = `octokit.${scope}.${endpoint.renamed.before}() has been renamed to octokit.${scope}.${endpoint.renamed.after}() (${endpoint.renamed.date})`;
+      const { before, after } = endpoint.renamed;
+      if (!newRoutes[before.scope]) {
+        newRoutes[before.scope] = {};
+      }
+
+      if (!newRoutes[before.scope][before.id]) {
+        newRoutes[before.scope][before.id] = newRoutes[scope][idName];
+      }
+
+      newRoutes[before.scope][
+        before.id
+      ].deprecated = `octokit.${before.scope}.${before.id}() has been renamed to octokit.${after.scope}.${after.id}() (${endpoint.renamed.date})`;
     }
 
-    if (endpoint.isDeprecated) {
+    if (endpoint.isDeprecated && !newRoutes[scope][idName].deprecated) {
       newRoutes[scope][
         idName
       ].deprecated = `octokit.${scope}.${idName}() is deprecated, see ${endpoint.documentationUrl}`;
