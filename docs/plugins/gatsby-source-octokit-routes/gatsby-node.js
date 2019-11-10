@@ -29,13 +29,17 @@ exports.sourceNodes = async ({ actions }) => {
     let renamedId;
 
     if (endpoint.renamed) {
-      renamedId = `octokit-routes-${endpoint.scope}-${_.kebabCase(endpoint.renamed.after)}`
+      renamedId = `octokit-routes-${endpoint.scope}-${_.kebabCase(
+        endpoint.renamed.after.id
+      )}`;
     }
     const method = {
       ...endpoint,
       id: endpointId,
       example,
-      renamed: endpoint.renamed ? {...endpoint.renamed, afterId: renamedId } : undefined,
+      renamed: endpoint.renamed
+        ? { ...endpoint.renamed, afterId: renamedId }
+        : undefined
     };
 
     createNode({
@@ -44,7 +48,9 @@ exports.sourceNodes = async ({ actions }) => {
       children: [],
       id: endpointId,
       example,
-      renamed: endpoint.renamed ? {...endpoint.renamed, afterId: renamedId } : undefined,
+      renamed: endpoint.renamed
+        ? { ...endpoint.renamed, afterId: renamedId }
+        : undefined,
       internal: {
         description: `${endpoint.name} Method`,
         contentDigest: endpointId,

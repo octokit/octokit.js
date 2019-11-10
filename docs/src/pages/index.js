@@ -50,8 +50,14 @@ export const query = graphql`
               description
             }
             renamed {
-              before
-              after
+              before {
+                scope
+                id
+              }
+              after {
+                scope
+                id
+              }
               afterId
             }
           }

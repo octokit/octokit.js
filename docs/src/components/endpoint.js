@@ -59,8 +59,11 @@ export default class EndPoint extends Component {
               <strong>Deprecated</strong>
             </div>
             <span>
-              This method has been renamed from {method.renamed.before} to{" "}
-              <a href={`#${method.renamed.afterId}`}>{method.renamed.after}</a>.
+              This method has been renamed to
+              <a href={`#${method.renamed.afterId}`}>
+                {method.renamed.after.scope}.{method.renamed.after.id}
+              </a>
+              .
             </span>
           </aside>
         )}
