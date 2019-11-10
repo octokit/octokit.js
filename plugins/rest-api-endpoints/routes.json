@@ -291,6 +291,26 @@
       },
       "url": "/marketplace_listing/stubbed/accounts/:account_id"
     },
+    "checkAuthorization": {
+      "deprecated": "octokit.oauthAuthorizations.checkAuthorization() has been renamed to octokit.apps.checkAuthorization() (2019-11-05)",
+      "method": "GET",
+      "params": {
+        "access_token": { "required": true, "type": "string" },
+        "client_id": { "required": true, "type": "string" }
+      },
+      "url": "/applications/:client_id/tokens/:access_token"
+    },
+    "checkToken": {
+      "headers": {
+        "accept": "application/vnd.github.doctor-strange-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "access_token": { "type": "string" },
+        "client_id": { "required": true, "type": "string" }
+      },
+      "url": "/applications/:client_id/token"
+    },
     "createContentAttachment": {
       "headers": { "accept": "application/vnd.github.corsair-preview+json" },
       "method": "POST",
@@ -319,6 +339,17 @@
       },
       "url": "/app/installations/:installation_id/access_tokens"
     },
+    "deleteAuthorization": {
+      "headers": {
+        "accept": "application/vnd.github.doctor-strange-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "access_token": { "type": "string" },
+        "client_id": { "required": true, "type": "string" }
+      },
+      "url": "/applications/:client_id/grant"
+    },
     "deleteInstallation": {
       "headers": {
         "accept": "application/vnd.github.gambit-preview+json,application/vnd.github.machine-man-preview+json"
@@ -326,6 +357,17 @@
       "method": "DELETE",
       "params": { "installation_id": { "required": true, "type": "integer" } },
       "url": "/app/installations/:installation_id"
+    },
+    "deleteToken": {
+      "headers": {
+        "accept": "application/vnd.github.doctor-strange-preview+json"
+      },
+      "method": "DELETE",
+      "params": {
+        "access_token": { "type": "string" },
+        "client_id": { "required": true, "type": "string" }
+      },
+      "url": "/applications/:client_id/token"
     },
     "findOrgInstallation": {
       "deprecated": "octokit.apps.findOrgInstallation() has been renamed to octokit.apps.getOrgInstallation() (2019-04-10)",
@@ -517,6 +559,44 @@
         "repository_id": { "required": true, "type": "integer" }
       },
       "url": "/user/installations/:installation_id/repositories/:repository_id"
+    },
+    "resetAuthorization": {
+      "deprecated": "octokit.oauthAuthorizations.resetAuthorization() has been renamed to octokit.apps.resetAuthorization() (2019-11-05)",
+      "method": "POST",
+      "params": {
+        "access_token": { "required": true, "type": "string" },
+        "client_id": { "required": true, "type": "string" }
+      },
+      "url": "/applications/:client_id/tokens/:access_token"
+    },
+    "resetToken": {
+      "headers": {
+        "accept": "application/vnd.github.doctor-strange-preview+json"
+      },
+      "method": "PATCH",
+      "params": {
+        "access_token": { "type": "string" },
+        "client_id": { "required": true, "type": "string" }
+      },
+      "url": "/applications/:client_id/token"
+    },
+    "revokeAuthorizationForApplication": {
+      "deprecated": "octokit.oauthAuthorizations.revokeAuthorizationForApplication() has been renamed to octokit.apps.revokeAuthorizationForApplication() (2019-11-05)",
+      "method": "DELETE",
+      "params": {
+        "access_token": { "required": true, "type": "string" },
+        "client_id": { "required": true, "type": "string" }
+      },
+      "url": "/applications/:client_id/tokens/:access_token"
+    },
+    "revokeGrantForApplication": {
+      "deprecated": "octokit.oauthAuthorizations.revokeGrantForApplication() has been renamed to octokit.apps.revokeGrantForApplication() (2019-11-05)",
+      "method": "DELETE",
+      "params": {
+        "access_token": { "required": true, "type": "string" },
+        "client_id": { "required": true, "type": "string" }
+      },
+      "url": "/applications/:client_id/grants/:access_token"
     }
   },
   "checks": {
@@ -1999,6 +2079,7 @@
   },
   "oauthAuthorizations": {
     "checkAuthorization": {
+      "deprecated": "octokit.oauthAuthorizations.checkAuthorization() has been renamed to octokit.apps.checkAuthorization() (2019-11-05)",
       "method": "GET",
       "params": {
         "access_token": { "required": true, "type": "string" },
@@ -2007,6 +2088,7 @@
       "url": "/applications/:client_id/tokens/:access_token"
     },
     "createAuthorization": {
+      "deprecated": "octokit.oauthAuthorizations.createAuthorization() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization",
       "method": "POST",
       "params": {
         "client_id": { "type": "string" },
@@ -2019,26 +2101,31 @@
       "url": "/authorizations"
     },
     "deleteAuthorization": {
+      "deprecated": "octokit.oauthAuthorizations.deleteAuthorization() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#delete-an-authorization",
       "method": "DELETE",
       "params": { "authorization_id": { "required": true, "type": "integer" } },
       "url": "/authorizations/:authorization_id"
     },
     "deleteGrant": {
+      "deprecated": "octokit.oauthAuthorizations.deleteGrant() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#delete-a-grant",
       "method": "DELETE",
       "params": { "grant_id": { "required": true, "type": "integer" } },
       "url": "/applications/grants/:grant_id"
     },
     "getAuthorization": {
+      "deprecated": "octokit.oauthAuthorizations.getAuthorization() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#get-a-single-authorization",
       "method": "GET",
       "params": { "authorization_id": { "required": true, "type": "integer" } },
       "url": "/authorizations/:authorization_id"
     },
     "getGrant": {
+      "deprecated": "octokit.oauthAuthorizations.getGrant() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#get-a-single-grant",
       "method": "GET",
       "params": { "grant_id": { "required": true, "type": "integer" } },
       "url": "/applications/grants/:grant_id"
     },
     "getOrCreateAuthorizationForApp": {
+      "deprecated": "octokit.oauthAuthorizations.getOrCreateAuthorizationForApp() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app",
       "method": "PUT",
       "params": {
         "client_id": { "required": true, "type": "string" },
@@ -2051,6 +2138,7 @@
       "url": "/authorizations/clients/:client_id"
     },
     "getOrCreateAuthorizationForAppAndFingerprint": {
+      "deprecated": "octokit.oauthAuthorizations.getOrCreateAuthorizationForAppAndFingerprint() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint",
       "method": "PUT",
       "params": {
         "client_id": { "required": true, "type": "string" },
@@ -2076,6 +2164,7 @@
       "url": "/authorizations/clients/:client_id/:fingerprint"
     },
     "listAuthorizations": {
+      "deprecated": "octokit.oauthAuthorizations.listAuthorizations() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations",
       "method": "GET",
       "params": {
         "page": { "type": "integer" },
@@ -2084,6 +2173,7 @@
       "url": "/authorizations"
     },
     "listGrants": {
+      "deprecated": "octokit.oauthAuthorizations.listGrants() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#list-your-grants",
       "method": "GET",
       "params": {
         "page": { "type": "integer" },
@@ -2092,6 +2182,7 @@
       "url": "/applications/grants"
     },
     "resetAuthorization": {
+      "deprecated": "octokit.oauthAuthorizations.resetAuthorization() has been renamed to octokit.apps.resetAuthorization() (2019-11-05)",
       "method": "POST",
       "params": {
         "access_token": { "required": true, "type": "string" },
@@ -2100,6 +2191,7 @@
       "url": "/applications/:client_id/tokens/:access_token"
     },
     "revokeAuthorizationForApplication": {
+      "deprecated": "octokit.oauthAuthorizations.revokeAuthorizationForApplication() has been renamed to octokit.apps.revokeAuthorizationForApplication() (2019-11-05)",
       "method": "DELETE",
       "params": {
         "access_token": { "required": true, "type": "string" },
@@ -2108,6 +2200,7 @@
       "url": "/applications/:client_id/tokens/:access_token"
     },
     "revokeGrantForApplication": {
+      "deprecated": "octokit.oauthAuthorizations.revokeGrantForApplication() has been renamed to octokit.apps.revokeGrantForApplication() (2019-11-05)",
       "method": "DELETE",
       "params": {
         "access_token": { "required": true, "type": "string" },
@@ -2116,6 +2209,7 @@
       "url": "/applications/:client_id/grants/:access_token"
     },
     "updateAuthorization": {
+      "deprecated": "octokit.oauthAuthorizations.updateAuthorization() is deprecated, see https://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization",
       "method": "PATCH",
       "params": {
         "add_scopes": { "type": "string[]" },
@@ -4716,6 +4810,7 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams"
     },
     "listTopics": {
+      "headers": { "accept": "application/vnd.github.mercy-preview+json" },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -4907,6 +5002,7 @@
       "url": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users"
     },
     "replaceTopics": {
+      "headers": { "accept": "application/vnd.github.mercy-preview+json" },
       "method": "PUT",
       "params": {
         "names": { "required": true, "type": "string[]" },
