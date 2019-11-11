@@ -15,11 +15,12 @@ jobs:
       - run: git checkout routes-update || true
       - run: npm ci
       - run: npm run update-endpoints
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
       - name: Create Pull Request
         uses: gr2m/create-or-update-pull-request-action@v1.x
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERSION: ${{ github.event.client_payload.version }}
         with:
           title: "🚧 GitHub REST Endpoints changed"
           body: |
