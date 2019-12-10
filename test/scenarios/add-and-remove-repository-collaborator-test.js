@@ -1,4 +1,4 @@
-const { loadFixture, fixtureToInstace } = require("../util");
+const { loadFixture, fixtureToInstance } = require("../util");
 
 require("../mocha-node-setup");
 
@@ -9,10 +9,10 @@ describe("api.github.com", () => {
   beforeEach(() => {
     return loadFixture("add-and-remove-repository-collaborator").then(
       fixture => {
-        githubUserA = fixtureToInstace(fixture, {
+        githubUserA = fixtureToInstance(fixture, {
           auth: "token 0000000000000000000000000000000000000001"
         });
-        githubUserB = fixtureToInstace(fixture, {
+        githubUserB = fixtureToInstance(fixture, {
           auth: "token 0000000000000000000000000000000000000002"
         });
       }

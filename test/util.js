@@ -1,6 +1,6 @@
 module.exports = {
   loadFixture,
-  fixtureToInstace,
+  fixtureToInstance,
   getInstance
 };
 
@@ -24,7 +24,7 @@ function loadFixture(scenario) {
     });
 }
 
-function fixtureToInstace({ url }, options) {
+function fixtureToInstance({ url }, options) {
   return new Octokit(
     Object.assign(options || {}, {
       baseUrl: url
@@ -34,6 +34,6 @@ function fixtureToInstace({ url }, options) {
 
 function getInstance(scenario, options) {
   return loadFixture(scenario).then(fixture =>
-    fixtureToInstace(fixture, options)
+    fixtureToInstance(fixture, options)
   );
 }
