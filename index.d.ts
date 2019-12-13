@@ -9113,6 +9113,7 @@ declare namespace Octokit {
     node_id: string;
     pull_request_url: string;
     state: string;
+    submitted_at: string;
     user: PullsListReviewsResponseItemUser;
   };
   type PullsListReviewRequestsResponseUsersItem = {
