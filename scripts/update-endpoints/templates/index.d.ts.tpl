@@ -59,9 +59,18 @@ declare namespace Octokit {
       agent?: http.Agent;
       timeout?: number
     };
-    timeout?: number; // Deprecated
-    headers?: {[header: string]: any}; // Deprecated
-    agent?: http.Agent; // Deprecated
+    /**
+     * @deprecated Use {request: {timeout}} instead. See https://github.com/octokit/request.js#request
+     */
+    timeout?: number;
+    /**
+     * @deprecated Use {userAgent, previews} instead. See https://github.com/octokit/request.js#request
+     */
+    headers?: {[header: string]: any};
+    /**
+     * @deprecated Use {request: {agent}} instead. See https://github.com/octokit/request.js#request
+     */
+    agent?: http.Agent;
     [option: string]: any;
   }
 

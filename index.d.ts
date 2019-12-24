@@ -68,9 +68,18 @@ declare namespace Octokit {
       agent?: http.Agent;
       timeout?: number;
     };
-    timeout?: number; // Deprecated
-    headers?: { [header: string]: any }; // Deprecated
-    agent?: http.Agent; // Deprecated
+    /**
+     * @deprecated Use {request: {timeout}} instead. See https://github.com/octokit/request.js#request
+     */
+    timeout?: number;
+    /**
+     * @deprecated Use {userAgent, previews} instead. See https://github.com/octokit/request.js#request
+     */
+    headers?: { [header: string]: any };
+    /**
+     * @deprecated Use {request: {agent}} instead. See https://github.com/octokit/request.js#request
+     */
+    agent?: http.Agent;
     [option: string]: any;
   }
 
@@ -9113,7 +9122,6 @@ declare namespace Octokit {
     node_id: string;
     pull_request_url: string;
     state: string;
-    submitted_at: string;
     user: PullsListReviewsResponseItemUser;
   };
   type PullsListReviewRequestsResponseUsersItem = {
