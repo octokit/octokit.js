@@ -94,6 +94,7 @@ async function generateTypes(languageName, templateFile, outputFile) {
   const ROUTES = await getRoutes()
 
   const childParams = {}
+
   const namespaces = Object.keys(ROUTES).reduce((namespaces, namespace) => {
     const methods = Object.keys(ROUTES[namespace]).reduce(
       (methods, methodName) => {

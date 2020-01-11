@@ -278,30 +278,30 @@ declare namespace Octokit {
 
   /* Response types */
 
-  {{&responseTypes}}
+  {{#responseTypes}}
+  export type {{name}} = {
+    {{#fields}}
+    {{name}}: {{type}};
+    {{/fields}}
+  };
+  {{/responseTypes}}
 
   /* Param types */
 
-  {{#namespaces}}
-  {{#methods}}
   {{#paramTypes}}
-  {{#hasParams}}
   export type {{type}} =
     & {
-    {{#params}}
+    {{#fields}}
       {{&jsdoc}}
-      "{{key}}"{{^required}}?{{/required}}: {{{type}}}{{#allowNull}} | null{{/allowNull}};
-    {{/params}}
+      "{{key}}"{{^required}}?{{/required}}: {{{type}}}{{#nullable}} | null{{/nullable}};
+    {{/fields}}
     };
-  {{/hasParams}}
   {{/paramTypes}}
-  {{/methods}}
-  {{/namespaces}}
 
   /* Child param types */
   
   {{#childParams}}
-  export type {{paramTypeName}} =
+  export type {{name}} =
     & {
     {{#params}}
       "{{key}}"{{^required}}?{{/required}}: {{{type}}};
@@ -336,6 +336,8 @@ declare class Octokit {
   paginate: Octokit.Paginate;
 
   log: Octokit.Log;
+
+  /* Namespaces */
 
   {{#namespaces}}
   {{namespace}}: {

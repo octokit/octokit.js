@@ -7,7 +7,7 @@ import { OpenAPIV3 } from 'openapi-types'
 import path from 'path'
 import prettier from 'prettier'
 import { parse } from 'swagger-parser'
-import { isNull, isNullOrUndefined } from 'util'
+import { isNullOrUndefined } from 'util'
 
 /**
  * Configurations
@@ -36,30 +36,56 @@ if (process.env.NODE_END !== 'test') {
 }
 
 /**
- * Template types.
+ * Template types represents models used in template.
  *
  * Prefixed with T-.
  */
 
 type TTypes = {
-  reponseTypes: TResposeType[]
+  paramTypes: TParamType[]
+  reponseTypes: TResponseType[]
   namespaces: TNamespace[]
-  childParams: TChildParam[]
 }
 
-type TResposeType = string
+type TParamType = {
+  name: string
+  fields: TParamTypeField[]
+}
+
+type TParamTypeField = {
+  key: string
+  type: string
+  jsdoc?: string
+  nullable: boolean
+  required: boolean
+}
+
+type TResponseType = {
+  name: string
+  fields: TResponseTypeField[]
+  list: boolean
+}
+
+type TResponseTypeField = {
+  name: string
+  type: string
+}
 
 type TNamespace = {
   namespace: string
-  methods: TNamespaceMethod
+  methods: TNamespaceMethod[]
 }
 
-type TChildParam = {
-  paramTypeName: string
-  params: []
+type TNamespaceMethod = {
+  method: string
+  responseType: string
+  jsdoc?: string
+  paramTypes: TNamespaceMethodParamType[]
 }
 
-type TNamespaceMethod = {}
+type TNamespaceMethodParamType = {
+  type: string
+}
 
 type XChanges = {
   type: string
@@ -94,26 +120,19 @@ type Endpoint = {
   /**
    * Documentation references.
    */
+  summary: string
   description: string
   docs: string
   /* Deprecation */
   deprecated: boolean
   /* Types */
-  parameters: Array<OpenAPIV3.ReferenceObject | OpenAPIV3.ParameterObject>
+  parameters: Array<OpenAPIV3.ParameterObject>
   responses: OpenAPIV3.ResponsesObject
-  requestBody?: OpenAPIV3.ReferenceObject | OpenAPIV3.RequestBodyObject
+  requestBody: OpenAPIV3.RequestBodyObject
   /* Github */
   apps: boolean
   previews: string[]
   changes: XChanges[]
-}
-
-/**
- * Scalar mappings.
- */
-const Scalars: { [openapi: string]: string } = {
-  integer: 'number',
-  'integer[]': 'number[]',
 }
 
 /**
@@ -158,14 +177,19 @@ async function generate(
           /* Meta */
           path: endpoint.operationId!,
           url: url,
+          /* Documentation */
+          summary: endpoint.summary!,
           description: endpoint.description!,
           docs: endpoint.externalDocs!.url!,
           /* Deprecation */
-          deprecated: endpoint.deprecated!,
+          deprecated: withDefault(false, endpoint.deprecated),
           /* Types */
-          parameters: endpoint.parameters!,
+          parameters: (endpoint.parameters as OpenAPIV3.ParameterObject[])!,
           responses: endpoint.responses!,
-          requestBody: endpoint.requestBody,
+          requestBody: withDefault(
+            { content: {} },
+            endpoint.requestBody as OpenAPIV3.RequestBodyObject,
+          ),
           /* Github */
           apps: endpoint['x-github'].enabledForApps,
           previews: endpoint['x-github'].previews,
@@ -179,20 +203,137 @@ async function generate(
 
   debugger
 
-  /* Generate types */
+  /**
+   * READ!!!
+   *
+   * Naming conventions used:
+   *  - we derive all types using pascalCase method and `operationId` property of
+   *    each endpoint.
+   *  - response types are suffixed with Response
+   *  - param types are suffixed with Params
+   *
+   * There are helper functions at the bottom of the file that help with the conventions.
+   */
 
-  const types = endpoints.map(endpoint => {})
+  /* Generate param types */
+
+  const paramTypes = endpoints.reduce<TParamType[]>((acc, endpoint) => {
+    /**
+     * Each endpoint might resolve in multiple types because of object subtypes.
+     */
+
+    const fields = endpoint.parameters.map<TParamTypeField>(param => {
+      const schema = param.schema as OpenAPIV3.NonArraySchemaObject
+
+      return {
+        key: param.name,
+        type: schema.type,
+        jsdoc: param.description && jsDocComment(param.description),
+        nullable: false,
+        required: Boolean(param.required && !schema.default),
+      }
+    })
+
+    const typeName = paramTypeName(endpoint)
+
+    const params: TParamType = {
+      name: typeName,
+      fields: fields,
+    }
+
+    return acc.concat(params)
+  }, [])
+
+  debugger
+
+  /* Generate response types */
+
+  const responseTypes = endpoints.map<TResponseType>(endpoint => {
+    const fields = Object.keys(endpoint.responses).reduce<TResponseTypeField[]>(
+      (acc, code) => {
+        const { content } = endpoint.responses[code] as OpenAPIV3.ResponseObject // TODO: We could use code here to differentiate between responses.
+        // const { schema } = content!['application/json']!
+        // return acc.concat()
+        return acc
+      },
+      [],
+    )
+
+    return {
+      name: pascalCase(endpoint.path),
+      list: false,
+      fields: fields,
+    }
+  })
 
   /* Generate namespaces */
 
-  const namespaces = patterns.map(pattern => {
-    const methods = {}
-  })
+  /* Figure out the hierarchy of namespace methods. */
+  const namespaceTree = endpoints.reduce<Dict<Dict<Endpoint>>>(
+    (tree, endpoint) => {
+      const [namespace, method] = endpoint.path.split('/').map(camelCase)
+
+      if (!tree.hasOwnProperty(namespace)) {
+        tree[namespace] = {}
+      }
+
+      tree[namespace][method] = endpoint
+
+      return tree
+    },
+    {},
+  )
+
+  /* Generate namespace declarations. */
+  const namespaces: TNamespace[] = Object.keys(namespaceTree).map<TNamespace>(
+    namespace => {
+      const methods: TNamespaceMethod[] = Object.keys(
+        namespaceTree[namespace],
+      ).map<TNamespaceMethod>(method => {
+        const endpoint = namespaceTree[namespace][method]
+
+        const jsdoc = jsDocComment(ml`
+          | ${endpoint.summary}
+          | 
+          | Github App compatible: ${endpoint.apps}
+          `)
+
+        // const paramTypes = (endpoint.parameters as OpenAPIV3.ParameterObject[])
+        //   .filter(param => !param.deprecated)
+        //   .map<TNamespaceMethodParamType>(parameter => {
+        //     return {
+        //       type: `Octokit.${pascalCase(endpoint.path)}Params`,
+        //       params: {},
+        //       hasParams: true,
+        //     }
+        //   })
+
+        return {
+          method: method,
+          jsdoc: jsdoc,
+          // TODO: Why is this a list?
+          paramTypes: [
+            {
+              type: paramTypeName(endpoint),
+            },
+          ],
+          responseType: `${pascalCase(endpoint.path)}Response`,
+        }
+      })
+
+      return {
+        namespace: namespace,
+        methods: methods,
+      }
+    },
+  )
+
+  debugger
 
   const data: TTypes = {
-    reponseTypes: [],
-    namespaces: [],
-    childParams: [],
+    paramTypes: paramTypes,
+    reponseTypes: responseTypes,
+    namespaces: namespaces,
   }
 
   /**
@@ -211,10 +352,217 @@ async function generate(
   `
   const formatted = prettier.format(unformatted, prettierConfig)
 
+  debugger
+
   return formatted
 }
 
 /* Helper functions */
+
+/**
+ * Finds the parameter type name of an endpoint.
+ * @param endpoint
+ */
+function paramTypeName(endpoint: Endpoint): string {
+  return `${pascalCase(endpoint.path)}Params`
+}
+
+/**
+ * Finds the response type name of an endpoint.
+ * @param endpoint
+ */
+function responseTypeName(endpoint: Endpoint): string {
+  return `${pascalCase(endpoint.path)}Response`
+}
+
+/**
+ * Abstract TypeScript type representations.
+ */
+
+type TSType = {
+  name: string
+  fields: TSTypeField[]
+}
+
+type TSTypeField = {
+  key: string
+  type: string
+  jsdoc?: string
+  nullable: boolean
+  required: boolean
+  list: boolean
+}
+
+/**
+ * Scalar mappings.
+ */
+const Scalars: {
+  [openapi in OpenAPIV3.NonArraySchemaObjectType]: string
+} = {
+  null: '?',
+  number: 'number',
+  string: 'string',
+  integer: 'number',
+  boolean: 'boolean',
+  object: 'object',
+}
+
+/**
+ * Converts a schema to TypeScript type.
+ *
+ * @param schema
+ */
+function buildTypes(
+  parentType: string,
+  spec:
+    | OpenAPIV3.ReferenceObject
+    | OpenAPIV3.ArraySchemaObject
+    | OpenAPIV3.NonArraySchemaObject,
+): TSType[] {
+  const schema = spec as
+    | OpenAPIV3.ArraySchemaObject
+    | OpenAPIV3.NonArraySchemaObject
+
+  switch (schema.type) {
+    case 'array': {
+      const subPath = pascalCase(`${path}-${key}-items`)
+      const subTypes = buildTypes(key, schema.items, subPath)
+
+      const arrayType = {
+        name: '',
+        fields: [
+          {
+            key: name,
+            type: subPath,
+            jsdoc: schema.description && jsDocComment(schema.description),
+            nullable: withDefault(false, schema.nullable),
+            required: true,
+            list: true,
+          },
+          ...subFields,
+        ],
+      }
+
+      return [subTypes]
+    }
+    case 'object': {
+      const subtypeName = pascalCase(`${name}-props`)
+      const [subFields, subTypes] = Object.keys(schema.properties!).reduce<
+        [TSTypeField[], TSType[]]
+      >(
+        ([accFields, accTypes], prop) => {
+          const [fs, ts] = buildTypes(prop, schema.properties![prop])
+          return [accFields.concat(fs), accTypes.concat(ts)]
+        },
+        [[], []],
+      )
+
+      return {}
+    }
+  }
+}
+
+/**
+ * Converts a schema to TypeScript type.
+ *
+ * @param schema
+ */
+function buildType(
+  parentType: string,
+  spec: OpenAPIV3.ReferenceObject | OpenAPIV3.ArraySchemaObject,
+): TSType {
+  const schema = spec as
+    | OpenAPIV3.ArraySchemaObject
+    | OpenAPIV3.NonArraySchemaObject
+
+  switch (schema.type) {
+    case 'array': {
+      const subPath = pascalCase(`${path}-${key}-items`)
+      const subTypes = buildTypes(key, schema.items, subPath)
+
+      const arrayType = {
+        name: '',
+        fields: [
+          {
+            key: name,
+            type: subPath,
+            jsdoc: schema.description && jsDocComment(schema.description),
+            nullable: withDefault(false, schema.nullable),
+            required: true,
+            list: true,
+          },
+          ...subFields,
+        ],
+      }
+
+      return [subTypes]
+    }
+    case 'object': {
+      const subtypeName = pascalCase(`${name}-props`)
+      const [subFields, subTypes] = Object.keys(schema.properties!).reduce<
+        [TSTypeField[], TSType[]]
+      >(
+        ([accFields, accTypes], prop) => {
+          const [fs, ts] = buildTypes(prop, schema.properties![prop])
+          return [accFields.concat(fs), accTypes.concat(ts)]
+        },
+        [[], []],
+      )
+
+      return {}
+    }
+  }
+}
+
+/**
+ * Builds a field instance.
+ * @param key
+ * @param schema
+ */
+function buildField(
+  key: string,
+  schema: OpenAPIV3.NonArraySchemaObject,
+): TSTypeField {
+  switch (schema.type) {
+    case 'integer':
+    case 'boolean':
+    case 'number': {
+      return {
+        key: key,
+        type: Scalars[schema.type],
+        jsdoc: schema.description && jsDocComment(schema.description),
+        nullable: withDefault(false, schema.nullable),
+        required: true,
+        list: false,
+      }
+    }
+    case 'string': {
+      /* Handle enum cases. */
+      if (schema.enum) {
+        return {
+          key: key,
+          type: schema.enum.join('|'),
+          jsdoc: schema.description && jsDocComment(schema.description),
+          nullable: withDefault(false, schema.nullable),
+          required: true,
+          list: false,
+        }
+      } else {
+        return {
+          key: key,
+          type: Scalars['string'],
+          jsdoc: schema.description && jsDocComment(schema.description),
+          nullable: withDefault(false, schema.nullable),
+          required: true,
+          list: false,
+        }
+      }
+    }
+    case 'null': {
+      throw new Error()
+    }
+  }
+}
 
 /**
  * Determines whether a value is defined.
@@ -241,12 +589,31 @@ function jsDocComment(description: string): string {
   )
 }
 
-debugger
-
 /**
  * Creates a pascal case.
  * @param str
  */
-function pascalify(str: string): string {
+function pascalCase(str: string): string {
   return upperFirst(camelCase(str))
+}
+
+/**
+ * Creates a fallback value.
+ */
+function withDefault<T>(fallback: T, val: T | undefined | null): T {
+  if (isNullOrUndefined(val)) return fallback
+  return val
+}
+
+type Dict<T> = { [key: string]: T }
+
+/**
+ * Maps entries of a map using a function.
+ * @param m
+ * @param fn
+ */
+function mapEntries<T, V>(m: Dict<T>, fn: (v: T, key: string) => V): Dict<V> {
+  return Object.keys(m).reduce<Dict<V>>((acc, key) => {
+    return { ...acc, [key]: fn(m[key], key) }
+  }, {})
 }
