@@ -276,10 +276,12 @@ declare namespace Octokit {
     ) => AsyncIterableIterator<Octokit.AnyResponse>;
   }
 
-  // response types
+  /* Response types */
+
   {{&responseTypes}}
 
-  // param types
+  /* Param types */
+
   {{#namespaces}}
   {{#methods}}
   {{#paramTypes}}
@@ -296,7 +298,8 @@ declare namespace Octokit {
   {{/methods}}
   {{/namespaces}}
 
-  // child param types
+  /* Child param types */
+  
   {{#childParams}}
   export type {{paramTypeName}} =
     & {

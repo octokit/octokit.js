@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build:scripts",
+      "type": "shell",
+      "command": "./node_modules/.bin/tsc --build tsconfig.scripts.json && cp -R scripts/templates/ scripts/dist/templates/"
+    }
+  ]
+}
