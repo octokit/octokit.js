@@ -379,182 +379,77 @@ function responseTypeName(endpoint: Endpoint): string {
  * Abstract TypeScript type representations.
  */
 
-type TSType = {
-  name: string
-  fields: TSTypeField[]
-}
+type Type<T> = T & { required: boolean; docs?: string }
 
-type TSTypeField = {
-  key: string
-  type: string
-  jsdoc?: string
-  nullable: boolean
-  required: boolean
-  list: boolean
-}
+type AST =
+  | Type<{ type: 'number' }>
+  | Type<{ type: 'string' }>
+  | Type<{ type: 'boolean' }>
+  | Type<{ type: 'union'; options: string[] }>
+  | Type<{ type: 'list'; item: AST }>
+  | Type<{ type: 'object'; fields: Dict<AST> }>
 
 /**
- * Scalar mappings.
- */
-const Scalars: {
-  [openapi in OpenAPIV3.NonArraySchemaObjectType]: string
-} = {
-  null: '?',
-  number: 'number',
-  string: 'string',
-  integer: 'number',
-  boolean: 'boolean',
-  object: 'object',
-}
-
-/**
- * Converts a schema to TypeScript type.
+ * Parses json schema into an AST.
  *
- * @param schema
+ * @param spec
  */
-function buildTypes(
-  parentType: string,
+function parseJSONSchema(
   spec:
     | OpenAPIV3.ReferenceObject
     | OpenAPIV3.ArraySchemaObject
     | OpenAPIV3.NonArraySchemaObject,
-): TSType[] {
+): AST {
   const schema = spec as
     | OpenAPIV3.ArraySchemaObject
     | OpenAPIV3.NonArraySchemaObject
 
   switch (schema.type) {
     case 'array': {
-      const subPath = pascalCase(`${path}-${key}-items`)
-      const subTypes = buildTypes(key, schema.items, subPath)
-
-      const arrayType = {
-        name: '',
-        fields: [
-          {
-            key: name,
-            type: subPath,
-            jsdoc: schema.description && jsDocComment(schema.description),
-            nullable: withDefault(false, schema.nullable),
-            required: true,
-            list: true,
-          },
-          ...subFields,
-        ],
+      return {
+        type: 'list',
+        required: true,
+        docs: schema.description,
+        item: parseJSONSchema(schema.items),
       }
-
-      return [subTypes]
     }
     case 'object': {
-      const subtypeName = pascalCase(`${name}-props`)
-      const [subFields, subTypes] = Object.keys(schema.properties!).reduce<
-        [TSTypeField[], TSType[]]
-      >(
-        ([accFields, accTypes], prop) => {
-          const [fs, ts] = buildTypes(prop, schema.properties![prop])
-          return [accFields.concat(fs), accTypes.concat(ts)]
-        },
-        [[], []],
-      )
-
-      return {}
-    }
-  }
-}
-
-/**
- * Converts a schema to TypeScript type.
- *
- * @param schema
- */
-function buildType(
-  parentType: string,
-  spec: OpenAPIV3.ReferenceObject | OpenAPIV3.ArraySchemaObject,
-): TSType {
-  const schema = spec as
-    | OpenAPIV3.ArraySchemaObject
-    | OpenAPIV3.NonArraySchemaObject
-
-  switch (schema.type) {
-    case 'array': {
-      const subPath = pascalCase(`${path}-${key}-items`)
-      const subTypes = buildTypes(key, schema.items, subPath)
-
-      const arrayType = {
-        name: '',
-        fields: [
-          {
-            key: name,
-            type: subPath,
-            jsdoc: schema.description && jsDocComment(schema.description),
-            nullable: withDefault(false, schema.nullable),
-            required: true,
-            list: true,
-          },
-          ...subFields,
-        ],
+      return {
+        type: 'object',
+        required: true,
+        docs: schema.description,
+        fields: mapEntries(schema.properties, parseJSONSchema),
       }
-
-      return [subTypes]
     }
-    case 'object': {
-      const subtypeName = pascalCase(`${name}-props`)
-      const [subFields, subTypes] = Object.keys(schema.properties!).reduce<
-        [TSTypeField[], TSType[]]
-      >(
-        ([accFields, accTypes], prop) => {
-          const [fs, ts] = buildTypes(prop, schema.properties![prop])
-          return [accFields.concat(fs), accTypes.concat(ts)]
-        },
-        [[], []],
-      )
-
-      return {}
+    case 'boolean': {
+      return {
+        type: 'boolean',
+        docs: schema.description,
+        required: true,
+      }
     }
-  }
-}
-
-/**
- * Builds a field instance.
- * @param key
- * @param schema
- */
-function buildField(
-  key: string,
-  schema: OpenAPIV3.NonArraySchemaObject,
-): TSTypeField {
-  switch (schema.type) {
     case 'integer':
-    case 'boolean':
     case 'number': {
       return {
-        key: key,
-        type: Scalars[schema.type],
-        jsdoc: schema.description && jsDocComment(schema.description),
-        nullable: withDefault(false, schema.nullable),
+        type: 'number',
+        docs: schema.description,
         required: true,
-        list: false,
       }
     }
     case 'string': {
       /* Handle enum cases. */
       if (schema.enum) {
         return {
-          key: key,
-          type: schema.enum.join('|'),
-          jsdoc: schema.description && jsDocComment(schema.description),
-          nullable: withDefault(false, schema.nullable),
+          type: 'union',
+          options: schema.enum,
+          docs: schema.description,
           required: true,
-          list: false,
         }
       } else {
         return {
-          key: key,
-          type: Scalars['string'],
-          jsdoc: schema.description && jsDocComment(schema.description),
-          nullable: withDefault(false, schema.nullable),
+          type: 'string',
+          docs: schema.description,
           required: true,
-          list: false,
         }
       }
     }
@@ -563,6 +458,40 @@ function buildField(
     }
   }
 }
+
+/**
+ * Creates new types out of objects and returns them as a dictionary of references.
+ *
+ * @param ast
+ */
+function flattenAST(ast: AST): Dict<AST> {
+  switch (ast.type) {
+    /* Ignore scalars. */
+    case 'number':
+    case 'string':
+    case 'list':
+    case 'boolean': {
+      return {}
+    }
+    case 'object': {
+      const refs = mapEntries(ast.fields, flattenAST)
+      const nestedRefs = mapKeys(refs, key => nest(key, ''))
+    }
+    case 'union': {
+    }
+  }
+
+  function nest(path: string, parent: string): string {
+    return [parent, ...path.split('.')].join('.')
+  }
+}
+
+/**
+ * Converts AST representation of JSON schema into TypeScript-representable types.
+ *
+ * @param ast
+ */
+function printJSONSchemaAST(ast: AST) {}
 
 /**
  * Determines whether a value is defined.
@@ -615,5 +544,17 @@ type Dict<T> = { [key: string]: T }
 function mapEntries<T, V>(m: Dict<T>, fn: (v: T, key: string) => V): Dict<V> {
   return Object.keys(m).reduce<Dict<V>>((acc, key) => {
     return { ...acc, [key]: fn(m[key], key) }
+  }, {})
+}
+
+/**
+ * Maps keys of an object leaving values untouched.
+ *
+ * @param m
+ * @param fn
+ */
+function mapKeys<T>(m: Dict<T>, fn: (key: string, v: T) => string): Dict<T> {
+  return Object.keys(m).reduce<Dict<T>>((acc, key) => {
+    return { ...acc, [fn(key, m[key])]: m[key] }
   }, {})
 }
