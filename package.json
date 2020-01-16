@@ -61,7 +61,7 @@
     "lodash.upperfirst": "^4.3.1",
     "mkdirp": "^0.5.1",
     "mocha": "^6.0.0",
-    "mustache": "^3.0.0",
+    "mustache": "^4.0.0",
     "nock": "^11.3.3",
     "npm-run-all": "^4.1.2",
     "nyc": "^15.0.0",
