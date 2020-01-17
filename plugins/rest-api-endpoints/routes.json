@@ -597,6 +597,12 @@
         "client_id": { "required": true, "type": "string" }
       },
       "url": "/applications/:client_id/grants/:access_token"
+    },
+    "revokeInstallationToken": {
+      "headers": { "accept": "application/vnd.github.gambit-preview+json" },
+      "method": "DELETE",
+      "params": {},
+      "url": "/installation/token"
     }
   },
   "checks": {
