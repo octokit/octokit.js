@@ -24,6 +24,11 @@ async function generateRoutes() {
   ENDPOINTS.concat(WORKAROUNDS).forEach(endpoint => {
     const scope = endpoint.scope;
 
+    if (endpoint.isLegacy && !/^\/teams\/\{team_id\}/.test(endpoint.url)) {
+      // ignore legacy endpoints with the exception of the new teams legacy methods
+      return;
+    }
+
     if (!newRoutes[scope]) {
       newRoutes[scope] = {};
     }
