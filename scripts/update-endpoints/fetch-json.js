@@ -10,13 +10,14 @@ if (!process.env.VERSION) {
 
 const QUERY = `
   query ($version: String) {
-    endpoints(version: $version, filter: { isLegacy: false, isGithubCloudOnly: false }) {
+    endpoints(version: $version, filter: { isGithubCloudOnly: false }) {
       name
       scope(format: CAMELCASE)
       id(format: CAMELCASE)
       method
       url
       isDeprecated
+      isLegacy
       description
       documentationUrl
       previews(required: true) {
