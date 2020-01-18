@@ -5319,6 +5319,8 @@
     "updateBranchProtection": {
       "method": "PUT",
       "params": {
+        "allow_deletions": { "type": "boolean" },
+        "allow_force_pushes": { "allowNull": true, "type": "boolean" },
         "branch": { "required": true, "type": "string" },
         "enforce_admins": {
           "allowNull": true,
@@ -5327,6 +5329,7 @@
         },
         "owner": { "required": true, "type": "string" },
         "repo": { "required": true, "type": "string" },
+        "required_linear_history": { "type": "boolean" },
         "required_pull_request_reviews": {
           "allowNull": true,
           "required": true,
