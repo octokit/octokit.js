@@ -4064,7 +4064,11 @@
         "license_template": { "type": "string" },
         "name": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
-        "team_id": { "type": "integer" }
+        "team_id": { "type": "integer" },
+        "visibility": {
+          "enum": ["public", "private", "visibility", "internal"],
+          "type": "string"
+        }
       },
       "url": "/user/repos"
     },
@@ -4112,7 +4116,11 @@
         "name": { "required": true, "type": "string" },
         "org": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
-        "team_id": { "type": "integer" }
+        "team_id": { "type": "integer" },
+        "visibility": {
+          "enum": ["public", "private", "visibility", "internal"],
+          "type": "string"
+        }
       },
       "url": "/orgs/:org/repos"
     },
@@ -5292,7 +5300,11 @@
         "name": { "type": "string" },
         "owner": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
-        "repo": { "required": true, "type": "string" }
+        "repo": { "required": true, "type": "string" },
+        "visibility": {
+          "enum": ["public", "private", "visibility", "internal"],
+          "type": "string"
+        }
       },
       "url": "/repos/:owner/:repo"
     },
