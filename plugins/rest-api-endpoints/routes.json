@@ -4866,7 +4866,15 @@
           "type": "string"
         },
         "type": {
-          "enum": ["all", "public", "private", "forks", "sources", "member"],
+          "enum": [
+            "all",
+            "public",
+            "private",
+            "forks",
+            "sources",
+            "member",
+            "internal"
+          ],
           "type": "string"
         }
       },
