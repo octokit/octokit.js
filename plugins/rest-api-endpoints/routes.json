@@ -2523,6 +2523,9 @@
           "enum": ["all", "private", "none"],
           "type": "string"
         },
+        "members_can_create_internal_repositories": { "type": "boolean" },
+        "members_can_create_private_repositories": { "type": "boolean" },
+        "members_can_create_public_repositories": { "type": "boolean" },
         "members_can_create_repositories": { "type": "boolean" },
         "name": { "type": "string" },
         "org": { "required": true, "type": "string" }
