@@ -1874,9 +1874,6 @@
   "meta": { "get": { "method": "GET", "params": {}, "url": "/meta" } },
   "migrations": {
     "cancelImport": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "DELETE",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -1915,9 +1912,6 @@
       "url": "/orgs/:org/migrations/:migration_id/archive"
     },
     "getCommitAuthors": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -1927,9 +1921,6 @@
       "url": "/repos/:owner/:repo/import/authors"
     },
     "getImportProgress": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -1938,9 +1929,6 @@
       "url": "/repos/:owner/:repo/import"
     },
     "getLargeFiles": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -1997,9 +1985,6 @@
       "url": "/repos/:owner/:repo/import/authors/:author_id"
     },
     "setLfsPreference": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "PATCH",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -2032,9 +2017,6 @@
       "url": "/orgs/:org/migrations"
     },
     "startImport": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "PUT",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -2070,9 +2052,6 @@
       "url": "/orgs/:org/migrations/:migration_id/repos/:repo_name/lock"
     },
     "updateImport": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "PATCH",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -3395,7 +3374,7 @@
     },
     "createForTeamDiscussion": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -3420,7 +3399,7 @@
     },
     "createForTeamDiscussionComment": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -3446,7 +3425,7 @@
     },
     "delete": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "DELETE",
       "params": { "reaction_id": { "required": true, "type": "integer" } },
@@ -3567,7 +3546,7 @@
     },
     "listForTeamDiscussion": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3593,7 +3572,7 @@
     },
     "listForTeamDiscussionComment": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -5043,7 +5022,6 @@
       "url": "/repos/:owner/:repo/hooks/:hook_id/tests"
     },
     "transfer": {
-      "headers": { "accept": "application/vnd.github.nightshade-preview+json" },
       "method": "POST",
       "params": {
         "new_owner": { "type": "string" },
@@ -5782,7 +5760,6 @@
       "url": "/users/:username"
     },
     "getContextForUser": {
-      "headers": { "accept": "application/vnd.github.hagar-preview+json" },
       "method": "GET",
       "params": {
         "subject_id": { "type": "string" },
