@@ -1970,10 +1970,28 @@
       },
       "url": "/orgs/:org/migrations"
     },
-    "mapCommitAuthor": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
+    "listReposForOrg": {
+      "headers": { "accept": "application/vnd.github.wyandotte-preview+json" },
+      "method": "GET",
+      "params": {
+        "migration_id": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "page": { "type": "integer" },
+        "per_page": { "type": "integer" }
       },
+      "url": "/orgs/:org/migrations/:migration_id/repositories"
+    },
+    "listReposForUser": {
+      "headers": { "accept": "application/vnd.github.wyandotte-preview+json" },
+      "method": "GET",
+      "params": {
+        "migration_id": { "required": true, "type": "integer" },
+        "page": { "type": "integer" },
+        "per_page": { "type": "integer" }
+      },
+      "url": "/user/:migration_id/repositories"
+    },
+    "mapCommitAuthor": {
       "method": "PATCH",
       "params": {
         "author_id": { "required": true, "type": "integer" },
