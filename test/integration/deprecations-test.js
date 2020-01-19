@@ -602,6 +602,90 @@ describe("deprecations", () => {
     );
   });
 
+  it("new Octokit({ auth: { username, password, on2fa } })", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      }
+    })
+      .get("/orgs/myorg")
+      .reply(200, {});
+
+    let warnCalledCount = 0;
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        username: "username",
+        password: "password",
+        on2fa() {}
+      },
+      log: {
+        warn: () => {
+          warnCalledCount++;
+        }
+      }
+    });
+
+    return octokit.orgs.get({ org: "myorg" }).then(() => {
+      expect(warnCalledCount).to.equal(1);
+    });
+  });
+
+  it("new Octokit({ auth: { clientId, clientSecret } })", () => {
+    nock("https://authentication-test-host.com")
+      .get("/orgs/myorg")
+      .query({
+        client_id: "123",
+        client_secret: "secret123"
+      })
+      .reply(200, {});
+
+    let warnCalledCount = 0;
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        clientId: "123",
+        clientSecret: "secret123"
+      },
+      log: {
+        warn: () => {
+          warnCalledCount++;
+        }
+      }
+    });
+
+    return octokit.orgs.get({ org: "myorg" }).then(() => {
+      expect(warnCalledCount).to.equal(1);
+    });
+  });
+
+  it.only("new Octokit({ auth () { /* ... */ } })", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "token secret123"
+      }
+    })
+      .get("/orgs/myorg")
+      .reply(200, {});
+
+    let warnCalledCount = 0;
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth() {
+        return "token secret123";
+      },
+      log: {
+        warn: () => {
+          warnCalledCount++;
+        }
+      }
+    });
+
+    return octokit.orgs.get({ org: "myorg" }).then(() => {
+      expect(warnCalledCount).to.equal(1);
+    });
+  });
+
   // deprecated client options
   it("agent option", () => {
     let warnCalled = false;
