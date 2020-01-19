@@ -52,7 +52,7 @@
     "@types/node": "^13.1.0",
     "bundlesize": "^0.18.0",
     "chai": "^4.1.2",
-    "compression-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.1.0",
     "cypress": "^3.0.0",
     "glob": "^7.1.2",
     "http-proxy-agent": "^3.0.0",
