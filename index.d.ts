@@ -50,6 +50,7 @@ declare namespace Octokit {
   export interface EmptyParams {}
 
   export interface Options {
+    authStrategy?: any;
     auth?:
       | string
       | { username: string; password: string; on2fa: () => Promise<string> }
