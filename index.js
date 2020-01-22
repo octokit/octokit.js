@@ -1,9 +1,9 @@
 const Octokit = require("./lib/core");
 
 const CORE_PLUGINS = [
-  require("./plugins/log"),
-  require("./plugins/authentication-deprecated"), // deprecated: remove in v17
   require("./plugins/authentication"),
+  require("./plugins/authentication-deprecated"), // deprecated: remove in v17
+  require("./plugins/log"),
   require("./plugins/pagination"),
   require("./plugins/register-endpoints"),
   require("./plugins/rest-api-endpoints"),
