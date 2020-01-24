@@ -6301,6 +6301,15 @@
       },
       "url": "/teams/:team_id/repos"
     },
+    "removeMember": {
+      "deprecated": "octokit.teams.removeMember() has been renamed to octokit.teams.removeMemberLegacy() (2020-01-16)",
+      "method": "DELETE",
+      "params": {
+        "team_id": { "required": true, "type": "integer" },
+        "username": { "required": true, "type": "string" }
+      },
+      "url": "/teams/:team_id/members/:username"
+    },
     "removeMemberLegacy": {
       "deprecated": "octokit.teams.removeMemberLegacy() is deprecated, see https://developer.github.com/v3/teams/members/#remove-team-member-legacy",
       "method": "DELETE",
