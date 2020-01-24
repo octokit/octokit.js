@@ -6319,6 +6319,15 @@
       },
       "url": "/teams/:team_id/members/:username"
     },
+    "removeMembership": {
+      "deprecated": "octokit.teams.removeMembership() has been renamed to octokit.teams.removeMembershipLegacy() (2020-01-16)",
+      "method": "DELETE",
+      "params": {
+        "team_id": { "required": true, "type": "integer" },
+        "username": { "required": true, "type": "string" }
+      },
+      "url": "/teams/:team_id/memberships/:username"
+    },
     "removeMembershipInOrg": {
       "method": "DELETE",
       "params": {
