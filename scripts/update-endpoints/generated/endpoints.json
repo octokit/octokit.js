@@ -39981,6 +39981,54 @@
     "renamed": null
   },
   {
+    "name": "Remove team membership (Legacy)",
+    "scope": "teams",
+    "id": "removeMembership",
+    "method": "DELETE",
+    "url": "/teams/{team_id}/memberships/{username}",
+    "isDeprecated": true,
+    "isLegacy": true,
+    "description": "**Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`Remove team membership`](https://developer.github.com/v3/teams/members/#remove-team-membership) endpoint.\n\nTeam synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.\n\nTo remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. Removing team membership does not delete the user, it just removes their membership from the team.\n\n**Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see \"[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/).\"",
+    "documentationUrl": "https://developer.github.com/v3/teams/members/#remove-team-membership-legacy",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "team_id",
+        "description": "team_id parameter",
+        "in": "PATH",
+        "type": "integer",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "username",
+        "description": "username parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [],
+    "renamed": {
+      "before": { "scope": "teams", "id": "removeMembership" },
+      "after": { "scope": "teams", "id": "removeMembershipLegacy" },
+      "date": "2020-01-16",
+      "note": "The path for \"Remove team membership\" changed  from \"/teams/{team_id}*\" to \"/orgs/{org}/teams/{team_slug}*\"). The operation ID for the old path now has a \"-legacy\" suffix. The route with the new path has a \"-for-org\" suffix in the operation ID to avoid breaking changes"
+    }
+  },
+  {
     "name": "List team projects (Legacy)",
     "scope": "teams",
     "id": "listProjectsLegacy",
