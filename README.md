@@ -206,7 +206,7 @@ import { createOAuthClientAuth} from 'https://cdn.pika.dev/@octokit/auth-oauth-c
 const auth = createOAuthClientAuth({
   clientId: 'abc4567'
   getOAuthAccessToken: async code => {
-    const response = await fetch('https://my-oauth-app.test/oauth-login')
+    const response = await fetch('https://my-oauth-app.test/oauth-login?code=' + code)
     const { token } = await response.json()
     return token
   },
@@ -235,6 +235,16 @@ await { token, isSignedIn } = await auth()
 
 **TODO:** Add a new `/client.js` URL to `app.middleware` which will return a pre-authenticated `octokit` client. 
 You can use `octokit.auth()` to check if a user is signed in, trigger the oauth sign in or sign the user out.
+
+**TODO:** I think server endpoints should be split out, and a few more should be added
+
+- `GET /api/oauth/login` will redirect to GitHub's authorization endpoint
+- `GET /api/oauth/callback` the client redirect endpoint. A redirect to a front-end "success" page could be configured. This is where the `oauth-access-token` event gets triggered
+- `POST /api/oauth/token` endpoint to exchange an authorization code for an OAuth Access token
+- `GET /api/oauth/token` must authenticate using token in `Authorization` header. Check if token is valid. Uses GitHub's [`POST /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#check-a-token) endpoint
+- `PATCH /api/oauth/token` must authenticate using token in `Authorization` header. Resets a token (invalidates current one, returns new token). Uses GitHub's [`PATCH /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#reset-a-token) endpoint.
+- `DELETE /api/oauth/token` must authenticate using token in `Authorization` header. Invalidates current token, basically the equivalent of a logout.
+- `DELETE /api/oauth/grant` must authenticate using token in `Authorization` header. Revokes the user's grant, basically the equivalent of an uninstall.
 
 ## Webhooks
 
