@@ -19285,6 +19285,20 @@ declare namespace Octokit {
     ref: string;
     url: string;
   };
+  type GitGetTreeResponseTreeItem = {
+    mode: string;
+    path: string;
+    sha: string;
+    size?: number;
+    type: string;
+    url: string;
+  };
+  type GitGetTreeResponse = {
+    sha: string;
+    tree: Array<GitGetTreeResponseTreeItem>;
+    truncated: boolean;
+    url: string;
+  };
   type GitGetTagResponseVerification = {
     payload: null;
     reason: string;
@@ -34174,11 +34188,13 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * If `truncated` is `true`, the number of items in the `tree` array exceeded our maximum limit. If you need to fetch more items, you can clone the repository and iterate over the Git data locally.
+     * Returns a single tree using the SHA1 value for that tree.
+     *
+     * If `truncated` is `true` in the response then the number of items in the `tree` array exceeded our maximum limit. If you need to fetch more items, you can clone the repository and iterate over the Git data locally.
      */
     getTree: {
       (params?: Octokit.RequestOptions & Octokit.GitGetTreeParams): Promise<
-        Octokit.AnyResponse
+        Octokit.Response<Octokit.GitGetTreeResponse>
       >;
 
       endpoint: Octokit.Endpoint;
