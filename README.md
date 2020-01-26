@@ -161,7 +161,7 @@ const { url, state } = app.oauthLoginUrl()
 
 **Tip:** The `oauthLoginUrl()` exists as standalone package, too: [`@octokit/oauth-login-url`](https://github.com/octokit/oauth-login-url.js).
 
-`app.middleware` is also exposing a special `GET /oauth-login` path which redirects to the same URL
+`app.middleware` is also exposing a special `GET /api/github/oauth/login` path which redirects to the same URL
 
 ```js
 const app = client.app({clientId: "abc4567", clientSecret})
@@ -199,14 +199,21 @@ When the `POST /oauth-login` was successful, the `oauth-access-token` event is e
 
 <a name="todo-oauth-client"></a>
 
-**TODO:** create a `@octokit/auth-oauth-client` module which does the above automagically. Here is how it could work:
+**TODO:** create a `@octokit/oauth-client` module which does the above automagically. Here is how it could work:
 
 ```js
-import { createOAuthClientAuth} from 'https://cdn.pika.dev/@octokit/auth-oauth-client'
+import { createOAuthClientAuth} from 'https://cdn.pika.dev/@octokit/oauth-client'
 const auth = createOAuthClientAuth({
-  clientId: 'abc4567'
+  clientId: 'abc4567',
+  // optional
   getOAuthAccessToken: async code => {
-    const response = await fetch('https://my-oauth-app.test/oauth-login?code=' + code)
+    const response = await fetch('https://my-oauth-app.test/api/github/token', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(code)
+    })
     const { token } = await response.json()
     return token
   },
@@ -227,10 +234,14 @@ const auth = createOAuthClientAuth({
 // retrieve token using `getOAuthAccessToken()`
 // if ?code=... parameter is not set and authentication cannot be retrievd from the local store,
 // then `token` is undefined and `isSignedIn` is set to false`
-await { token, isSignedIn } = await auth()
+await { token, isSignedIn, createdAt, scopes } = await auth()
 
-// To sign out, pass {signOut: true}. If tokens are persisted they are removed from store
-// To sign in, pass {signIn: true}. If tokens are persisted they are removed from store
+// To sign in, pass {signIn: true}
+// To sign out, pass {signOut: true}. If tokens are persisted they are
+// removed from store and `DELETE /api/oauth/token` is called. To sign out
+// without invalidating the token, pass {signOut: true, offline: true}
+// To reset a token, pass {reset: true}
+// To revoke access for the OAuth App, pass {revokeAccess: true}
 ```
 
 **TODO:** Add a new `/client.js` URL to `app.middleware` which will return a pre-authenticated `octokit` client. 
@@ -238,13 +249,13 @@ You can use `octokit.auth()` to check if a user is signed in, trigger the oauth 
 
 **TODO:** I think server endpoints should be split out, and a few more should be added
 
-- `GET /api/oauth/login` will redirect to GitHub's authorization endpoint
-- `GET /api/oauth/callback` the client redirect endpoint. A redirect to a front-end "success" page could be configured. This is where the `oauth-access-token` event gets triggered
-- `POST /api/oauth/token` endpoint to exchange an authorization code for an OAuth Access token
-- `GET /api/oauth/token` must authenticate using token in `Authorization` header. Check if token is valid. Uses GitHub's [`POST /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#check-a-token) endpoint
-- `PATCH /api/oauth/token` must authenticate using token in `Authorization` header. Resets a token (invalidates current one, returns new token). Uses GitHub's [`PATCH /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#reset-a-token) endpoint.
-- `DELETE /api/oauth/token` must authenticate using token in `Authorization` header. Invalidates current token, basically the equivalent of a logout.
-- `DELETE /api/oauth/grant` must authenticate using token in `Authorization` header. Revokes the user's grant, basically the equivalent of an uninstall.
+- `GET /api/github/oauth/login` will redirect to GitHub's authorization endpoint
+- `GET /api/github/oauth/callback` the client redirect endpoint. A redirect to a front-end "success" page could be configured. This is where the `oauth-access-token` event gets triggered
+- `POST /api/github/oauth/token` endpoint to exchange an authorization code for an OAuth Access token
+- `GET /api/github/oauth/token` must authenticate using token in `Authorization` header. Check if token is valid. Uses GitHub's [`POST /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#check-a-token) endpoint
+- `PATCH /api/github/oauth/token` must authenticate using token in `Authorization` header. Resets a token (invalidates current one, returns new token). Uses GitHub's [`PATCH /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#reset-a-token) endpoint.
+- `DELETE /api/github/oauth/token` must authenticate using token in `Authorization` header. Invalidates current token, basically the equivalent of a logout.
+- `DELETE /api/github/oauth/grant` must authenticate using token in `Authorization` header. Revokes the user's grant, basically the equivalent of an uninstall.
 
 ## Webhooks
 
@@ -285,10 +296,8 @@ app.oauth.on('token', {{token, client}} => {
 
 require('http').createServer(app.middleware).listen(3000)
 
-// `POST /webhooks` to receive webhook event requests
-// `GET /oauth-login` redirects to OAuth login website on github.com (or GHE counterpart)
-// `GET /oauth-login?code=...` exchanges OAuth code for OAuth Access Token and emits "token" event
-// `POST /oauth-login {"code": "..."}` exchanges OAuth code for OAuth Access Token and emits "token" event
+// `POST /api/github/webhooks` to receive webhook event requests
+// + `* /api/github/oauth/*` routes
 ```
 
 ## GitHub Actions
