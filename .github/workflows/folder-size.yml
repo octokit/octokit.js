@@ -11,4 +11,4 @@ jobs:
         with:
           node-version: "12.x"
       - run: npm install --production
-      - run: npx get-folder-size --folder=node_modules/ | grep "^[012]\."
+      - run: npx get-folder-size --folder=node_modules/ | grep "^[0-5]\."
