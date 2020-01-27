@@ -100,7 +100,6 @@
     "generate-bundle-report": "webpack-bundle-analyzer dist/bundle-stats.json --mode=static --no-open --report dist/bundle-report.html",
     "update-endpoints": "npm-run-all update-endpoints:*",
     "update-endpoints:fetch-json": "node scripts/update-endpoints/fetch-json",
-    "update-endpoints:code": "node scripts/update-endpoints/code",
     "update-endpoints:typescript": "node scripts/update-endpoints/typescript",
     "prevalidate:ts": "npm run -s build:ts",
     "validate:ts": "tsc --target es6 --noImplicitAny index.d.ts",
