@@ -1421,7 +1421,7 @@ describe("deprecations", () => {
       )
 
       .then(() => {
-        expect(warnCallCount).to.equal(3);
+        expect(warnCallCount).to.equal(4);
       });
   });
 });
