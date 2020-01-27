@@ -1,12 +1,16 @@
+const { requestLog } = require("@octokit/plugin-request-log");
+const {
+  restEndpointMethods
+} = require("@octokit/plugin-rest-endpoint-methods");
+
 const Octokit = require("./lib/core");
 
 const CORE_PLUGINS = [
   require("./plugins/authentication"),
   require("./plugins/authentication-deprecated"), // deprecated: remove in v17
-  require("./plugins/log"),
+  requestLog,
   require("./plugins/pagination"),
-  require("./plugins/register-endpoints"),
-  require("./plugins/rest-api-endpoints"),
+  restEndpointMethods,
   require("./plugins/validate"),
 
   require("octokit-pagination-methods") // deprecated: remove in v17
