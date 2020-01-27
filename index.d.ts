@@ -23584,6 +23584,704 @@ declare namespace Octokit {
     subscribed: boolean;
     url: string;
   };
+  type ActionsListWorkflowRunsResponseWorkflowRunsItemRepositoryOwner = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type ActionsListWorkflowRunsResponseWorkflowRunsItemRepository = {
+    archive_url: string;
+    assignees_url: string;
+    blobs_url: string;
+    branches_url: string;
+    collaborators_url: string;
+    comments_url: string;
+    commits_url: string;
+    compare_url: string;
+    contents_url: string;
+    contributors_url: string;
+    deployments_url: string;
+    description: string;
+    downloads_url: string;
+    events_url: string;
+    fork: boolean;
+    forks_url: string;
+    full_name: string;
+    git_commits_url: string;
+    git_refs_url: string;
+    git_tags_url: string;
+    git_url: string;
+    html_url: string;
+    id: number;
+    issue_comment_url: string;
+    issue_events_url: string;
+    issues_url: string;
+    keys_url: string;
+    labels_url: string;
+    languages_url: string;
+    merges_url: string;
+    milestones_url: string;
+    name: string;
+    node_id: string;
+    notifications_url: string;
+    owner: ActionsListWorkflowRunsResponseWorkflowRunsItemRepositoryOwner;
+    private: boolean;
+    pulls_url: string;
+    releases_url: string;
+    ssh_url: string;
+    stargazers_url: string;
+    statuses_url: string;
+    subscribers_url: string;
+    subscription_url: string;
+    tags_url: string;
+    teams_url: string;
+    trees_url: string;
+    url: string;
+  };
+  type ActionsListWorkflowRunsResponseWorkflowRunsItemHeadRepositoryOwner = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type ActionsListWorkflowRunsResponseWorkflowRunsItemHeadRepository = {
+    archive_url: string;
+    assignees_url: string;
+    blobs_url: string;
+    branches_url: string;
+    collaborators_url: string;
+    comments_url: string;
+    commits_url: string;
+    compare_url: string;
+    contents_url: string;
+    contributors_url: string;
+    deployments_url: string;
+    description: null;
+    downloads_url: string;
+    events_url: string;
+    fork: boolean;
+    forks_url: string;
+    full_name: string;
+    git_commits_url: string;
+    git_refs_url: string;
+    git_tags_url: string;
+    hooks_url: string;
+    html_url: string;
+    id: number;
+    issue_comment_url: string;
+    issue_events_url: string;
+    issues_url: string;
+    keys_url: string;
+    labels_url: string;
+    languages_url: string;
+    merges_url: string;
+    milestones_url: string;
+    name: string;
+    node_id: string;
+    notifications_url: string;
+    owner: ActionsListWorkflowRunsResponseWorkflowRunsItemHeadRepositoryOwner;
+    private: boolean;
+    pulls_url: string;
+    releases_url: string;
+    stargazers_url: string;
+    statuses_url: string;
+    subscribers_url: string;
+    subscription_url: string;
+    tags_url: string;
+    teams_url: string;
+    trees_url: string;
+    url: string;
+  };
+  type ActionsListWorkflowRunsResponseWorkflowRunsItemHeadCommitCommitter = {
+    email: string;
+    name: string;
+  };
+  type ActionsListWorkflowRunsResponseWorkflowRunsItemHeadCommitAuthor = {
+    email: string;
+    name: string;
+  };
+  type ActionsListWorkflowRunsResponseWorkflowRunsItemHeadCommit = {
+    author: ActionsListWorkflowRunsResponseWorkflowRunsItemHeadCommitAuthor;
+    committer: ActionsListWorkflowRunsResponseWorkflowRunsItemHeadCommitCommitter;
+    id: string;
+    message: string;
+    timestamp: string;
+    tree_id: string;
+  };
+  type ActionsListWorkflowRunsResponseWorkflowRunsItem = {
+    artifacts_url: string;
+    cancel_url: string;
+    check_suite_id: number;
+    conclusion: null;
+    created_at: string;
+    event: string;
+    head_branch: string;
+    head_commit: ActionsListWorkflowRunsResponseWorkflowRunsItemHeadCommit;
+    head_repository: ActionsListWorkflowRunsResponseWorkflowRunsItemHeadRepository;
+    head_sha: string;
+    html_url: string;
+    id: number;
+    jobs_url: string;
+    logs_url: string;
+    node_id: string;
+    pull_requests: Array<any>;
+    repository: ActionsListWorkflowRunsResponseWorkflowRunsItemRepository;
+    rerun_url: string;
+    run_number: number;
+    status: string;
+    updated_at: string;
+    url: string;
+    workflow_url: string;
+  };
+  type ActionsListWorkflowRunsResponse = {
+    total_count: number;
+    workflow_runs: Array<ActionsListWorkflowRunsResponseWorkflowRunsItem>;
+  };
+  type ActionsListWorkflowRunArtifactsResponseItemArtifactsItem = {
+    archive_download_url: string;
+    created_at: string;
+    expired: string;
+    expires_at: string;
+    id: number;
+    name: string;
+    node_id: string;
+    size_in_bytes: number;
+  };
+  type ActionsListWorkflowRunArtifactsResponseItem = {
+    artifacts: Array<ActionsListWorkflowRunArtifactsResponseItemArtifactsItem>;
+    total_count: number;
+  };
+  type ActionsListSelfHostedRunnersForRepoResponseItemItem = {
+    id: number;
+    name: string;
+    os: string;
+    status: string;
+  };
+  type ActionsListSecretsForRepoResponseItemSecretsItem = {
+    created_at: string;
+    name: string;
+    updated_at: string;
+  };
+  type ActionsListSecretsForRepoResponseItem = {
+    secrets: Array<ActionsListSecretsForRepoResponseItemSecretsItem>;
+    total_count: number;
+  };
+  type ActionsListRepoWorkflowsResponseWorkflowsItem = {
+    badge_url: string;
+    created_at: string;
+    html_url: string;
+    id: number;
+    name: string;
+    node_id: string;
+    path: string;
+    state: string;
+    updated_at: string;
+    url: string;
+  };
+  type ActionsListRepoWorkflowsResponse = {
+    total_count: number;
+    workflows: Array<ActionsListRepoWorkflowsResponseWorkflowsItem>;
+  };
+  type ActionsListRepoWorkflowRunsResponseWorkflowRunsItemRepositoryOwner = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type ActionsListRepoWorkflowRunsResponseWorkflowRunsItemRepository = {
+    archive_url: string;
+    assignees_url: string;
+    blobs_url: string;
+    branches_url: string;
+    collaborators_url: string;
+    comments_url: string;
+    commits_url: string;
+    compare_url: string;
+    contents_url: string;
+    contributors_url: string;
+    deployments_url: string;
+    description: string;
+    downloads_url: string;
+    events_url: string;
+    fork: boolean;
+    forks_url: string;
+    full_name: string;
+    git_commits_url: string;
+    git_refs_url: string;
+    git_tags_url: string;
+    git_url: string;
+    html_url: string;
+    id: number;
+    issue_comment_url: string;
+    issue_events_url: string;
+    issues_url: string;
+    keys_url: string;
+    labels_url: string;
+    languages_url: string;
+    merges_url: string;
+    milestones_url: string;
+    name: string;
+    node_id: string;
+    notifications_url: string;
+    owner: ActionsListRepoWorkflowRunsResponseWorkflowRunsItemRepositoryOwner;
+    private: boolean;
+    pulls_url: string;
+    releases_url: string;
+    ssh_url: string;
+    stargazers_url: string;
+    statuses_url: string;
+    subscribers_url: string;
+    subscription_url: string;
+    tags_url: string;
+    teams_url: string;
+    trees_url: string;
+    url: string;
+  };
+  type ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadRepositoryOwner = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadRepository = {
+    archive_url: string;
+    assignees_url: string;
+    blobs_url: string;
+    branches_url: string;
+    collaborators_url: string;
+    comments_url: string;
+    commits_url: string;
+    compare_url: string;
+    contents_url: string;
+    contributors_url: string;
+    deployments_url: string;
+    description: null;
+    downloads_url: string;
+    events_url: string;
+    fork: boolean;
+    forks_url: string;
+    full_name: string;
+    git_commits_url: string;
+    git_refs_url: string;
+    git_tags_url: string;
+    hooks_url: string;
+    html_url: string;
+    id: number;
+    issue_comment_url: string;
+    issue_events_url: string;
+    issues_url: string;
+    keys_url: string;
+    labels_url: string;
+    languages_url: string;
+    merges_url: string;
+    milestones_url: string;
+    name: string;
+    node_id: string;
+    notifications_url: string;
+    owner: ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadRepositoryOwner;
+    private: boolean;
+    pulls_url: string;
+    releases_url: string;
+    stargazers_url: string;
+    statuses_url: string;
+    subscribers_url: string;
+    subscription_url: string;
+    tags_url: string;
+    teams_url: string;
+    trees_url: string;
+    url: string;
+  };
+  type ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadCommitCommitter = {
+    email: string;
+    name: string;
+  };
+  type ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadCommitAuthor = {
+    email: string;
+    name: string;
+  };
+  type ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadCommit = {
+    author: ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadCommitAuthor;
+    committer: ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadCommitCommitter;
+    id: string;
+    message: string;
+    timestamp: string;
+    tree_id: string;
+  };
+  type ActionsListRepoWorkflowRunsResponseWorkflowRunsItem = {
+    artifacts_url: string;
+    cancel_url: string;
+    check_suite_id: number;
+    conclusion: null;
+    created_at: string;
+    event: string;
+    head_branch: string;
+    head_commit: ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadCommit;
+    head_repository: ActionsListRepoWorkflowRunsResponseWorkflowRunsItemHeadRepository;
+    head_sha: string;
+    html_url: string;
+    id: number;
+    jobs_url: string;
+    logs_url: string;
+    node_id: string;
+    pull_requests: Array<any>;
+    repository: ActionsListRepoWorkflowRunsResponseWorkflowRunsItemRepository;
+    rerun_url: string;
+    run_number: number;
+    status: string;
+    updated_at: string;
+    url: string;
+    workflow_url: string;
+  };
+  type ActionsListRepoWorkflowRunsResponse = {
+    total_count: number;
+    workflow_runs: Array<ActionsListRepoWorkflowRunsResponseWorkflowRunsItem>;
+  };
+  type ActionsListJobsForWorkflowRunResponseItemWorkflowJobsItemStepsItem = {
+    completed_at: string;
+    conclusion: string;
+    name: string;
+    number: number;
+    started_at: string;
+    status: string;
+  };
+  type ActionsListJobsForWorkflowRunResponseItemWorkflowJobsItem = {
+    check_run_url: string;
+    completed_at: string;
+    conclusion: string;
+    head_sha: string;
+    html_url: string;
+    id: number;
+    name: string;
+    node_id: string;
+    run_id: number;
+    run_url: string;
+    started_at: string;
+    status: string;
+    steps: Array<
+      ActionsListJobsForWorkflowRunResponseItemWorkflowJobsItemStepsItem
+    >;
+    url: string;
+  };
+  type ActionsListJobsForWorkflowRunResponseItem = {
+    total_count: number;
+    workflow_jobs: Array<
+      ActionsListJobsForWorkflowRunResponseItemWorkflowJobsItem
+    >;
+  };
+  type ActionsGetWorkflowRunResponseRepositoryOwner = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type ActionsGetWorkflowRunResponseRepository = {
+    archive_url: string;
+    assignees_url: string;
+    blobs_url: string;
+    branches_url: string;
+    collaborators_url: string;
+    comments_url: string;
+    commits_url: string;
+    compare_url: string;
+    contents_url: string;
+    contributors_url: string;
+    deployments_url: string;
+    description: string;
+    downloads_url: string;
+    events_url: string;
+    fork: boolean;
+    forks_url: string;
+    full_name: string;
+    git_commits_url: string;
+    git_refs_url: string;
+    git_tags_url: string;
+    git_url: string;
+    html_url: string;
+    id: number;
+    issue_comment_url: string;
+    issue_events_url: string;
+    issues_url: string;
+    keys_url: string;
+    labels_url: string;
+    languages_url: string;
+    merges_url: string;
+    milestones_url: string;
+    name: string;
+    node_id: string;
+    notifications_url: string;
+    owner: ActionsGetWorkflowRunResponseRepositoryOwner;
+    private: boolean;
+    pulls_url: string;
+    releases_url: string;
+    ssh_url: string;
+    stargazers_url: string;
+    statuses_url: string;
+    subscribers_url: string;
+    subscription_url: string;
+    tags_url: string;
+    teams_url: string;
+    trees_url: string;
+    url: string;
+  };
+  type ActionsGetWorkflowRunResponseHeadRepositoryOwner = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type ActionsGetWorkflowRunResponseHeadRepository = {
+    archive_url: string;
+    assignees_url: string;
+    blobs_url: string;
+    branches_url: string;
+    collaborators_url: string;
+    comments_url: string;
+    commits_url: string;
+    compare_url: string;
+    contents_url: string;
+    contributors_url: string;
+    deployments_url: string;
+    description: null;
+    downloads_url: string;
+    events_url: string;
+    fork: boolean;
+    forks_url: string;
+    full_name: string;
+    git_commits_url: string;
+    git_refs_url: string;
+    git_tags_url: string;
+    hooks_url: string;
+    html_url: string;
+    id: number;
+    issue_comment_url: string;
+    issue_events_url: string;
+    issues_url: string;
+    keys_url: string;
+    labels_url: string;
+    languages_url: string;
+    merges_url: string;
+    milestones_url: string;
+    name: string;
+    node_id: string;
+    notifications_url: string;
+    owner: ActionsGetWorkflowRunResponseHeadRepositoryOwner;
+    private: boolean;
+    pulls_url: string;
+    releases_url: string;
+    stargazers_url: string;
+    statuses_url: string;
+    subscribers_url: string;
+    subscription_url: string;
+    tags_url: string;
+    teams_url: string;
+    trees_url: string;
+    url: string;
+  };
+  type ActionsGetWorkflowRunResponseHeadCommitCommitter = {
+    email: string;
+    name: string;
+  };
+  type ActionsGetWorkflowRunResponseHeadCommitAuthor = {
+    email: string;
+    name: string;
+  };
+  type ActionsGetWorkflowRunResponseHeadCommit = {
+    author: ActionsGetWorkflowRunResponseHeadCommitAuthor;
+    committer: ActionsGetWorkflowRunResponseHeadCommitCommitter;
+    id: string;
+    message: string;
+    timestamp: string;
+    tree_id: string;
+  };
+  type ActionsGetWorkflowRunResponse = {
+    artifacts_url: string;
+    cancel_url: string;
+    check_suite_id: number;
+    conclusion: null;
+    created_at: string;
+    event: string;
+    head_branch: string;
+    head_commit: ActionsGetWorkflowRunResponseHeadCommit;
+    head_repository: ActionsGetWorkflowRunResponseHeadRepository;
+    head_sha: string;
+    html_url: string;
+    id: number;
+    jobs_url: string;
+    logs_url: string;
+    node_id: string;
+    pull_requests: Array<any>;
+    repository: ActionsGetWorkflowRunResponseRepository;
+    rerun_url: string;
+    run_number: number;
+    status: string;
+    updated_at: string;
+    url: string;
+    workflow_url: string;
+  };
+  type ActionsGetWorkflowJobResponseStepsItem = {
+    completed_at: string;
+    conclusion: string;
+    name: string;
+    number: number;
+    started_at: string;
+    status: string;
+  };
+  type ActionsGetWorkflowJobResponse = {
+    check_run_url: string;
+    completed_at: string;
+    conclusion: string;
+    head_sha: string;
+    html_url: string;
+    id: number;
+    name: string;
+    node_id: string;
+    run_id: number;
+    run_url: string;
+    started_at: string;
+    status: string;
+    steps: Array<ActionsGetWorkflowJobResponseStepsItem>;
+    url: string;
+  };
+  type ActionsGetWorkflowResponse = {
+    badge_url: string;
+    created_at: string;
+    html_url: string;
+    id: number;
+    name: string;
+    node_id: string;
+    path: string;
+    state: string;
+    updated_at: string;
+    url: string;
+  };
+  type ActionsGetSelfHostedRunnerResponse = {
+    id: number;
+    name: string;
+    os: string;
+    status: string;
+  };
+  type ActionsGetSecretResponse = {
+    created_at: string;
+    name: string;
+    updated_at: string;
+  };
+  type ActionsGetPublicKeyResponse = { key: string; key_id: string };
+  type ActionsGetArtifactResponse = {
+    archive_download_url: string;
+    created_at: string;
+    expired: string;
+    expires_at: string;
+    id: number;
+    name: string;
+    node_id: string;
+    size_in_bytes: number;
+  };
+  type ActionsCreateRemoveTokenResponse = { expires_at: string; token: string };
+  type ActionsCreateRegistrationTokenResponse = {
+    expires_at: string;
+    token: string;
+  };
+  type ActionsCreateOrUpdateSecretForRepoResponse = {
+    encrypted_value: string;
+    key_id: string;
+  };
+  type ActionsListJobsForWorkflowRunResponse = Array<
+    ActionsListJobsForWorkflowRunResponseItem
+  >;
+  type ActionsListSecretsForRepoResponse = Array<
+    ActionsListSecretsForRepoResponseItem
+  >;
+  type ActionsListSelfHostedRunnersForRepoResponse = Array<
+    Array<ActionsListSelfHostedRunnersForRepoResponseItemItem>
+  >;
+  type ActionsListWorkflowRunArtifactsResponse = Array<
+    ActionsListWorkflowRunArtifactsResponseItem
+  >;
   type ActivityListNotificationsResponse = Array<
     ActivityListNotificationsResponseItem
   >;
@@ -23955,6 +24653,258 @@ declare namespace Octokit {
   >;
 
   // param types
+  export type ActionsCancelWorkflowRunParams = {
+    owner: string;
+
+    repo: string;
+
+    run_id: number;
+  };
+  export type ActionsCreateOrUpdateSecretForRepoParams = {
+    /**
+     * Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get your public key](https://developer.github.com/v3/actions/secrets/#get-your-public-key) endpoint.
+     */
+    encrypted_value?: string;
+    /**
+     * ID of the key you used to encrypt the secret.
+     */
+    key_id?: number;
+
+    name: string;
+
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsCreateRegistrationTokenParams = {
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsCreateRemoveTokenParams = {
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsDeleteArtifactParams = {
+    artifact_id: number;
+
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsDeleteSecretFromRepoParams = {
+    name: string;
+
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsDownloadArtifactParams = {
+    archive_format: string;
+
+    artifact_id: number;
+
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsGetArtifactParams = {
+    artifact_id: number;
+
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsGetPublicKeyParams = {
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsGetSecretParams = {
+    name: string;
+
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+  };
+  export type ActionsGetSelfHostedRunnerParams = {
+    owner: string;
+
+    repo: string;
+
+    runner_id: number;
+  };
+  export type ActionsGetWorkflowParams = {
+    owner: string;
+
+    repo: string;
+
+    workflow_id: number;
+  };
+  export type ActionsGetWorkflowJobParams = {
+    job_id: number;
+
+    owner: string;
+
+    repo: string;
+  };
+  export type ActionsGetWorkflowRunParams = {
+    owner: string;
+
+    repo: string;
+
+    run_id: number;
+  };
+  export type ActionsListJobsForWorkflowRunParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+
+    run_id: number;
+  };
+  export type ActionsListRepoWorkflowRunsParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+  };
+  export type ActionsListRepoWorkflowsParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+  };
+  export type ActionsListSecretsForRepoParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+  };
+  export type ActionsListSelfHostedRunnersForRepoParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+  };
+  export type ActionsListWorkflowJobLogsParams = {
+    job_id: number;
+
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+  };
+  export type ActionsListWorkflowRunArtifactsParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+
+    run_id: number;
+  };
+  export type ActionsListWorkflowRunLogsParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+
+    run_id: number;
+  };
+  export type ActionsListWorkflowRunsParams = {
+    owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    repo: string;
+
+    workflow_id: number;
+  };
+  export type ActionsReRunWorkflowParams = {
+    owner: string;
+
+    repo: string;
+
+    run_id: number;
+  };
+  export type ActionsRemoveSelfHostedRunnerParams = {
+    owner: string;
+
+    repo: string;
+
+    runner_id: number;
+  };
   export type ActivityCheckStarringRepoParams = {
     owner: string;
 
@@ -26255,6 +27205,11 @@ declare namespace Octokit {
     migration_id: number;
   };
   export type MigrationsDeleteArchiveForOrgParams = {
+    migration_id: number;
+
+    org: string;
+  };
+  export type MigrationsDownloadArchiveForOrgParams = {
     migration_id: number;
 
     org: string;
@@ -32770,6 +33725,304 @@ declare class Octokit {
 
   log: Octokit.Log;
 
+  actions: {
+    /**
+     * Cancels a workflow run using its `id`. Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    cancelWorkflowRun: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsCancelWorkflowRunParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Creates or updates a secret with an encrypted value. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `secrets` permission to use this endpoint.
+     *
+     * Encrypt your secret using the [tweetsodium](https://github.com/mastahyeti/tweetsodium) library.
+     *
+     *
+     *
+     * Encrypt your secret using [pynacl](https://pynacl.readthedocs.io/en/stable/install/).
+     *
+     *
+     *
+     * Encrypt your secret using the [Sodium.Core](https://www.nuget.org/packages/Sodium.Core/) package.
+     *
+     *
+     *
+     * Encrypt your secret using the [rbnacl](https://github.com/RubyCrypto/rbnacl) gem.
+     */
+    createOrUpdateSecretForRepo: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsCreateOrUpdateSecretForRepoParams
+      ): Promise<
+        Octokit.Response<Octokit.ActionsCreateOrUpdateSecretForRepoResponse>
+      >;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Returns a token that you can pass to the `config` script. The token expires after one hour. Anyone with admin access to the repository can use this endpoint. GitHub Apps must have the `administration` permission to use this endpoint.
+     *
+     * Configure your self-hosted runner, replacing TOKEN with the registration token provided by this endpoint.
+     */
+    createRegistrationToken: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsCreateRegistrationTokenParams
+      ): Promise<
+        Octokit.Response<Octokit.ActionsCreateRegistrationTokenResponse>
+      >;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Returns a token that you can pass to remove a self-hosted runner from a repository. The token expires after one hour. Anyone with admin access to the repository can use this endpoint. GitHub Apps must have the `administration` permission to use this endpoint.
+     *
+     * Remove your self-hosted runner from a repository, replacing TOKEN with the remove token provided by this endpoint.
+     */
+    createRemoveToken: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsCreateRemoveTokenParams
+      ): Promise<Octokit.Response<Octokit.ActionsCreateRemoveTokenResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Deletes an artifact for a workflow run. Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    deleteArtifact: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsDeleteArtifactParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Deletes a secret in a repository using the secret name. Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `secrets` permission to use this endpoint.
+     */
+    deleteSecretFromRepo: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsDeleteSecretFromRepoParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a redirect URL to download an archive for a repository. This URL expires after 1 minute. Look for `Location:` in the response header to find the URL for the download. The `:archive_format` must be `zip`. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     *
+     * Call this endpoint using the `-v` flag, which enables verbose output and allows you to see the download URL in the header. To download the file into the current working directory, specify the filename using the `-o` flag.
+     */
+    downloadArtifact: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsDownloadArtifactParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a specific artifact for a workflow run. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    getArtifact: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsGetArtifactParams
+      ): Promise<Octokit.Response<Octokit.ActionsGetArtifactResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets your public key, which you must store. You need your public key to use other secrets endpoints. Use the returned `key` to encrypt your secrets. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `secrets` permission to use this endpoint.
+     */
+    getPublicKey: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsGetPublicKeyParams
+      ): Promise<Octokit.Response<Octokit.ActionsGetPublicKeyResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a single secret without revealing its encrypted value. Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `secrets` permission to use this endpoint.
+     */
+    getSecret: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsGetSecretParams
+      ): Promise<Octokit.Response<Octokit.ActionsGetSecretResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a specific self-hosted runner. Anyone with admin access to the repository can use this endpoint. GitHub Apps must have the `administration` permission to use this endpoint.
+     */
+    getSelfHostedRunner: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsGetSelfHostedRunnerParams
+      ): Promise<Octokit.Response<Octokit.ActionsGetSelfHostedRunnerResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a specific workflow. You can also replace `:workflow_id` with `:workflow_file_name`. For example, you could use `main.yml`. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    getWorkflow: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsGetWorkflowParams
+      ): Promise<Octokit.Response<Octokit.ActionsGetWorkflowResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a specific job in a workflow run. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    getWorkflowJob: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsGetWorkflowJobParams
+      ): Promise<Octokit.Response<Octokit.ActionsGetWorkflowJobResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a specific workflow run. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    getWorkflowRun: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsGetWorkflowRunParams
+      ): Promise<Octokit.Response<Octokit.ActionsGetWorkflowRunResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Lists jobs for a workflow run. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    listJobsForWorkflowRun: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsListJobsForWorkflowRunParams
+      ): Promise<
+        Octokit.Response<Octokit.ActionsListJobsForWorkflowRunResponse>
+      >;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Lists all workflow runs for a repository. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    listRepoWorkflowRuns: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsListRepoWorkflowRunsParams
+      ): Promise<Octokit.Response<Octokit.ActionsListRepoWorkflowRunsResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Lists the workflows in a repository. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    listRepoWorkflows: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsListRepoWorkflowsParams
+      ): Promise<Octokit.Response<Octokit.ActionsListRepoWorkflowsResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Lists all secrets available in a repository without revealing their encrypted values. Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `secrets` permission to use this endpoint.
+     */
+    listSecretsForRepo: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsListSecretsForRepoParams
+      ): Promise<Octokit.Response<Octokit.ActionsListSecretsForRepoResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Lists all self-hosted runners for a repository. Anyone with admin access to the repository can use this endpoint. GitHub Apps must have the `administration` permission to use this endpoint.
+     */
+    listSelfHostedRunnersForRepo: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsListSelfHostedRunnersForRepoParams
+      ): Promise<
+        Octokit.Response<Octokit.ActionsListSelfHostedRunnersForRepoResponse>
+      >;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a redirect URL to download a plain text file of logs for a workflow job. This link expires after 1 minute. Look for `Location:` in the response header to find the URL for the download. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     *
+     * Call this endpoint using the `-v` flag, which enables verbose output and allows you to see the download URL in the header. To download the file into the current working directory, specify the filename using the `-o` flag.
+     */
+    listWorkflowJobLogs: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsListWorkflowJobLogsParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Lists artifacts for a workflow run. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    listWorkflowRunArtifacts: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsListWorkflowRunArtifactsParams
+      ): Promise<
+        Octokit.Response<Octokit.ActionsListWorkflowRunArtifactsResponse>
+      >;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Gets a redirect URL to download an archive of log files for a workflow run. This link expires after 1 minute. Look for `Location:` in the response header to find the URL for the download. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     *
+     * Call this endpoint using the `-v` flag, which enables verbose output and allows you to see the download URL in the header. To download the file into the current working directory, specify the filename using the `-o` flag.
+     */
+    listWorkflowRunLogs: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsListWorkflowRunLogsParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * List all workflow runs for a workflow. You can also replace `:workflow_id` with `:workflow_file_name`. For example, you could use `main.yml`. Anyone with read access to the repository can use this endpoint.
+     */
+    listWorkflowRuns: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsListWorkflowRunsParams
+      ): Promise<Octokit.Response<Octokit.ActionsListWorkflowRunsResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Re-runs your workflow run using its `id`. Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.
+     */
+    reRunWorkflow: {
+      (
+        params?: Octokit.RequestOptions & Octokit.ActionsReRunWorkflowParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Forces the removal of a self-hosted runner from a repository. You can use this endpoint to completely remove the runner when the machine you were using no longer exists. Anyone with admin access to the repository can use this endpoint. GitHub Apps must have the `administration` permission to use this endpoint.
+     */
+    removeSelfHostedRunner: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.ActionsRemoveSelfHostedRunnerParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+  };
   activity: {
     /**
      * Requires for the user to be authenticated.
@@ -34909,6 +36162,17 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
+     * Fetches the URL to a migration archive.
+     */
+    downloadArchiveForOrg: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsDownloadArchiveForOrgParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
      * Fetches the URL to download the migration archive as a `tar.gz` file. Depending on the resources your repository uses, the migration archive can contain JSON files with data for these objects:
      *
      * *   attachments
@@ -34941,6 +36205,9 @@ declare class Octokit {
     };
     /**
      * Fetches the URL to a migration archive.
+     *
+     *
+     * @deprecated octokit.migrations.getArchiveForOrg() has been renamed to octokit.migrations.downloadArchiveForOrg() (2020-01-27)
      */
     getArchiveForOrg: {
       (
