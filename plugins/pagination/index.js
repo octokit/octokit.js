@@ -1,9 +1,7 @@
 module.exports = paginatePlugin;
 
-const iterator = require("./iterator");
-const paginate = require("./paginate");
+const { paginateRest } = require("@octokit/plugin-paginate-rest");
 
 function paginatePlugin(octokit) {
-  octokit.paginate = paginate.bind(null, octokit);
-  octokit.paginate.iterator = iterator.bind(null, octokit);
+  Object.assign(octokit, paginateRest(octokit));
 }
