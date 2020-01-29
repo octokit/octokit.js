@@ -33715,7 +33715,7 @@ declare class Octokit {
      *
      *
      *
-     * Encrypt your secret using [pynacl](https://pynacl.readthedocs.io/en/stable/install/).
+     * Encrypt your secret using [pynacl](https://pynacl.readthedocs.io/en/stable/public/#nacl-public-sealedbox) with Python 3.
      *
      *
      *
