@@ -13864,7 +13864,7 @@
     "url": "/repos/{owner}/{repo}/actions/secrets/{name}",
     "isDeprecated": false,
     "isLegacy": false,
-    "description": "Creates or updates a secret with an encrypted value. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `secrets` permission to use this endpoint.\n\nEncrypt your secret using the [tweetsodium](https://github.com/mastahyeti/tweetsodium) library.\n\n\n\nEncrypt your secret using [pynacl](https://pynacl.readthedocs.io/en/stable/install/).\n\n\n\nEncrypt your secret using the [Sodium.Core](https://www.nuget.org/packages/Sodium.Core/) package.\n\n\n\nEncrypt your secret using the [rbnacl](https://github.com/RubyCrypto/rbnacl) gem.\n\n",
+    "description": "Creates or updates a secret with an encrypted value. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). Anyone with write access to the repository can use this endpoint. GitHub Apps must have the `secrets` permission to use this endpoint.\n\nEncrypt your secret using the [tweetsodium](https://github.com/mastahyeti/tweetsodium) library.\n\n\n\nEncrypt your secret using [pynacl](https://pynacl.readthedocs.io/en/stable/public/#nacl-public-sealedbox) with Python 3.\n\n\n\nEncrypt your secret using the [Sodium.Core](https://www.nuget.org/packages/Sodium.Core/) package.\n\n\n\nEncrypt your secret using the [rbnacl](https://github.com/RubyCrypto/rbnacl) gem.\n\n",
     "documentationUrl": "https://developer.github.com/v3/actions/secrets/#create-or-update-a-secret-for-a-repository",
     "previews": [],
     "headers": [],
