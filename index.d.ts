@@ -342,15 +342,7 @@ declare namespace Octokit {
     visibility: string;
   };
   type UsersListPublicKeysForUserResponseItem = { id: number; key: string };
-  type UsersListPublicKeysResponseItem = {
-    created_at: string;
-    id: number;
-    key: string;
-    read_only: boolean;
-    title: string;
-    url: string;
-    verified: boolean;
-  };
+  type UsersListPublicKeysResponseItem = { key: string; key_id: string };
   type UsersListPublicEmailsResponseItem = {
     email: string;
     primary: boolean;
@@ -547,15 +539,7 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type UsersGetPublicKeyResponse = {
-    created_at: string;
-    id: number;
-    key: string;
-    read_only: boolean;
-    title: string;
-    url: string;
-    verified: boolean;
-  };
+  type UsersGetPublicKeyResponse = { key: string; key_id: string };
   type UsersGetGpgKeyResponseSubkeysItem = {
     can_certify: boolean;
     can_encrypt_comms: boolean;
@@ -678,15 +662,7 @@ declare namespace Octokit {
     updated_at: string;
     url: string;
   };
-  type UsersCreatePublicKeyResponse = {
-    created_at: string;
-    id: number;
-    key: string;
-    read_only: boolean;
-    title: string;
-    url: string;
-    verified: boolean;
-  };
+  type UsersCreatePublicKeyResponse = { key: string; key_id: string };
   type UsersCreateGpgKeyResponseSubkeysItem = {
     can_certify: boolean;
     can_encrypt_comms: boolean;
@@ -24266,10 +24242,6 @@ declare namespace Octokit {
     expires_at: string;
     token: string;
   };
-  type ActionsCreateOrUpdateSecretForRepoResponse = {
-    encrypted_value: string;
-    key_id: string;
-  };
   type ActionsListJobsForWorkflowRunResponse = Array<
     ActionsListJobsForWorkflowRunResponseItem
   >;
@@ -24668,7 +24640,7 @@ declare namespace Octokit {
     /**
      * ID of the key you used to encrypt the secret.
      */
-    key_id?: number;
+    key_id?: string;
 
     name: string;
 
@@ -33757,9 +33729,7 @@ declare class Octokit {
       (
         params?: Octokit.RequestOptions &
           Octokit.ActionsCreateOrUpdateSecretForRepoParams
-      ): Promise<
-        Octokit.Response<Octokit.ActionsCreateOrUpdateSecretForRepoResponse>
-      >;
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -37724,7 +37694,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * **Note:** The response includes a maximum of 300 files.
+     * **Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.
      */
     listFiles: {
       (
