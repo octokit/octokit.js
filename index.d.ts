@@ -55,7 +55,8 @@ declare namespace Octokit {
       | string
       | { username: string; password: string; on2fa: () => Promise<string> }
       | { clientId: string; clientSecret: string }
-      | { (): string | Promise<string> };
+      | { (): string | Promise<string> }
+      | any;
     userAgent?: string;
     previews?: string[];
     baseUrl?: string;

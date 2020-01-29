@@ -46,7 +46,7 @@ declare namespace Octokit {
 
   export interface Options {
     authStrategy?: any;
-    auth?: string | { username: string; password: string; on2fa: () => Promise<string> } | { clientId: string; clientSecret: string; } | { (): (string | Promise<string>) };
+    auth?: string | { username: string; password: string; on2fa: () => Promise<string> } | { clientId: string; clientSecret: string; } | { (): (string | Promise<string>) } | any;
     userAgent?: string;
     previews?: string[];
     baseUrl?: string;
