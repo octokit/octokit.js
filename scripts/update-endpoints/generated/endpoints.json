@@ -13925,7 +13925,7 @@
         "name": "key_id",
         "description": "ID of the key you used to encrypt the secret.",
         "in": "BODY",
-        "type": "integer",
+        "type": "string",
         "required": false,
         "enum": null,
         "allowNull": false,
@@ -13935,17 +13935,7 @@
         "deprecated": null
       }
     ],
-    "responses": [
-      {
-        "code": 201,
-        "description": "response",
-        "examples": [
-          {
-            "data": "{\"encrypted_value\":\"QIvLrNh6tmhUxABczx2vnsncsIj2KiwitqIVpXN9bU3DsHJ1srExk/DrgRaXCAwJnsdsmjo1KwQ=\",\"key_id\":\"1234\"}"
-          }
-        ]
-      }
-    ],
+    "responses": [],
     "renamed": null
   },
   {
@@ -33287,7 +33277,7 @@
     "url": "/repos/{owner}/{repo}/pulls/{pull_number}/files",
     "isDeprecated": false,
     "isLegacy": false,
-    "description": "**Note:** The response includes a maximum of 300 files.",
+    "description": "**Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.",
     "documentationUrl": "https://developer.github.com/v3/pulls/#list-pull-requests-files",
     "previews": [],
     "headers": [],
@@ -44240,7 +44230,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "[{\"id\":1,\"key\":\"ssh-rsa AAA...\",\"url\":\"https://api.github.com/user/keys/1\",\"title\":\"octocat@octomac\",\"verified\":true,\"created_at\":\"2014-12-10T15:53:42Z\",\"read_only\":true}]"
+            "data": "[{\"key_id\":\"1234\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}]"
           }
         ]
       }
@@ -44293,7 +44283,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"id\":1,\"key\":\"ssh-rsa AAA...\",\"url\":\"https://api.github.com/user/keys/1\",\"title\":\"octocat@octomac\",\"verified\":true,\"created_at\":\"2014-12-10T15:53:42Z\",\"read_only\":true}"
+            "data": "{\"key_id\":\"1234\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}"
           }
         ]
       }
@@ -44333,7 +44323,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "{\"id\":1,\"key\":\"ssh-rsa AAA...\",\"url\":\"https://api.github.com/user/keys/1\",\"title\":\"octocat@octomac\",\"verified\":true,\"created_at\":\"2014-12-10T15:53:42Z\",\"read_only\":true}"
+            "data": "{\"key_id\":\"1234\",\"key\":\"2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234\"}"
           }
         ]
       }
