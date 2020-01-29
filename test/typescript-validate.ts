@@ -208,4 +208,15 @@ export default async function() {
       format: "diff"
     }
   });
+
+  // Auth strategies
+  // https://github.com/octokit/rest.js/issues/1562
+  new MyOctokit({
+    authStrategy: () => {},
+    auth: {
+      id: 123,
+      privateKey: "private key here",
+      installationId: 12345
+    }
+  });
 }
