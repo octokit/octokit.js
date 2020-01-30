@@ -103,8 +103,8 @@
     "update-endpoints:fetch-json": "node scripts/update-endpoints/fetch-json",
     "update-endpoints:typescript": "node scripts/update-endpoints/typescript",
     "prevalidate:ts": "npm run -s build:ts",
-    "validate:ts": "tsc --target es6 --noImplicitAny index.d.ts",
-    "postvalidate:ts": "tsc --noEmit --target es6 test/typescript-validate.ts",
+    "validate:ts": "tsc --target es6 --noImplicitAny --moduleResolution node --allowSyntheticDefaultImports index.d.ts",
+    "postvalidate:ts": "tsc --noEmit --target es6 --moduleResolution node --allowSyntheticDefaultImports test/typescript-validate.ts",
     "start-fixtures-server": "octokit-fixtures-server"
   },
   "license": "MIT",
