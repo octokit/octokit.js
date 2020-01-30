@@ -11,7 +11,23 @@
 /// <reference lib="esnext.asynciterable" />
 
 import * as http from "http";
+import { createBasicAuth,
+  createAppAuth,
+  createOAuthAppAuth,
+  createTokenAuth,
+  createActionAuth } from "@octokit/auth";
+import { Types as AuthBasicTypes } from "@octokit/auth-basic";
+import { Types as AuthAppTypes } from "@octokit/auth-app";
+import { Types as AuthOAuthAppTypes } from "@octokit/auth-oauth-app";
+import { Types as AuthTokenTypes } from "@octokit/auth-token";
+import { Types as AuthActionTypes } from "@octokit/auth-action";
 
+export declare type AuthStrategies = 
+| AuthBasicTypes
+| AuthAppTypes
+| AuthTokenTypes
+| AuthOAuthAppTypes
+| AuthActionTypes
 declare namespace Octokit {
   type json = any;
   type date = string;
@@ -50,13 +66,19 @@ declare namespace Octokit {
   export interface EmptyParams {}
 
   export interface Options {
-    authStrategy?: any;
+    authStrategy?:
+      | typeof createAppAuth
+      | typeof createBasicAuth
+      | typeof createOAuthAppAuth
+      | typeof createTokenAuth
+      | typeof createActionAuth;
     auth?:
-      | string
+      | string // Token & Action auth
       | { username: string; password: string; on2fa: () => Promise<string> }
       | { clientId: string; clientSecret: string }
       | { (): string | Promise<string> }
-      | any;
+      | { id: number; privateKey: string }
+      | AuthStrategies['StrategyOptions'];
     userAgent?: string;
     previews?: string[];
     baseUrl?: string;
