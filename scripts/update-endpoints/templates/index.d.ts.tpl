@@ -10,6 +10,7 @@ import { createBasicAuth,
   createOAuthAppAuth,
   createTokenAuth,
   createActionAuth } from "@octokit/auth";
+import { StrategyInterface } from "@octokit/types";
 
 declare type AuthStrategies = typeof createAppAuth | typeof createBasicAuth | typeof createOAuthAppAuth | typeof createTokenAuth | typeof createActionAuth
 
@@ -52,7 +53,7 @@ declare namespace Octokit {
   }
 
   export interface Options {
-    authStrategy?: AuthStrategies;
+    authStrategy?: AuthStrategies | StrategyInterface<any[], any[], any>;
     auth?: string | { username: string; password: string; on2fa: () => Promise<string> } | { clientId: string; clientSecret: string; } | { (): (string | Promise<string>) } | Parameters<AuthStrategies>[0];
     userAgent?: string;
     previews?: string[];
