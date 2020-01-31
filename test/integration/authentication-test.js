@@ -151,7 +151,7 @@ describe("authentication", () => {
     });
   });
 
-  it.only("app auth strategy", async () => {
+  it("app auth strategy", async () => {
     const APP_ID = 1;
     const PRIVATE_KEY = `-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEA1c7+9z5Pad7OejecsQ0bu3aozN3tihPmljnnudb9G3HECdnH
