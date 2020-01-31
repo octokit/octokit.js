@@ -1,15 +1,16 @@
 const nock = require("nock");
 const { getUserAgent } = require("universal-user-agent");
+const { Octokit: Core } = require("@octokit/core");
 
 const Octokit = require("../../");
+
+const userAgent = `octokit-rest.js/0.0.0-development octokit-core.js/${
+  Core.VERSION
+} ${getUserAgent()}`;
 
 require("../mocha-node-setup");
 
 describe("smoke", () => {
-  it("called as function", () => {
-    Octokit();
-  });
-
   it("baseUrl option", () => {
     nock("http://myhost.com")
       .get("/my/api/orgs/myorg")
@@ -25,7 +26,7 @@ describe("smoke", () => {
   it("userAgent option", () => {
     nock("https://smoke-test.com", {
       reqheaders: {
-        "user-agent": `blah octokit.js/0.0.0-development ${getUserAgent()}`
+        "user-agent": `blah ${userAgent}`
       }
     })
       .get("/")
@@ -158,7 +159,7 @@ describe("smoke", () => {
       url: "https://smoke-test.com/",
       headers: {
         accept: "application/vnd.github.v3+json",
-        "user-agent": `octokit.js/0.0.0-development ${getUserAgent()}`
+        "user-agent": userAgent
       },
       request: {
         hook: requestOptions.request.hook
@@ -178,47 +179,12 @@ describe("smoke", () => {
       url: "https://smoke-test.com/",
       headers: {
         accept: "application/vnd.github.v3+json",
-        "user-agent": `octokit.js/0.0.0-development ${getUserAgent()}`
+        "user-agent": userAgent
       },
       request: {
-        hook: requestOptions.request.hook,
-        validate: {
-          owner: {
-            required: true,
-            type: "string"
-          },
-          repo: {
-            required: true,
-            type: "string"
-          }
-        }
+        hook: requestOptions.request.hook
       }
     });
-  });
-
-  it(".registerEndpoints()", () => {
-    nock("https://smoke-test.com")
-      .get("/baz")
-      .reply(200, {});
-
-    const octokit = new Octokit({
-      baseUrl: "https://smoke-test.com"
-    });
-    expect(octokit.registerEndpoints).to.be.a("function");
-
-    octokit.registerEndpoints({
-      issues: {
-        fooBar: {
-          method: "GET",
-          url: "/baz"
-        }
-      }
-    });
-
-    // make sure .registerEndpoints does not remove other methods on the same scope
-    expect(octokit.issues.get).to.be.a("function");
-
-    return octokit.issues.fooBar();
   });
 
   it("options.log", () => {

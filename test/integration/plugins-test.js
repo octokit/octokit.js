@@ -26,7 +26,7 @@ describe("plugins", () => {
     const MyOctokit = Octokit.plugin((octokit, options) => {
       expect(options.foo).to.equal("bar");
     });
-    MyOctokit({ foo: "bar" });
+    new MyOctokit({ foo: "bar" });
   });
 
   it("does not load the same plugin more than once", () => {
@@ -38,6 +38,6 @@ describe("plugins", () => {
       }
     };
     const MyOctokit = Octokit.plugin(myPlugin).plugin(myPlugin);
-    expect(MyOctokit).to.not.throw();
+    expect(() => new MyOctokit()).to.not.throw();
   });
 });
