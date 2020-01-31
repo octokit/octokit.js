@@ -14,7 +14,7 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.repos.uploadReleaseAsset as Buffer", () => {
+  it("octokit.request with Buffer data", () => {
     return octokit.repos
       .getReleaseByTag({
         owner: "octokit-fixture-org",
@@ -23,11 +23,11 @@ describe("api.github.com", () => {
       })
 
       .then(result => {
-        return octokit.repos.uploadReleaseAsset({
+        return octokit.request({
+          method: "POST",
           url: result.data.upload_url,
           headers: {
-            "content-type": "text/plain",
-            "content-length": 14
+            "content-type": "text/plain"
           },
           data: Buffer.from("Hello, world!\n"),
           name: "test-upload.txt",
@@ -45,11 +45,11 @@ describe("api.github.com", () => {
       })
 
       .then(result => {
-        return octokit.repos.uploadReleaseAsset({
+        return octokit.request({
+          method: "POST",
           url: result.data.upload_url,
           headers: {
-            "content-type": "text/plain",
-            "content-length": 14
+            "content-type": "text/plain"
           },
           data: stringToArrayBuffer("Hello, world!\n"),
           name: "test-upload.txt",
