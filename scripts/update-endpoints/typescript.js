@@ -501,10 +501,16 @@ Most libraries will set the required \`Content-Length\` header automatically. Us
 
 GitHub expects the asset data in its raw binary form, rather than JSON. You will send the raw binary content of the asset as the request body. Everything else about the endpoint is the same as the rest of the API. For example, you'll still need to pass your authentication to be able to upload an asset.`,
     params: {
-      file: {
+      data: {
         mapTo: "data",
         required: true,
         type: "string | object"
+      },
+      file: {
+        mapTo: "data",
+        deprecated: true,
+        type: "string | object",
+        alias: "data"
       },
       headers: {
         required: true,
