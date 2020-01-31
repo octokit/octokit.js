@@ -14796,7 +14796,7 @@ declare namespace Octokit {
     collaborators: number;
     company: string;
     created_at: string;
-    default_repository_settings: string;
+    default_repository_permission: string;
     description: string;
     disk_usage: number;
     email: string;
@@ -15212,7 +15212,7 @@ declare namespace Octokit {
     collaborators?: number;
     company: string;
     created_at: string;
-    default_repository_settings?: string;
+    default_repository_permission?: string;
     description: string;
     disk_usage?: number;
     email: string;
@@ -27657,9 +27657,9 @@ declare namespace Octokit {
      */
     per_page?: number;
     /**
-     * The integer ID of the last Organization that you've seen.
+     * The integer ID of the last organization that you've seen.
      */
-    since?: string;
+    since?: number;
   };
   export type OrgsListBlockedUsersParams = {
     org: string;
@@ -31269,9 +31269,9 @@ declare namespace Octokit {
      */
     per_page?: number;
     /**
-     * The integer ID of the last Repository that you've seen.
+     * The integer ID of the last repository that you've seen.
      */
-    since?: string;
+    since?: number;
   };
   export type ReposListPullRequestsAssociatedWithCommitParams = {
     commit_sha: string;
@@ -34473,9 +34473,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Creates an installation access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token.
-     *
-     * By default the installation token has access to all repositories that the installation can access. To restrict the access to specific repositories, you can provide the `repository_ids` when creating the token. When you omit `repository_ids`, the response does not contain the `repositories` key.
+     * Creates an installation access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token. By default the installation token has access to all repositories that the installation can access. To restrict the access to specific repositories, you can provide the `repository_ids` when creating the token. When you omit `repository_ids`, the response does not contain the `repositories` key.
      *
      * You must use a [JWT](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
      *
