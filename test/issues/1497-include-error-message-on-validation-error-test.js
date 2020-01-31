@@ -9,7 +9,7 @@ describe("https://github.com/octokit/rest.js/issues/1497", () => {
       reqheaders: {
         accept:
           "application/vnd.github.hellcat-preview+json,application/vnd.github.luke-cage-preview+json,application/vnd.github.zzzax-preview+json",
-        authorization: "basic dXNlcm5hbWU6cGFzc3dvcmQ="
+        authorization: "token secret123"
       }
     })
       .put("/repos/gr2m/sandbox/branches/gr2m-patch-1/protection", {
@@ -34,7 +34,7 @@ describe("https://github.com/octokit/rest.js/issues/1497", () => {
 
     const octokit = new Octokit({
       baseUrl: "https://request-errors-test.com",
-      auth: "basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      auth: "token secret123"
     });
     return octokit.repos
       .updateBranchProtection({

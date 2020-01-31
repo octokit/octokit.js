@@ -30,10 +30,9 @@ describe("api.github.com", () => {
         return octokit.repos.uploadReleaseAsset({
           url: result.data.upload_url,
           headers: {
-            "content-type": "text/plain",
-            "content-length": 14
+            "content-type": "text/plain"
           },
-          file: "Hello, world!\n",
+          data: "Hello, world!\n",
           name: "test-upload.txt",
           label: "test"
         });
