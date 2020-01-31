@@ -25225,25 +25225,9 @@ declare namespace Octokit {
   };
   export type AppsCheckAccountIsAssociatedWithAnyParams = {
     account_id: number;
-    /**
-     * Page number of the results to fetch.
-     */
-    page?: number;
-    /**
-     * Results per page (max 100)
-     */
-    per_page?: number;
   };
   export type AppsCheckAccountIsAssociatedWithAnyStubbedParams = {
     account_id: number;
-    /**
-     * Page number of the results to fetch.
-     */
-    page?: number;
-    /**
-     * Results per page (max 100)
-     */
-    per_page?: number;
   };
   export type AppsCheckAuthorizationParams = {
     access_token: string;
@@ -26352,14 +26336,6 @@ declare namespace Octokit {
     comment_id: number;
 
     owner: string;
-    /**
-     * Page number of the results to fetch.
-     */
-    page?: number;
-    /**
-     * Results per page (max 100)
-     */
-    per_page?: number;
 
     repo: string;
   };
@@ -28093,15 +28069,6 @@ declare namespace Octokit {
     column_id: number;
   };
   export type ProjectsGetParams = {
-    /**
-     * Page number of the results to fetch.
-     */
-    page?: number;
-    /**
-     * Results per page (max 100)
-     */
-    per_page?: number;
-
     project_id: number;
   };
   export type ProjectsGetCardParams = {
