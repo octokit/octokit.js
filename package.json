@@ -87,33 +87,19 @@
   "types": "index.d.ts",
   "scripts": {
     "coverage": "nyc report --reporter=html && open coverage/index.html",
-    "lint": "prettier --check '{lib,plugins,scripts,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
-    "lint:fix": "prettier --write '{lib,plugins,scripts,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
+    "lint": "prettier --check '{lib,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
+    "lint:fix": "prettier --write '{lib,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
     "pretest": "npm run -s lint",
     "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
-    "build": "npm-run-all build:*",
-    "build:ts": "npm run -s update-endpoints:typescript",
     "prebuild:browser": "mkdirp dist/",
     "build:browser": "npm-run-all build:browser:*",
     "build:browser:development": "webpack --mode development --entry . --output-library=Octokit --output=./dist/octokit-rest.js --profile --json > dist/bundle-stats.json",
     "build:browser:production": "webpack --mode production --entry . --plugin=compression-webpack-plugin --output-library=Octokit --output-path=./dist --output-filename=octokit-rest.min.js --devtool source-map",
     "generate-bundle-report": "webpack-bundle-analyzer dist/bundle-stats.json --mode=static --no-open --report dist/bundle-report.html",
-    "update-endpoints": "npm-run-all update-endpoints:*",
-    "update-endpoints:fetch-json": "node scripts/update-endpoints/fetch-json",
-    "update-endpoints:typescript": "node scripts/update-endpoints/typescript",
-    "prevalidate:ts": "npm run -s build:ts",
-    "validate:ts": "tsc --target es6 --noImplicitAny index.d.ts",
-    "postvalidate:ts": "tsc --noEmit --target es6 test/typescript-validate.ts",
     "start-fixtures-server": "octokit-fixtures-server"
   },
   "license": "MIT",
-  "files": [
-    "index.js",
-    "index.d.ts",
-    "lib",
-    "plugins"
-  ],
   "nyc": {
     "ignore": [
       "test"
