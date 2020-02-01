@@ -23753,10 +23753,6 @@ declare namespace Octokit {
     node_id: string;
     size_in_bytes: number;
   };
-  type ActionsListWorkflowRunArtifactsResponseItem = {
-    artifacts: Array<ActionsListWorkflowRunArtifactsResponseItemArtifactsItem>;
-    total_count: number;
-  };
   type ActionsListSelfHostedRunnersForRepoResponseItemItem = {
     id: number;
     name: string;
@@ -24252,9 +24248,10 @@ declare namespace Octokit {
   type ActionsListSelfHostedRunnersForRepoResponse = Array<
     Array<ActionsListSelfHostedRunnersForRepoResponseItemItem>
   >;
-  type ActionsListWorkflowRunArtifactsResponse = Array<
-    ActionsListWorkflowRunArtifactsResponseItem
-  >;
+  type ActionsListWorkflowRunArtifactsResponse = {
+    artifacts: Array<ActionsListWorkflowRunArtifactsResponseItemArtifactsItem>;
+    total_count: number;
+  };
   type ActivityListNotificationsResponse = Array<
     ActivityListNotificationsResponseItem
   >;
