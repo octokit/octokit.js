@@ -1,26 +1,17 @@
+const { Octokit } = require("@octokit/core");
+
 const { requestLog } = require("@octokit/plugin-request-log");
 const { paginateRest } = require("@octokit/plugin-paginate-rest");
 const {
   restEndpointMethods
 } = require("@octokit/plugin-rest-endpoint-methods");
 
-function paginatePlugin(octokit) {
-  Object.assign(octokit, paginateRest(octokit));
-}
+const { version } = require("./package.json");
 
-function restEndpointMethodsPlugin(octokit) {
-  Object.assign(octokit, restEndpointMethods(octokit));
-}
-
-const Octokit = require("./lib/core");
-
-const CORE_PLUGINS = [
-  require("./plugins/authentication"),
-  require("./plugins/authentication-deprecated"), // deprecated: remove in v17
+module.exports = Octokit.plugin([
   requestLog,
-  paginatePlugin,
-  restEndpointMethodsPlugin,
-  require("octokit-pagination-methods") // deprecated: remove in v17
-];
-
-module.exports = Octokit.plugin(CORE_PLUGINS);
+  paginateRest,
+  restEndpointMethods
+]).defaults({
+  userAgent: `octokit-rest.js/${version}`
+});
