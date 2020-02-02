@@ -43,11 +43,8 @@
     "@octokit/request": "^5.2.0",
     "@types/node": "^13.1.0",
     "btoa-lite": "^1.0.0",
-    "bundlesize": "^0.18.0",
     "chai": "^4.1.2",
-    "compression-webpack-plugin": "^3.1.0",
-    "cypress": "^4.0.0",
-    "glob": "^7.1.2",
+    "cypress": "^3.0.0",
     "http-proxy-agent": "^4.0.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.merge": "^4.6.1",
@@ -66,10 +63,7 @@
     "sinon-chai": "^3.0.0",
     "string-to-arraybuffer": "^1.0.0",
     "typescript": "^3.3.1",
-    "universal-user-agent": "^4.0.0",
-    "webpack": "^4.0.0",
-    "webpack-bundle-analyzer": "^3.0.0",
-    "webpack-cli": "^3.0.0"
+    "universal-user-agent": "^4.0.0"
   },
   "types": "index.d.ts",
   "scripts": {
@@ -79,11 +73,6 @@
     "pretest": "npm run -s lint",
     "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
-    "prebuild:browser": "mkdirp dist/",
-    "build:browser": "npm-run-all build:browser:*",
-    "build:browser:development": "webpack --mode development --entry . --output-library=Octokit --output=./dist/octokit-rest.js --profile --json > dist/bundle-stats.json",
-    "build:browser:production": "webpack --mode production --entry . --plugin=compression-webpack-plugin --output-library=Octokit --output-path=./dist --output-filename=octokit-rest.min.js --devtool source-map",
-    "generate-bundle-report": "webpack-bundle-analyzer dist/bundle-stats.json --mode=static --no-open --report dist/bundle-report.html",
     "start-fixtures-server": "octokit-fixtures-server"
   },
   "license": "MIT",
