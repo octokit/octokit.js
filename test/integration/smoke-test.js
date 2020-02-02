@@ -2,7 +2,7 @@ const nock = require("nock");
 const { getUserAgent } = require("universal-user-agent");
 const { Octokit: Core } = require("@octokit/core");
 
-const { Octokit } = require("../../");
+const { Octokit } = require("../../pkg");
 
 const userAgent = `octokit-rest.js/0.0.0-development octokit-core.js/${
   Core.VERSION
