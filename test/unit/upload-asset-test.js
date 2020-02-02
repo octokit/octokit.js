@@ -3,7 +3,7 @@ const fs = require("fs");
 const chai = require("chai");
 const nock = require("nock");
 
-const Octokit = require("../../");
+const { Octokit } = require("../../pkg");
 
 chai.should();
 
