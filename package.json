@@ -41,6 +41,10 @@
     "@octokit/auth": "^1.1.1",
     "@octokit/fixtures-server": "^6.0.0",
     "@octokit/request": "^5.2.0",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.8.1",
+    "@pika/plugin-build-web": "^0.8.1",
+    "@pika/plugin-ts-standard-pkg": "^0.8.1",
     "@types/node": "^13.1.0",
     "btoa-lite": "^1.0.0",
     "chai": "^4.1.2",
@@ -55,18 +59,20 @@
     "prettier": "^1.14.2",
     "proxy": "^1.0.0",
     "semantic-release": "^17.0.0",
+    "semantic-release-plugin-update-version-in-files": "^1.0.0",
     "sinon": "^8.0.0",
     "sinon-chai": "^3.0.0",
     "string-to-arraybuffer": "^1.0.0",
-    "typescript": "^3.3.1",
+    "typescript": "^3.7.5",
     "universal-user-agent": "^4.0.0"
   },
   "types": "index.d.ts",
   "scripts": {
+    "build": "pika build",
     "coverage": "nyc report --reporter=html && open coverage/index.html",
-    "lint": "prettier --check '{lib,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
-    "lint:fix": "prettier --write '{lib,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' index.js README.md package.json",
-    "pretest": "npm run -s lint",
+    "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
+    "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
+    "pretest": "npm run -s lint && npm run -s build",
     "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
     "test:browser": "cypress run --browser chrome",
     "start-fixtures-server": "octokit-fixtures-server"
@@ -77,22 +83,40 @@
       "test"
     ]
   },
-  "release": {
-    "publish": [
-      "@semantic-release/npm",
-      {
-        "path": "@semantic-release/github",
-        "assets": [
-          "dist/*",
-          "!dist/*.map.gz"
-        ]
-      }
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
     ]
   },
-  "bundlesize": [
-    {
-      "path": "./dist/octokit-rest.min.js.gz",
-      "maxSize": "33 kB"
-    }
-  ]
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ],
+      [
+        "semantic-release-plugin-update-version-in-files",
+        {
+          "files": [
+            "pkg/dist-web/*",
+            "pkg/dist-node/*",
+            "pkg/*/version.*"
+          ]
+        }
+      ]
+    ]
+  }
 }
