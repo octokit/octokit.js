@@ -2,7 +2,7 @@
 // as installing leakage broke for recent Node versions.
 // We are looking for an alternative.
 const { iterate } = require("leakage");
-const { Octokit } = require("../");
+const { Octokit } = require("../pkg");
 
 const TestOctokit = Octokit.plugin(octokit => {
   // skip sending requests altogether

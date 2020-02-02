@@ -1,5 +1,5 @@
 const nock = require("nock");
-const { Octokit } = require("../../");
+const { Octokit } = require("../../pkg");
 
 require("../mocha-node-setup");
 

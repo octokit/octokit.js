@@ -4,7 +4,7 @@ module.exports = {
   getInstance
 };
 
-const { Octokit } = require("../");
+const { Octokit } = require("../pkg");
 const { request } = require("@octokit/request");
 
 function loadFixture(scenario) {
