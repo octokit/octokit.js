@@ -10,7 +10,7 @@ chai.should();
 describe("octokit.repos.uploadReleaseAsset", () => {
   it("accepts file stream (#675)", () => {
     const octokit = new Octokit();
-    const size = fs.statSync(__filename).size;
+    // const size = fs.statSync(__filename).size;
 
     nock("https://upload.test", {
       reqheaders: {
