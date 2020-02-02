@@ -3813,32 +3813,6 @@
         "validation": null,
         "alias": null,
         "deprecated": null
-      },
-      {
-        "name": "per_page",
-        "description": "Results per page (max 100)",
-        "in": "QUERY",
-        "type": "integer",
-        "required": false,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "page",
-        "description": "Page number of the results to fetch.",
-        "in": "QUERY",
-        "type": "integer",
-        "required": false,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
       }
     ],
     "responses": [
@@ -4018,32 +3992,6 @@
         "in": "PATH",
         "type": "integer",
         "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "per_page",
-        "description": "Results per page (max 100)",
-        "in": "QUERY",
-        "type": "integer",
-        "required": false,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "page",
-        "description": "Page number of the results to fetch.",
-        "in": "QUERY",
-        "type": "integer",
-        "required": false,
         "enum": null,
         "allowNull": false,
         "mapToData": null,
@@ -11482,32 +11430,6 @@
         "validation": null,
         "alias": null,
         "deprecated": null
-      },
-      {
-        "name": "per_page",
-        "description": "Results per page (max 100)",
-        "in": "QUERY",
-        "type": "integer",
-        "required": false,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "page",
-        "description": "Page number of the results to fetch.",
-        "in": "QUERY",
-        "type": "integer",
-        "required": false,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
       }
     ],
     "responses": [
@@ -12882,6 +12804,59 @@
     "renamed": null
   },
   {
+    "name": "List downloads for the self-hosted runner application",
+    "scope": "actions",
+    "id": "listDownloadsForSelfHostedRunnerApplication",
+    "method": "GET",
+    "url": "/repos/{owner}/{repo}/actions/runners/downloads",
+    "isDeprecated": false,
+    "isLegacy": false,
+    "description": "Lists binaries for the self-hosted runner application that you can download and run. Anyone with admin access to the repository can use this endpoint. GitHub Apps must have the `administration` permission to use this endpoint.",
+    "documentationUrl": "https://developer.github.com/v3/actions/self_hosted_runners/#list-downloads-for-the-self-hosted-runner-application",
+    "previews": [],
+    "headers": [],
+    "parameters": [
+      {
+        "name": "owner",
+        "description": "owner parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "repo",
+        "description": "repo parameter",
+        "in": "PATH",
+        "type": "string",
+        "required": true,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "description": "response",
+        "examples": [
+          {
+            "data": "[{\"os\":\"osx\",\"architecture\":\"x64\",\"download_url\":\"https://github.com/actions/runner/releases/download/v2.164.0/actions-runner-osx-x64-2.164.0.tar.gz\",\"filename\":\"actions-runner-osx-x64-2.164.0.tar.gz\"},{\"os\":\"linux\",\"architecture\":\"x64\",\"download_url\":\"https://github.com/actions/runner/releases/download/v2.164.0/actions-runner-linux-x64-2.164.0.tar.gz\",\"filename\":\"actions-runner-linux-x64-2.164.0.tar.gz\"},{\"os\":\"linux\",\"architecture\":\"arm\",\"download_url\":\"https://github.com/actions/runner/releases/download/v2.164.0/actions-runner-linux-arm-2.164.0.tar.gz\",\"filename\":\"actions-runner-linux-arm-2.164.0.tar.gz\"},{\"os\":\"win\",\"architecture\":\"x64\",\"download_url\":\"https://github.com/actions/runner/releases/download/v2.164.0/actions-runner-win-x64-2.164.0.zip\",\"filename\":\"actions-runner-win-x64-2.164.0.zip\"},{\"os\":\"linux\",\"architecture\":\"arm64\",\"download_url\":\"https://github.com/actions/runner/releases/download/v2.164.0/actions-runner-linux-arm64-2.164.0.tar.gz\",\"filename\":\"actions-runner-linux-arm64-2.164.0.tar.gz\"}]"
+          }
+        ]
+      }
+    ],
+    "renamed": null
+  },
+  {
     "name": "Create a registration token",
     "scope": "actions",
     "id": "createRegistrationToken",
@@ -13117,7 +13092,7 @@
     "url": "/repos/{owner}/{repo}/actions/runs",
     "isDeprecated": false,
     "isLegacy": false,
-    "description": "Lists all workflow runs for a repository. Anyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.",
+    "description": "Lists all workflow runs for a repository. You can use parameters to narrow the list of results. For more information about using parameters, see [Parameters](https://developer.github.com/v3/#parameters).\n\nAnyone with read access to the repository can use this endpoint. GitHub Apps must have the `actions` permission to use this endpoint.",
     "documentationUrl": "https://developer.github.com/v3/actions/workflow_runs/#list-repository-workflow-runs",
     "previews": [],
     "headers": [],
@@ -13142,6 +13117,58 @@
         "type": "string",
         "required": true,
         "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "actor",
+        "description": "Returns someone's workflow runs. Use the login for the user who created the `push` associated with the check suite or workflow run.",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "branch",
+        "description": "Returns workflow runs associated with a branch. Use the name of the branch of the `push`.",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "event",
+        "description": "Returns workflow run triggered by the event you specify. For example, `push`, `pull_request` or `issue`. For more information, see \"[Events that trigger workflows](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows)\" in the GitHub Help documentation.",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "status",
+        "description": "Returns workflow runs associated with the check run `status` or `conclusion` you specify. For example, a conclusion can be `success` or a status can be `completed`. For more information, see the `status` and `conclusion` options available in \"[Create a check run](https://developer.github.com/v3/checks/runs/#create-a-check-run).\"",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": ["completed", "status", "conclusion"],
         "allowNull": false,
         "mapToData": null,
         "validation": null,
@@ -13339,7 +13366,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "[{\"total_count\":2,\"artifacts\":[{\"id\":11,\"node_id\":\"MDg6QXJ0aWZhY3QxMQ==\",\"name\":\"Rails\",\"size_in_bytes\":556,\"archive_download_url\":\"https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/5/zip\",\"expired\":\"false\",\"created_at\":\"2020-01-10T14:59:22Z\",\"expires_at\":\"2020-01-21T14:59:22Z\"},{\"id\":13,\"node_id\":\"MDg6QXJ0aWZhY3QxMw==\",\"name\":\"\",\"size_in_bytes\":453,\"archive_download_url\":\"https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/5/zip\",\"expired\":\"false\",\"created_at\":\"2020-01-10T14:59:22Z\",\"expires_at\":\"2020-01-21T14:59:22Z\"}]}]"
+            "data": "{\"total_count\":2,\"artifacts\":[{\"id\":11,\"node_id\":\"MDg6QXJ0aWZhY3QxMQ==\",\"name\":\"Rails\",\"size_in_bytes\":556,\"archive_download_url\":\"https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/5/zip\",\"expired\":\"false\",\"created_at\":\"2020-01-10T14:59:22Z\",\"expires_at\":\"2020-01-21T14:59:22Z\"},{\"id\":13,\"node_id\":\"MDg6QXJ0aWZhY3QxMw==\",\"name\":\"\",\"size_in_bytes\":453,\"archive_download_url\":\"https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/5/zip\",\"expired\":\"false\",\"created_at\":\"2020-01-10T14:59:22Z\",\"expires_at\":\"2020-01-21T14:59:22Z\"}]}"
           }
         ]
       }
@@ -13487,7 +13514,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "[{\"total_count\":1,\"workflow_jobs\":[{\"id\":399444496,\"run_id\":29679449,\"run_url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/runs/29679449\",\"node_id\":\"MDEyOldvcmtmbG93IEpvYjM5OTQ0NDQ5Ng==\",\"head_sha\":\"f83a356604ae3c5d03e1b46ef4d1ca77d64a90b0\",\"url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/jobs/399444496\",\"html_url\":\"https://github.com/octo-org/octo-repo/runs/399444496\",\"status\":\"completed\",\"conclusion\":\"success\",\"started_at\":\"2020-01-20T17:42:40Z\",\"completed_at\":\"2020-01-20T17:44:39Z\",\"name\":\"build\",\"steps\":[{\"name\":\"Set up job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":1,\"started_at\":\"2020-01-20T09:42:40.000-08:00\",\"completed_at\":\"2020-01-20T09:42:41.000-08:00\"},{\"name\":\"Run actions/checkout@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":2,\"started_at\":\"2020-01-20T09:42:41.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Set up Ruby\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":3,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Run actions/cache@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":4,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:48.000-08:00\"},{\"name\":\"Install Bundler\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":5,\"started_at\":\"2020-01-20T09:42:48.000-08:00\",\"completed_at\":\"2020-01-20T09:42:52.000-08:00\"},{\"name\":\"Install Gems\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":6,\"started_at\":\"2020-01-20T09:42:52.000-08:00\",\"completed_at\":\"2020-01-20T09:42:53.000-08:00\"},{\"name\":\"Run Tests\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":7,\"started_at\":\"2020-01-20T09:42:53.000-08:00\",\"completed_at\":\"2020-01-20T09:42:59.000-08:00\"},{\"name\":\"Deploy to Heroku\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":8,\"started_at\":\"2020-01-20T09:42:59.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Post actions/cache@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":16,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Complete job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":17,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"}],\"check_run_url\":\"https://api.github.com/repos/octo-org/octo-repo/check-runs/399444496\"}]}]"
+            "data": "{\"total_count\":1,\"jobs\":[{\"id\":399444496,\"run_id\":29679449,\"run_url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/runs/29679449\",\"node_id\":\"MDEyOldvcmtmbG93IEpvYjM5OTQ0NDQ5Ng==\",\"head_sha\":\"f83a356604ae3c5d03e1b46ef4d1ca77d64a90b0\",\"url\":\"https://api.github.com/repos/octo-org/octo-repo/actions/jobs/399444496\",\"html_url\":\"https://github.com/octo-org/octo-repo/runs/399444496\",\"status\":\"completed\",\"conclusion\":\"success\",\"started_at\":\"2020-01-20T17:42:40Z\",\"completed_at\":\"2020-01-20T17:44:39Z\",\"name\":\"build\",\"steps\":[{\"name\":\"Set up job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":1,\"started_at\":\"2020-01-20T09:42:40.000-08:00\",\"completed_at\":\"2020-01-20T09:42:41.000-08:00\"},{\"name\":\"Run actions/checkout@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":2,\"started_at\":\"2020-01-20T09:42:41.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Set up Ruby\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":3,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:45.000-08:00\"},{\"name\":\"Run actions/cache@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":4,\"started_at\":\"2020-01-20T09:42:45.000-08:00\",\"completed_at\":\"2020-01-20T09:42:48.000-08:00\"},{\"name\":\"Install Bundler\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":5,\"started_at\":\"2020-01-20T09:42:48.000-08:00\",\"completed_at\":\"2020-01-20T09:42:52.000-08:00\"},{\"name\":\"Install Gems\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":6,\"started_at\":\"2020-01-20T09:42:52.000-08:00\",\"completed_at\":\"2020-01-20T09:42:53.000-08:00\"},{\"name\":\"Run Tests\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":7,\"started_at\":\"2020-01-20T09:42:53.000-08:00\",\"completed_at\":\"2020-01-20T09:42:59.000-08:00\"},{\"name\":\"Deploy to Heroku\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":8,\"started_at\":\"2020-01-20T09:42:59.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Post actions/cache@v2\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":16,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"},{\"name\":\"Complete job\",\"status\":\"completed\",\"conclusion\":\"success\",\"number\":17,\"started_at\":\"2020-01-20T09:44:39.000-08:00\",\"completed_at\":\"2020-01-20T09:44:39.000-08:00\"}],\"check_run_url\":\"https://api.github.com/repos/octo-org/octo-repo/check-runs/399444496\"}]}"
           }
         ]
       }
@@ -13704,7 +13731,7 @@
         "description": "response",
         "examples": [
           {
-            "data": "[{\"total_count\":2,\"secrets\":[{\"name\":\"GH_TOKEN\",\"created_at\":\"2019-08-10T14:59:22Z\",\"updated_at\":\"2020-01-10T14:59:22Z\"},{\"name\":\"GIST_ID\",\"created_at\":\"2020-01-10T10:59:22Z\",\"updated_at\":\"2020-01-11T11:59:22Z\"}]}]"
+            "data": "{\"total_count\":2,\"secrets\":[{\"name\":\"GH_TOKEN\",\"created_at\":\"2019-08-10T14:59:22Z\",\"updated_at\":\"2020-01-10T14:59:22Z\"},{\"name\":\"GIST_ID\",\"created_at\":\"2020-01-10T10:59:22Z\",\"updated_at\":\"2020-01-11T11:59:22Z\"}]}"
           }
         ]
       }
@@ -14147,7 +14174,7 @@
     "url": "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs",
     "isDeprecated": false,
     "isLegacy": false,
-    "description": "List all workflow runs for a workflow. You can also replace `:workflow_id` with `:workflow_file_name`. For example, you could use `main.yml`. Anyone with read access to the repository can use this endpoint.",
+    "description": "List all workflow runs for a workflow. You can also replace `:workflow_id` with `:workflow_file_name`. For example, you could use `main.yml`. You can use parameters to narrow the list of results. For more information about using parameters, see [Parameters](https://developer.github.com/v3/#parameters).\n\nAnyone with read access to the repository can use this endpoint.",
     "documentationUrl": "https://developer.github.com/v3/actions/workflow_runs/#list-workflow-runs",
     "previews": [],
     "headers": [],
@@ -14185,6 +14212,58 @@
         "type": "integer",
         "required": true,
         "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "actor",
+        "description": "Returns someone's workflow runs. Use the login for the user who created the `push` associated with the check suite or workflow run.",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "branch",
+        "description": "Returns workflow runs associated with a branch. Use the name of the branch of the `push`.",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "event",
+        "description": "Returns workflow run triggered by the event you specify. For example, `push`, `pull_request` or `issue`. For more information, see \"[Events that trigger workflows](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows)\" in the GitHub Help documentation.",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": null,
+        "allowNull": false,
+        "mapToData": null,
+        "validation": null,
+        "alias": null,
+        "deprecated": null
+      },
+      {
+        "name": "status",
+        "description": "Returns workflow runs associated with the check run `status` or `conclusion` you specify. For example, a conclusion can be `success` or a status can be `completed`. For more information, see the `status` and `conclusion` options available in \"[Create a check run](https://developer.github.com/v3/checks/runs/#create-a-check-run).\"",
+        "in": "QUERY",
+        "type": "string",
+        "required": false,
+        "enum": ["completed", "status", "conclusion"],
         "allowNull": false,
         "mapToData": null,
         "validation": null,
@@ -26875,32 +26954,6 @@
         "in": "PATH",
         "type": "integer",
         "required": true,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "per_page",
-        "description": "Results per page (max 100)",
-        "in": "QUERY",
-        "type": "integer",
-        "required": false,
-        "enum": null,
-        "allowNull": false,
-        "mapToData": null,
-        "validation": null,
-        "alias": null,
-        "deprecated": null
-      },
-      {
-        "name": "page",
-        "description": "Page number of the results to fetch.",
-        "in": "QUERY",
-        "type": "integer",
-        "required": false,
         "enum": null,
         "allowNull": false,
         "mapToData": null,
