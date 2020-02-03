@@ -4,8 +4,7 @@ on:
       - master
       - next
       - beta
-      - 15.x
-      - 16.x # TODO: can we use a pattern for these?
+      - "*.x" # maintenance releases such as 15.x
 
 name: Release
 jobs:
