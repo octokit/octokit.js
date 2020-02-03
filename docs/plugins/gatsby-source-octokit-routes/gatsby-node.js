@@ -1,6 +1,6 @@
 const _ = require("lodash");
-const ENDPOINTS = require("../../../scripts/update-endpoints/generated/endpoints.json");
-const WORKAROUNDS = require("../../../scripts/update-endpoints/workarounds");
+const ENDPOINTS = require("./endpoints.json");
+const WORKAROUNDS = require("./workarounds");
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
