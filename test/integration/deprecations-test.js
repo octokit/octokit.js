@@ -23,7 +23,7 @@ describe("deprecations", () => {
 
     expect(warnCalledCount).to.equal(1);
     expect(() => new DeprecatedOctokit()).to.not.throw();
-    expect(typeof DeprecatedOctokit.plugin).to.equal('function');
+    expect(typeof DeprecatedOctokit.plugin).to.equal("function");
   });
   it("octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)", () => {
     let warnCalledCount = 0;
