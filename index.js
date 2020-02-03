@@ -21,7 +21,9 @@ const OctokitRest = Octokit.plugin(CORE_PLUGINS);
 function DeprecatedOctokit(options) {
   /* istanbul ignore next */
   const warn =
-    options.log && options.log.warn ? options.log.warn : console.warn;
+    options && options.log && options.log.warn
+      ? options.log.warn
+      : console.warn;
   warn(
     '[@octokit/rest] `const Octokit = require("@octokit/rest")` is deprecated. Use `const { Octokit } = require("@octokit/rest")` instead'
   );
