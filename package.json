@@ -70,6 +70,7 @@
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "pretest": "npm run -s lint && npm run -s build",
     "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
+    "pretest:browser": "npm run -s build",
     "test:browser": "cypress run --browser chrome",
     "start-fixtures-server": "octokit-fixtures-server"
   },
