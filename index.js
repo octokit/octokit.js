@@ -3,7 +3,7 @@ const {
   restEndpointMethods
 } = require("@octokit/plugin-rest-endpoint-methods");
 
-const Octokit = require("./lib/core");
+const Core = require("./lib/core");
 
 const CORE_PLUGINS = [
   require("./plugins/authentication"),
@@ -16,10 +16,9 @@ const CORE_PLUGINS = [
   require("octokit-pagination-methods") // deprecated: remove in v17
 ];
 
-const OctokitRest = Octokit.plugin(CORE_PLUGINS);
+const OctokitRest = Core.plugin(CORE_PLUGINS);
 
 function DeprecatedOctokit(options) {
-  /* istanbul ignore next */
   const warn =
     options && options.log && options.log.warn
       ? options.log.warn
@@ -30,6 +29,15 @@ function DeprecatedOctokit(options) {
   return new OctokitRest(options);
 }
 
-module.exports = Object.assign(DeprecatedOctokit, {
+const Octokit = Object.assign(DeprecatedOctokit, {
   Octokit: OctokitRest
 });
+
+Object.keys(OctokitRest).forEach(key => {
+  if (OctokitRest.hasOwnProperty(key)) {
+    Octokit[key] = OctokitRest[key]
+  }
+})
+
+
+module.exports = Octokit
