@@ -669,7 +669,7 @@ describe("deprecations", () => {
 
     let warnCalledCount = 0;
 
-    const Octokit = require("../../");
+    const { Octokit } = require("../../");
     const octokit = new Octokit({
       baseUrl: "https://authentication-test-host.com",
       auth: {
