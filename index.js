@@ -35,9 +35,8 @@ const Octokit = Object.assign(DeprecatedOctokit, {
 
 Object.keys(OctokitRest).forEach(key => {
   if (OctokitRest.hasOwnProperty(key)) {
-    Octokit[key] = OctokitRest[key]
+    Octokit[key] = OctokitRest[key];
   }
-})
+});
 
-
-module.exports = Octokit
+module.exports = Octokit;
