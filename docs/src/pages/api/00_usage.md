@@ -7,7 +7,7 @@ Import the Octokit constructor.
 For direct usage in browsers, download `octokit-rest.min.js` from the [latest release](https://github.com/octokit/rest.js/releases/latest) and import it using a `<script src="octokit-rest.min.js"></script>` tag.
 
 ```js
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest");
 ```
 
 Now instantiate your octokit API. All options are optional, but authentication is strongly encouraged.

@@ -15,7 +15,7 @@ npm install @octokit/rest
 ## Usage
 
 ```js
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest");
 const octokit = new Octokit();
 
 // Compare: https://developer.github.com/v3/repos/#list-organization-repositories

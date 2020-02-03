@@ -7,7 +7,7 @@ Authentication is optional for some REST API endpoints accessing public data, bu
 By default, Octokit authenticates using the [token authentication strategy](https://github.com/octokit/auth-token.js). Pass in a token using `options.auth`. It can be a personal access token, an OAuth token, an installation access token or a JSON Web Token for GitHub App authentication. The `Authorization` header will be set according to the type of token.
 
 ```js
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest");
 
 const octokit = new Octokit({
   auth: "mypersonalaccesstoken123"
@@ -21,7 +21,7 @@ To use a different authentication strategy, set `options.authStrategy`. The offi
 Here is an example for GitHub App authentication
 
 ```js
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest");
 const { createAppAuth } = require("@octokit/auth-app");
 
 const appOctokit = new Octokit({
