@@ -16,4 +16,17 @@ const CORE_PLUGINS = [
   require("octokit-pagination-methods") // deprecated: remove in v17
 ];
 
-module.exports = Octokit.plugin(CORE_PLUGINS);
+const OctokitRest = Octokit.plugin(CORE_PLUGINS);
+
+function DeprecatedOctokit(options) {
+  const warn =
+    options.log && options.log.warn ? options.log.warn : console.warn;
+  warn(
+    '[@octokit/rest] `const Octokit = require("@octokit/rest")` is deprecated. Use `const { Octokit } = require("@octokit/rest")` instead'
+  );
+  return new OctokitRest(options);
+}
+
+module.exports = Object.assign(DeprecatedOctokit, {
+  Octokit: OctokitRest
+});
