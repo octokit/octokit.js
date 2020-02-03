@@ -1,4 +1,4 @@
-import * as Octokit from "../index";
+import { Octokit } from "../index";
 import { Agent } from "http";
 import { request } from "https";
 const http = require("http");
@@ -10,9 +10,6 @@ const http = require("http");
 export default async function() {
   // Check empty constructor
   new Octokit();
-
-  // Check that all arguments are optional
-  new Octokit({});
 
   // for all supported options
   const octokit = new Octokit({
