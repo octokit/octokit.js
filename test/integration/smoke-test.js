@@ -1,7 +1,7 @@
 const nock = require("nock");
 const { getUserAgent } = require("universal-user-agent");
 
-const Octokit = require("../../");
+const { Octokit } = require("../../");
 
 require("../mocha-node-setup");
 
