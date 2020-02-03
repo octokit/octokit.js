@@ -1,7 +1,8 @@
 const btoa = require("btoa-lite");
 const nock = require("nock");
 
-const Octokit = require("../../");
+const DeprecatedOctokit = require("../../");
+const { Octokit } = DeprecatedOctokit;
 
 require("../mocha-node-setup");
 
@@ -10,6 +11,18 @@ const Mocktokit = Octokit.plugin(octokit => {
 });
 
 describe("deprecations", () => {
+  it('const Octokit = require("@octokit/rest")', () => {
+    let warnCalledCount = 0;
+    const octokit = new DeprecatedOctokit({
+      log: {
+        warn: deprecation => {
+          warnCalledCount++;
+        }
+      }
+    });
+
+    expect(warnCalledCount).to.equal(1);
+  });
   it("octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)", () => {
     let warnCalledCount = 0;
     const octokit = new Mocktokit({

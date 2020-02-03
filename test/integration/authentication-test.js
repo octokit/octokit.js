@@ -2,7 +2,7 @@ const lolex = require("lolex");
 const nock = require("nock");
 const { createActionAuth, createAppAuth } = require("@octokit/auth");
 
-const Octokit = require("../..");
+const { Octokit } = require("../..");
 
 require("../mocha-node-setup");
 
