@@ -9,7 +9,7 @@ In order to automatically throttle requests as recommended in [GitHub’s best p
 The `throttle.onAbuseLimit` and `throttle.onRateLimit` options are required. Return `true` to automatically retry the request after `retryAfter` seconds.
 
 ```js
-const Octokit = require("@octokit/rest").plugin(
+const { Octokit } = require("@octokit/rest").plugin(
   require("@octokit/plugin-throttling")
 );
 
