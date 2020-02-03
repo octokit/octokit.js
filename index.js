@@ -19,6 +19,7 @@ const CORE_PLUGINS = [
 const OctokitRest = Octokit.plugin(CORE_PLUGINS);
 
 function DeprecatedOctokit(options) {
+  /* istanbul ignore next */
   const warn =
     options.log && options.log.warn ? options.log.warn : console.warn;
   warn(
