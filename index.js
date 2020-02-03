@@ -34,6 +34,7 @@ const Octokit = Object.assign(DeprecatedOctokit, {
 });
 
 Object.keys(OctokitRest).forEach(key => {
+  /* istanbul ignore else */
   if (OctokitRest.hasOwnProperty(key)) {
     Octokit[key] = OctokitRest[key];
   }
