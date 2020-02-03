@@ -24,7 +24,7 @@ describe("octokit.repos.uploadReleaseAsset", () => {
         "content-type": "text/json",
         "content-length": size
       },
-      file: fs.createReadStream(__filename),
+      data: fs.createReadStream(__filename),
       name: "package.json"
     });
   });

@@ -33,7 +33,7 @@ describe("api.github.com", () => {
             "content-type": "text/plain",
             "content-length": 14
           },
-          file: "Hello, world!\n",
+          data: "Hello, world!\n",
           name: "test-upload.txt",
           label: "test"
         });

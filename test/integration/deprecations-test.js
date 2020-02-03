@@ -13,9 +13,9 @@ const Mocktokit = Octokit.plugin(octokit => {
 describe("deprecations", () => {
   it('const Octokit = require("@octokit/rest")', () => {
     let warnCalledCount = 0;
-    const octokit = new DeprecatedOctokit({
+    new DeprecatedOctokit({
       log: {
-        warn: deprecation => {
+        warn: () => {
           warnCalledCount++;
         }
       }

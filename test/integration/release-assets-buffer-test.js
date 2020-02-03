@@ -29,7 +29,7 @@ describe("api.github.com", () => {
             "content-type": "text/plain",
             "content-length": 14
           },
-          file: Buffer.from("Hello, world!\n"),
+          data: Buffer.from("Hello, world!\n"),
           name: "test-upload.txt",
           label: "test"
         });
@@ -51,7 +51,7 @@ describe("api.github.com", () => {
             "content-type": "text/plain",
             "content-length": 14
           },
-          file: stringToArrayBuffer("Hello, world!\n"),
+          data: stringToArrayBuffer("Hello, world!\n"),
           name: "test-upload.txt",
           label: "test"
         });
