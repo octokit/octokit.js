@@ -14,9 +14,6 @@ const MyOctokit = Octokit.plugin([
 
 // lib/my-plugin.js
 module.exports = (octokit, options = { greeting: "Hello" }) => {
-  // add a custom method
-  octokit.helloWorld = () => console.log(`${options.greeting}, world!`);
-
   // hook into the request lifecycle
   octokit.hook.wrap("request", async (request, options) => {
     const time = Date.now();
@@ -27,6 +24,11 @@ module.exports = (octokit, options = { greeting: "Hello" }) => {
     );
     return response;
   });
+
+  // add a custom method: octokit.helloWorld()
+  return {
+    helloWorld: () => console.log(`${options.greeting}, world!`)
+  }
 };
 ```
 
