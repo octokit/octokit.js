@@ -308,7 +308,7 @@ declare namespace Octokit {
   {{/childParams}}
 }
 
-declare class Octokit {
+export class Octokit {
   constructor(options?: Octokit.Options);
   authenticate(auth: Octokit.AuthBasic): void;
   authenticate(auth: Octokit.AuthOAuthToken): void;
@@ -350,5 +350,3 @@ declare class Octokit {
   };
   {{/namespaces}}
 }
-
-export = Octokit;
