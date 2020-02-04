@@ -5,10 +5,16 @@ import { restEndpointMethods } from "@octokit/plugin-rest-endpoint-methods";
 
 import { VERSION } from "./version";
 
-export const Octokit = Core.plugin([
-  requestLog,
-  paginateRest,
-  restEndpointMethods
-]).defaults({
-  userAgent: `octokit-rest.js/${VERSION}`
-});
+export const Octokit = Core
+  // TODO: this really should be
+  //
+  //     .plugin([requestLog, paginateRest, restEndpointMethods])
+  //
+  // but for mystical reasons, using the above method does set the resulting
+  // `octokit` instance type correctly. Neither `octokit.paginate()` nor all the
+  // endpoint methods such as `octokit.repos.get() are set
+  .plugin(requestLog)
+  .plugin([paginateRest, restEndpointMethods])
+  .defaults({
+    userAgent: `octokit-rest.js/${VERSION}`
+  });
