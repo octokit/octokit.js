@@ -28,7 +28,7 @@ module.exports = (octokit, options = { greeting: "Hello" }) => {
   // add a custom method: octokit.helloWorld()
   return {
     helloWorld: () => console.log(`${options.greeting}, world!`)
-  }
+  };
 };
 ```
 
