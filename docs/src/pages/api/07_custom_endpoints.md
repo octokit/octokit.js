@@ -25,7 +25,7 @@ Object.assign(octokit.misc, {
     method: "GET",
     url: "/"
   })
-})
+});
 ```
 
 If you use `octokit.registerEndpoints()` in a plugin, return an object instead:
