@@ -10,14 +10,10 @@ chai.should();
 describe("octokit.repos.uploadReleaseAsset", () => {
   it("accepts file stream (#675)", () => {
     const octokit = new Octokit();
-    // const size = fs.statSync(__filename).size;
 
     nock("https://upload.test", {
       reqheaders: {
         "content-type": "text/plain"
-        // nock does not get the auto-calculated "content-length" header
-        // but it's tested in the scenario tests.
-        // "content-length": size
       }
     })
       .post("/repos/octocat/hello-world/releases/123/assets", function(data) {
