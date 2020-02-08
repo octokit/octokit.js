@@ -1,7 +1,5 @@
 const { loadFixture, fixtureToInstance } = require("../util");
 
-require("../mocha-node-setup");
-
 describe("api.github.com", () => {
   let githubUserA;
   let githubUserB;

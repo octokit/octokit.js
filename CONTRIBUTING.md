@@ -38,11 +38,8 @@ $ npm test
 Or run a specific test
 
 ```bash
-$ ./node_modules/.bin/mocha test/scenarios/get-repository-test.js
+$ ./node_modules/.bin/jest test/integration/smoke.test.js
 ```
-
-**Note**: In order to run the same [scenario tests](test/scenarios) in both Node
-and browser, we simulate the Cypress environment in Node, see [test/mocha-node-setup.js](test/mocha-node-setup.js).
 
 The examples are run as part of the tests. You can set an `EXAMPLES_GITHUB_TOKEN` environment
 variable (or set it in a `.env` file) to avoid running against GitHub's rate limit.
