@@ -1,7 +1,5 @@
 const { getInstance } = require("../util");
 
-require("../mocha-node-setup");
-
 if (!process.browser && parseInt(process.version.substr(1), 10) >= 10) {
   require("./paginate-issues-async-await.js");
 }
