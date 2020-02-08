@@ -48,7 +48,6 @@
     "@types/node": "^13.1.0",
     "btoa-lite": "^1.0.0",
     "chai": "^4.1.2",
-    "cypress": "^3.0.0",
     "mocha": "^7.0.1",
     "nock": "^11.3.3",
     "nyc": "^15.0.0",
@@ -70,8 +69,6 @@
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "pretest": "npm run -s lint && npm run -s build",
     "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
-    "pretest:browser": "npm run -s build",
-    "test:browser": "cypress run --browser chrome",
     "start-fixtures-server": "octokit-fixtures-server"
   },
   "license": "MIT",
