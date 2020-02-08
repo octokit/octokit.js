@@ -41,12 +41,6 @@ Or run a specific test
 $ ./node_modules/.bin/mocha test/scenarios/get-repository-test.js
 ```
 
-Run browser tests
-
-```bash
-$ npm run test:browser
-```
-
 **Note**: In order to run the same [scenario tests](test/scenarios) in both Node
 and browser, we simulate the Cypress environment in Node, see [test/mocha-node-setup.js](test/mocha-node-setup.js).
 

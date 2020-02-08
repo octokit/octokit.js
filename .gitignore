@@ -4,6 +4,3 @@ node_modules
 
 # Pika builds
 pkg/
-
-# cypress
-cypress/
