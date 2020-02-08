@@ -48,9 +48,7 @@
     "@types/node": "^13.1.0",
     "btoa-lite": "^1.0.0",
     "chai": "^4.1.2",
-    "mocha": "^7.0.1",
     "nock": "^12.0.0",
-    "nyc": "^15.0.0",
     "prettier": "^1.14.2",
     "proxy": "^1.0.0",
     "semantic-release": "^17.0.0",
@@ -67,16 +65,9 @@
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
-    "pretest": "npm run -s lint && npm run -s build",
-    "test": "nyc mocha test/mocha-node-setup.js \"test/*/**/*-test.js\"",
     "start-fixtures-server": "octokit-fixtures-server"
   },
   "license": "MIT",
-  "nyc": {
-    "ignore": [
-      "test"
-    ]
-  },
   "@pika/pack": {
     "pipeline": [
       [

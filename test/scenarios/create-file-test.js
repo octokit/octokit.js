@@ -2,8 +2,6 @@ const btoa = require("btoa-lite");
 
 const { getInstance } = require("../util");
 
-require("../mocha-node-setup");
-
 describe("api.github.com", () => {
   let octokit;
 
