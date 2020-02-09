@@ -19,6 +19,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `idName`,
       value: idName
     });
+
+    let version = null;
+    const parent = getNode(node.parent);
+    if (parent.gitRemote___NODE) {
+      const gitRemote = getNode(parent.gitRemote___NODE);
+      version = gitRemote.sourceInstanceName;
+    }
+
+    createNodeField({
+      node,
+      name: `version`,
+      value: version
+    });
   }
 
   if (node.internal.type === "OctokitRoute") {
@@ -42,4 +55,76 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: `api/${_.kebabCase(node.name)}`
     });
   }
+};
+
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions;
+
+  const {data} = await graphql(`
+    {
+      allGitRemote {
+        nodes {
+          sourceInstanceName
+        }
+      }
+      allOctokitApiGroup {
+        edges {
+          node {
+            id
+            name
+            methods {
+              id
+              name
+              description
+              example
+              documentationUrl
+              isDeprecated
+              parameters {
+                name
+                required
+                description
+              }
+              renamed {
+                before {
+                  scope
+                  id
+                }
+                after {
+                  scope
+                  id
+                }
+                afterId
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const component = path.resolve(`./src/components/template.js`);
+
+  // create index page with current version content
+  createPage({
+    path: `/`,
+    component,
+    context: {
+      version: null,
+      endpointScopes: data.allOctokitApiGroup
+    }
+  });
+
+  // create a page for each version sourced from git
+  data.allGitRemote.nodes.forEach(({ sourceInstanceName }) => {
+    createPage({
+      path: `/` + sourceInstanceName,
+      component,
+      context: {
+        version: sourceInstanceName,
+        endpointScopes: {
+          edges: []
+        }
+      }
+    });
+  })
 };
