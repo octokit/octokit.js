@@ -13,8 +13,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`
+        name: `api`,
+        path: `${__dirname}/src/pages/api`
       }
     },
     {
@@ -93,6 +93,15 @@ module.exports = {
             type: node => "API method"
           }
         }
+      }
+    },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `v16`,
+        remote: `https://github.com/octokit/rest.js.git`,
+        branch: `master`, // TODO: change to version-16
+        patterns: `docs/src/pages/api/**`
       }
     }
   ]

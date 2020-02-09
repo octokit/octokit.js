@@ -26,5 +26,8 @@
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
     "typography-theme-github": "^0.16.19"
+  },
+  "dependencies": {
+    "gatsby-source-git": "^1.0.2"
   }
 }
