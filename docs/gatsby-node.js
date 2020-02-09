@@ -20,6 +20,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: idName
     });
 
+    // add a version field to pages so they can be queried appropriately
     let version = ``;
     const parent = getNode(node.parent);
     if (parent.gitRemote___NODE) {
