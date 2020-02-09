@@ -100,7 +100,7 @@ module.exports = {
       options: {
         name: `v16`,
         remote: `https://github.com/octokit/rest.js.git`,
-        branch: `master`, // TODO: change to version-16
+        branch: `16.x`,
         patterns: `docs/src/pages/api/**`
       }
     }
