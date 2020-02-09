@@ -20,7 +20,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: idName
     });
 
-    let version = null;
+    let version = ``;
     const parent = getNode(node.parent);
     if (parent.gitRemote___NODE) {
       const gitRemote = getNode(parent.gitRemote___NODE);
@@ -109,7 +109,7 @@ exports.createPages = async ({ actions, graphql }) => {
     path: `/`,
     component,
     context: {
-      version: null,
+      version: ``,
       endpointScopes: data.allOctokitApiGroup
     }
   });

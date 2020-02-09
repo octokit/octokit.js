@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
-import { graphql, StaticQuery } from "gatsby";
+import { graphql, StaticQuery, navigate } from "gatsby";
 
 import layoutStyles from "../components/layout.module.css";
 import "../components/layout.css";
@@ -29,6 +29,10 @@ export default class IndexPage extends Component {
     return this.state.menuActive;
   }
 
+  onVersionChange(event) {
+    navigate(`/` + event.target.value);
+  }
+
   render() {
     const data = this.props.data;
     return (
@@ -36,13 +40,34 @@ export default class IndexPage extends Component {
         <header className={layoutStyles.header}>
           <StaticQuery
             query={graphql`
-              query SearchIndexQuery {
+              {
                 siteSearchIndex {
                   index
                 }
+                allGitRemote {
+                  nodes {
+                    id
+                    sourceInstanceName
+                  }
+                }
               }
             `}
-            render={data => <Search searchIndex={data.siteSearchIndex.index} />}
+            render={data => (
+              <Fragment>
+                <select value={this.props.version} onChange={this.onVersionChange}>
+                  <option value="">Current (v17)</option>
+                  {data.allGitRemote.nodes.map(({ id, sourceInstanceName }) => (
+                    <option
+                      key={id}
+                      value={sourceInstanceName}
+                    >
+                      {sourceInstanceName}
+                    </option>
+                  ))}
+                </select>
+                <Search searchIndex={data.siteSearchIndex.index} />
+              </Fragment>
+            )}
           />
           <button type="button" onClick={this.onToggleMenu}>
             <IconMenu label="Menu" />

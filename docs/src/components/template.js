@@ -12,6 +12,7 @@ export default ({ data, pageContext }) => (
       <title>octokit/rest.js</title>
     </Helmet>
     <IndexPage
+      version={pageContext.version}
       data={{
         staticMethods: data.allMarkdownRemark,
         endpointScopes: pageContext.endpointScopes
