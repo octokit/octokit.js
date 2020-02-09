@@ -21,10 +21,12 @@ export default ({ data, pageContext }) => (
   </Fragment>
 );
 
-
 export const query = graphql`
   query TemplateQuery($version: String) {
-    allMarkdownRemark(filter: {fields: {version: {eq: $version}}}, sort: {fields: fields___slug}) {
+    allMarkdownRemark(
+      filter: { fields: { version: { eq: $version } } }
+      sort: { fields: fields___slug }
+    ) {
       edges {
         node {
           id

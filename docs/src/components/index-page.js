@@ -54,13 +54,13 @@ export default class IndexPage extends Component {
             `}
             render={data => (
               <Fragment>
-                <select value={this.props.version} onChange={this.onVersionChange}>
+                <select
+                  value={this.props.version}
+                  onChange={this.onVersionChange}
+                >
                   <option value="">Current (v17)</option>
                   {data.allGitRemote.nodes.map(({ id, sourceInstanceName }) => (
-                    <option
-                      key={id}
-                      value={sourceInstanceName}
-                    >
+                    <option key={id} value={sourceInstanceName}>
                       {sourceInstanceName}
                     </option>
                   ))}

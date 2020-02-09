@@ -60,7 +60,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const {data} = await graphql(`
+  const { data } = await graphql(`
     {
       allGitRemote {
         nodes {
@@ -126,5 +126,5 @@ exports.createPages = async ({ actions, graphql }) => {
         }
       }
     });
-  })
+  });
 };
