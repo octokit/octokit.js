@@ -69,7 +69,7 @@
     "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "start-fixtures-server": "octokit-fixtures-server",
-    "pretest": "npm run -s test",
+    "pretestx": "npm run -s lint",
     "test": "jest --coverage"
   },
   "license": "MIT",
@@ -88,6 +88,7 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "testPathIgnorePatterns": ["/docs/"],
     "coverageThreshold": {
       "global": {
         "statements": 100,
