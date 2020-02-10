@@ -10,7 +10,7 @@ export const Octokit = Core
   //
   //     .plugin([requestLog, paginateRest, restEndpointMethods])
   //
-  // but for mystical reasons, using the above method does set the resulting
+  // but for mystical reasons, using the line above does set the resulting the
   // `octokit` instance type correctly. Neither `octokit.paginate()` nor all the
   // endpoint methods such as `octokit.repos.get() are set
   .plugin(requestLog)
