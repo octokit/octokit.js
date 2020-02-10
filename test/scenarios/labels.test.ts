@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("labels", {
@@ -19,7 +19,7 @@ describe("api.github.com", () => {
       })
 
       .then(result => {
-        expect(result.data).to.be.an("array");
+        expect(Array.isArray(result.data)).toEqual(true);
 
         return octokit.issues.createLabel({
           owner: "octokit-fixture-org",
@@ -30,7 +30,7 @@ describe("api.github.com", () => {
       })
 
       .then(result => {
-        expect(result.data.name).to.equal("test-label");
+        expect(result.data.name).toEqual("test-label");
 
         return octokit.issues.getLabel({
           owner: "octokit-fixture-org",
@@ -50,7 +50,7 @@ describe("api.github.com", () => {
       })
 
       .then(result => {
-        expect(result.data.name).to.equal("test-label-updated");
+        expect(result.data.name).toEqual("test-label-updated");
 
         return octokit.issues.deleteLabel({
           owner: "octokit-fixture-org",
@@ -60,7 +60,7 @@ describe("api.github.com", () => {
       })
 
       .then(result => {
-        expect(result.data).to.equal(undefined);
+        expect(result.data).toEqual(undefined);
       });
   });
 });

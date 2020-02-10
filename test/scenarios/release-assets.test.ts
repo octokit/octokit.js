@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("release-assets", {
@@ -12,8 +12,8 @@ describe("api.github.com", () => {
   });
 
   it("octokit.repos.*Assets", () => {
-    let releaseId;
-    let assetId;
+    let releaseId: number;
+    let assetId: number;
 
     return octokit.repos
       .getReleaseByTag({
@@ -25,7 +25,8 @@ describe("api.github.com", () => {
       .then(result => {
         releaseId = result.data.id;
 
-        return octokit.repos.uploadReleaseAsset({
+        return octokit.request({
+          method: "POST",
           url: result.data.upload_url,
           headers: {
             "content-type": "text/plain"

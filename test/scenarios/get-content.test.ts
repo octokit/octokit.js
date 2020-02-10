@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("get-content", {
@@ -20,7 +20,11 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.length).to.equal(1);
+        if (!Array.isArray(response.data)) {
+          throw `folder response expected`;
+        }
+
+        expect(response.data.length).toEqual(1);
 
         return octokit.repos.getContents({
           owner: "octokit-fixture-org",
@@ -33,7 +37,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data).to.equal("# hello-world");
+        expect(response.data).toEqual("# hello-world");
       });
   });
 });
