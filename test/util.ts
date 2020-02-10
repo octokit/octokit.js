@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { request } from "@octokit/request";
 
 import { Octokit } from "../src";
