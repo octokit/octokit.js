@@ -1,8 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
-
+  let octokit: OctokitType;
   beforeEach(() => {
     return getInstance("get-organization", {
       auth: "token 0000000000000000000000000000000000000001"
@@ -16,7 +15,7 @@ describe("api.github.com", () => {
       .get({ org: "octokit-fixture-org" })
 
       .then(response => {
-        expect(response.data.login).to.equal("octokit-fixture-org");
+        expect(response.data.login).toEqual("octokit-fixture-org");
       });
   });
 });
