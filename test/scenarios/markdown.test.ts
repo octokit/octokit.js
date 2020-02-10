@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("markdown", {
@@ -25,11 +25,11 @@ b597b5d`,
       })
 
       .then(response => {
-        expect(response.data).to.match(/<h3>Hello<\/h3>/);
-        expect(response.data).to.match(
+        expect(response.data).toMatch(/<h3>Hello<\/h3>/);
+        expect(response.data).toMatch(
           /\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/
         );
-        expect(response.data).to.match(/<tt>b597b5d<\/tt>/);
+        expect(response.data).toMatch(/<tt>b597b5d<\/tt>/);
 
         return octokit.markdown.renderRaw({
           data: `### Hello
@@ -57,11 +57,11 @@ b597b5d`,
       })
 
       .then(response => {
-        expect(response.data).to.match(/<h3>Hello<\/h3>/);
-        expect(response.data).to.match(
+        expect(response.data).toMatch(/<h3>Hello<\/h3>/);
+        expect(response.data).toMatch(
           /\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/
         );
-        expect(response.data).to.match(/<tt>b597b5d<\/tt>/);
+        expect(response.data).toMatch(/<tt>b597b5d<\/tt>/);
       });
   });
 });

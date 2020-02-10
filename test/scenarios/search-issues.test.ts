@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("search-issues", {
@@ -18,7 +18,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.total_count).to.equal(2);
+        expect(response.data.total_count).toEqual(2);
       });
   });
 });

@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("create-status", {
@@ -42,7 +42,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.length).to.equal(2);
+        expect(response.data.length).toEqual(2);
 
         return octokit.repos.getCombinedStatusForRef({
           owner: "octokit-fixture-org",
@@ -52,7 +52,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.state).to.equal("failure");
+        expect(response.data.state).toEqual("failure");
       });
   });
 });
