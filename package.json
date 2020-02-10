@@ -45,9 +45,11 @@
     "@pika/plugin-build-node": "^0.8.1",
     "@pika/plugin-build-web": "^0.8.1",
     "@pika/plugin-ts-standard-pkg": "^0.8.1",
+    "@types/jest": "^25.1.2",
     "@types/node": "^13.1.0",
     "btoa-lite": "^1.0.0",
     "chai": "^4.1.2",
+    "jest": "^25.1.0",
     "nock": "^11.3.3",
     "prettier": "^1.14.2",
     "proxy": "^1.0.0",
@@ -56,6 +58,7 @@
     "sinon": "^8.0.0",
     "sinon-chai": "^3.0.0",
     "string-to-arraybuffer": "^1.0.0",
+    "ts-jest": "^25.2.0",
     "typescript": "^3.7.5",
     "universal-user-agent": "^4.0.0"
   },
@@ -65,7 +68,9 @@
     "coverage": "nyc report --reporter=html && open coverage/index.html",
     "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
-    "start-fixtures-server": "octokit-fixtures-server"
+    "start-fixtures-server": "octokit-fixtures-server",
+    "pretest": "npm run -s test",
+    "test": "jest --coverage"
   },
   "license": "MIT",
   "@pika/pack": {
@@ -80,6 +85,17 @@
         "@pika/plugin-build-web"
       ]
     ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
   },
   "release": {
     "plugins": [
