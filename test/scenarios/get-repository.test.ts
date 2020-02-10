@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("get-repository", {
@@ -19,7 +19,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.owner.login).to.equal("octokit-fixture-org");
+        expect(response.data.owner.login).toEqual("octokit-fixture-org");
       });
   });
 });

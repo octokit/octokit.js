@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("get-archive", {
@@ -25,7 +25,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.byteLength).to.equal(172);
+        expect(response.data.byteLength).toEqual(172);
       });
   });
 });
