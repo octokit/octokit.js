@@ -1,8 +1,8 @@
-const { loadFixture, fixtureToInstance } = require("../util");
+import { loadFixture, fixtureToInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let githubUserA;
-  let githubUserB;
+  let githubUserA: OctokitType;
+  let githubUserB: OctokitType;
 
   beforeEach(() => {
     return loadFixture("add-and-remove-repository-collaborator").then(
@@ -32,7 +32,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.length).to.equal(1);
+        expect(response.data.length).toEqual(1);
 
         return githubUserB.repos.acceptInvitation({
           invitation_id: response.data[0].id
@@ -47,7 +47,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.length).to.equal(2);
+        expect(response.data.length).toEqual(2);
 
         return githubUserA.repos.removeCollaborator({
           owner: "octokit-fixture-org",
@@ -64,7 +64,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.length).to.equal(1);
+        expect(response.data.length).toEqual(1);
       });
   });
 });
