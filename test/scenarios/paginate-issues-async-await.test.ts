@@ -1,22 +1,10 @@
 // this file is not run directly but instead required in paginate-issues-test.js
 // for Node v10 and higher only
 
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
-
-  if (global.navigator) {
-    const chromeVersion = parseInt(
-      global.navigator.appVersion.match(/Chrome\/(\d+)/).pop(),
-      10
-    );
-    if (chromeVersion < 63) {
-      return it.skip(
-        `for await (let result of octokit.paginate.iterator() (Chrome v${chromeVersion} does not support async iterators, they were introduced in v63)`
-      );
-    }
-  }
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("paginate-issues", {
@@ -37,10 +25,11 @@ describe("api.github.com", () => {
     };
     const results = [];
     for await (const result of octokit.paginate.iterator(
+      // @ts-ignore TODO: *.endpoint.merge on endpoint methods should always return .url property
       octokit.issues.listForRepo.endpoint.merge(options)
     )) {
       results.push(...result.data);
     }
-    expect(results.length).to.equal(13);
+    expect(results.length).toEqual(13);
   });
 });

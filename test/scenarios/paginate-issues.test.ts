@@ -1,11 +1,14 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
-if (!process.browser && parseInt(process.version.substr(1), 10) >= 10) {
-  require("./paginate-issues-async-await.js");
-}
+type IteratorResult = {
+  value: {
+    data: any[];
+  };
+  done: boolean;
+};
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("paginate-issues", {
@@ -26,43 +29,44 @@ describe("api.github.com", () => {
     };
 
     const iterator = octokit.paginate
+      // @ts-ignore TODO: *.endpoint.merge on endpoint methods should always return .url property
       .iterator(octokit.issues.listForRepo.endpoint.merge(options))
       [Symbol.asyncIterator]();
 
     return iterator
       .next()
-      .then(result => {
+      .then((result: IteratorResult) => {
         // page 1, results 1 - 3
-        expect(result.value.data.length).to.equal(3);
+        expect(result.value.data.length).toEqual(3);
 
         return iterator.next();
       })
-      .then(result => {
+      .then((result: IteratorResult) => {
         // page 2, results 4 - 6
-        expect(result.value.data.length).to.equal(3);
+        expect(result.value.data.length).toEqual(3);
 
         return iterator.next();
       })
-      .then(result => {
+      .then((result: IteratorResult) => {
         // page 3, results 7 - 9
-        expect(result.value.data.length).to.equal(3);
+        expect(result.value.data.length).toEqual(3);
 
         return iterator.next();
       })
-      .then(result => {
+      .then((result: IteratorResult) => {
         // page 4, results 10 - 12
-        expect(result.value.data.length).to.equal(3);
+        expect(result.value.data.length).toEqual(3);
 
         return iterator.next();
       })
-      .then(result => {
+      .then((result: IteratorResult) => {
         // page 5, results 13
-        expect(result.value.data.length).to.equal(1);
+        expect(result.value.data.length).toEqual(1);
 
         return iterator.next();
       })
-      .then(result => {
-        expect(result.done).to.equal(true);
+      .then((result: IteratorResult) => {
+        expect(result.done).toEqual(true);
       });
   });
 });

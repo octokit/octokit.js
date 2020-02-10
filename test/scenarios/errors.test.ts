@@ -1,7 +1,7 @@
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("errors", {
@@ -21,17 +21,17 @@ describe("api.github.com", () => {
       })
 
       .catch(error => {
-        expect(error.message).to.equal(
+        expect(error.message).toEqual(
           `Validation Failed: {"resource":"Label","code":"invalid","field":"color"}`
         );
-        expect(error.errors).to.deep.equal([
+        expect(error.errors).toStrictEqual([
           {
             resource: "Label",
             code: "invalid",
             field: "color"
           }
         ]);
-        expect(error.documentation_url).to.match(
+        expect(error.documentation_url).toMatch(
           new RegExp("v3/issues/labels/#create-a-label")
         );
       });

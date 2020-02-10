@@ -1,9 +1,9 @@
 const btoa = require("btoa-lite");
 
-const { getInstance } = require("../util");
+import { getInstance, OctokitType } from "../util";
 
 describe("api.github.com", () => {
-  let octokit;
+  let octokit: OctokitType;
 
   beforeEach(() => {
     return getInstance("create-file", {
@@ -24,7 +24,7 @@ describe("api.github.com", () => {
       })
 
       .then(response => {
-        expect(response.data.content.type).to.equal("file");
+        expect(response.data.content.type).toEqual("file");
       });
   });
 });
