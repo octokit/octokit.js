@@ -172,7 +172,7 @@ require('http').createServer(app.middleware).listen(3000)
 After the user authenticated, they get redirected to the `(User) Authorization callback URL` which is configured in the app's settings. If you set it to `<your apps domain>/api/github/oauth/callback`, then an `"oauth-access-token"` event gets emitted which you can handle with
 
 ```js
-app.on('oauth-access-token', ({token, client}) => {
+app.on('oauth-access-token', ({token, octokit}) => {
   // token is the OAuth access token itself
   // client is a pre-authorized `octokit` instance
 })
