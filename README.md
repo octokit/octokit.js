@@ -1,82 +1,146 @@
 # 🚧 THIS IS WORK IN PROGRESS
 
-This package will integrate several standalone packages for the all-batteries-included JavaScript Octokit package :)
-
-- [x] REST API: [`@octokit/rest`](https://github.com/octokit/rest.js/#readme)
-- [x] GraphQL API: [`@octokit/graphql`](https://github.com/octokit/graphql.js#readme)
-- [ ] OAuth: [`@octokit/auth-oauth-app`](https://github.com/octokit/auth-oauth-app.js#readme) and [`@octokit/oauth-login-url`](https://github.com/octokit/oauth-login-url.js) and TBD: [`@octokit/oauth-app`](#), [`@octokit/auth-oauth-client`](#todo-oauth-client)
-- [x] Webhooks: `@octokit/webhooks`
-- [ ] Apps
-- [x] Actions: [`@octokit/action`](https://github.com/octokit/action.js/#readme)
+There is no code. This repository is documentation only, laying out what the final `octokit` package should look like.
 
 # octokit.js
 
-> Official GitHub Platform client for Node.js & Browsers
+> The all-batteries-included Octokit SDK for Browser, Node.js, and Deno.
 
-[![@latest](https://img.shields.io/npm/v/octokit.svg)](https://www.npmjs.com/package/octokit)
-[![Build Status](https://travis-ci.com/octokit/octokit.js.svg?branch=master)](https://travis-ci.com/octokit/octokit.js)
-[![Coverage Status](https://coveralls.io/repos/github/octokit/octokit.js/badge.svg)](https://coveralls.io/github/octokit/octokit.js)
-[![Greenkeeper](https://badges.greenkeeper.io/octokit/octokit.js.svg)](https://greenkeeper.io/)
+The `octokit` package integrates the three main Octokit libraries
 
-- Complete support for GitHub’s [v3 REST API](https://developer.github.com/v3/), [v4 GraphQL API](https://developer.github.com/v4/), [Webhooks](https://developer.github.com/webhooks/), [OAuth](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/), [Apps](https://developer.github.com/apps/) and [Actions](https://developer.github.com/actions/)
-- Support for all current browsers and Node.js versions
-- Implements GitHub’s [best practices for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/)
-- [Typescript](https://www.typescriptlang.org/) definitions
-- Decomposable & extendable
+1. **API client** (REST API requests, GraphQL API queries, Authentication)
+2. **App client** (GitHub App & installations, Webhooks, OAuth)
+3. **Action client** (Pre-authenticated API client for single repository)
 
 ## Table of contents
 
 <!-- toc -->
 
+- [Features](#features)
 - [Usage](#usage)
-- [Options](#options)
-- [Authentication](#authentication)
-- [v3 REST API](#v3-rest-api)
-- [GraphQL API](#graphql-api)
-- [OAuth](#oauth)
-- [Webhooks](#webhooks)
-- [GitHub Apps](#github-apps)
-- [GitHub Actions](#github-actions)
+- [API Client](#api-client)
+  - [Options](#options)
+  - [Authentication](#authentication)
+  - [REST API](#rest-api)
+  - [GraphQL API queries](#graphql-api-queries)
+- [App client](#app-client)
+  - [App client](#app-client-1)
+  - [Webhooks](#webhooks)
+  - [OAuth](#oauth)
+- [Action client](#action-client)
 - [LICENSE](#license)
 
 <!-- tocstop -->
 
+## Features
+
+- **Compatible**. Works in all modern browsers, [Node.js](https://nodejs.org/), [Electron](https://www.electronjs.org/), [React Native](https://facebook.github.io/react-native/), and [Deno](https://deno.land/).
+- **Tested**. All libraries have a 100% test coverage.
+- **Complete**. All features of GitHub's platform APIs are covered. All recommended best practises are implemented.
+- **Decomposable**. Use only the code you need. You can build your own Octokit in only a few lines of code. Make your own tradeoff between functionality and bundle size.
+- **Extendable**. A feature missing? Add functionalities, hook into the request lifecycle or implement your own authentication strategy.
+
 ## Usage
 
-With Browsers
-
+<table>
+<tbody valign=top align=left>
+<tr><th>
+Browsers
+</th><td width=100%>
+Load <code>octokit</code> directly from <a href="https://cdn.pika.dev">cdn.pika.dev</a>
+        
 ```html
 <script type="module">
-  import { Octokit } from "https://cdn.pika.dev/@octokit/core";
-  const octokit = new Octokit({ auth: GITHUB_TOKEN });
+import { Octokit, App } from "https://cdn.pika.dev/octokit";
 </script>
 ```
 
-With Node
-
-```js
-// npm install octokit
-const { Octokit } = require("octokit");
-const client = new Octokit({ auth: process.env.GITHUB_TOKEN });
+</td></tr>
+<tr><th>
+Deno
+</th><td width=100%>
+Load <code>octokit</code> directly from <a href="https://cdn.pika.dev">cdn.pika.dev</a>
+        
+```ts
+import { Octokit, App, Action } from "https://cdn.pika.dev/octokit";
 ```
 
-## Options
+</td></tr>
+<tr><th>
+Node 12+
+</th><td>
 
-See https://github.com/octokit/core.js#options
+Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
 
-## Authentication
+```js
+import { Octokit, App, Action } from "octokit";
+```
 
-See https://github.com/octokit/core.js#authentication
+</td></tr>
+<tr><th>
+Node 10 and below
+</th><td>
 
-## v3 REST API
+Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
 
-See https://octokit.github.io/rest.js/
+```js
+const { Octokit, App, Action } = require("octokit");
+```
+
+</td></tr>
+</tbody>
+</table>
+
+## API Client
+
+```js
+// Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
+const octokit = new Octokit({ auth: `personal-access-token123` });
+
+// Compare: https://developer.github.com/v3/repos/#list-organization-repositories
+octokit.repos
+  .listForOrg({
+    org: "octokit",
+    type: "private"
+  })
+  .then(({ data }) => {
+    // handle data
+  });
+```
+
+### Options
+
+TBD, See
+
+1. https://github.com/octokit/core.js#options
+2. Throttling options: https://github.com/octokit/plugin-throttling.js/
+
+### Authentication
+
+TBD, See
+
+1. https://github.com/octokit/core.js#authentication
+1. https://github.com/octokit/auth.js#readme
+
+### REST API
+
+#### Endpoint methods
+
+TBD, see https://octokit.github.io/rest.js/
 
 ```js
 octokit.rest.repos.listForOrg({ org: "octokit" });
 ```
 
-## GraphQL API
+#### Pagination
+
+TBD, see https://github.com/octokit/plugin-paginate-rest.js
+
+#### Media Types
+
+TBD
+
+### GraphQL API queries
 
 See https://github.com/octokit/graphql.js/
 
@@ -88,7 +152,72 @@ octokit.graphql(`{
 }`);
 ```
 
-## OAuth
+## App client
+
+TBD
+
+- Load and iterate trough installations, repositories
+- handle webhooks
+- provide authenticated API client for installations
+- handle OAuth on client and server
+
+### App client
+
+```js
+import { App } from "octokit"
+import { createServer } from "http"
+const app = new App({ id, privateKey, clientId, clientSecret, webhooks: { secret } })
+
+// iterate trough all repositories the app has access to and create a dispatch event
+// https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
+for await (const repo of app.eachRepository.iterator()) {
+  await repo.createDispatchEvent({
+    event_type: "my_event",
+    client_payload: {
+      foo: "bar"
+    }
+  });
+  console.log("Event distpatched for %s", repo.full_name);
+}
+
+app.webhooks.onAny(handleAnyWebhookEvent)
+
+app.webhooks.on("issues.opened", {{id, name, payload, repo}} => {
+  // authenticated using installation token
+  return repo.issues.createComment({ body: "Hello, World!" })
+})
+
+app.oauth.on("token", {{token, client}} => {
+  // token is the OAuth access token itself
+  // client is a pre-authorized `octokit` instance
+})
+
+createServer(app.middleware).listen(3000)
+
+// `POST /api/github/events` to receive webhook event requests
+// + `* /api/github/oauth/*` routes
+```
+
+### Webhooks
+
+See https://github.com/octokit/webhooks.js/.
+
+```js
+import { Webhooks, Octokit } from "octokit";
+
+const webhooks = new Webhooks({
+  secret,
+  Octokit: Octokit.defaults({ auth: GITHUB_TOKEN })
+});
+webhooks.on("issue.opened", ({ repo }) => {
+  return repo.issues.createComment({ body: "Hello, World!" });
+});
+require("http")
+  .createServer(webhooks.middleware)
+  .listen(3000);
+```
+
+### OAuth
 
 Both OAuth Apps and GitHub Apps support authenticating GitHub users using OAuth, see [Authorizing OAuth Apps](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps) and [Identifying and authorizing users for GitHub Apps](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 
@@ -206,62 +335,9 @@ You can use `octokit.auth()` to check if a user is signed in, trigger the oauth 
 - `DELETE /api/github/oauth/token` must authenticate using token in `Authorization` header. Invalidates current token, basically the equivalent of a logout.
 - `DELETE /api/github/oauth/grant` must authenticate using token in `Authorization` header. Revokes the user's grant, basically the equivalent of an uninstall.
 
-## Webhooks
+## Action client
 
-See https://github.com/octokit/webhooks.js/.
-
-```js
-import { Webhooks, Octokit } from "octokit";
-
-const webhooks = new Webhooks({
-  secret,
-  Octokit: Octokit.defaults({ auth: GITHUB_TOKEN })
-});
-webhooks.on("issue.opened", ({ repo }) => {
-  return repo.issues.createComment({ body: "Hello, World!" });
-});
-require("http")
-  .createServer(webhooks.middleware)
-  .listen(3000);
-```
-
-## GitHub Apps
-
-```js
-import { App } from "octokit"
-const app = new App({ id, privateKey, clientId, clientSecret, webhooks: { secret } })
-
-// iterate trough all repositories the app has access to and create a dispatch event
-// https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
-for await (const repo of app.eachRepository.iterator()) {
-  await repo.createDispatchEvent({
-    event_type: "my_event",
-    client_payload: {
-      foo: "bar"
-    }
-  });
-  console.log("Event distpatched for %s", repo.full_name);
-}
-
-app.webhooks.on("issues.opened", {{id, name, payload, repo}} => {
-  // authenticated using installation token
-  return repo.issues.createComment({ body: "Hello, World!" })
-})
-
-app.oauth.on("token", {{token, client}} => {
-  // token is the OAuth access token itself
-  // client is a pre-authorized `octokit` instance
-})
-
-require("http").createServer(app.middleware).listen(3000)
-
-// `POST /api/github/events` to receive webhook event requests
-// + `* /api/github/oauth/*` routes
-```
-
-## GitHub Actions
-
-See https://github.com/octokit/action.js
+TBD, see https://github.com/octokit/action.js
 
 ## LICENSE
 
