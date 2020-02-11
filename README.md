@@ -49,18 +49,18 @@ This package will integrate several standalone packages for the all-batteries-in
 With Browsers
 
 ```html
-<script src="https://tbd-cdn.com/octokit/1.0.0/octokit.min.js"></script>
-<script>
-const client = new Octokit()
+<script type="module">
+import { Octokit } from "https://cdn.pika.dev/@octokit/core";
+const octokit = new Octokit({ auth: GITHUB_TOKEN })
 </script>
 ```
 
-With Node or module bundlers such as [Webpack](https://webpack.js.org/).
+With Node
 
 ```js
 // npm install octokit
-const Octokit = require('octokit')
-const client = new Octokit()
+const { Octokit } = require('octokit')
+const client = new Octokit({ auth: process.env.GITHUB_TOKEN })
 ```
 
 ## Options
@@ -68,14 +68,13 @@ const client = new Octokit()
 ```js
 const client = new Octokit({
   // setting a user agent is required: https://developer.github.com/v3/#user-agent-required
-  // v1.2.3 will be current octokit version
-  userAgent: 'octokit/rest.js v1.2.3',
+  userAgent: 'myapp/1.2.3',
   
   // set custom URL for on-premise GitHub Enterprise installations
-  baseUrl: 'https://api.github.com',
+  baseUrl: 'https://github.acme-inc.com/api/v3',
   
   // see "Authentication" section below
-  auth: undefined,
+  auth: "secret123",
   
   // add list of previews you’d like to enable globally, e.g. ['jean-grey-preview', 'symmetra-preview']
   previews: []
@@ -113,16 +112,17 @@ const clientWithAuth = new Octokit({
 })
 ```
 
-Or an instance of one of [octokit/auth.js](https://github.com/octokit/auth.js) strategies for more complex scenarios such as GitHub Apps or Basic Authentication.\
+For more complex scenarios, set `options.authStrategy` to one of the [octokit/auth.js](https://github.com/octokit/auth.js) strategies, or create your own
 
 ```js
 const { createAppAuth } = require("@octokit/auth-app");
 
 const octokit = new Octokit({
-  auth: createAppAuth({
+  authStrategy: createAppAuth,
+  auth: {
     id: 123,
     privateKey: process.env.PRIVATE_KEY
-  )}
+  )
 })
 ```
 
@@ -131,7 +131,7 @@ const octokit = new Octokit({
 See https://octokit.github.io/rest.js/
 
 ```js
-client.rest.repos.getForOrg({org: 'octokit'})
+octokit.rest.repos.getForOrg({org: 'octokit'})
 ```
 
 ## GraphQL API
@@ -139,7 +139,7 @@ client.rest.repos.getForOrg({org: 'octokit'})
 See https://github.com/octokit/graphql.js/
 
 ```js
-client.graphql(`{
+octokit.graphql(`{
   viewer {
     login
   }
@@ -153,7 +153,7 @@ Both OAuth Apps and GitHub Apps support authenticating GitHub users using OAUTH,
 To authenticate, a user needs to confirm their identity on a URL hosted by GitHub. This URL can be retrieved using `app.oauthLoginUrl()`
 
 ```js
-const app = client.app({clientId, clientSecret})
+const app = octokit.app({clientId, clientSecret})
 const { url, state } = app.oauthLoginUrl()
 // url looks like this: https://github.com/login/oauth/authorize?client_id=...
 // state is a random string that you need to store for code verification later
@@ -164,7 +164,7 @@ const { url, state } = app.oauthLoginUrl()
 `app.middleware` is also exposing a special `GET /api/github/oauth/login` path which redirects to the same URL
 
 ```js
-const app = client.app({clientId: "abc4567", clientSecret})
+const app = octokit.app({clientId: "abc4567", clientSecret})
 require('http').createServer(app.middleware).listen(3000)
 // e.g. `GET http://localhost:3000/api/github/oauth/login` redirects to https://github.com/login/oauth/authorize?client_id=abc4567
 ```
@@ -190,7 +190,7 @@ if (code) {
   history.pushState({}, "", path);
 
   // from your front-end app
-  const { token } = await client.request('GET <your apps domain>/oauth-login', { code })
+  const { token } = await octokit.request('GET <your apps domain>/oauth-login', { code })
   // `token` is the OAuth Access Token that can be use
 }
 ```
@@ -267,26 +267,26 @@ the event handlers. The `client` instance will have default configuration set
 for the respective event
 
 ```js
-const webhooks = client.webhooks({secret})
+const webhooks = octokit.webhooks({secret})
 webhooks.on('issue.opened', ({id, name, payload, client}) => {
-  return client.rest.issues.createComment({body: 'Hello, World!'})
+  return octokit.rest.issues.createComment({body: 'Hello, World!'})
 })
 require('http').createServer(webhooks.middleware).listen(3000)
 ```
 
 ## GitHub Apps
 
-**TODO** deprecate the current [`@octokit/app`](https://github.com/octokit/app.js#readme) package in favor of [`@octokit/auth-oauth-app](https://github.com/octokit/app.js#readme), then create an entirely new `@octokit/app` package which includes webhooks and oauth handling.
+**TODO** deprecate the current [`@octokit/app`](https://github.com/octokit/app.js#readme) package in favor of [`@octokit/auth-oauth-app`](https://github.com/octokit/app.js#readme), then create an entirely new `@octokit/app` package which includes webhooks and oauth handling.
 
 ```js
-const app = client.app({id, privateKey, clientId, clientSecret, webhooks: {secret}})
+const app = octokit.app({id, privateKey, clientId, clientSecret, webhooks: {secret}})
 
 // authenticated using Json Web Token
 const installations = await app.paginate(app.rest.listInstallations.endpoint())
 
 app.webhooks.on('issues.opened', {{id, name, payload, client}} => {
   // authenticated using installation token
-  return client.rest.issues.createComment({body: 'Hello, World!'})
+  return octokit.rest.issues.createComment({body: 'Hello, World!'})
 })
 
 app.oauth.on('token', {{token, client}} => {
@@ -308,14 +308,14 @@ require('http').createServer(app.middleware).listen(3000)
 
 ## Sending custom requests
 
-Use `client.request` to send custom requests. It accepts a string, an object
+Use `octokit.request` to send custom requests. It accepts a string, an object
 or a combination of the two. Here are several ways to [list organization repositories](https://developer.github.com/v3/repos/#list-organization-repositories)
 for the octokit.
 
 1. Pass in the route as first and parameters as second argument
 
   ```js
-  client.request('GET /orgs/:org/repos', {
+  octokit.request('GET /orgs/:org/repos', {
     org: 'octokit',
     type: 'private'
   })
@@ -324,7 +324,7 @@ for the octokit.
 2. Pass in a single object with `method` and `type` keys.
 
   ```js
-  client.request({
+  octokit.request({
     // request options
     method: 'GET',
     url: '/orgs/:org/repos',
@@ -338,19 +338,19 @@ for the octokit.
    A `GET` request is sent to the given URL.
 
    ```js
-   client.request('https://api.github.com/users/octocat/repos')
+   octokit.request('https://api.github.com/users/octocat/repos')
    ```
 
-For the most minimal GitHub API client, you can use `client.request` standalone.
+For the most minimal GitHub API client, you can use `octokit.request` standalone.
 See [octokit/request.js](https://github.com/octokit/request.js).
 
-If you want to use your own http request method, you can use `client.request.endpoint`
+If you want to use your own http request method, you can use `octokit.request.endpoint`
 to retrieve request options that you can pass into your preferred request
 method. The passed options are merged with the client defaults, such as `baseUrl`,
 authentication or user agent.
 
 ```js
-const options = client.request.endpoint({
+const options = octokit.request.endpoint({
   // request options
   method: 'GET',
   url: '/orgs/:org/repos',
@@ -368,7 +368,7 @@ const options = client.request.endpoint({
 // }
 ```
 
-You can use `client.request.endpoint` as standalone library, see [octokit/endpoint.js](https://github.com/octokit/endpoint.js).
+You can use `octokit.request.endpoint` as standalone library, see [octokit/endpoint.js](https://github.com/octokit/endpoint.js).
 
 ## Hooks
 
