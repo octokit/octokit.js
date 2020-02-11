@@ -7,7 +7,7 @@ This package will integrate several standalone packages for the all-batteries-in
 - [ ] OAuth: [`@octokit/auth-oauth-app`](https://github.com/octokit/auth-oauth-app.js#readme) and [`@octokit/oauth-login-url`](https://github.com/octokit/oauth-login-url.js) and TBD: [`@octokit/oauth-app`](#), [`@octokit/auth-oauth-client`](#todo-oauth-client)
 - [x] Webhooks: `@octokit/webhooks`
 - [ ] Apps
-- [ ] Actions
+- [x] Actions: [`@octokit/action`](https://github.com/octokit/action.js/#readme)
 
 # octokit.js
 
