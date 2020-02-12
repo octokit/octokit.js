@@ -8,24 +8,35 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` });
-    const idName = _.kebabCase(node.frontmatter.title);
+    const parent = getNode(node.parent);
+    const idName = _.kebabCase(node.frontmatter.title || parent.name);
+
     createNodeField({
       node,
       name: `slug`,
       value: slug
     });
+
     createNodeField({
       node,
       name: `idName`,
       value: idName
     });
 
-    // add a version field to pages so they can be queried appropriately
-    let version = ``;
-    const parent = getNode(node.parent);
+    // save the file's directory so it can be used by the Template
+    // component to group data in a GraphQL query
+    createNodeField({
+      node,
+      name: `parentRelativeDirectory`,
+      value: parent.relativeDirectory
+    });
+
+    // set a version field on pages so they can be queried
+    // appropriately in the Template component
+    let version = `current`;
     if (parent.gitRemote___NODE) {
-      const gitRemote = getNode(parent.gitRemote___NODE);
-      version = gitRemote.sourceInstanceName;
+      const { sourceInstanceName } = getNode(parent.gitRemote___NODE);
+      version = sourceInstanceName;
     }
 
     createNodeField({
@@ -34,75 +45,24 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: version
     });
   }
-
-  if (node.internal.type === "OctokitRoute") {
-    const slug = `api/${_.kebabCase(node.scope)}/${_.kebabCase(node.idName)}`;
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug
-    });
-    createNodeField({
-      node,
-      name: `scopeSlug`,
-      value: `api/${_.kebabCase(node.scope)}`
-    });
-  }
-
-  if (node.internal.type === "OctokitScope") {
-    createNodeField({
-      node,
-      name: `slug`,
-      value: `api/${_.kebabCase(node.name)}`
-    });
-  }
 };
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
+  // query for all git sources that are set up to read from
+  // older branches on this repo (v16, etc.)
   const { data } = await graphql(`
     {
-      allGitRemote {
+      allGitRemote(filter: { name: { eq: "rest.js" } }) {
         nodes {
           sourceInstanceName
-        }
-      }
-      allOctokitApiGroup {
-        edges {
-          node {
-            id
-            name
-            methods {
-              id
-              name
-              description
-              example
-              documentationUrl
-              isDeprecated
-              parameters {
-                name
-                required
-                description
-              }
-              renamed {
-                before {
-                  scope
-                  id
-                }
-                after {
-                  scope
-                  id
-                }
-                afterId
-              }
-            }
-          }
         }
       }
     }
   `);
 
+  // save the path to the Template component
   const component = path.resolve(`./src/components/template.js`);
 
   // create index page with current version content
@@ -110,8 +70,8 @@ exports.createPages = async ({ actions, graphql }) => {
     path: `/`,
     component,
     context: {
-      version: ``,
-      endpointScopes: data.allOctokitApiGroup
+      version: `current`,
+      endpoints: `current-endpoints`
     }
   });
 
@@ -121,10 +81,10 @@ exports.createPages = async ({ actions, graphql }) => {
       path: `/` + sourceInstanceName,
       component,
       context: {
+        // specify git source names in the same format as they were
+        // configured in gatsby-config.js
         version: sourceInstanceName,
-        endpointScopes: {
-          edges: []
-        }
+        endpoints: sourceInstanceName + `-endpoints`
       }
     });
   });

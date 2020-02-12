@@ -30,6 +30,8 @@ export default class IndexPage extends Component {
   }
 
   onVersionChange(event) {
+    // when the version select changes, navigate to the slug
+    // set by its <option> value attribute
     navigate(`/` + event.target.value);
   }
 
@@ -44,7 +46,8 @@ export default class IndexPage extends Component {
                 siteSearchIndex {
                   index
                 }
-                allGitRemote {
+                # query for git remotes configured for this repo
+                allGitRemote(filter: { name: { eq: "rest.js" } }) {
                   nodes {
                     id
                     sourceInstanceName
@@ -58,6 +61,7 @@ export default class IndexPage extends Component {
                   value={this.props.version}
                   onChange={this.onVersionChange}
                 >
+                  {/* render a default version and map over the others */}
                   <option value="">Current (v17)</option>
                   {data.allGitRemote.nodes.map(({ id, sourceInstanceName }) => (
                     <option key={id} value={sourceInstanceName}>

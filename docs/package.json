@@ -17,6 +17,7 @@
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-source-git": "^1.0.2",
     "gatsby-transformer-remark": "^2.3.8",
+    "html-react-parser": "^0.10.1",
     "lodash": "^4.17.15",
     "marked": "^0.8.0",
     "prismjs": "^1.16.0",
@@ -25,6 +26,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
+    "title-case": "^3.0.2",
     "typography": "^0.16.18",
     "typography-theme-github": "^0.16.19"
   }
