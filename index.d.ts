@@ -26505,6 +26505,14 @@ declare namespace Octokit {
     direction?: "asc" | "desc";
 
     owner: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
 
     repo: string;
     /**
@@ -30223,7 +30231,7 @@ declare namespace Octokit {
      */
     team_id?: number;
     /**
-     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, `visibility` can also be `internal`. For more information, see "[Creating an internal repository](https://help.github.com/github/creating-cloning-and-archiving-repositories/creating-an-internal-repository)" in the GitHub Help documentation.
+     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, `visibility` can also be `internal`. For more information, see "[Creating an internal repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)" in the GitHub Help documentation.
      * The `visibility` parameter overrides the `private` parameter when you use both parameters with the `nebula-preview` preview header.
      */
     visibility?: "public" | "private" | "visibility" | "internal";
@@ -30328,7 +30336,7 @@ declare namespace Octokit {
      */
     team_id?: number;
     /**
-     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, `visibility` can also be `internal`. For more information, see "[Creating an internal repository](https://help.github.com/github/creating-cloning-and-archiving-repositories/creating-an-internal-repository)" in the GitHub Help documentation.
+     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, `visibility` can also be `internal`. For more information, see "[Creating an internal repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)" in the GitHub Help documentation.
      * The `visibility` parameter overrides the `private` parameter when you use both parameters with the `nebula-preview` preview header.
      */
     visibility?: "public" | "private" | "visibility" | "internal";
