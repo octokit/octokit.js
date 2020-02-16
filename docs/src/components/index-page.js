@@ -36,7 +36,6 @@ export default class IndexPage extends Component {
   }
 
   render() {
-    const data = this.props.data;
     return (
       <div>
         <header className={layoutStyles.header}>
@@ -54,7 +53,7 @@ export default class IndexPage extends Component {
                   }
                 }
                 # get the current version as defined in gatsby-config.js
-                sitePlugin(name: {eq: "gatsby-plugin-versioned-docs"}) {
+                sitePlugin(name: { eq: "gatsby-plugin-versioned-docs" }) {
                   pluginOptions {
                     currentVersion
                   }
@@ -62,7 +61,7 @@ export default class IndexPage extends Component {
               }
             `}
             render={data => {
-              const {currentVersion} = data.sitePlugin.pluginOptions;
+              const { currentVersion } = data.sitePlugin.pluginOptions;
               return (
                 <Fragment>
                   <select
@@ -70,12 +69,16 @@ export default class IndexPage extends Component {
                     onChange={this.onVersionChange}
                   >
                     {/* render the current version and map over the others */}
-                    <option value={currentVersion}>Current ({currentVersion})</option>
-                    {data.allGitRemote.nodes.map(({ id, sourceInstanceName }) => (
-                      <option key={id} value={sourceInstanceName}>
-                        {sourceInstanceName}
-                      </option>
-                    ))}
+                    <option value={currentVersion}>
+                      Current ({currentVersion})
+                    </option>
+                    {data.allGitRemote.nodes.map(
+                      ({ id, sourceInstanceName }) => (
+                        <option key={id} value={sourceInstanceName}>
+                          {sourceInstanceName}
+                        </option>
+                      )
+                    )}
                   </select>
                   <Search searchIndex={data.siteSearchIndex.index} />
                 </Fragment>
@@ -88,7 +91,7 @@ export default class IndexPage extends Component {
         </header>
 
         <div className={layoutStyles.container}>
-          <Api data={data} isMenuActive={this.isMenuActive}></Api>
+          <Api data={this.props.data} isMenuActive={this.isMenuActive}></Api>
         </div>
       </div>
     );
