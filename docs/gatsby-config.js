@@ -1,20 +1,5 @@
 const upperFirst = require("lodash/upperFirst");
 
-// map git branch names to version identifiers
-// keys other than `current` will be used as page slugs
-const versions = {
-  current: {
-    // the current version will use local files in this repo
-    // however the `endpoints` branch still needs to be specified
-    // to source contents from https://github.com/octokit/plugin-rest-endpoint-methods.js/pull/33
-    endpoints: "master"
-  },
-  v16: {
-    branch: "16.x", // older versions must specify a `branch` for this repo
-    endpoints: "2.x" // ...and one for the endpoint methods
-  }
-};
-
 module.exports = {
   // https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/
   pathPrefix: "/rest.js",
@@ -108,31 +93,18 @@ module.exports = {
         }
       }
     },
-    // map over the version config object and add git sources
-    // for their docs from this repo and generated endpoint method docs
-    ...Object.entries(versions)
-      .flatMap(([version, { branch, endpoints }]) => [
-        branch && {
-          resolve: `gatsby-source-git`,
-          options: {
-            name: version,
-            remote: `https://github.com/octokit/rest.js.git`,
-            branch,
-            patterns: `docs/src/pages/api/**`
+    {
+      resolve: 'gatsby-plugin-versioned-docs',
+      options: {
+        currentVersion: 'v17', // configure the path for the current version
+        versions: [
+          {
+            name: 'v16', // the path of the older version
+            branch: "16.x", // older versions specify a branch name for this repo
+            endpoints: "2.x" // ...and one for the endpoint methods
           }
-        },
-        {
-          resolve: `gatsby-source-git`,
-          options: {
-            // endpoint method sourceInstanceNames follow this specific
-            // naming convention so they may be queried later
-            name: version + `-endpoints`,
-            remote: `https://github.com/octokit/plugin-rest-endpoint-methods.js.git`,
-            branch: endpoints,
-            patterns: `docs/**`
-          }
-        }
-      ])
-      .filter(Boolean)
+        ]
+      }
+    }
   ]
 };

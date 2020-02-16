@@ -3,7 +3,7 @@ const path = require(`path`);
 const _ = require("lodash");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({ node, getNode, actions }, pluginOptions) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -33,7 +33,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     // set a version field on pages so they can be queried
     // appropriately in the Template component
-    let version = `current`;
+    let version = pluginOptions.currentVersion;
     if (parent.gitRemote___NODE) {
       const { sourceInstanceName } = getNode(parent.gitRemote___NODE);
       version = sourceInstanceName;
@@ -47,7 +47,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }, pluginOptions) => {
   const { createPage } = actions;
 
   // query for all git sources that are set up to read from
@@ -65,26 +65,21 @@ exports.createPages = async ({ actions, graphql }) => {
   // save the path to the Template component
   const component = path.resolve(`./src/components/template.js`);
 
-  // create index page with current version content
-  createPage({
-    path: `/`,
-    component,
-    context: {
-      version: `current`,
-      endpoints: `current-endpoints`
-    }
-  });
+  const versions = [
+    pluginOptions.currentVersion,
+    ...data.allGitRemote.nodes.map(remote => remote.sourceInstanceName)
+  ];
 
   // create a page for each version sourced from git
-  data.allGitRemote.nodes.forEach(({ sourceInstanceName }) => {
+  versions.forEach(version => {
     createPage({
-      path: `/` + sourceInstanceName,
+      path: `/` + version,
       component,
       context: {
         // specify git source names in the same format as they were
         // configured in gatsby-config.js
-        version: sourceInstanceName,
-        endpoints: sourceInstanceName + `-endpoints`
+        version,
+        endpoints: version + `-endpoints`
       }
     });
   });

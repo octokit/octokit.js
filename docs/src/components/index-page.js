@@ -53,25 +53,34 @@ export default class IndexPage extends Component {
                     sourceInstanceName
                   }
                 }
+                # get the current version as defined in gatsby-config.js
+                sitePlugin(name: {eq: "gatsby-plugin-versioned-docs"}) {
+                  pluginOptions {
+                    currentVersion
+                  }
+                }
               }
             `}
-            render={data => (
-              <Fragment>
-                <select
-                  value={this.props.version}
-                  onChange={this.onVersionChange}
-                >
-                  {/* render a default version and map over the others */}
-                  <option value="">Current (v17)</option>
-                  {data.allGitRemote.nodes.map(({ id, sourceInstanceName }) => (
-                    <option key={id} value={sourceInstanceName}>
-                      {sourceInstanceName}
-                    </option>
-                  ))}
-                </select>
-                <Search searchIndex={data.siteSearchIndex.index} />
-              </Fragment>
-            )}
+            render={data => {
+              const {currentVersion} = data.sitePlugin.pluginOptions;
+              return (
+                <Fragment>
+                  <select
+                    value={this.props.version}
+                    onChange={this.onVersionChange}
+                  >
+                    {/* render the current version and map over the others */}
+                    <option value={currentVersion}>Current ({currentVersion})</option>
+                    {data.allGitRemote.nodes.map(({ id, sourceInstanceName }) => (
+                      <option key={id} value={sourceInstanceName}>
+                        {sourceInstanceName}
+                      </option>
+                    ))}
+                  </select>
+                  <Search searchIndex={data.siteSearchIndex.index} />
+                </Fragment>
+              );
+            }}
           />
           <button type="button" onClick={this.onToggleMenu}>
             <IconMenu label="Menu" />
