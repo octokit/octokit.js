@@ -10,5 +10,12 @@
   ],
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "repository": "https://github.com/octokit/octokit.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "prettier --check README.md",
+    "lint:fix": "prettier --write README.md"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
 }
