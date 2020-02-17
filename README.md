@@ -247,7 +247,7 @@ require("http")
 // e.g. `GET http://localhost:3000/api/github/oauth/login` redirects to https://github.com/login/oauth/authorize?client_id=abc4567
 ```
 
-After the user authenticated, they get redirected to the `(User) Authorization callback URL` which is configured in the app's settings. If you set it to `<your apps domain>/api/github/oauth/callback`, then an `"oauth-access-token"` event gets emitted which you can handle with
+After the user authenticated, they get redirected to the `(User) Authorization callback URL` which is configured in the app's settings. If you set it to `<your apps domain>/api/github/oauth/callback`, then an `"token"` event gets emitted which you can handle with
 
 ```js
 app.oauth.on("token", ({ token, octokit }) => {
@@ -276,7 +276,7 @@ if (code) {
 }
 ```
 
-When the `POST /api/github/oauth/token` was successful, the `oauth-access-token` event is emitted, too.
+When the `POST /api/github/oauth/token` was successful, the `token` event is emitted, too.
 
 <a name="todo-oauth-client"></a>
 
@@ -330,13 +330,16 @@ You can use `octokit.auth()` to check if a user is signed in, trigger the oauth 
 
 **TODO:** I think server endpoints should be split out, and a few more should be added
 
-- `GET /api/github/oauth/login` will redirect to GitHub's authorization endpoint
-- `GET /api/github/oauth/callback` the client redirect endpoint. A redirect to a front-end "success" page could be configured. This is where the `oauth-access-token` event gets triggered
-- `POST /api/github/oauth/token` endpoint to exchange an authorization code for an OAuth Access token. If successful, the `oauth-access-token` event gets triggered.
-- `GET /api/github/oauth/token` must authenticate using token in `Authorization` header. Check if token is valid. Uses GitHub's [`POST /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#check-a-token) endpoint
-- `PATCH /api/github/oauth/token` must authenticate using token in `Authorization` header. Resets a token (invalidates current one, returns new token). Uses GitHub's [`PATCH /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#reset-a-token) endpoint.
-- `DELETE /api/github/oauth/token` must authenticate using token in `Authorization` header. Invalidates current token, basically the equivalent of a logout.
-- `DELETE /api/github/oauth/grant` must authenticate using token in `Authorization` header. Revokes the user's grant, basically the equivalent of an uninstall.
+| Route                              | Corresponding Method | Route Description                                                                                                                                                                                                                                              |
+| ---------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GET /api/github/oauth/octokit.js` | -                    | Responds with pre-configured and pre-authorized `octokit` module                                                                                                                                                                                               |
+| `GET /api/github/oauth/callback`   | -                    | The client's redirect endpoint. A redirect to a front-end "success" page could be configured. This is where the `token` event gets triggered                                                                                                                   |
+| `GET /api/github/oauth/login`      | getLoginUrl()        | Redirects to GitHub's authorization endpoint                                                                                                                                                                                                                   |
+| `POST /api/github/oauth/token`     | exchangeCode()       | Exchange an authorization code for an OAuth Access token. If successful, the `token` event gets triggered.                                                                                                                                                     |
+| `GET /api/github/oauth/token`      | checkToken()         | Check if token is valid. Must authenticate using token in `Authorization` header. Uses GitHub's [`POST /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#check-a-token) endpoint                                       |
+| `PATCH /api/github/oauth/token`    | resetToken()         | Resets a token (invalidates current one, returns new token). Must authenticate using token in `Authorization` header. Uses GitHub's [`PATCH /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#reset-a-token) endpoint. |
+| `DELETE /api/github/oauth/token`   | deleteToken()        | Invalidates current token, basically the equivalent of a logout. Must authenticate using token in `Authorization` header.                                                                                                                                      |
+| `DELETE /api/github/oauth/grant`   | uninstallApp()       | Revokes the user's grant, basically the equivalent of an uninstall. must authenticate using token in `Authorization` header.                                                                                                                                   |
 
 ## Action client
 
