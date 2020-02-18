@@ -23717,7 +23717,7 @@ declare namespace Octokit {
   type ActionsListWorkflowRunsResponseWorkflowRunsItem = {
     artifacts_url: string;
     cancel_url: string;
-    check_suite_id: number;
+    check_suite_url: string;
     conclusion: null;
     created_at: string;
     event: string;
@@ -23944,7 +23944,7 @@ declare namespace Octokit {
   type ActionsListRepoWorkflowRunsResponseWorkflowRunsItem = {
     artifacts_url: string;
     cancel_url: string;
-    check_suite_id: number;
+    check_suite_url: string;
     conclusion: null;
     created_at: string;
     event: string;
@@ -24160,7 +24160,7 @@ declare namespace Octokit {
   type ActionsGetWorkflowRunResponse = {
     artifacts_url: string;
     cancel_url: string;
-    check_suite_id: number;
+    check_suite_url: string;
     conclusion: null;
     created_at: string;
     event: string;
