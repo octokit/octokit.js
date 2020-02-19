@@ -74,7 +74,7 @@
     "prettier": "^1.14.2",
     "proxy": "^1.0.0",
     "semantic-release": "^17.0.0",
-    "sinon": "^8.0.0",
+    "sinon": "^9.0.0",
     "sinon-chai": "^3.0.0",
     "sort-keys": "^4.0.0",
     "string-to-arraybuffer": "^1.0.0",
