@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import apiStyles from "./api.module.css";
 import parse, { domToReact } from "html-react-parser";
 
 export default class EndPoint extends Component {
