@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import apiStyles from "./api.module.css";
 
-import upperFirst from "lodash/upperFirst";
+import { titleCase } from "title-case";
+import { createGroupIdName } from "../utils";
 
 export default class ApiSubMenu extends Component {
   constructor(props) {
@@ -12,47 +13,48 @@ export default class ApiSubMenu extends Component {
   }
 
   onUserInteraction() {
-    this.props.onUserInteraction(this.props.node.id);
+    this.props.onUserInteraction(this.props.node.fieldValue);
   }
 
   isActive() {
-    return this.props.isActive(this.props.node.id);
+    return this.props.isActive(this.props.node.fieldValue);
   }
 
   getPrimaryLinkClassName() {
     return [
-      this.props.getActiveMenuItem() === this.props.node.id
-        ? apiStyles.activemenuitem
-        : "",
-      this.isActive() ? apiStyles.activelink : ""
+      this.props.getActiveMenuItem() === this.props.node.fieldValue &&
+        apiStyles.activemenuitem,
+      this.isActive() && apiStyles.activelink
     ]
       .filter(Boolean)
       .join(" ");
   }
 
   render() {
+    const idName = createGroupIdName(this.props.node);
     return (
-      <li key={this.props.node.id}>
+      <li>
         <a
-          href={`#${this.props.node.id}`}
+          href={`#${idName}`}
           onClick={this.onUserInteraction}
           className={this.getPrimaryLinkClassName()}
         >
-          {upperFirst(this.props.node.name)}
+          {titleCase(idName)}
         </a>
-        <ol className={this.isActive() ? "" : apiStyles.subhidden}>
-          {this.props.node.methods.map(method => {
+        <ol className={this.isActive() ? undefined : apiStyles.subhidden}>
+          {this.props.node.edges.map(({ node }) => {
+            const subIdName = idName + "-" + node.fields.idName;
             return (
-              <li key={method.id}>
+              <li key={node.id}>
                 <a
-                  href={`#${method.id}`}
+                  href={`#${subIdName}`}
                   className={
-                    this.props.getActiveMenuItem() === method.id
+                    this.props.getActiveMenuItem() === subIdName
                       ? apiStyles.activemenuitem
-                      : ""
+                      : undefined
                   }
                 >
-                  {method.name}
+                  {node.headings[0].value}
                 </a>
               </li>
             );

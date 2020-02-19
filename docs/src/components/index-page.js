@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
-import { graphql, StaticQuery } from "gatsby";
+import { graphql, StaticQuery, navigate } from "gatsby";
 
 import layoutStyles from "../components/layout.module.css";
 import "../components/layout.css";
@@ -29,20 +29,61 @@ export default class IndexPage extends Component {
     return this.state.menuActive;
   }
 
+  onVersionChange(event) {
+    // when the version select changes, navigate to the slug
+    // set by its <option> value attribute
+    navigate(`/` + event.target.value);
+  }
+
   render() {
-    const data = this.props.data;
     return (
       <div>
         <header className={layoutStyles.header}>
           <StaticQuery
             query={graphql`
-              query SearchIndexQuery {
+              {
                 siteSearchIndex {
                   index
                 }
+                # query for git remotes configured for this repo
+                allGitRemote(filter: { name: { eq: "rest.js" } }) {
+                  nodes {
+                    id
+                    sourceInstanceName
+                  }
+                }
+                # get the current version as defined in gatsby-config.js
+                sitePlugin(name: { eq: "gatsby-plugin-versioned-docs" }) {
+                  pluginOptions {
+                    currentVersion
+                  }
+                }
               }
             `}
-            render={data => <Search searchIndex={data.siteSearchIndex.index} />}
+            render={data => {
+              const { currentVersion } = data.sitePlugin.pluginOptions;
+              return (
+                <Fragment>
+                  <select
+                    value={this.props.version}
+                    onChange={this.onVersionChange}
+                  >
+                    {/* render the current version and map over the others */}
+                    <option value={currentVersion}>
+                      Current ({currentVersion})
+                    </option>
+                    {data.allGitRemote.nodes.map(
+                      ({ id, sourceInstanceName }) => (
+                        <option key={id} value={sourceInstanceName}>
+                          {sourceInstanceName}
+                        </option>
+                      )
+                    )}
+                  </select>
+                  <Search searchIndex={data.siteSearchIndex.index} />
+                </Fragment>
+              );
+            }}
           />
           <button type="button" onClick={this.onToggleMenu}>
             <IconMenu label="Menu" />
@@ -50,7 +91,7 @@ export default class IndexPage extends Component {
         </header>
 
         <div className={layoutStyles.container}>
-          <Api data={data} isMenuActive={this.isMenuActive}></Api>
+          <Api data={this.props.data} isMenuActive={this.isMenuActive}></Api>
         </div>
       </div>
     );
