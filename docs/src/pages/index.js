@@ -7,7 +7,10 @@ export default function Index(props) {
   return (
     <Helmet>
       {/* redirect the root path "/" to the current version */}
-      <meta http-equiv="refresh" content={`0;url=/${currentVersion}`} />
+      <meta http-equiv="refresh" content={`0;url=./${currentVersion}`} />
+      <script>
+        if (window.location.hash) (window.location.pathname += "v16/")
+      </script>
     </Helmet>
   );
 }
