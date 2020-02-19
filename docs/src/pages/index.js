@@ -1,67 +1,26 @@
 import React from "react";
-import { Helmet } from "react-helmet";
-
-import Layout from "../components/layout";
+import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 
-import IndexPage from "../components/index-page";
-
-export default ({ data }) => (
-  <Layout>
+export default function Index(props) {
+  const { currentVersion } = props.data.sitePlugin.pluginOptions;
+  return (
     <Helmet>
-      <meta charset="utf-8" />
-      <title>octokit/rest.js</title>
+      {/* redirect the root path "/" to the current version */}
+      <meta http-equiv="refresh" content={`0;url=./${currentVersion}`} />
+      <script>
+        if (window.location.hash) (window.location.pathname += "v16/")
+      </script>
     </Helmet>
-    <IndexPage data={data} />
-  </Layout>
-);
+  );
+}
 
-export const query = graphql`
-  query {
-    staticMethods: allMarkdownRemark(sort: { fields: fields___slug }) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-          }
-          html
-          fields {
-            idName
-          }
-        }
-      }
-    }
-    endpointScopes: allOctokitApiGroup {
-      edges {
-        node {
-          id
-          name
-          methods {
-            id
-            name
-            description
-            example
-            documentationUrl
-            isDeprecated
-            parameters {
-              name
-              required
-              description
-            }
-            renamed {
-              before {
-                scope
-                id
-              }
-              after {
-                scope
-                id
-              }
-              afterId
-            }
-          }
-        }
+export const pageQuery = graphql`
+  {
+    # query for the configured current version slug
+    sitePlugin(name: { eq: "gatsby-plugin-versioned-docs" }) {
+      pluginOptions {
+        currentVersion
       }
     }
   }

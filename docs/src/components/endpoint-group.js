@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import EndPoint from "../components/endpoint";
+import { createGroupIdName } from "../utils";
+import { titleCase } from "title-case";
 
 export default class EndPointGroup extends Component {
   constructor(props) {
@@ -38,8 +40,10 @@ export default class EndPointGroup extends Component {
         console.log(`entry.rootBounds.y ${entry.rootBounds.y}`);
 
         if (entry.intersectionRatio >= 0.1) {
-          console.log(`EndPointGroup.onIntersection ${this.props.node.id}`);
-          this.props.onVisibleEndPointGroup(this.props.node.id);
+          console.log(
+            `EndPointGroup.onIntersection ${this.props.node.fieldValue}`
+          );
+          this.props.onVisibleEndPointGroup(this.props.node.fieldValue);
         }
       }
     });
@@ -50,16 +54,18 @@ export default class EndPointGroup extends Component {
   }
 
   render() {
+    const idName = createGroupIdName(this.props.node);
     return (
       <React.Fragment>
-        <h2 id={this.props.node.id} ref={this.headlineRef}>
-          {this.props.node.name}
+        <h2 id={idName} ref={this.headlineRef}>
+          {titleCase(idName)}
         </h2>
-        {this.props.node.methods.map(method => {
+        {this.props.node.edges.map(({ node }) => {
           return (
             <EndPoint
-              key={method.id}
-              method={method}
+              key={node.id}
+              method={node}
+              groupIdName={idName}
               onVisible={this.onVisibleEndPoint}
             />
           );

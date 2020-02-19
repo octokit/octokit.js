@@ -68,10 +68,10 @@ export default class Api extends Component {
               );
             })}
 
-            {this.props.data.endpointScopes.edges.map(({ node }) => {
+            {this.props.data.endpointScopes.group.map(node => {
               return (
                 <ApiSubMenu
-                  key={node.id}
+                  key={node.fieldValue}
                   node={node}
                   onUserInteraction={this.setActiveSubMenu}
                   isActive={this.isActiveSubMenu}
@@ -95,11 +95,10 @@ export default class Api extends Component {
             );
           })}
 
-          {this.props.data.endpointScopes.edges.map(({ node }) => {
+          {this.props.data.endpointScopes.group.map(node => {
             return (
-              <div className={apiStyles.section}>
+              <div className={apiStyles.section} key={node.fieldValue}>
                 <EndPointGroup
-                  key={node.id}
                   node={node}
                   onVisibleEndPointGroup={this.onVisibleEndPointGroup}
                   onVisibleEndPoint={this.onVisibleEndPoint}

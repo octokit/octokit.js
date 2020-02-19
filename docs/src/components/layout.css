@@ -2,8 +2,7 @@ header {
   --header-background-color: #fff;
   --input-background-color: #eee;
 
-  display: grid;
-  grid-template-columns: auto auto max-content;
+  display: flex;
   background-color: var(--header-background-color);
   color: white;
   position: sticky;
