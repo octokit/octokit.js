@@ -62,7 +62,6 @@
     "typescript": "^3.7.5",
     "universal-user-agent": "^4.0.0"
   },
-  "types": "index.d.ts",
   "scripts": {
     "build": "pika build",
     "coverage": "nyc report --reporter=html && open coverage/index.html",
@@ -88,7 +87,9 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testPathIgnorePatterns": ["/docs/"],
+    "testPathIgnorePatterns": [
+      "/docs/"
+    ],
     "coverageThreshold": {
       "global": {
         "statements": 100,
