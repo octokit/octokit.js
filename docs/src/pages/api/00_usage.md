@@ -119,9 +119,9 @@ const { data: pullRequest } = await octokit.pulls.get({
 });
 ```
 
-Some API endpoints support alternative response formats, see [Media types](https://developer.github.com/v3/media/). For example, to [`request the above pull request in a diff format`](https://developer.github.com/v3/media/#diff), pass the `mediaType.format` option.
+Some API endpoints support alternative response formats, see [Media types](https://developer.github.com/v3/media/). For example, to [request the above pull request in a diff format](https://developer.github.com/v3/media/#diff), pass the `mediaType.format` option.
 
-Learn more about [request formats](#request-formats)
+Learn more about [request formats](#request-formats).
 
 ```js
 const { data: diff } = await octokit.pulls.get({
@@ -187,7 +187,7 @@ const MyOctokit = Octokit.plugin([
 ])
 ```
 
-`Octokit.plugin()` returns a new constructor. The same options can be passed to the constructor. The options are passed on to all plugin functions as the 2nd argument
+`Octokit.plugin()` returns a new constructor. The same options can be passed to the constructor. The options are passed on to all plugin functions as the 2nd argument.
 
 ```js
 const myOctokit = new MyOctokit({
