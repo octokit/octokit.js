@@ -157,19 +157,19 @@ octokit.graphql(`{
 
 ## App client
 
-TBD
+Combines features for
 
-- Load and iterate trough installations, repositories
-- handle webhooks
-- provide authenticated API client for installations
-- handle OAuth on client and server
+- GitHub Apps
+- Webhooks
+- OAuth
 
-### App client
+### GitHub App
 
 ```js
-import { App } from "octokit"
-import { createServer } from "http"
-const app = new App({ id, privateKey, clientId, clientSecret, webhooks: { secret } })
+import { App } from "octokit";
+import { createServer } from "http";
+
+const app = new App({ id, privateKey });
 
 // iterate trough all repositories the app has access to and create a dispatch event
 // https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
@@ -182,23 +182,6 @@ for await (const repo of app.eachRepository.iterator()) {
   });
   console.log("Event distpatched for %s", repo.full_name);
 }
-
-app.webhooks.onAny(handleAnyWebhookEvent)
-
-app.webhooks.on("issues.opened", {{id, name, payload, repo}} => {
-  // authenticated using installation token
-  return repo.issues.createComment({ body: "Hello, World!" })
-})
-
-app.oauth.on("token", {{token, client}} => {
-  // token is the OAuth access token itself
-  // client is a pre-authorized `octokit` instance
-})
-
-createServer(app.middleware).listen(3000)
-
-// `POST /api/github/events` to receive webhook event requests
-// + `* /api/github/oauth/*` routes
 ```
 
 ### Webhooks
@@ -206,57 +189,84 @@ createServer(app.middleware).listen(3000)
 See https://github.com/octokit/webhooks.js/.
 
 ```js
-import { Webhooks, Octokit } from "octokit";
+import { App } from "octokit";
 
-const webhooks = new Webhooks({
-  secret,
-  Octokit: Octokit.defaults({ auth: GITHUB_TOKEN })
+const app = new App({
+  webhooks: { secret }
 });
-webhooks.on("issue.opened", ({ repo }) => {
+app.webhooks.on("issue.opened", ({ repo }) => {
   return repo.issues.createComment({ body: "Hello, World!" });
 });
-require("http")
-  .createServer(webhooks.middleware)
-  .listen(3000);
+
+app.webhooks.verifyAndReceive({ id, name, payload, signature });
 ```
 
-### OAuth
+#### Node server example
+
+```js
+import { App, getNodeMiddleware } from "octokit";
+
+const app = new App({
+  webhooks: { secret }
+});
+
+require("http")
+  .createServer(getNodeMiddleware(app))
+  .listen(3000);
+// Can now retrieve GitHub webhooks /api/github/webhooks
+```
+
+### OAuth App
+
+See https://github.com/octokit/oauth-app.js/.
 
 Both OAuth Apps and GitHub Apps support authenticating GitHub users using OAuth, see [Authorizing OAuth Apps](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps) and [Identifying and authorizing users for GitHub Apps](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
-
-To authenticate, a user needs to confirm their identity on a URL hosted by GitHub. This URL can be retrieved using `app.oauthLoginUrl()`
 
 ```js
 import { App } from "octokit";
 
-const app = new OctokitApp({ clientId, clientSecret });
-const { url, state } = app.oauthLoginUrl();
+const app = new App({ clientId, clientSecret });
+const { url } = app.getAuthorizationUrl({
+  state: "state123"
+});
 // url looks like this: https://github.com/login/oauth/authorize?client_id=...
-// state is a random string that you need to store for code verification later
-```
+// "state123" is a random string that you need to store for verification later
 
-**Tip:** The `oauthLoginUrl()` exists as standalone package, too: [`@octokit/oauth-login-url`](https://github.com/octokit/oauth-login-url.js).
-
-`app.middleware` is also exposing a special `GET /api/github/oauth/login` path which redirects to the same URL
-
-```js
-const app = new OctokitApp({ clientId: "abc4567", clientSecret });
-require("http")
-  .createServer(app.middleware)
-  .listen(3000);
-// e.g. `GET http://localhost:3000/api/github/oauth/login` redirects to https://github.com/login/oauth/authorize?client_id=abc4567
-```
-
-After the user authenticated, they get redirected to the `(User) Authorization callback URL` which is configured in the app's settings. If you set it to `<your apps domain>/api/github/oauth/callback`, then an `"token"` event gets emitted which you can handle with
-
-```js
 app.oauth.on("token", ({ token, octokit }) => {
   // token is the OAuth access token itself
   // client is a pre-authorized `octokit` instance
 });
+
+app.oauth.createToken({ code, state });
 ```
 
-If you set `(User) Authorization callback URL` to your own app, than you need to read out the `?code=...&state=...` query parameters, compare the `state` parameter to the value returned by `app.oauthLoginUrl()` earlier to protect against forgery attacks, then send the `code` parameter to `POST /api/github/oauth/token` which will respond with the OAuth Access Token if successful. It is also recommended to remove the `?code=...&state=...` query parameters from the browser's URL
+#### Node server example
+
+```js
+import { App, getNodeMiddleware } from "octokit";
+
+const app = new App({ clientId: "abc4567", clientSecret });
+
+app.oauth.on("token", ({ token, octokit }) => {
+  // token is the OAuth access token itself
+  // client is a pre-authorized `octokit` instance
+});
+
+require("http")
+  .createServer(getNodeMiddleware(app))
+  .listen(3000);
+// e.g. `GET /api/github/oauth/login?state=state123` redirects to https://github.com/login/oauth/authorize?client_id=abc4567&state=state123
+```
+
+After the user authenticated, they get redirected to the `(User) Authorization callback URL` which is configured in the app's settings. If you set it to `<your apps domain>/api/github/oauth/callback`, then an `"token"` event gets emitted automatically.
+
+#### OAuth browser example
+
+If you set `(User) Authorization callback URL` to your own app, than you need to read out the `?code=...&state=...` query parameters, compare the `state` parameter to the value returned by `app.oauthLoginUrl()` earlier to protect against forgery attacks, then exchange the `code` for an OAuth Authorization token.
+
+If you use `getNodeMiddleware()`, the default route to do that is `POST /api/github/oauth/token`.
+
+Once you successfully retrieved the token, it is also recommended to remove the `?code=...&state=...` query parameters from the browser's URL
 
 ```js
 const code = new URL(location.href).searchParams.get("code");
@@ -264,7 +274,7 @@ if (code) {
   // remove ?code=... from URL
   const path =
     location.pathname +
-    location.search.replace(/\bcode=\w+/, "").replace(/\?$/, "");
+    location.search.replace(/\b(code|state)=\w+/g, "").replace(/[?&]+$/, "");
   history.pushState({}, "", path);
 
   // from your front-end app
@@ -276,8 +286,6 @@ if (code) {
 }
 ```
 
-When the `POST /api/github/oauth/token` was successful, the `token` event is emitted, too.
-
 <a name="todo-oauth-client"></a>
 
 **TODO:** create a `@octokit/oauth-client` module which does the above automagically. Here is how it could work:
@@ -288,7 +296,7 @@ const auth = createOAuthClientAuth({
   clientId: "abc4567",
   // optional
   exchangeCodeForToken: async code => {
-    const response = await fetch("/api/github/token", {
+    const response = await fetch("/api/github/oauth/token", {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -325,21 +333,8 @@ await { token, isSignedIn, createdAt, scopes } = await auth();
 // To revoke access for the OAuth App, pass {revokeAccess: true}
 ```
 
-**TODO:** Add a new `/client.js` URL to `app.middleware` which will return a pre-authenticated `octokit` client.
+**TODO:** Add a new `/api/github/oauth/client.js` URL to `app.middleware` which will return a pre-authenticated `octokit` client.
 You can use `octokit.auth()` to check if a user is signed in, trigger the oauth sign in or sign the user out.
-
-**TODO:** I think server endpoints should be split out, and a few more should be added
-
-| Route                              | Corresponding Method | Route Description                                                                                                                                                                                                                                              |
-| ---------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GET /api/github/oauth/octokit.js` | -                    | Responds with pre-configured and pre-authorized `octokit` module                                                                                                                                                                                               |
-| `GET /api/github/oauth/callback`   | -                    | The client's redirect endpoint. A redirect to a front-end "success" page could be configured. This is where the `token` event gets triggered                                                                                                                   |
-| `GET /api/github/oauth/login`      | getLoginUrl()        | Redirects to GitHub's authorization endpoint                                                                                                                                                                                                                   |
-| `POST /api/github/oauth/token`     | exchangeCode()       | Exchange an authorization code for an OAuth Access token. If successful, the `token` event gets triggered.                                                                                                                                                     |
-| `GET /api/github/oauth/token`      | checkToken()         | Check if token is valid. Must authenticate using token in `Authorization` header. Uses GitHub's [`POST /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#check-a-token) endpoint                                       |
-| `PATCH /api/github/oauth/token`    | resetToken()         | Resets a token (invalidates current one, returns new token). Must authenticate using token in `Authorization` header. Uses GitHub's [`PATCH /applications/:client_id/token`](https://developer.github.com/v3/apps/oauth_applications/#reset-a-token) endpoint. |
-| `DELETE /api/github/oauth/token`   | deleteToken()        | Invalidates current token, basically the equivalent of a logout. Must authenticate using token in `Authorization` header.                                                                                                                                      |
-| `DELETE /api/github/oauth/grant`   | uninstallApp()       | Revokes the user's grant, basically the equivalent of an uninstall. must authenticate using token in `Authorization` header.                                                                                                                                   |
 
 ## Action client
 
