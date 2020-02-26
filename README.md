@@ -194,6 +194,7 @@ import { App } from "octokit";
 const app = new App({
   webhooks: { secret }
 });
+
 app.webhooks.on("issue.opened", ({ repo }) => {
   return repo.issues.createComment({ body: "Hello, World!" });
 });
@@ -208,6 +209,10 @@ import { App, getNodeMiddleware } from "octokit";
 
 const app = new App({
   webhooks: { secret }
+});
+
+app.webhooks.on("issue.opened", ({ repo }) => {
+  return repo.issues.createComment({ body: "Hello, World!" });
 });
 
 require("http")
