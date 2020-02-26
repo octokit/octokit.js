@@ -296,46 +296,102 @@ if (code) {
 **TODO:** create a `@octokit/oauth-client` module which does the above automagically. Here is how it could work:
 
 ```js
-import { createOAuthClientAuth } from "https://cdn.pika.dev/@octokit/oauth-client";
+import { createOAuthClientAuth } from "https://cdn.pika.dev/@octokit/auth-oauth-client";
 const auth = createOAuthClientAuth({
-  clientId: "abc4567",
-  // optional
-  exchangeCodeForToken: async code => {
-    const response = await fetch("/api/github/oauth/token", {
+  // all options are optional
+  baseUrl: "/api/github/oauth",
+
+  // can be a string or a function
+  authorizationUrl: "/login",
+
+  // default functions to to create/verify/reset/delete token and to delete authorization for registered OAuth app
+  createToken: async (code, { baseUrl }) => {
+    const response = await fetch(baseUrl + "/token", {
       method: "POST",
       headers: {
         "content-type": "application/json"
       },
       body: JSON.stringify(code)
     });
-    const { token } = await response.json();
-    return token;
+    const { token, scopes } = await response.json();
+    return { token, scopes };
   },
-  // optional: persist authentication in local store
-  store: {
-    async get(clientId) {
-      return localStorage.getItem(`${clientId}-auth`);
+  checkToken: async (token, { baseUrl }) => {
+    await fetch(baseUrl + "/token", {
+      headers: {
+        authorization: "token " + token
+      },
+      body: JSON.stringify(code)
+    });
+  },
+  resetToken: async (token, { baseUrl }) => {
+    const response = await fetch(baseUrl + "/token", {
+      method: "fetch",
+      headers: {
+        authorization: "token " + token
+      },
+      body: JSON.stringify(code)
+    });
+    const { token } = await response.json();
+    return { token };
+  },
+  deleteToken: async (token, { baseUrl }) => {
+    await fetch(baseUrl + "/token", {
+      method: "delete",
+      headers: {
+        authorization: "token " + token
+      },
+      body: JSON.stringify(code)
+    });
+  },
+  deleteAuthorization: async (token, { baseUrl }) => {
+    await fetch(baseUrl + "/grant", {
+      method: "delete",
+      headers: {
+        authorization: "token " + token
+      },
+      body: JSON.stringify(code)
+    });
+  },
+  // persist authentication in local store
+  // set to false to disable persistance
+  authStore: {
+    async get(key) {
+      return localStorage.getItem(key);
     },
-    async set(clientId, authentication) {
-      localStorage.setItem(`${clientId}-auth`, JSON.stringify(authentication));
+    async set(key, authentication) {
+      localStorage.setItem(key, JSON.stringify(authentication));
     },
-    async del(clientId) {
-      localStorage.removeItem(`${clientId}-auth`);
+    async del(key) {
+      localStorage.removeItem(key);
+    }
+  },
+  // persist code verification state in local store
+  // set to false to disable persistance
+  stateStore: {
+    async get(key) {
+      return localStorage.getItem(key);
+    },
+    async set(key, authentication) {
+      localStorage.setItem(key, JSON.stringify(authentication));
+    },
+    async del(key) {
+      localStorage.removeItem(key);
     }
   }
 });
 
-// retrieve token using `exchangeCodeForToken()`
+// retrieve token using `createToken()`
 // if ?code=... parameter is not set and authentication cannot be retrievd from the local store,
 // then `token` is undefined and `isSignedIn` is set to false`
 await { token, isSignedIn, createdAt, scopes } = await auth();
 
-// To sign in, pass {signIn: true}
-// To sign out, pass {signOut: true}. If tokens are persisted they are
-// removed from store and `DELETE /api/oauth/token` is called. To sign out
-// without invalidating the token, pass {signOut: true, offline: true}
-// To reset a token, pass {reset: true}
-// To revoke access for the OAuth App, pass {revokeAccess: true}
+// - Sign in (redirects to OAuth authorization page): {signIn: true}
+// - Verify current token: {verify: true}
+// - Delete and invalidate token: {signOut: true}
+// - Delete without invalidation: {signOut: true, offline: true}
+// - Reset a token, pass {reset: true}
+// - Revoke access for the OAuth App, pass {revokeAccess: true}
 ```
 
 **TODO:** Add a new `/api/github/oauth/client.js` URL to `app.middleware` which will return a pre-authenticated `octokit` client.
