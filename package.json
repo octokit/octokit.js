@@ -38,7 +38,7 @@
     "@octokit/plugin-rest-endpoint-methods": "^3.0.0"
   },
   "devDependencies": {
-    "@octokit/auth": "^1.1.1",
+    "@octokit/auth": "^2.0.0",
     "@octokit/fixtures-server": "^6.0.0",
     "@octokit/request": "^5.2.0",
     "@pika/pack": "^0.5.0",
