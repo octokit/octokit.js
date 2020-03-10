@@ -55,7 +55,7 @@
     "proxy": "^1.0.0",
     "semantic-release": "^17.0.0",
     "semantic-release-plugin-update-version-in-files": "^1.0.0",
-    "sinon": "^8.0.0",
+    "sinon": "^9.0.1",
     "sinon-chai": "^3.0.0",
     "string-to-arraybuffer": "^1.0.0",
     "ts-jest": "^25.2.0",
