@@ -1,4 +1,3 @@
-const camelCase = require("lodash/camelCase");
 const upperFirst = require("lodash/upperFirst");
 
 module.exports = {
@@ -9,12 +8,11 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-source-octokit-routes`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`
+        name: `api`,
+        path: `${__dirname}/src/pages/api`
       }
     },
     {
@@ -93,6 +91,19 @@ module.exports = {
             type: node => "API method"
           }
         }
+      }
+    },
+    {
+      resolve: "gatsby-plugin-versioned-docs",
+      options: {
+        currentVersion: "v17", // configure the path for the current version
+        versions: [
+          {
+            name: "v16", // the path of the older version
+            branch: "16.x", // older versions specify a branch name for this repo
+            endpoints: "2.x" // ...and one for the endpoint methods
+          }
+        ]
       }
     }
   ]

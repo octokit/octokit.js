@@ -1,13 +1,5 @@
-.env
-.nyc_output
 coverage
 node_modules
 
-# API DOCs are generated before publish
-doc/
-
-# browser builds
-dist/
-
-# cypress
-cypress/
+# Pika builds
+pkg/

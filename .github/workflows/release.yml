@@ -4,8 +4,7 @@ on:
       - master
       - next
       - beta
-      - 15.x
-      - 16.x # TODO: can we use a pattern for these?
+      - "*.x" # maintenance releases such as 15.x
 
 name: Release
 jobs:
@@ -18,9 +17,7 @@ jobs:
         with:
           node-version: "12.x"
       - run: npm ci
-      - run: npm run build:ts
-      - run: npm run build:browser
-      - run: npm run generate-bundle-report
+      - run: npm run build
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

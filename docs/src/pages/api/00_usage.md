@@ -2,18 +2,45 @@
 title: "Usage"
 ---
 
-Import the Octokit constructor.
+Import the Octokit constructor based on your platform.
 
-For direct usage in browsers, download `octokit-rest.min.js` from the [latest release](https://github.com/octokit/rest.js/releases/latest) and import it using a `<script src="octokit-rest.min.js"></script>` tag.
+<table>
+<tbody valign=top align=left>
+<tr><th>
+Browsers
+</th><td width=100%>
+Load <code>@octokit/rest</code> directly from <a href="https://cdn.pika.dev">cdn.pika.dev</a>
+        
+```html
+<script type="module">
+import { Octokit } from "https://cdn.pika.dev/@octokit/rest";
+</script>
+```
+
+</td></tr>
+<tr><th>
+Node
+</th><td>
+
+Install with <code>npm install @octokit/rest</code>
 
 ```js
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest");
+// or: import { Octokit } from "@octokit/rest";
+```
+
+</td></tr>
+</tbody>
+</table>
+
+```js
+const { Octokit } = require("@octokit/rest");
 ```
 
 Now instantiate your octokit API. All options are optional, but authentication is strongly encouraged.
 
 ```js
-const octokit = Octokit({
+const octokit = new Octokit({
 ```
 
 You can set `auth` to a personal access token string.
@@ -92,9 +119,9 @@ const { data: pullRequest } = await octokit.pulls.get({
 });
 ```
 
-Some API endpoints support alternative response formats, see [Media types](https://developer.github.com/v3/media/). For example, to [`request the above pull request in a diff format`](https://developer.github.com/v3/media/#diff), pass the `mediaType.format` option.
+Some API endpoints support alternative response formats, see [Media types](https://developer.github.com/v3/media/). For example, to [request the above pull request in a diff format](https://developer.github.com/v3/media/#diff), pass the `mediaType.format` option.
 
-Learn more about [request formats](#request-formats)
+Learn more about [request formats](#request-formats).
 
 ```js
 const { data: diff } = await octokit.pulls.get({
@@ -151,8 +178,8 @@ You can add more functionality with plugins. We recommend the retry and throttli
 Learn more about [throttling](#throttling), [automatic retries](#automatic-retries) and building your own [Plugins](#plugins).
 
 ```js
-import plugin as retry from '@octokit/plugin-retry'
-import plugin as throttling from '@octokit/plugin-throttling'
+import { retry } from '@octokit/plugin-retry'
+import { throttling } from '@octokit/plugin-throttling'
 
 const MyOctokit = Octokit.plugin([
   retry,
@@ -160,7 +187,7 @@ const MyOctokit = Octokit.plugin([
 ])
 ```
 
-`Octokit.plugin()` returns a new constructor. The same options can be passed to the constructor. The options are passed on to all plugin functions as the 2nd argument
+`Octokit.plugin()` returns a new constructor. The same options can be passed to the constructor. The options are passed on to all plugin functions as the 2nd argument.
 
 ```js
 const myOctokit = new MyOctokit({

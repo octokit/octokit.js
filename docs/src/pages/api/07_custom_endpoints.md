@@ -2,6 +2,46 @@
 title: "Custom endpoint methods"
 ---
 
+**Note**: `octokit.registerEndpoints()` has been deprecated.
+
+Instead of
+
+```js
+await octokit.registerEndpoints({
+  misc: {
+    getRoot: {
+      method: "GET",
+      url: "/"
+    }
+  }
+});
+```
+
+do
+
+```js
+Object.assign(octokit.misc, {
+  getRoot: octokit.request.defaults({
+    method: "GET",
+    url: "/"
+  })
+});
+```
+
+If you use `octokit.registerEndpoints()` in a plugin, return an object instead:
+
+```js
+function myPlugin(octokit, options) {
+  return {
+    misc: {
+      octokit.request.defaults({ method: "GET", url: "/" })
+    }
+  }
+}
+```
+
+---
+
 You can register custom endpoint methods such as `octokit.repos.get()` using the `octokit.registerEndpoints(routes)` method
 
 ```js

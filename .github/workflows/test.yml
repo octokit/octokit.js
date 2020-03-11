@@ -6,7 +6,7 @@ on:
       - master
       - next
       - beta
-      - "greenkeeper/*"
+      - "greenkeeper/**"
       - 15.x
       - 16.x # TODO: can we use a pattern for these?
 
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [8, 10, 12]
+        node_version: [10, 12]
 
     steps:
       - uses: actions/checkout@master

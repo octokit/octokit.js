@@ -1,6 +1,8 @@
+const btoa = require("btoa-lite");
 const nock = require("nock");
 
-const Octokit = require("../../");
+const DeprecatedOctokit = require("../../");
+const { Octokit } = DeprecatedOctokit;
 
 require("../mocha-node-setup");
 
@@ -9,6 +11,20 @@ const Mocktokit = Octokit.plugin(octokit => {
 });
 
 describe("deprecations", () => {
+  it('const Octokit = require("@octokit/rest")', () => {
+    let warnCalledCount = 0;
+    new DeprecatedOctokit({
+      log: {
+        warn: () => {
+          warnCalledCount++;
+        }
+      }
+    });
+
+    expect(warnCalledCount).to.equal(1);
+    expect(() => new DeprecatedOctokit()).to.not.throw();
+    expect(typeof DeprecatedOctokit.plugin).to.equal("function");
+  });
   it("octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)", () => {
     let warnCalledCount = 0;
     const octokit = new Mocktokit({
@@ -602,6 +618,579 @@ describe("deprecations", () => {
     );
   });
 
+  it("new Octokit({ auth: { username, password, on2fa } })", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      }
+    })
+      .get("/orgs/myorg")
+      .reply(200, {});
+
+    let warnCalledCount = 0;
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        username: "username",
+        password: "password",
+        on2fa() {}
+      },
+      log: {
+        warn: () => {
+          warnCalledCount++;
+        }
+      }
+    });
+
+    return octokit.orgs
+      .get({ org: "myorg" })
+      .then(() => {
+        // deprecation is only logged once per process, I couldn't figure out how to reset the counter
+        // expect(warnCalledCount).to.equal(1);
+
+        return octokit.auth();
+      })
+      .then(authentication => {
+        expect(authentication).to.deep.equal({
+          type: "deprecated",
+          message:
+            'Setting the "new Octokit({ auth })" option to an object without also setting the "authStrategy" option is deprecated and will be removed in v17. See (https://octokit.github.io/rest.js/#authentication)'
+        });
+      });
+  });
+
+  it("new Octokit({ auth: { clientId, clientSecret } })", () => {
+    nock("https://authentication-test-host.com")
+      .get("/orgs/myorg")
+      .query({
+        client_id: "123",
+        client_secret: "secret123"
+      })
+      .reply(200, {});
+
+    let warnCalledCount = 0;
+
+    const { Octokit } = require("../../");
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        clientId: "123",
+        clientSecret: "secret123"
+      },
+      log: {
+        warn: () => {
+          warnCalledCount++;
+        }
+      }
+    });
+
+    return octokit.orgs.get({ org: "myorg" }).then(() => {
+      // deprecation is only logged once per process, I couldn't figure out how to reset the counter
+      // expect(warnCalledCount).to.equal(1);
+    });
+  });
+
+  it("new Octokit({ auth () { /* ... */ } })", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "token secret123"
+      }
+    })
+      .get("/orgs/myorg")
+      .reply(200, {});
+
+    let warnCalledCount = 0;
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth() {
+        return "token secret123";
+      },
+      log: {
+        warn: () => {
+          warnCalledCount++;
+        }
+      }
+    });
+
+    return octokit.orgs.get({ org: "myorg" }).then(() => {
+      // deprecation is only logged once per process, I couldn't figure out how to reset the counter
+      // expect(warnCalledCount).to.equal(1);
+    });
+  });
+
+  it("options.auth { username, password } ", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        username: "username",
+        password: "password"
+      },
+      log: {
+        warn() {}
+      }
+    });
+
+    return octokit.request("/");
+  });
+
+  it("options.auth { username, password, on2fa } with 2fa", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      }
+    })
+      .get("/")
+      .reply(
+        401,
+        {},
+        {
+          "x-github-otp": "required; app"
+        }
+      );
+
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+        "x-github-otp": "123456"
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        username: "username",
+        password: "password",
+        on2fa() {
+          return 123456;
+        }
+      }
+    });
+
+    return octokit.request("/");
+  });
+
+  it("options.auth { username, password, on2fa } with async 2fa", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      }
+    })
+      .get("/")
+      .reply(
+        401,
+        {},
+        {
+          "x-github-otp": "required; app"
+        }
+      );
+
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+        "x-github-otp": "123456"
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        username: "username",
+        password: "password",
+        on2fa() {
+          return Promise.resolve(123456);
+        }
+      }
+    });
+
+    return octokit.request("/");
+  });
+
+  it("options.auth { username, password, on2fa } with invalid one-time-password", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      }
+    })
+      .get("/")
+      .reply(
+        401,
+        {},
+        {
+          "x-github-otp": "required; app"
+        }
+      );
+
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+        "x-github-otp": "123456"
+      }
+    })
+      .get("/")
+      .reply(
+        401,
+        {},
+        {
+          "x-github-otp": "required; app"
+        }
+      );
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        username: "username",
+        password: "password",
+        on2fa() {
+          return 123456;
+        }
+      }
+    });
+
+    return octokit
+      .request("/")
+
+      .then(() => {
+        throw new Error("should not resolve");
+      })
+
+      .catch(error => {
+        expect(error.message).to.match(/Invalid one-time password/i);
+      });
+  });
+
+  it("options.auth { username, password, on2fa } with expiring 2fa", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      }
+    })
+      .get("/")
+      .reply(
+        401,
+        {},
+        {
+          "x-github-otp": "required; app"
+        }
+      );
+
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+        "x-github-otp": "1"
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+        "x-github-otp": "1"
+      }
+    })
+      .get("/")
+      .reply(
+        401,
+        {},
+        {
+          "x-github-otp": "required; app"
+        }
+      );
+
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+        "x-github-otp": "2"
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    let callCount = 0;
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        username: "username",
+        password: "password",
+        on2fa() {
+          return ++callCount;
+        }
+      }
+    });
+
+    return octokit
+      .request("/")
+      .then(() => octokit.request("/"))
+      .then(() => {
+        expect(callCount).to.equal(2);
+      });
+  });
+
+  it("options.auth is { username, password }", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+      }
+    })
+      .get("/")
+      .reply(
+        401,
+        {},
+        {
+          "x-github-otp": "required; app"
+        }
+      );
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        username: "username",
+        password: "password"
+      }
+    });
+
+    return octokit
+      .request("/")
+
+      .then(() => {
+        throw new Error('should fail with "on2fa missing" error');
+      })
+
+      .catch(error => {
+        expect(error.message).to.equal(
+          "2FA required, but options.on2fa is not a function. See https://github.com/octokit/rest.js#authentication"
+        );
+        expect(error.status).to.equal(401);
+        expect(!!error.headers).to.equal(true);
+        expect(!!error.request).to.equal(true);
+      });
+  });
+
+  it("options.oauth is object with clientId & clientSecret", () => {
+    nock("https://authentication-test-host.com")
+      .get("/")
+      .query({ client_id: "id123", client_secret: "secret456" })
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        clientId: "id123",
+        clientSecret: "secret456"
+      }
+    });
+
+    return octokit.request("/");
+  });
+
+  it('options.oauth is object with clientId & clientSecret with "?" in URL', () => {
+    nock("https://authentication-test-host.com")
+      .get("/")
+      .query({ foo: "bar", client_id: "id123", client_secret: "secret456" })
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        clientId: "id123",
+        clientSecret: "secret456"
+      }
+    });
+
+    return octokit.request("/?foo=bar");
+  });
+
+  it("options.auth is function", () => {
+    nock("https://authentication-test-host-auth-as-function.com", {
+      reqheaders: {
+        authorization: "token abc4567"
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host-auth-as-function.com",
+      auth: () => "token abc4567"
+    });
+
+    return octokit.request("/");
+  });
+
+  it("options.auth is async function", () => {
+    nock("https://authentication-test-host-as-async-function.com", {
+      reqheaders: {
+        authorization: "token abc4567"
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host-as-async-function.com",
+      auth: () => Promise.resolve("token abc4567")
+    });
+
+    return octokit.request("/");
+  });
+
+  it("options.auth function (throws error)", () => {
+    const octokit = new Octokit({
+      auth() {
+        throw new Error("test");
+      }
+    });
+
+    return octokit
+      .request("/")
+      .then(() => {
+        throw new Error("should not resolve");
+      })
+      .catch(error => {
+        expect(error.message).to.equal("test");
+      });
+  });
+
+  /**
+   * There is a special case for OAuth applications, when `clientId` and `clientSecret` is passed as
+   * Basic Authorization instead of query parameters. The only routes where that applies share the same
+   * URL though: `/applications/:client_id/tokens/:access_token`. We identify this acception by looking
+   * for this path.
+   *
+   *  1. [Check an authorization](https://developer.github.com/v3/oauth_authorizations/#check-an-authorization)
+   *  2. [Reset an authorization](https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization)
+   *  3. [Revoke an authorization for an application](https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application)
+   */
+  it("OAuth client & secret to check authorization", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "Basic aWQxMjM6c2VjcmV0NDU2"
+      }
+    })
+      .get("/applications/id123/tokens/token123")
+      .reply(200, {})
+      .post("/applications/id123/tokens/token123")
+      .reply(200, {})
+      .delete("/applications/id123/tokens/token123")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: {
+        clientId: "id123",
+        clientSecret: "secret456"
+      }
+    });
+
+    const options = {
+      client_id: "id123",
+      access_token: "token123"
+    };
+
+    return Promise.all([
+      octokit.request(
+        "GET /applications/:client_id/tokens/:access_token",
+        options
+      ),
+      octokit.request(
+        "POST /applications/:client_id/tokens/:access_token",
+        options
+      ),
+      octokit.request(
+        "DELETE /applications/:client_id/tokens/:access_token",
+        options
+      )
+    ]);
+  });
+
+  it("options.auth=basic without prefix", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "basic Zm9vLWJhcjpzZWNyZXQ="
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: btoa("foo-bar:secret")
+    });
+
+    return octokit.request("/");
+  });
+
+  it("options.auth=() => token without prefix", () => {
+    nock(
+      "https://authentication-test-host-auth-as-function-token-without-prefix.com",
+      {
+        reqheaders: {
+          authorization: "token abc4567"
+        }
+      }
+    )
+      .get("/")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl:
+        "https://authentication-test-host-auth-as-function-token-without-prefix.com",
+      auth: () => "abc4567"
+    });
+
+    return octokit.request("/");
+  });
+
+  it("options.auth=() => basic without prefix", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization: "basic Zm9vLWJhcjpzZWNyZXQ="
+      }
+    })
+      .get("/")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: () => btoa("foo-bar:secret")
+    });
+
+    return octokit.request("/");
+  });
+
+  it("options.auth=() => bearer without prefix", () => {
+    nock("https://authentication-test-host.com", {
+      reqheaders: {
+        authorization:
+          "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTM4MTkzMTIsImV4cCI6MTU1MzgxOTM3MiwiaXNzIjoxfQ.etiSZ4LFQZ8tiMGJVqKDoGn8hxMCgwL4iLvU5xBUqbAPr4pbk_jJZmMQjuxTlOnRxq4e7NouTizGCdfohRMb3R1mpLzGPzOH9_jqSA_BWYxolsRP_WDSjuNcw6nSxrPRueMVRBKFHrqcTOZJej0djRB5pI61hDZJ_-DGtiOIFexlK3iuVKaqBkvJS5-TbTekGuipJ652g06gXuz-l8i0nHiFJldcuIruwn28hTUrjgtPbjHdSBVn_QQLKc2Fhij8OrhcGqp_D_fvb_KovVmf1X6yWiwXV5VXqWARS-JGD9JTAr2495ZlLV_E4WPxdDpz1jl6XS9HUhMuwBpaCOuipw"
+      }
+    })
+      .get("/app")
+      .reply(200, {});
+
+    const octokit = new Octokit({
+      baseUrl: "https://authentication-test-host.com",
+      auth: () =>
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTM4MTkzMTIsImV4cCI6MTU1MzgxOTM3MiwiaXNzIjoxfQ.etiSZ4LFQZ8tiMGJVqKDoGn8hxMCgwL4iLvU5xBUqbAPr4pbk_jJZmMQjuxTlOnRxq4e7NouTizGCdfohRMb3R1mpLzGPzOH9_jqSA_BWYxolsRP_WDSjuNcw6nSxrPRueMVRBKFHrqcTOZJej0djRB5pI61hDZJ_-DGtiOIFexlK3iuVKaqBkvJS5-TbTekGuipJ652g06gXuz-l8i0nHiFJldcuIruwn28hTUrjgtPbjHdSBVn_QQLKc2Fhij8OrhcGqp_D_fvb_KovVmf1X6yWiwXV5VXqWARS-JGD9JTAr2495ZlLV_E4WPxdDpz1jl6XS9HUhMuwBpaCOuipw"
+    });
+
+    return octokit.request("/app");
+  });
+
   // deprecated client options
   it("agent option", () => {
     let warnCalled = false;
@@ -847,7 +1436,7 @@ describe("deprecations", () => {
       )
 
       .then(() => {
-        expect(warnCallCount).to.equal(3);
+        expect(warnCallCount).to.equal(4);
       });
   });
 });

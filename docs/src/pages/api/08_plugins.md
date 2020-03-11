@@ -6,16 +6,14 @@ You can customize and extend Octokit’s functionality using plugins
 
 ```js
 // index.js
-const MyOctokit = require("@octokit/rest").plugin([
+const Octokit = require("@octokit/rest");
+const MyOctokit = Octokit.plugin([
   require("./lib/my-plugin"),
   require("octokit-plugin-example")
 ]);
 
 // lib/my-plugin.js
 module.exports = (octokit, options = { greeting: "Hello" }) => {
-  // add a custom method
-  octokit.helloWorld = () => console.log(`${options.greeting}, world!`);
-
   // hook into the request lifecycle
   octokit.hook.wrap("request", async (request, options) => {
     const time = Date.now();
@@ -26,6 +24,11 @@ module.exports = (octokit, options = { greeting: "Hello" }) => {
     );
     return response;
   });
+
+  // add a custom method: octokit.helloWorld()
+  return {
+    helloWorld: () => console.log(`${options.greeting}, world!`)
+  };
 };
 ```
 
