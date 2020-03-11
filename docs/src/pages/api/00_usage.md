@@ -40,7 +40,7 @@ const { Octokit } = require("@octokit/rest");
 Now instantiate your octokit API. All options are optional, but authentication is strongly encouraged.
 
 ```js
-const octokit = Octokit({
+const octokit = new Octokit({
 ```
 
 You can set `auth` to a personal access token string.
