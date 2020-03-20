@@ -8,6 +8,11 @@ describe("Smoke tests", () => {
     expect(() => new Octokit()).not.toThrow();
   });
 
+  it("can be used as a type", () => {
+    let octokit: Octokit;
+    octokit = new Octokit();
+  });
+
   it("userAgent option", () => {
     const mock = fetchMock
       .sandbox()
