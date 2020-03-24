@@ -7,10 +7,10 @@ You can customize and extend Octokit’s functionality using plugins
 ```js
 // index.js
 const Octokit = require("@octokit/rest");
-const MyOctokit = Octokit.plugin([
+const MyOctokit = Octokit.plugin(
   require("./lib/my-plugin"),
   require("octokit-plugin-example")
-]);
+);
 
 // lib/my-plugin.js
 module.exports = (octokit, options = { greeting: "Hello" }) => {

@@ -178,13 +178,10 @@ You can add more functionality with plugins. We recommend the retry and throttli
 Learn more about [throttling](#throttling), [automatic retries](#automatic-retries) and building your own [Plugins](#plugins).
 
 ```js
-import { retry } from '@octokit/plugin-retry'
-import { throttling } from '@octokit/plugin-throttling'
+import { retry } from "@octokit/plugin-retry";
+import { throttling } from "@octokit/plugin-throttling";
 
-const MyOctokit = Octokit.plugin([
-  retry,
-  throttling
-])
+const MyOctokit = Octokit.plugin(retry, throttling);
 ```
 
 `Octokit.plugin()` returns a new constructor. The same options can be passed to the constructor. The options are passed on to all plugin functions as the 2nd argument.
