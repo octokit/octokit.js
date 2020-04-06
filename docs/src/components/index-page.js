@@ -91,7 +91,7 @@ export default class IndexPage extends Component {
         </header>
 
         <div className={layoutStyles.container}>
-          <Api data={this.props.data} isMenuActive={this.isMenuActive}></Api>
+          <Api data={this.props.data} isMenuActive={this.isMenuActive} onToggleMenu={this.onToggleMenu}></Api>
         </div>
       </div>
     );

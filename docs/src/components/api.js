@@ -61,7 +61,7 @@ export default class Api extends Component {
             {this.props.data.staticMethods.edges.map(({ node }) => {
               return (
                 <li key={node.id}>
-                  <a href={`#${node.fields.idName}`}>
+                  <a href={`#${node.fields.idName}`} onClick={this.props.onToggleMenu}>
                     {node.frontmatter.title}
                   </a>
                 </li>

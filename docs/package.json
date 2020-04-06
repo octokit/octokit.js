@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
+  "name": "octokit-rest.js-docs",
+  "description": "Documentation site for octokit/rest.js",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
