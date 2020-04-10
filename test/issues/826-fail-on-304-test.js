@@ -10,17 +10,17 @@ describe("https://github.com/octokit/rest.js/issues/826", () => {
       .reply(304, "");
 
     const octokit = new Octokit({
-      baseUrl: "https://request-errors-test.com"
+      baseUrl: "https://request-errors-test.com",
     });
     return octokit.repos
       .listForOrg({
         org: "octokit",
-        type: "public"
+        type: "public",
       })
-      .then(response => {
+      .then((response) => {
         expect.fail("should throw error");
       })
-      .catch(error => {
+      .catch((error) => {
         expect(error.status).to.equal(304);
       });
   });

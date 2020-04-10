@@ -115,7 +115,7 @@ For example to retrieve a pull request, use [`octokit.pulls.get()`](#octokit-rou
 const { data: pullRequest } = await octokit.pulls.get({
   owner: "octokit",
   repo: "rest.js",
-  pull_number: 123
+  pull_number: 123,
 });
 ```
 
@@ -129,8 +129,8 @@ const { data: diff } = await octokit.pulls.get({
   repo: "rest.js",
   pull_number: 123,
   mediaType: {
-    format: "diff"
-  }
+    format: "diff",
+  },
 });
 ```
 
@@ -151,9 +151,9 @@ await octokit.registerEndpoints({
   misc: {
     getRoot: {
       method: "GET",
-      url: "/"
-    }
-  }
+      url: "/",
+    },
+  },
 });
 ```
 
@@ -206,11 +206,11 @@ const myOctokit = new MyOctokit({
       myOctokit.log.warn(
         `Abuse detected for request ${options.method} ${options.url}`
       );
-    }
+    },
   },
   retry: {
-    doNotRetry: ["429"]
-  }
+    doNotRetry: ["429"],
+  },
 });
 ```
 
@@ -221,7 +221,7 @@ const octokit = require("@octokit/rest");
 octokit.repos
   .listForOrg({
     org: "octokit",
-    type: "public"
+    type: "public",
   })
   .then(({ data, headers, status }) => {
     // handle data

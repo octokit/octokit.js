@@ -31,7 +31,7 @@ const octokit = new MyOctokit({
       octokit.log.warn(
         `Abuse detected for request ${options.method} ${options.url}`
       );
-    }
-  }
+    },
+  },
 });
 ```

@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("add-labels-to-issue", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -16,7 +16,7 @@ describe("api.github.com", () => {
       .create({
         owner: "octokit-fixture-org",
         repo: "add-labels-to-issue",
-        title: "Issue without a label"
+        title: "Issue without a label",
       })
 
       .then(() => {
@@ -24,7 +24,7 @@ describe("api.github.com", () => {
           owner: "octokit-fixture-org",
           repo: "add-labels-to-issue",
           issue_number: 1,
-          labels: ["Foo", "bAr", "baZ"]
+          labels: ["Foo", "bAr", "baZ"],
         });
       });
   });

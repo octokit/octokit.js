@@ -13,7 +13,7 @@ describe("apps", () => {
     octokit = new Octokit({
       baseUrl: "https://apps-test-host.com",
       auth: `Bearer ${BEARER_TOKEN}`,
-      log: console.log
+      log: console.log,
     });
   });
 
@@ -21,8 +21,8 @@ describe("apps", () => {
     nock("https://apps-test-host.com", {
       reqheaders: {
         authorization: `bearer ${BEARER_TOKEN}`,
-        accept: "application/vnd.github.machine-man-preview+json"
-      }
+        accept: "application/vnd.github.machine-man-preview+json",
+      },
     })
       .get("/app")
       .reply(200, {});
@@ -35,16 +35,16 @@ describe("apps", () => {
       reqheaders: {
         authorization: `bearer ${BEARER_TOKEN}`,
         accept:
-          "application/vnd.github.machine-man-preview+json,application/vnd.github.foo-bar-preview+json"
-      }
+          "application/vnd.github.machine-man-preview+json,application/vnd.github.foo-bar-preview+json",
+      },
     })
       .get("/app")
       .reply(200, {});
 
     return octokit.apps.getAuthenticated({
       mediaType: {
-        previews: ["foo-bar"]
-      }
+        previews: ["foo-bar"],
+      },
     });
   });
 });

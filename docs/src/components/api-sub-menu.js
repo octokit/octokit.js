@@ -24,7 +24,7 @@ export default class ApiSubMenu extends Component {
     return [
       this.props.getActiveMenuItem() === this.props.node.fieldValue &&
         apiStyles.activemenuitem,
-      this.isActive() && apiStyles.activelink
+      this.isActive() && apiStyles.activelink,
     ]
       .filter(Boolean)
       .join(" ");

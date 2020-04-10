@@ -21,7 +21,7 @@ export default class EndPointGroup extends Component {
     // https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
     const observer = new IntersectionObserver(this.onIntersection, {
       threshold: 0,
-      rootMargin: "0% 0% -90% 0%"
+      rootMargin: "0% 0% -90% 0%",
     });
     const target = this.headlineRef.current;
 
@@ -29,7 +29,7 @@ export default class EndPointGroup extends Component {
   }
 
   onIntersection(entries) {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         console.log(
           `EndPointGroup.entry.intersectionRatio: ${entry.intersectionRatio}`

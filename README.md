@@ -22,7 +22,7 @@ const octokit = new Octokit();
 octokit.repos
   .listForOrg({
     org: "octokit",
-    type: "public"
+    type: "public",
   })
   .then(({ data }) => {
     // handle data

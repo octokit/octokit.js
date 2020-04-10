@@ -9,7 +9,7 @@ export default class Api extends Component {
 
     this.state = {
       activeSubMenu: null,
-      activeMenuItem: null
+      activeMenuItem: null,
     };
     this.setActiveSubMenu = this.setActiveSubMenu.bind(this);
     this.isActiveSubMenu = this.isActiveSubMenu.bind(this);
@@ -22,13 +22,13 @@ export default class Api extends Component {
 
   setActiveSubMenu(id) {
     this.setState({
-      activeSubMenu: id
+      activeSubMenu: id,
     });
   }
 
   setActiveMenuItem(id) {
     this.setState({
-      activeMenuItem: id
+      activeMenuItem: id,
     });
   }
 
@@ -61,14 +61,17 @@ export default class Api extends Component {
             {this.props.data.staticMethods.edges.map(({ node }) => {
               return (
                 <li key={node.id}>
-                  <a href={`#${node.fields.idName}`} onClick={this.props.onToggleMenu}>
+                  <a
+                    href={`#${node.fields.idName}`}
+                    onClick={this.props.onToggleMenu}
+                  >
                     {node.frontmatter.title}
                   </a>
                 </li>
               );
             })}
 
-            {this.props.data.endpointScopes.group.map(node => {
+            {this.props.data.endpointScopes.group.map((node) => {
               return (
                 <ApiSubMenu
                   key={node.fieldValue}
@@ -95,7 +98,7 @@ export default class Api extends Component {
             );
           })}
 
-          {this.props.data.endpointScopes.group.map(node => {
+          {this.props.data.endpointScopes.group.map((node) => {
             return (
               <div className={apiStyles.section} key={node.fieldValue}>
                 <EndPointGroup

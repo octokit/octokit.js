@@ -12,8 +12,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("paginate-issues", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -24,8 +24,8 @@ describe("api.github.com", () => {
       repo: "paginate-issues",
       per_page: 3,
       headers: {
-        accept: "application/vnd.github.v3+json"
-      }
+        accept: "application/vnd.github.v3+json",
+      },
     };
 
     const iterator = octokit.paginate

@@ -13,7 +13,7 @@ describe("https://github.com/octokit/rest.js/issues/1323", () => {
     return octokit.issues.get({
       owner: "probot",
       repo: "probot",
-      issue_number: 1
+      issue_number: 1,
     });
   });
 });

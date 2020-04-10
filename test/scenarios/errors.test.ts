@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("errors", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -17,10 +17,10 @@ describe("api.github.com", () => {
         owner: "octokit-fixture-org",
         repo: "errors",
         name: "foo",
-        color: "invalid"
+        color: "invalid",
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.message).toEqual(
           `Validation Failed: {"resource":"Label","code":"invalid","field":"color"}`
         );
@@ -28,8 +28,8 @@ describe("api.github.com", () => {
           {
             resource: "Label",
             code: "invalid",
-            field: "color"
-          }
+            field: "color",
+          },
         ]);
         expect(error.documentation_url).toMatch(
           new RegExp("v3/issues/labels/#create-a-label")

@@ -12,8 +12,8 @@ const { data: prDiff } = await octokit.pulls.get({
   repo: "rest.js",
   pull_number: 1278,
   mediaType: {
-    format: "diff"
-  }
+    format: "diff",
+  },
 });
 ```
 
@@ -26,8 +26,8 @@ const { data: prDiff } = await octokit.pulls.get({
   repo: "rest.js",
   pull_number: 1278,
   request: {
-    signal: controller.signal
-  }
+    signal: controller.signal,
+  },
 });
 ```
 

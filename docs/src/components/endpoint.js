@@ -18,7 +18,7 @@ export default class EndPoint extends Component {
     // https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
     const observer = new IntersectionObserver(this.onIntersection, {
       threshold: 0,
-      rootMargin: "0% 0% -90% 0%"
+      rootMargin: "0% 0% -90% 0%",
     });
     const target = this.headlineRef.current;
 
@@ -26,7 +26,7 @@ export default class EndPoint extends Component {
   }
 
   onIntersection(entries) {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         // console.log(`EndPoint.entry.intersectionRatio: ${entry.intersectionRatio}`)
         if (entry.intersectionRatio >= 0.1) {
@@ -42,7 +42,7 @@ export default class EndPoint extends Component {
     return (
       <React.Fragment>
         {parse(html, {
-          replace: domNode => {
+          replace: (domNode) => {
             // replace h1 with h3 to fit the heading heirarchy of the
             // endpoint groups
             if (domNode.name === "h1") {
@@ -55,7 +55,7 @@ export default class EndPoint extends Component {
                 </h3>
               );
             }
-          }
+          },
         })}
       </React.Fragment>
     );

@@ -4,7 +4,7 @@ module.exports = {
   // https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/
   pathPrefix: "/rest.js",
   siteMetadata: {
-    title: `Octokit.js`
+    title: `Octokit.js`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,8 +12,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `api`,
-        path: `${__dirname}/src/pages/api`
-      }
+        path: `${__dirname}/src/pages/api`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -52,17 +52,17 @@ module.exports = {
               showLineNumbers: false,
               // If setting this to true, the parser won't handle and highlight inline
               // code used in markdown i.e. single backtick code like `this`.
-              noInlineHighlight: false
-            }
-          }
-        ]
-      }
+              noInlineHighlight: false,
+            },
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`
-      }
+        pathToConfigModule: `src/utils/typography`,
+      },
     },
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
@@ -73,25 +73,25 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            slug: node => `#${node.fields.idName}`,
-            type: node => "API"
+            title: (node) => node.frontmatter.title,
+            slug: (node) => `#${node.fields.idName}`,
+            type: (node) => "API",
           },
           OctokitApiGroup: {
-            title: node => upperFirst(node.name),
-            slug: node => `#${node.id}`,
-            type: node => "API"
+            title: (node) => upperFirst(node.name),
+            slug: (node) => `#${node.id}`,
+            type: (node) => "API",
           },
           OctokitApiMethod: {
-            name: node => node.name,
-            scope: node => node.scope,
-            route: node => `${node.method} ${node.url}`,
-            method: node => `${node.example}`,
-            slug: node => `#${node.id}`,
-            type: node => "API method"
-          }
-        }
-      }
+            name: (node) => node.name,
+            scope: (node) => node.scope,
+            route: (node) => `${node.method} ${node.url}`,
+            method: (node) => `${node.example}`,
+            slug: (node) => `#${node.id}`,
+            type: (node) => "API method",
+          },
+        },
+      },
     },
     {
       resolve: "gatsby-plugin-versioned-docs",
@@ -101,10 +101,10 @@ module.exports = {
           {
             name: "v16", // the path of the older version
             branch: "16.x", // older versions specify a branch name for this repo
-            endpoints: "2.x" // ...and one for the endpoint methods
-          }
-        ]
-      }
-    }
-  ]
+            endpoints: "2.x", // ...and one for the endpoint methods
+          },
+        ],
+      },
+    },
+  ],
 };

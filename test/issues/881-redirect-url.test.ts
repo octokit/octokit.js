@@ -12,15 +12,15 @@ describe("https://github.com/octokit/rest.js/issues/881", () => {
       .headOnce(
         "https://api.github.com/repos/octocat/Hello-World/tarball/master",
         {
-          redirectUrl: REDIRECT_URL
+          redirectUrl: REDIRECT_URL,
         }
       )
       .headOnce(REDIRECT_URL, 200);
 
     const octokit = new Octokit({
       request: {
-        fetch: mock
-      }
+        fetch: mock,
+      },
     });
 
     return octokit.repos
@@ -29,10 +29,10 @@ describe("https://github.com/octokit/rest.js/issues/881", () => {
         owner: "octocat",
         repo: "Hello-World",
         archive_format: "tarball",
-        ref: "master"
+        ref: "master",
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.url).toEqual(
           "https://issue-881-codeload.github.com/octocat/Hello-World/legacy.tar.gz/master"
         );

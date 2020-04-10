@@ -10,7 +10,7 @@ export const Octokit = Core.plugin(
   restEndpointMethods,
   paginateRest
 ).defaults({
-  userAgent: `octokit-rest.js/${VERSION}`
+  userAgent: `octokit-rest.js/${VERSION}`,
 });
 
 export type Octokit = InstanceType<typeof Octokit>;

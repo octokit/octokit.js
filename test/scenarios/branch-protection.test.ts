@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("branch-protection", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -16,10 +16,10 @@ describe("api.github.com", () => {
       .getBranchProtection({
         owner: "octokit-fixture-org",
         repo: "branch-protection",
-        branch: "master"
+        branch: "master",
       })
 
-      .catch(error => {
+      .catch((error) => {
         if (/Branch not protected/.test(error.message)) {
           return;
         }
@@ -35,7 +35,7 @@ describe("api.github.com", () => {
           required_status_checks: null,
           required_pull_request_reviews: null,
           restrictions: null,
-          enforce_admins: false
+          enforce_admins: false,
         });
       })
 
@@ -46,21 +46,21 @@ describe("api.github.com", () => {
           branch: "master",
           required_status_checks: {
             strict: true,
-            contexts: ["foo/bar"]
+            contexts: ["foo/bar"],
           },
           required_pull_request_reviews: {
             dismissal_restrictions: {
               users: ["octokit-fixture-user-a"],
-              teams: [] // bug: server returns "Only 100 users and teams can be specified." when set to ['a-team']
+              teams: [], // bug: server returns "Only 100 users and teams can be specified." when set to ['a-team']
             },
             dismiss_stale_reviews: true,
-            require_code_owner_reviews: false
+            require_code_owner_reviews: false,
           },
           restrictions: {
             users: ["octokit-fixture-user-a"],
-            teams: ["a-team"]
+            teams: ["a-team"],
           },
-          enforce_admins: true
+          enforce_admins: true,
         });
       })
 
@@ -68,7 +68,7 @@ describe("api.github.com", () => {
         return octokit.repos.removeBranchProtection({
           owner: "octokit-fixture-org",
           repo: "branch-protection",
-          branch: "master"
+          branch: "master",
         });
       });
   });

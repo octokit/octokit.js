@@ -18,11 +18,11 @@ type OctokitOptions = ConstructorParameters<typeof Octokit>[0];
 
 export function loadFixture(scenario: string) {
   return request("POST http://localhost:3000/fixtures", {
-    data: JSON.stringify({ scenario })
+    data: JSON.stringify({ scenario }),
   })
-    .then(response => response.data)
+    .then((response) => response.data)
 
-    .catch(error => {
+    .catch((error) => {
       if (error.status === "ECONNREFUSED") {
         throw new Error(
           'Fixtures server could not be reached. Make sure to start it with "npm run start-fixtures-server"'
@@ -39,13 +39,13 @@ export function fixtureToInstance(
 ) {
   return new Octokit(
     Object.assign(options || {}, {
-      baseUrl: url
+      baseUrl: url,
     })
   );
 }
 
 export function getInstance(scenario: string, options?: OctokitOptions) {
-  return loadFixture(scenario).then(fixture =>
+  return loadFixture(scenario).then((fixture) =>
     fixtureToInstance(fixture, options)
   );
 }

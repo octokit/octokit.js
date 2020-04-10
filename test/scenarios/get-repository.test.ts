@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("get-repository", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -15,10 +15,10 @@ describe("api.github.com", () => {
     return octokit.repos
       .get({
         owner: "octokit-fixture-org",
-        repo: "hello-world"
+        repo: "hello-world",
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data.owner.login).toEqual("octokit-fixture-org");
       });
   });

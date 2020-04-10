@@ -6,12 +6,12 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return loadFixture("add-and-remove-repository-collaborator").then(
-      fixture => {
+      (fixture) => {
         githubUserA = fixtureToInstance(fixture, {
-          auth: "token 0000000000000000000000000000000000000001"
+          auth: "token 0000000000000000000000000000000000000001",
         });
         githubUserB = fixtureToInstance(fixture, {
-          auth: "token 0000000000000000000000000000000000000002"
+          auth: "token 0000000000000000000000000000000000000002",
         });
       }
     );
@@ -21,49 +21,49 @@ describe("api.github.com", () => {
       .addCollaborator({
         owner: "octokit-fixture-org",
         repo: "add-and-remove-repository-collaborator",
-        username: "octokit-fixture-user-b"
+        username: "octokit-fixture-user-b",
       })
 
       .then(() => {
         return githubUserA.repos.listInvitations({
           owner: "octokit-fixture-org",
-          repo: "add-and-remove-repository-collaborator"
+          repo: "add-and-remove-repository-collaborator",
         });
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data.length).toEqual(1);
 
         return githubUserB.repos.acceptInvitation({
-          invitation_id: response.data[0].id
+          invitation_id: response.data[0].id,
         });
       })
 
       .then(() => {
         return githubUserA.repos.listCollaborators({
           owner: "octokit-fixture-org",
-          repo: "add-and-remove-repository-collaborator"
+          repo: "add-and-remove-repository-collaborator",
         });
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data.length).toEqual(2);
 
         return githubUserA.repos.removeCollaborator({
           owner: "octokit-fixture-org",
           repo: "add-and-remove-repository-collaborator",
-          username: "octokit-fixture-user-b"
+          username: "octokit-fixture-user-b",
         });
       })
 
       .then(() => {
         return githubUserA.repos.listCollaborators({
           owner: "octokit-fixture-org",
-          repo: "add-and-remove-repository-collaborator"
+          repo: "add-and-remove-repository-collaborator",
         });
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data.length).toEqual(1);
       });
   });

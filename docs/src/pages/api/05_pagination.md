@@ -10,9 +10,9 @@ To automatically receive all results across all pages, you can use the `octokit.
 octokit
   .paginate("GET /repos/:owner/:repo/issues", {
     owner: "octokit",
-    repo: "rest.js"
+    repo: "rest.js",
   })
-  .then(issues => {
+  .then((issues) => {
     // issues is an array of all issue objects. It is not wrapped in a { data, headers, status, url } object
     // like results from `octokit.request()` or any of the endpoint methods such as `octokit.issues.listForRepo()`
   });
@@ -27,9 +27,9 @@ octokit
   .paginate(
     "GET /repos/:owner/:repo/issues",
     { owner: "octokit", repo: "rest.js" },
-    response => response.data.map(issue => issue.title)
+    (response) => response.data.map((issue) => issue.title)
   )
-  .then(issueTitles => {
+  .then((issueTitles) => {
     // issueTitles is now an array with the titles only
   });
 ```
@@ -38,7 +38,7 @@ To stop paginating early, you can call the `done()` function passed as 2nd argum
 
 ```js
 octokit.paginate("GET /organizations", (response, done) => {
-  if (response.data.find(issues => issue.body.includes("something"))) {
+  if (response.data.find((issues) => issue.body.includes("something"))) {
     done();
   }
   return response.data;
@@ -50,9 +50,9 @@ To paginate responses for one of the registered endpoint methods such as `octoki
 ```js
 const options = octokit.issues.listForRepo.endpoint.merge({
   owner: "octokit",
-  repo: "rest.js"
+  repo: "rest.js",
 });
-octokit.paginate(options).then(issues => {
+octokit.paginate(options).then((issues) => {
   // issues is an array of all issue objects
 });
 ```
