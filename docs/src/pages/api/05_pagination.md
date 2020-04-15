@@ -2,7 +2,7 @@
 title: "Pagination"
 ---
 
-All endpoint methods starting with `.list*` do not return all responses at once but instead return the first 30 items by default, see also [GitHub’s REST API pagination documentation](https://developer.github.com/v3/#pagination).
+All endpoint methods starting with `.list*` do not return all results at once but instead return the first 30 items by default, see also [GitHub’s REST API pagination documentation](https://developer.github.com/v3/#pagination).
 
 To automatically receive all results across all pages, you can use the `octokit.paginate()` method:
 
@@ -10,9 +10,9 @@ To automatically receive all results across all pages, you can use the `octokit.
 octokit
   .paginate("GET /repos/:owner/:repo/issues", {
     owner: "octokit",
-    repo: "rest.js"
+    repo: "rest.js",
   })
-  .then(issues => {
+  .then((issues) => {
     // issues is an array of all issue objects. It is not wrapped in a { data, headers, status, url } object
     // like results from `octokit.request()` or any of the endpoint methods such as `octokit.issues.listForRepo()`
   });
@@ -27,9 +27,9 @@ octokit
   .paginate(
     "GET /repos/:owner/:repo/issues",
     { owner: "octokit", repo: "rest.js" },
-    response => response.data.map(issue => issue.title)
+    (response) => response.data.map((issue) => issue.title)
   )
-  .then(issueTitles => {
+  .then((issueTitles) => {
     // issueTitles is now an array with the titles only
   });
 ```
@@ -38,29 +38,36 @@ To stop paginating early, you can call the `done()` function passed as 2nd argum
 
 ```js
 octokit.paginate("GET /organizations", (response, done) => {
-  if (response.data.find(issues => issue.body.includes("something"))) {
+  if (response.data.find((issues) => issue.body.includes("something"))) {
     done();
   }
   return response.data;
 });
 ```
 
-To paginate responses for one of the registered endpoint methods such as `octokit.issues.listForRepo()` you can use the [`.endpoint.merge()`](https://github.com/octokit/endpoint.js#endpointmerge) method registered for all endpoint methods:
+To paginate responses for one of the registered endpoint methods such as `octokit.issues.listForRepo()` you can pass the method directly as first argument to `octokit.paginate`:
 
 ```js
-const options = octokit.issues.listForRepo.endpoint.merge({
-  owner: "octokit",
-  repo: "rest.js"
-});
-octokit.paginate(options).then(issues => {
-  // issues is an array of all issue objects
-});
+octokit
+  .paginate(octokit.issues.listForRepo, {
+    owner: "octokit",
+    repo: "rest.js",
+  })
+  .then((issues) => {
+    // issues is an array of all issue objects
+  });
 ```
 
 If your runtime environment supports async iterators (such as most modern browsers and Node 10+), you can iterate through each response
 
 ```js
-for await (const response of octokit.paginate.iterator(options)) {
+for await (const response of octokit.paginate.iterator(
+  octokit.issues.listForRepo,
+  {
+    owner: "octokit",
+    repo: "rest.js",
+  }
+)) {
   // do whatever you want with each response, break out of the loop, etc.
 }
 ```
