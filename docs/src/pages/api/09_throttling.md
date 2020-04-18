@@ -10,7 +10,8 @@ The `throttle.onAbuseLimit` and `throttle.onRateLimit` options are required. Ret
 
 ```js
 const { Octokit } = require("@octokit/rest");
-const MyOctokit = Octokit.plugin(require("@octokit/plugin-throttling"));
+const { throttling } = require("@octokit/plugin-throttling");
+const MyOctokit = Octokit.plugin(throttling);
 
 const octokit = new MyOctokit({
   auth: "token " + process.env.TOKEN,
@@ -31,7 +32,7 @@ const octokit = new MyOctokit({
       octokit.log.warn(
         `Abuse detected for request ${options.method} ${options.url}`
       );
-    }
-  }
+    },
+  },
 });
 ```
