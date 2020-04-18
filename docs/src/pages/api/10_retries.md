@@ -6,7 +6,8 @@ Many common request errors can be easily remediated by retrying the request. We 
 
 ```js
 const { Octokit } = require("@octokit/rest");
-const MyOctokit = Octokit.plugin(require("@octokit/plugin-retry"));
+const { retry } = require("@octokit/plugin-retry");
+const MyOctokit = Octokit.plugin(retry);
 
 const octokit = new MyOctokit();
 
