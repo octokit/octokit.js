@@ -4,24 +4,23 @@ title: "Usage"
 
 Import the Octokit constructor based on your platform.
 
-<table>
-<tbody valign=top align=left>
-<tr><th>
-Browsers
-</th><td width=100%>
+### Browsers
+
+<div>
 Load <code>@octokit/rest</code> directly from <a href="https://cdn.pika.dev">cdn.pika.dev</a>
-        
+
 ```html
 <script type="module">
-import { Octokit } from "https://cdn.pika.dev/@octokit/rest";
+  import { Octokit } from "https://cdn.pika.dev/@octokit/rest";
 </script>
 ```
 
-</td></tr>
-<tr><th>
-Node
-</th><td>
+</div>
+<hr />
 
+### Node
+
+<div>
 Install with <code>npm install @octokit/rest</code>
 
 ```js
@@ -29,9 +28,8 @@ const { Octokit } = require("@octokit/rest");
 // or: import { Octokit } from "@octokit/rest";
 ```
 
-</td></tr>
-</tbody>
-</table>
+</div>
+<hr />
 
 ```js
 const { Octokit } = require("@octokit/rest");

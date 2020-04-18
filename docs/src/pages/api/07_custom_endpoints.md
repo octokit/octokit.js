@@ -79,4 +79,4 @@ octokit.foo.bar({
 });
 ```
 
-This is useful when you participate in private beta features and prefer the convenience of methods for the new endpoints instead of using [`octokit.request()`]('#custom-requests').
+This is useful when you participate in private beta features and prefer the convenience of methods for the new endpoints instead of using [`octokit.request()`](#custom-requests).

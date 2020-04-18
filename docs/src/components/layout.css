@@ -131,6 +131,17 @@ header > button:focus {
   color: #1ca086;
 }
 
+/* Set table-layout: fixed for small screens where table contents can break out of their container */
+table {
+  table-layout: fixed;
+}
+
+@media (min-width: 55em) {
+  table {
+    table-layout: auto;
+  }
+}
+
 /* Hide the navigation toggle button on big screens, since it’s not needed */
 @media (min-width: 55em) {
   /* --wide-enough-for-two-columns */
@@ -157,4 +168,6 @@ main :not(pre) > code[class*="language-"] {
   background: #1b1f230d;
   text-shadow: none;
   font-size: 85%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
