@@ -30,3 +30,4 @@ jobs:
       - run: npm run start-fixtures-server &
       - run: sleep 3 # give server some time to start
       - run: npm run test
+      - run: npm run test:typescript
