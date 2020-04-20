@@ -212,7 +212,7 @@ export default async function () {
       installationId: 12345,
     },
   });
-  
+
   const { data } = await updateLabel({
     owner: "octocat",
     repo: "hello-world",
@@ -220,13 +220,13 @@ export default async function () {
     color: "cc0000",
   });
 
-  console.log(data.color)
-  
+  console.log(data.color);
+
   async function updateLabel(
     options: RestEndpointMethodTypes["issues"]["updateLabel"]["parameters"]
   ): Promise<RestEndpointMethodTypes["issues"]["updateLabel"]["response"]> {
-    console.log(options)
-    
+    console.log(options);
+
     return {
       headers: {},
       data: {
@@ -242,6 +242,4 @@ export default async function () {
       url: "",
     };
   }
-  });
 }
-
