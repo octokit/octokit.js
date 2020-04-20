@@ -1,13 +1,11 @@
-import { Octokit } from "../index";
+import { Octokit, RestEndpointMethodTypes } from "../src";
 import { Agent } from "http";
-import { request } from "https";
-const http = require("http");
 
 // ************************************************************
 // THIS CODE IS NOT EXECUTED. IT IS JUST FOR TYPECHECKING
 // ************************************************************
 
-export default async function() {
+export default async function () {
   // Check empty constructor
   new Octokit();
 
@@ -16,19 +14,19 @@ export default async function() {
     timeout: 0,
     headers: {
       accept: "application/vnd.github.v3+json",
-      "user-agent": "octokit/rest.js v1.2.3"
+      "user-agent": "octokit/rest.js v1.2.3",
     },
     baseUrl: "https://api.github.com",
     agent: new Agent({ keepAlive: true }),
     custom: {
-      foo: "bar"
-    }
+      foo: "bar",
+    },
   });
 
   // check responses
   const repoResponse = await octokit.repos.get({
     owner: "octokit",
-    repo: "rest.js"
+    repo: "rest.js",
   });
   repoResponse.data;
   repoResponse.status;
@@ -37,13 +35,13 @@ export default async function() {
   repoResponse.headers.status;
 
   const userResponse = await octokit.users.getByUsername({
-    username: "octokit"
+    username: "octokit",
   });
   userResponse.data.login;
   userResponse.data.type;
 
   const userIssuesResponse = await octokit.issues.listForAuthenticatedUser({
-    state: "open"
+    state: "open",
   });
   userIssuesResponse.data[0].locked;
 
@@ -51,8 +49,8 @@ export default async function() {
   await octokit.issues.addLabels({
     owner: "octokit",
     repo: "rest.js",
-    number: 10,
-    labels: ["label"]
+    issue_number: 10,
+    labels: ["label"],
   });
 
   const requestOptions = octokit.issues.addLabels.endpoint({
@@ -61,32 +59,32 @@ export default async function() {
     number: 10,
     labels: ["label"],
     request: {
-      foo: "bar"
-    }
+      foo: "bar",
+    },
   });
   requestOptions.method;
   requestOptions.url;
   requestOptions.headers;
   requestOptions.body;
   requestOptions.request.foo;
-  const endpointOptions = octokit.issues.addLabels.endpoint.merge({
-    foo: "bar"
+  octokit.issues.addLabels.endpoint.merge({
+    foo: "bar",
   });
 
   // parameter deprecation
   await octokit.issues.get({
     owner: "octokit",
     repo: "rest.js",
-    number: 10 // deprecated, renamed to "issue_number", see below
+    issue_number: 10, // deprecated, renamed to "issue_number", see below
   });
   await octokit.issues.get({
     owner: "octokit",
     repo: "rest.js",
-    issue_number: 10
+    issue_number: 10,
   });
 
   // hooks
-  octokit.hook.before("request", async options => {
+  octokit.hook.before("request", async (options) => {
     console.log("before hook", options.url);
   });
   octokit.hook.after("request", async (response, options) => {
@@ -110,32 +108,26 @@ export default async function() {
   octokit.request("/");
   octokit.request("GET /repos/:owner/:repo/issues", {
     owner: "octokit",
-    repo: "rest.js"
+    repo: "rest.js",
   });
   octokit.request({
     method: "GET",
     url: "/repos/:owner/:repo/issues",
     owner: "octokit",
-    repo: "rest.js"
+    repo: "rest.js",
   });
   octokit.request.endpoint("/");
   octokit.request.endpoint("GET /repos/:owner/:repo/issues", {
     owner: "octokit",
-    repo: "rest.js"
+    repo: "rest.js",
   });
   octokit.request.endpoint({
     method: "GET",
     url: "/repos/:owner/:repo/issues",
     owner: "octokit",
-    repo: "rest.js"
+    repo: "rest.js",
   });
   octokit.request.endpoint.merge({ foo: "bar" });
-  octokit.request.endpoint.parse({
-    method: "GET",
-    url: "/repos/:owner/:repo/issues",
-    owner: "octokit",
-    repo: "rest.js"
-  });
   octokit.request.endpoint
     .defaults({ owner: "octokit", repo: "rest.js" })
     .merge({ method: "GET", url: "/repos/:owner/:repo/issues" });
@@ -144,28 +136,31 @@ export default async function() {
   octokit
     .paginate("GET /repos/:owner/:repo/issues", {
       owner: "octokit",
-      repo: "rest.js"
+      repo: "rest.js",
     })
-    .then(issues => {
+    .then((issues) => {
       // issues is an array of all issue objects
     });
 
   octokit
-    .paginate(
+    .paginate<{ title: string }, string[]>(
       "GET /repos/:owner/:repo/issues",
       { owner: "octokit", repo: "rest.js" },
-      response => response.data.map(issue => issue.title)
+      (response) => response.data.map((issue) => issue.title)
     )
-    .then(issueTitles => {
+    .then((issueTitles) => {
       // issueTitles is now an array with the titles only
     });
 
   const options = octokit.issues.listForRepo.endpoint.merge({
     owner: "octokit",
-    repo: "rest.js"
+    repo: "rest.js",
   });
-  for await (const response of octokit.paginate.iterator(options)) {
+  for await (const response of octokit.paginate.iterator<{ id: number }>(
+    options
+  )) {
     // do whatever you want with each response, break out of the loop, etc.
+    console.log(response.data.map((repo) => repo.id));
   }
 
   // register endpoints
@@ -174,9 +169,9 @@ export default async function() {
       method: "DELETE",
       url: "/funk",
       request: {
-        foo: "bar"
-      }
-    }
+        foo: "bar",
+      },
+    },
   });
 
   // Plugins
@@ -185,8 +180,9 @@ export default async function() {
       const time = Date.now();
       const response = await request(options);
       console.log(
-        `${options.method} ${options.url} – ${response.status} in ${Date.now() -
-          time}ms`
+        `${options.method} ${options.url} – ${response.status} in ${
+          Date.now() - time
+        }ms`
       );
       return response;
     });
@@ -202,8 +198,8 @@ export default async function() {
     repo: "repo",
     pull_number: 123,
     mediaType: {
-      format: "diff"
-    }
+      format: "diff",
+    },
   });
 
   // Auth strategies
@@ -213,7 +209,37 @@ export default async function() {
     auth: {
       id: 123,
       privateKey: "private key here",
-      installationId: 12345
-    }
+      installationId: 12345,
+    },
   });
+
+  const { data } = await updateLabel({
+    owner: "octocat",
+    repo: "hello-world",
+    name: "bug",
+    color: "cc0000",
+  });
+
+  console.log(data.color);
+
+  async function updateLabel(
+    options: RestEndpointMethodTypes["issues"]["updateLabel"]["parameters"]
+  ): Promise<RestEndpointMethodTypes["issues"]["updateLabel"]["response"]> {
+    console.log(options);
+
+    return {
+      headers: {},
+      data: {
+        id: 123,
+        node_id: "123",
+        color: "cc0000",
+        default: false,
+        description: "",
+        name: "bug",
+        url: "",
+      },
+      status: 201,
+      url: "",
+    };
+  }
 }

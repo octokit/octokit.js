@@ -35,7 +35,7 @@
     "@octokit/core": "^2.4.3",
     "@octokit/plugin-paginate-rest": "^2.1.0",
     "@octokit/plugin-request-log": "^1.0.0",
-    "@octokit/plugin-rest-endpoint-methods": "3.6.0"
+    "@octokit/plugin-rest-endpoint-methods": "3.7.0"
   },
   "devDependencies": {
     "@octokit/auth": "^2.0.0",
@@ -62,7 +62,8 @@
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "start-fixtures-server": "octokit-fixtures-server",
     "pretestx": "npm run -s lint",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals test/typescript-validate.ts"
   },
   "license": "MIT",
   "@pika/pack": {
