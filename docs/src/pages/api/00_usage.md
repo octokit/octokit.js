@@ -210,17 +210,3 @@ const myOctokit = new MyOctokit({
   },
 });
 ```
-
-```js
-const octokit = require("@octokit/rest");
-
-// Compare: https://developer.github.com/v3/repos/#list-organization-repositories
-octokit.repos
-  .listForOrg({
-    org: "octokit",
-    type: "public",
-  })
-  .then(({ data, headers, status }) => {
-    // handle data
-  });
-```
