@@ -1,4 +1,4 @@
-import { Octokit } from "../src";
+import { Octokit, RestEndpointMethodTypes } from "../src";
 import { Agent } from "http";
 
 // ************************************************************
@@ -212,4 +212,36 @@ export default async function () {
       installationId: 12345,
     },
   });
+  
+  const { data } = await updateLabel({
+    owner: "octocat",
+    repo: "hello-world",
+    name: "bug",
+    color: "cc0000",
+  });
+
+  console.log(data.color)
+  
+  async function updateLabel(
+    options: RestEndpointMethodTypes["issues"]["updateLabel"]["parameters"]
+  ): Promise<RestEndpointMethodTypes["issues"]["updateLabel"]["response"]> {
+    console.log(options)
+    
+    return {
+      headers: {},
+      data: {
+        id: 123,
+        node_id: "123",
+        color: "cc0000",
+        default: false,
+        description: "",
+        name: "bug",
+        url: "",
+      },
+      status: 201,
+      url: "",
+    };
+  }
+  });
 }
+
