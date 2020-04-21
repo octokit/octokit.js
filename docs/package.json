@@ -19,7 +19,7 @@
     "gatsby-transformer-remark": "^2.3.8",
     "html-react-parser": "^0.10.1",
     "lodash": "^4.17.15",
-    "marked": "^0.8.0",
+    "marked": "^1.0.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-debounce-render": "^6.0.0",
