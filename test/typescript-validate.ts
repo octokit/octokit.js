@@ -143,7 +143,7 @@ export default async function () {
     });
 
   octokit
-    .paginate<{ title: string }, string[]>(
+    .paginate(
       "GET /repos/:owner/:repo/issues",
       { owner: "octokit", repo: "rest.js" },
       (response) => response.data.map((issue) => issue.title)
