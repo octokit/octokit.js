@@ -74,21 +74,11 @@ module.exports = {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
-            slug: node => `#${node.fields.idName}`,
-            type: node => "API"
-          },
-          OctokitApiGroup: {
-            title: node => upperFirst(node.name),
-            slug: node => `#${node.id}`,
-            type: node => "API"
-          },
-          OctokitApiMethod: {
-            name: node => node.name,
-            scope: node => node.scope,
-            route: node => `${node.method} ${node.url}`,
-            method: node => `${node.example}`,
-            slug: node => `#${node.id}`,
-            type: node => "API method"
+            name: node => node.frontmatter.name,
+            slug: node => `#${node.frontmatter.scope ? node.frontmatter.scope + '-' :  ''}${node.fields.idName}`,
+            route: node => `${node.frontmatter.route}`,
+            method: node => `${node.frontmatter.example}`,
+            type: node => node.frontmatter.type || "API"
           }
         }
       }
