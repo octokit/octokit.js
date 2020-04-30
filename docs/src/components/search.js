@@ -126,7 +126,15 @@ export default class Search extends Component {
     const results = this.index
       .search(query, searchOptions)
       // Map over each ID and return the full document
-      .map(({ ref }) => this.index.documentStore.getDoc(ref));
+      .map(({ ref }) => this.index.documentStore.getDoc(ref))
+      .filter(result => {
+        // Only show results for the current API version.
+        if (result.type === "API") {
+          return result.version === this.props.version
+        }
+
+        return true
+      })
 
     let height = 0;
     let visibleResultsCount;
