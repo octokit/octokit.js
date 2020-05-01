@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 import { graphql, StaticQuery, navigate } from "gatsby";
 
@@ -63,25 +63,27 @@ export default class IndexPage extends Component {
             render={data => {
               const { currentVersion } = data.sitePlugin.pluginOptions;
               return (
-                <Fragment>
-                  <select
-                    value={this.props.version}
-                    onChange={this.onVersionChange}
-                  >
-                    {/* render the current version and map over the others */}
-                    <option value={currentVersion}>
-                      Current ({currentVersion})
-                    </option>
-                    {data.allGitRemote.nodes.map(
-                      ({ id, sourceInstanceName }) => (
-                        <option key={id} value={sourceInstanceName}>
-                          {sourceInstanceName}
-                        </option>
-                      )
-                    )}
-                  </select>
-                  <Search searchIndex={data.siteSearchIndex.index} />
-                </Fragment>
+                <>
+                  <div className={layoutStyles.dropdownSelect}>
+                    <select
+                      value={this.props.version}
+                      onChange={this.onVersionChange}
+                    >
+                      {/* render the current version and map over the others */}
+                      <option value={currentVersion}>
+                        Current ({currentVersion})
+                      </option>
+                      {data.allGitRemote.nodes.map(
+                        ({ id, sourceInstanceName }) => (
+                          <option key={id} value={sourceInstanceName}>
+                            {sourceInstanceName}
+                          </option>
+                        )
+                      )}
+                    </select>
+                  </div>
+                  <Search searchIndex={data.siteSearchIndex.index} version={this.props.version} />
+                </>
               );
             }}
           />

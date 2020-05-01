@@ -78,7 +78,8 @@ module.exports = {
             slug: node => `#${node.frontmatter.scope ? node.frontmatter.scope + '-' :  ''}${node.fields.idName}`,
             route: node => `${node.frontmatter.route}`,
             method: node => `${node.frontmatter.example}`,
-            type: node => node.frontmatter.type || "API"
+            type: node => node.frontmatter.type || "API",
+            version: node => node.fields.version
           }
         }
       }

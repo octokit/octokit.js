@@ -136,12 +136,6 @@ table {
   table-layout: fixed;
 }
 
-@media (min-width: 55em) {
-  table {
-    table-layout: auto;
-  }
-}
-
 /* Hide the navigation toggle button on big screens, since it’s not needed */
 @media (min-width: 55em) {
   /* --wide-enough-for-two-columns */

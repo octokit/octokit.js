@@ -22,3 +22,8 @@
     grid-column: 2/3;
   }
 }
+
+.versionDropdown {
+  display: flex;
+  align-items: flex-start;
+}
