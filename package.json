@@ -46,7 +46,7 @@
     "@pika/plugin-build-web": "^0.8.1",
     "@pika/plugin-ts-standard-pkg": "^0.8.1",
     "@types/jest": "^25.1.2",
-    "@types/node": "^13.1.0",
+    "@types/node": "^14.0.1",
     "fetch-mock": "^9.0.0",
     "jest": "^25.1.0",
     "prettier": "^2.0.0",
