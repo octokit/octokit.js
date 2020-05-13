@@ -1,7 +1,0 @@
-{
-  "groups": {
-    "default": {
-      "packages": ["docs/package.json", "package.json"]
-    }
-  }
-}
