@@ -4,7 +4,7 @@
 
 [![@latest](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest)
 ![Build Status](https://github.com/octokit/rest.js/workflows/Test/badge.svg)
-[![Greenkeeper](https://badges.greenkeeper.io/octokit/rest.js.svg)](https://greenkeeper.io/)
+
 
 ## Installation
 
