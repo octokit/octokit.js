@@ -1,33 +1,33 @@
 name: Test
-
-on:
+"on":
   push:
     branches:
       - master
       - next
       - beta
-      - "greenkeeper/**"
+      - dependabot/npm_and_yarn/**
       - 15.x
-      - 16.x # TODO: can we use a pattern for these?
-
+      - 16.x
   pull_request:
-    types: [opened, synchronize]
-
+    types:
+      - opened
+      - synchronize
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [10, 12]
-
+        node_version:
+          - 10
+          - 12
     steps:
       - uses: actions/checkout@master
-      - name: Test with Node.js ${{ matrix.node_version }}
+      - name: "Test with Node.js ${{ matrix.node_version }}"
         uses: actions/setup-node@v1
         with:
-          version: ${{ matrix.node_version }}
+          version: "${{ matrix.node_version }}"
       - run: npm ci
       - run: npm run start-fixtures-server &
-      - run: sleep 3 # give server some time to start
+      - run: sleep 3
       - run: npm run test
-      - run: npm run test:typescript
+      - run: "npm run test:typescript"
