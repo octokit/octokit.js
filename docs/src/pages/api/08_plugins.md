@@ -19,15 +19,16 @@ module.exports = (octokit, options = { greeting: "Hello" }) => {
     const time = Date.now();
     const response = await request(options);
     octokit.log.info(
-      `${options.method} ${options.url} – ${response.status} in ${Date.now() -
-        time}ms`
+      `${options.method} ${options.url} – ${response.status} in ${
+        Date.now() - time
+      }ms`
     );
     return response;
   });
 
   // add a custom method: octokit.helloWorld()
   return {
-    helloWorld: () => console.log(`${options.greeting}, world!`)
+    helloWorld: () => console.log(`${options.greeting}, world!`),
   };
 };
 ```

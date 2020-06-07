@@ -9,13 +9,13 @@ require("../../mocha-node-setup");
 
 describe("custom client certificate", () => {
   let server;
-  before(done => {
+  before((done) => {
     server = https.createServer(
       {
         key: readFileSync(resolve(__dirname, "./localhost.key")),
-        cert: readFileSync(resolve(__dirname, "./localhost.crt"))
+        cert: readFileSync(resolve(__dirname, "./localhost.crt")),
       },
-      function(request, response) {
+      function (request, response) {
         expect(request.method).to.equal("GET");
         expect(request.url).to.equal("/repos/octokit/rest.js");
 
@@ -30,34 +30,34 @@ describe("custom client certificate", () => {
 
   it("https.Agent({ca})", () => {
     const agent = new https.Agent({
-      ca
+      ca,
     });
     const octokit = new Octokit({
       baseUrl: "https://localhost:" + server.address().port,
-      request: { agent }
+      request: { agent },
     });
 
     return octokit.repos.get({
       owner: "octokit",
-      repo: "rest.js"
+      repo: "rest.js",
     });
   });
 
   it("https.Agent({ca, rejectUnauthorized})", () => {
     const agent = new https.Agent({
       ca: "invalid",
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
     });
     const octokit = new Octokit({
       baseUrl: "https://localhost:" + server.address().port,
-      request: { agent }
+      request: { agent },
     });
 
     return octokit.repos.get({
       owner: "octokit",
-      repo: "rest.js"
+      repo: "rest.js",
     });
   });
 
-  after(done => server.close(done));
+  after((done) => server.close(done));
 });

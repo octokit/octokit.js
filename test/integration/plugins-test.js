@@ -4,7 +4,7 @@ require("../mocha-node-setup");
 
 describe("plugins", () => {
   it("gets called in constructor", () => {
-    const MyOctokit = Octokit.plugin(octokit => {
+    const MyOctokit = Octokit.plugin((octokit) => {
       octokit.foo = "bar";
     });
     const myClient = new MyOctokit();
@@ -12,7 +12,7 @@ describe("plugins", () => {
   });
 
   it("does not override plugins of original constructor", () => {
-    const MyOctokit = Octokit.plugin(octokit => {
+    const MyOctokit = Octokit.plugin((octokit) => {
       octokit.foo = "bar";
     });
     const myClient = new MyOctokit();

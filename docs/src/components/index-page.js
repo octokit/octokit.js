@@ -13,7 +13,7 @@ export default class IndexPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuActive: false
+      menuActive: false,
     };
     this.onToggleMenu = this.onToggleMenu.bind(this);
     this.isMenuActive = this.isMenuActive.bind(this);
@@ -21,7 +21,7 @@ export default class IndexPage extends Component {
 
   onToggleMenu() {
     this.setState({
-      menuActive: !this.state.menuActive
+      menuActive: !this.state.menuActive,
     });
   }
 
@@ -60,7 +60,7 @@ export default class IndexPage extends Component {
                 }
               }
             `}
-            render={data => {
+            render={(data) => {
               const { currentVersion } = data.sitePlugin.pluginOptions;
               return (
                 <>
@@ -82,7 +82,10 @@ export default class IndexPage extends Component {
                       )}
                     </select>
                   </div>
-                  <Search searchIndex={data.siteSearchIndex.index} version={this.props.version} />
+                  <Search
+                    searchIndex={data.siteSearchIndex.index}
+                    version={this.props.version}
+                  />
                 </>
               );
             }}
@@ -93,7 +96,11 @@ export default class IndexPage extends Component {
         </header>
 
         <div className={layoutStyles.container}>
-          <Api data={this.props.data} isMenuActive={this.isMenuActive} onToggleMenu={this.onToggleMenu}></Api>
+          <Api
+            data={this.props.data}
+            isMenuActive={this.isMenuActive}
+            onToggleMenu={this.onToggleMenu}
+          ></Api>
         </div>
       </div>
     );

@@ -15,7 +15,7 @@ describe("params validations", () => {
         expect.fail("should throw error");
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.message).to.equal(
           "Empty value for parameter 'org': undefined"
         );
@@ -25,7 +25,7 @@ describe("params validations", () => {
 
   it("request error", () => {
     const octokit = new Octokit({
-      baseUrl: "https://127.0.0.1:8" // port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
+      baseUrl: "https://127.0.0.1:8", // port: 8 // officially unassigned port. See https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
     });
 
     return octokit.orgs
@@ -35,7 +35,7 @@ describe("params validations", () => {
         expect.fail("should throw error");
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.status).to.equal(500);
         expect(error.message).to.equal(
           "request to https://127.0.0.1:8/orgs/foo failed, reason: connect ECONNREFUSED 127.0.0.1:8"
@@ -53,7 +53,7 @@ describe("params validations", () => {
         expect.fail("should throw error");
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.status).to.equal(400);
         expect(error.message).to.equal(
           "Invalid value for parameter 'filter': \"foo\""
@@ -71,7 +71,7 @@ describe("params validations", () => {
         expect.fail("should throw error");
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.status).to.equal(400);
         expect(error.message).to.equal(
           "Invalid value for parameter 'position': \"foo\""
@@ -88,10 +88,10 @@ describe("params validations", () => {
         repo: "bar",
         commit_sha: "lala",
         body: "Sing with me!",
-        position: "Age Ain’t Nothing"
+        position: "Age Ain’t Nothing",
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.status).to.equal(400);
         expect(error.message).to.equal(
           "Invalid value for parameter 'position': \"Age Ain’t Nothing\" is NaN"
@@ -107,14 +107,14 @@ describe("params validations", () => {
         owner: "foo",
         repo: "bar",
         name: "captain",
-        config: "I’m no Je-Son!"
+        config: "I’m no Je-Son!",
       })
 
       .then(() => {
         expect.fail("should throw error");
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.status).to.equal(400);
         expect(error.message).to.equal(
           "JSON parse error of value for parameter 'config': \"I’m no Je-Son!\""
@@ -124,11 +124,11 @@ describe("params validations", () => {
 
   it("Date object for octokit.issues.createMilestone({..., due_on})", () => {
     const octokit = new Octokit({
-      baseUrl: "https://milestones-test-host.com"
+      baseUrl: "https://milestones-test-host.com",
     });
 
     nock("https://milestones-test-host.com")
-      .post("/repos/foo/bar/milestones", body => {
+      .post("/repos/foo/bar/milestones", (body) => {
         expect(body.due_on).to.equal("2012-10-09T23:39:01.000Z");
         return true;
       })
@@ -138,27 +138,27 @@ describe("params validations", () => {
       owner: "foo",
       repo: "bar",
       title: "Like a rolling ...",
-      due_on: new Date("2012-10-09T23:39:01Z")
+      due_on: new Date("2012-10-09T23:39:01Z"),
     });
   });
 
   it("Date is passed in correct format for notifications (#716)", () => {
     const octokit = new Octokit({
-      baseUrl: "https://notifications-test-host.com"
+      baseUrl: "https://notifications-test-host.com",
     });
 
     nock("https://notifications-test-host.com")
       .get("/notifications")
-      .query(query => {
+      .query((query) => {
         expect(query).to.eql({
-          since: "2018-01-21T23:27:31.000Z"
+          since: "2018-01-21T23:27:31.000Z",
         });
         return true;
       })
       .reply(200, {});
 
     return octokit.activity.listNotifications({
-      since: "2018-01-21T23:27:31.000Z"
+      since: "2018-01-21T23:27:31.000Z",
     });
   });
 
@@ -171,16 +171,16 @@ describe("params validations", () => {
         base_tree: "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
         tree: [
           {
-            type: "foo"
-          }
-        ]
+            type: "foo",
+          },
+        ],
       })
 
       .then(() => {
         expect.fail("should throw error");
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.status).to.equal(400);
         expect(error.message).to.equal(
           "Invalid value for parameter 'tree[0].type': \"foo\""
@@ -196,14 +196,14 @@ describe("params validations", () => {
         repo: "bar",
         name: "baz",
         color: "#bada55",
-        description: null
+        description: null,
       })
 
       .then(() => {
         expect.fail("should throw error");
       })
 
-      .catch(error => {
+      .catch((error) => {
         expect(error.status).to.equal(400);
         expect(error.message).to.equal("'description' cannot be null");
       });
@@ -211,18 +211,16 @@ describe("params validations", () => {
 
   it("does not alter passed options", () => {
     const octokit = new Octokit({
-      baseUrl: "https://params-test-host.com"
+      baseUrl: "https://params-test-host.com",
     });
 
-    nock("https://params-test-host.com")
-      .get("/orgs/foo")
-      .reply(200, {});
+    nock("https://params-test-host.com").get("/orgs/foo").reply(200, {});
 
     const options = {
       org: "foo",
       headers: {
-        "x-bar": "baz"
-      }
+        "x-bar": "baz",
+      },
     };
     return octokit.orgs
       .get(options)
@@ -233,8 +231,8 @@ describe("params validations", () => {
         expect(options).to.deep.eql({
           org: "foo",
           headers: {
-            "x-bar": "baz"
-          }
+            "x-bar": "baz",
+          },
         });
       });
   });

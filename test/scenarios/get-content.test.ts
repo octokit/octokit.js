@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("get-content", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -16,10 +16,10 @@ describe("api.github.com", () => {
       .getContents({
         owner: "octokit-fixture-org",
         repo: "hello-world",
-        path: ""
+        path: "",
       })
 
-      .then(response => {
+      .then((response) => {
         if (!Array.isArray(response.data)) {
           throw `folder response expected`;
         }
@@ -31,12 +31,12 @@ describe("api.github.com", () => {
           repo: "hello-world",
           path: "README.md",
           headers: {
-            accept: "application/vnd.github.v3.raw"
-          }
+            accept: "application/vnd.github.v3.raw",
+          },
         });
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data).toEqual("# hello-world");
       });
   });

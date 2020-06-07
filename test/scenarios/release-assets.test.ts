@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("release-assets", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -19,57 +19,57 @@ describe("api.github.com", () => {
       .getReleaseByTag({
         owner: "octokit-fixture-org",
         repo: "release-assets",
-        tag: "v1.0.0"
+        tag: "v1.0.0",
       })
 
-      .then(result => {
+      .then((result) => {
         releaseId = result.data.id;
 
         return octokit.request({
           method: "POST",
           url: result.data.upload_url,
           headers: {
-            "content-type": "text/plain"
+            "content-type": "text/plain",
           },
           data: "Hello, world!\n",
           name: "test-upload.txt",
-          label: "test"
+          label: "test",
         });
       })
 
-      .then(result => {
+      .then((result) => {
         assetId = releaseId;
 
         return octokit.repos.listAssetsForRelease({
           owner: "octokit-fixture-org",
           repo: "release-assets",
-          release_id: releaseId
+          release_id: releaseId,
         });
       })
 
-      .then(result => {
+      .then((result) => {
         return octokit.repos.getReleaseAsset({
           owner: "octokit-fixture-org",
           repo: "release-assets",
-          asset_id: assetId
+          asset_id: assetId,
         });
       })
 
-      .then(result => {
+      .then((result) => {
         return octokit.repos.updateReleaseAsset({
           owner: "octokit-fixture-org",
           repo: "release-assets",
           asset_id: assetId,
           name: "new-filename.txt",
-          label: "new label"
+          label: "new label",
         });
       })
 
-      .then(result => {
+      .then((result) => {
         return octokit.repos.deleteReleaseAsset({
           owner: "octokit-fixture-org",
           repo: "release-assets",
-          asset_id: assetId
+          asset_id: assetId,
         });
       });
   });

@@ -5,7 +5,7 @@ title: "Hooks"
 You can customize Octokit’s request lifecycle with hooks. Available methods are
 
 ```js
-octokit.hook.before("request", async options => {
+octokit.hook.before("request", async (options) => {
   validate(options);
 });
 octokit.hook.after("request", async (response, options) => {

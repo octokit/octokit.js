@@ -3,7 +3,7 @@ import debounceRender from "react-debounce-render";
 
 class SearchResults extends Component {
   render() {
-    return this.props.results.map(page => {
+    return this.props.results.map((page) => {
       return <Row key={page.id} page={page} />;
     });
   }

@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("rename-repository", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -16,13 +16,13 @@ describe("api.github.com", () => {
       .update({
         owner: "octokit-fixture-org",
         repo: "rename-repository",
-        name: "rename-repository-newname"
+        name: "rename-repository-newname",
       })
 
       .then(() => {
         return octokit.repos.get({
           owner: "octokit-fixture-org",
-          repo: "rename-repository"
+          repo: "rename-repository",
         });
       })
 
@@ -31,7 +31,7 @@ describe("api.github.com", () => {
           owner: "octokit-fixture-org",
           repo: "rename-repository",
           name: "rename-repository-newname",
-          description: "test description"
+          description: "test description",
         });
       });
   });

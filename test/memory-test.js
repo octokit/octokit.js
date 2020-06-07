@@ -4,12 +4,12 @@
 const { iterate } = require("leakage");
 const { Octokit } = require("../pkg");
 
-const TestOctokit = Octokit.plugin(octokit => {
+const TestOctokit = Octokit.plugin((octokit) => {
   // skip sending requests altogether
   octokit.hook.wrap("request", () => null);
 });
 
-describe("memory leaks (relax, tests run slow)", function() {
+describe("memory leaks (relax, tests run slow)", function () {
   this.timeout(30000);
 
   it("creating many instances", () => {

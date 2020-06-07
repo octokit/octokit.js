@@ -7,23 +7,23 @@ describe("https://github.com/octokit/rest.js/issues/1279", () => {
   it("2fa code gets stored and passed as header to listAuthorizations", () => {
     nock("https://authentication-test-host.com", {
       reqheaders: {
-        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
-      }
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+      },
     })
       .get("/")
       .reply(
         401,
         {},
         {
-          "x-github-otp": "required; app"
+          "x-github-otp": "required; app",
         }
       );
 
     nock("https://authentication-test-host.com", {
       reqheaders: {
         authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
-        "x-github-otp": "123456"
-      }
+        "x-github-otp": "123456",
+      },
     })
       .get("/")
       .reply(200, {});
@@ -31,8 +31,8 @@ describe("https://github.com/octokit/rest.js/issues/1279", () => {
     nock("https://authentication-test-host.com", {
       reqheaders: {
         authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
-        "x-github-otp": "123456"
-      }
+        "x-github-otp": "123456",
+      },
     })
       .get("/authorizations?per_page=100")
       .reply(200, []);
@@ -44,8 +44,8 @@ describe("https://github.com/octokit/rest.js/issues/1279", () => {
         password: "password",
         on2fa() {
           return Promise.resolve(123456);
-        }
-      }
+        },
+      },
     });
 
     return octokit.request("/").then(() => {
@@ -56,23 +56,23 @@ describe("https://github.com/octokit/rest.js/issues/1279", () => {
   it("prompts for OTP again once OTP code becomes invalid", () => {
     nock("https://authentication-test-host.com", {
       reqheaders: {
-        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
-      }
+        authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+      },
     })
       .get("/")
       .reply(
         401,
         {},
         {
-          "x-github-otp": "required; app"
+          "x-github-otp": "required; app",
         }
       );
 
     nock("https://authentication-test-host.com", {
       reqheaders: {
         authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
-        "x-github-otp": "123456"
-      }
+        "x-github-otp": "123456",
+      },
     })
       .get("/")
       .reply(200, {});
@@ -81,23 +81,23 @@ describe("https://github.com/octokit/rest.js/issues/1279", () => {
     nock("https://authentication-test-host.com", {
       reqheaders: {
         authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
-        "x-github-otp": "123456"
-      }
+        "x-github-otp": "123456",
+      },
     })
       .get("/authorizations?per_page=100")
       .reply(
         401,
         {},
         {
-          "x-github-otp": "required; app"
+          "x-github-otp": "required; app",
         }
       );
 
     nock("https://authentication-test-host.com", {
       reqheaders: {
         authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
-        "x-github-otp": "123456"
-      }
+        "x-github-otp": "123456",
+      },
     })
       .get("/authorizations?per_page=100")
       .reply(200, {});
@@ -111,8 +111,8 @@ describe("https://github.com/octokit/rest.js/issues/1279", () => {
         on2fa() {
           on2faCalledCounter++;
           return Promise.resolve(123456);
-        }
-      }
+        },
+      },
     });
 
     return octokit.request("/").then(() => {

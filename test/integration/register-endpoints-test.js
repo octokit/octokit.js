@@ -12,8 +12,8 @@ describe("registerEndpoints", () => {
 
     const octokit = new Octokit({
       log: {
-        warn: () => {}
-      }
+        warn: () => {},
+      },
     });
 
     octokit.registerEndpoints({
@@ -23,31 +23,31 @@ describe("registerEndpoints", () => {
           params: {
             issue_number: {
               required: true,
-              type: "integer"
+              type: "integer",
             },
             number: {
               alias: "issue_number",
               deprecated: true,
-              type: "integer"
+              type: "integer",
             },
             owner: {
               required: true,
-              type: "string"
+              type: "string",
             },
             repo: {
               required: true,
-              type: "string"
-            }
+              type: "string",
+            },
           },
-          url: "/repos/:owner/:repo/issues/:issue_number"
-        }
-      }
+          url: "/repos/:owner/:repo/issues/:issue_number",
+        },
+      },
     });
 
     const options = {
       owner: "octocat",
       repo: "hello-world",
-      number: 123
+      number: 123,
     };
 
     const promise = octokit.foo.bar(options);
@@ -55,7 +55,7 @@ describe("registerEndpoints", () => {
     expect(options).to.deep.equal({
       owner: "octocat",
       repo: "hello-world",
-      number: 123
+      number: 123,
     });
 
     return promise;

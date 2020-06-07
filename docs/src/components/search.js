@@ -13,7 +13,7 @@ export default class Search extends Component {
       results: [],
       hasFocus: false,
       visibleResultsCount: 0,
-      maxHeight: 0
+      maxHeight: 0,
     };
     this.inputRef = React.createRef();
     this.listRef = React.createRef();
@@ -30,7 +30,7 @@ export default class Search extends Component {
   render() {
     const classNames = [
       "search",
-      this.state.hasFocus || this.state.query ? "active" : "inactive"
+      this.state.hasFocus || this.state.query ? "active" : "inactive",
     ];
     return (
       <div className={classNames.join(" ")}>
@@ -74,11 +74,11 @@ export default class Search extends Component {
       : // Create an elastic lunr index and hydrate with graphql query results
         Index.load(this.props.searchIndex);
 
-  onFocus = evt => {
+  onFocus = (evt) => {
     this.setState({ hasFocus: true });
   };
 
-  onBlur = evt => {
+  onBlur = (evt) => {
     this.setState({ hasFocus: false });
   };
 
@@ -88,7 +88,7 @@ export default class Search extends Component {
   };
 
   // Increase visible search results number when reaches the end of list
-  onScroll = evt => {
+  onScroll = (evt) => {
     const { scrollTop, scrollHeight, offsetHeight } = this.listRef.current;
     const { visibleResultsCount, results } = this.state;
 
@@ -97,17 +97,17 @@ export default class Search extends Component {
         visibleResultsCount:
           visibleResultsCount >= results.length
             ? visibleResultsCount
-            : visibleResultsCount + 20
+            : visibleResultsCount + 20,
       });
     }
   };
 
-  onResize = evt => {
+  onResize = (evt) => {
     const maxHeight = this.getSearchResultsHeight();
     this.setState({ maxHeight });
   };
 
-  search = evt => {
+  search = (evt) => {
     const query = evt.target.value;
 
     const searchOptions = {
@@ -117,8 +117,8 @@ export default class Search extends Component {
         name: { boost: 2 },
         scope: { boost: 2 },
         route: { boost: 1 },
-        method: { boost: 1 }
-      }
+        method: { boost: 1 },
+      },
     };
 
     this.index = this.getOrCreateIndex();
@@ -127,14 +127,14 @@ export default class Search extends Component {
       .search(query, searchOptions)
       // Map over each ID and return the full document
       .map(({ ref }) => this.index.documentStore.getDoc(ref))
-      .filter(result => {
+      .filter((result) => {
         // Only show results for the current API version.
         if (result.type === "API") {
-          return result.version === this.props.version
+          return result.version === this.props.version;
         }
 
-        return true
-      })
+        return true;
+      });
 
     let height = 0;
     let visibleResultsCount;
@@ -143,7 +143,7 @@ export default class Search extends Component {
     const rowHeight = {
       "API method": 54,
       API: 26,
-      default: 26
+      default: 26,
     };
 
     // Calculate maximum count of results that fits in current viewport height
@@ -159,14 +159,14 @@ export default class Search extends Component {
     this.setState({
       query,
       results,
-      visibleResultsCount: visibleResultsCount || results.length
+      visibleResultsCount: visibleResultsCount || results.length,
     });
   };
 
-  reset = evt => {
+  reset = (evt) => {
     this.setState({
       query: "",
-      results: []
+      results: [],
     });
   };
 }

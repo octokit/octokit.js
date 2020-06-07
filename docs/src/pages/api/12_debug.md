@@ -6,7 +6,7 @@ The simplest way to receive debug information is to set the [`log` client option
 
 ```js
 const octokit = require("@octokit/rest")({
-  log: console
+  log: console,
 });
 
 octokit.request("/");
@@ -30,7 +30,7 @@ If you like to support a configurable log level, we recommend using the [console
 
 ```js
 const octokit = require("@octokit/rest")({
-  log: require("console-log-level")({ level: "info" })
+  log: require("console-log-level")({ level: "info" }),
 });
 
 octokit.request("/");

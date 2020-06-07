@@ -10,7 +10,7 @@ By default, Octokit authenticates using the [token authentication strategy](http
 const { Octokit } = require("@octokit/rest");
 
 const octokit = new Octokit({
-  auth: "mypersonalaccesstoken123"
+  auth: "mypersonalaccesstoken123",
 });
 
 const { data } = await octokit.request("/user");
@@ -28,8 +28,8 @@ const appOctokit = new Octokit({
   authStrategy: createAppAuth,
   auth: {
     id: 123,
-    privateKey: process.env.PRIVATE_KEY
-  }
+    privateKey: process.env.PRIVATE_KEY,
+  },
 });
 
 const { data } = await appOctokit.request("/app");
@@ -40,6 +40,6 @@ The `.auth()` method returned by the current authentication strategy can be acce
 ```js
 const { token } = await appOctokit.auth({
   type: "installation",
-  installationId: 123
+  installationId: 123,
 });
 ```

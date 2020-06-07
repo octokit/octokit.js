@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("create-status", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -20,7 +20,7 @@ describe("api.github.com", () => {
         state: "failure",
         target_url: "https://example.com",
         description: "create-status failure test",
-        context: "example/1"
+        context: "example/1",
       }),
       octokit.repos.createStatus({
         owner: "octokit-fixture-org",
@@ -29,29 +29,29 @@ describe("api.github.com", () => {
         state: "success",
         target_url: "https://example.com",
         description: "create-status success test",
-        context: "example/2"
-      })
+        context: "example/2",
+      }),
     ])
 
       .then(() => {
         return octokit.repos.listStatusesForRef({
           owner: "octokit-fixture-org",
           repo: "create-status",
-          ref: "0000000000000000000000000000000000000001"
+          ref: "0000000000000000000000000000000000000001",
         });
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data.length).toEqual(2);
 
         return octokit.repos.getCombinedStatusForRef({
           owner: "octokit-fixture-org",
           repo: "create-status",
-          ref: "0000000000000000000000000000000000000001"
+          ref: "0000000000000000000000000000000000000001",
         });
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data.state).toEqual("failure");
       });
   });

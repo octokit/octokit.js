@@ -20,9 +20,9 @@ describe("https://github.com/octokit/rest.js/issues/922", () => {
       output: {
         title: "Test",
         summary: "Test!",
-        text: "Test"
+        text: "Test",
       },
-      actions: []
+      actions: [],
     });
   });
 });

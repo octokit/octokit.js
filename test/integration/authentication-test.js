@@ -8,17 +8,15 @@ require("../mocha-node-setup");
 
 describe("authentication", () => {
   it("unauthenticated", () => {
-    nock("https://authentication-test-host.com")
-      .get("/")
-      .reply(200, {});
+    nock("https://authentication-test-host.com").get("/").reply(200, {});
 
     const octokit = new Octokit({
-      baseUrl: "https://authentication-test-host.com"
+      baseUrl: "https://authentication-test-host.com",
     });
 
-    return octokit.auth().then(authentication => {
+    return octokit.auth().then((authentication) => {
       expect(authentication).to.deep.equal({
-        type: "unauthenticated"
+        type: "unauthenticated",
       });
     });
   });
@@ -26,15 +24,15 @@ describe("authentication", () => {
   it("OAuth token string", () => {
     nock("https://authentication-test-host.com", {
       reqheaders: {
-        authorization: "token abc4567"
-      }
+        authorization: "token abc4567",
+      },
     })
       .get("/")
       .reply(200, {});
 
     const octokit = new Octokit({
       baseUrl: "https://authentication-test-host.com",
-      auth: "token abc4567"
+      auth: "token abc4567",
     });
 
     return octokit.request("/");
@@ -45,15 +43,15 @@ describe("authentication", () => {
   it("JSON Web Token string (app authentication)", () => {
     nock("https://authentication-test-host.com", {
       reqheaders: {
-        authorization: `bearer ${BEARER_TOKEN}`
-      }
+        authorization: `bearer ${BEARER_TOKEN}`,
+      },
     })
       .get("/")
       .reply(200, {});
 
     const octokit = new Octokit({
       baseUrl: "https://authentication-test-host.com",
-      auth: `bearer ${BEARER_TOKEN}`
+      auth: `bearer ${BEARER_TOKEN}`,
     });
 
     return octokit.request("/");
@@ -62,8 +60,8 @@ describe("authentication", () => {
   it("error to authenticated request", () => {
     nock("https://authentication-test-host.com", {
       reqheaders: {
-        authorization: "token abc4567"
-      }
+        authorization: "token abc4567",
+      },
     })
       .get("/")
       .reply(404, {});
@@ -72,8 +70,8 @@ describe("authentication", () => {
       baseUrl: "https://authentication-test-host.com",
       auth: "token abc4567",
       log: {
-        warn() {}
-      }
+        warn() {},
+      },
     });
 
     return octokit
@@ -85,18 +83,18 @@ describe("authentication", () => {
   it("options.auth=token without prefix", () => {
     nock("https://authentication-test-host-token-without-prefix.com", {
       reqheaders: {
-        authorization: "token abc4567"
-      }
+        authorization: "token abc4567",
+      },
     })
       .get("/")
       .reply(200, {});
 
     const octokit = new Octokit({
       baseUrl: "https://authentication-test-host-token-without-prefix.com",
-      auth: "abc4567"
+      auth: "abc4567",
     });
 
-    return octokit.request("/").catch(error => {
+    return octokit.request("/").catch((error) => {
       console.log(`error.request`);
       console.log(error.request);
     });
@@ -106,8 +104,8 @@ describe("authentication", () => {
     nock("https://authentication-test-host.com", {
       reqheaders: {
         authorization:
-          "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTM4MTkzMTIsImV4cCI6MTU1MzgxOTM3MiwiaXNzIjoxfQ.etiSZ4LFQZ8tiMGJVqKDoGn8hxMCgwL4iLvU5xBUqbAPr4pbk_jJZmMQjuxTlOnRxq4e7NouTizGCdfohRMb3R1mpLzGPzOH9_jqSA_BWYxolsRP_WDSjuNcw6nSxrPRueMVRBKFHrqcTOZJej0djRB5pI61hDZJ_-DGtiOIFexlK3iuVKaqBkvJS5-TbTekGuipJ652g06gXuz-l8i0nHiFJldcuIruwn28hTUrjgtPbjHdSBVn_QQLKc2Fhij8OrhcGqp_D_fvb_KovVmf1X6yWiwXV5VXqWARS-JGD9JTAr2495ZlLV_E4WPxdDpz1jl6XS9HUhMuwBpaCOuipw"
-      }
+          "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTM4MTkzMTIsImV4cCI6MTU1MzgxOTM3MiwiaXNzIjoxfQ.etiSZ4LFQZ8tiMGJVqKDoGn8hxMCgwL4iLvU5xBUqbAPr4pbk_jJZmMQjuxTlOnRxq4e7NouTizGCdfohRMb3R1mpLzGPzOH9_jqSA_BWYxolsRP_WDSjuNcw6nSxrPRueMVRBKFHrqcTOZJej0djRB5pI61hDZJ_-DGtiOIFexlK3iuVKaqBkvJS5-TbTekGuipJ652g06gXuz-l8i0nHiFJldcuIruwn28hTUrjgtPbjHdSBVn_QQLKc2Fhij8OrhcGqp_D_fvb_KovVmf1X6yWiwXV5VXqWARS-JGD9JTAr2495ZlLV_E4WPxdDpz1jl6XS9HUhMuwBpaCOuipw",
+      },
     })
       .get("/app")
       .reply(200, {});
@@ -115,7 +113,7 @@ describe("authentication", () => {
     const octokit = new Octokit({
       baseUrl: "https://authentication-test-host.com",
       auth:
-        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTM4MTkzMTIsImV4cCI6MTU1MzgxOTM3MiwiaXNzIjoxfQ.etiSZ4LFQZ8tiMGJVqKDoGn8hxMCgwL4iLvU5xBUqbAPr4pbk_jJZmMQjuxTlOnRxq4e7NouTizGCdfohRMb3R1mpLzGPzOH9_jqSA_BWYxolsRP_WDSjuNcw6nSxrPRueMVRBKFHrqcTOZJej0djRB5pI61hDZJ_-DGtiOIFexlK3iuVKaqBkvJS5-TbTekGuipJ652g06gXuz-l8i0nHiFJldcuIruwn28hTUrjgtPbjHdSBVn_QQLKc2Fhij8OrhcGqp_D_fvb_KovVmf1X6yWiwXV5VXqWARS-JGD9JTAr2495ZlLV_E4WPxdDpz1jl6XS9HUhMuwBpaCOuipw"
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NTM4MTkzMTIsImV4cCI6MTU1MzgxOTM3MiwiaXNzIjoxfQ.etiSZ4LFQZ8tiMGJVqKDoGn8hxMCgwL4iLvU5xBUqbAPr4pbk_jJZmMQjuxTlOnRxq4e7NouTizGCdfohRMb3R1mpLzGPzOH9_jqSA_BWYxolsRP_WDSjuNcw6nSxrPRueMVRBKFHrqcTOZJej0djRB5pI61hDZJ_-DGtiOIFexlK3iuVKaqBkvJS5-TbTekGuipJ652g06gXuz-l8i0nHiFJldcuIruwn28hTUrjgtPbjHdSBVn_QQLKc2Fhij8OrhcGqp_D_fvb_KovVmf1X6yWiwXV5VXqWARS-JGD9JTAr2495ZlLV_E4WPxdDpz1jl6XS9HUhMuwBpaCOuipw",
     });
 
     return octokit.request("/app");
@@ -130,8 +128,8 @@ describe("authentication", () => {
   it("action auth strategy", async () => {
     nock("https://api.github.com", {
       reqheaders: {
-        authorization: `token githubtoken123`
-      }
+        authorization: `token githubtoken123`,
+      },
     })
       .get("/")
       .reply(200, {});
@@ -139,11 +137,11 @@ describe("authentication", () => {
     const currentEnv = process.env;
     process.env = {
       GITHUB_ACTION: "1",
-      GITHUB_TOKEN: "githubtoken123"
+      GITHUB_TOKEN: "githubtoken123",
     };
 
     const octokit = new Octokit({
-      authStrategy: createActionAuth
+      authStrategy: createActionAuth,
     });
 
     return octokit.request("/").then(() => {
@@ -186,30 +184,30 @@ x//0u+zd/R/QRUzLOw4N72/Hu+UG6MNt5iDZFCtapRaKt6OvSBwy8w==
 
     nock("https://api.github.com", {
       reqheaders: {
-        authorization: `bearer ${BEARER}`
-      }
+        authorization: `bearer ${BEARER}`,
+      },
     })
       .post("/app/installations/123/access_tokens")
       .reply(201, {
         token: "secret123",
         expires_at: "1970-01-01T01:00:00.000Z",
         permissions: {
-          metadata: "read"
+          metadata: "read",
         },
-        repository_selection: "all"
+        repository_selection: "all",
       });
 
     nock("https://api.github.com", {
       reqheaders: {
-        authorization: `token secret123`
-      }
+        authorization: `token secret123`,
+      },
     })
       .get("/")
       .reply(200, {});
 
     const clock = lolex.install({
       now: 0,
-      toFake: ["Date"]
+      toFake: ["Date"],
     });
 
     const octokit = new Octokit({
@@ -217,8 +215,8 @@ x//0u+zd/R/QRUzLOw4N72/Hu+UG6MNt5iDZFCtapRaKt6OvSBwy8w==
       auth: {
         id: APP_ID,
         privateKey: PRIVATE_KEY,
-        installationId: 123
-      }
+        installationId: 123,
+      },
     });
 
     return octokit.request("/").then(() => {

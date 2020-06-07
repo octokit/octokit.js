@@ -26,8 +26,8 @@ describe("Smoke tests", () => {
     const octokit = new Octokit({
       userAgent: "my-app/1.2.3",
       request: {
-        fetch: mock
-      }
+        fetch: mock,
+      },
     });
     return octokit.request("/");
   });
@@ -39,14 +39,14 @@ describe("Smoke tests", () => {
 
     const octokit = new Octokit({
       request: {
-        fetch: mock
-      }
+        fetch: mock,
+      },
     });
 
     expect(octokit.repos.get).toBeInstanceOf(Function);
     return octokit.repos.get({
       owner: "octocat",
-      repo: "hello-world"
+      repo: "hello-world",
     });
   });
 
@@ -65,14 +65,14 @@ describe("Smoke tests", () => {
       debug: jest.fn(),
       info: jest.fn(),
       warn: jest.fn(),
-      error: jest.fn()
+      error: jest.fn(),
     };
 
     const octokit = new Octokit({
       log: consoleStub,
       request: {
-        fetch: mock
-      }
+        fetch: mock,
+      },
     });
 
     return octokit

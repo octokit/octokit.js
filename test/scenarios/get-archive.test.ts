@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("get-archive", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -21,10 +21,10 @@ describe("api.github.com", () => {
         owner: "octokit-fixture-org",
         repo: "get-archive",
         archive_format: "tarball",
-        ref: "master"
+        ref: "master",
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data.byteLength).toEqual(172);
       });
   });

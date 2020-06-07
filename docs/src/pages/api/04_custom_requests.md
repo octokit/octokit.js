@@ -16,7 +16,7 @@ All the endpoint methods such as `octokit.repos.get()` are aliases of `octokit.r
 const defaultOptions = octokit.repos.get.endpoint.DEFAULTS;
 const requestOptions = octokit.repos.get.endpoint({
   owner: "octokit",
-  repo: "rest.js"
+  repo: "rest.js",
 });
 ```
 

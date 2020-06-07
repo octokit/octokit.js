@@ -5,8 +5,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("markdown", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -20,11 +20,11 @@ b597b5d`,
         context: "octokit-fixture-org/hello-world",
         mode: "gfm",
         headers: {
-          accept: "text/html"
-        }
+          accept: "text/html",
+        },
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data).toMatch(/<h3>Hello<\/h3>/);
         expect(response.data).toMatch(
           /\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/
@@ -37,8 +37,8 @@ b597b5d`,
 b597b5d`,
           headers: {
             accept: "text/html",
-            "content-type": "text/plain; charset=utf-8"
-          }
+            "content-type": "text/plain; charset=utf-8",
+          },
         });
       });
   });
@@ -52,11 +52,11 @@ b597b5d`,
         context: "octokit-fixture-org/hello-world",
         mode: "gfm",
         headers: {
-          Accept: "text/html"
-        }
+          Accept: "text/html",
+        },
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data).toMatch(/<h3>Hello<\/h3>/);
         expect(response.data).toMatch(
           /\/octokit-fixture-org\/hello-world\/commit\/b597b5d6eead8f1a9e9d3243cd70a890a6155ca8/

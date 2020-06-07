@@ -7,8 +7,8 @@ describe("api.github.com", () => {
 
   beforeEach(() => {
     return getInstance("create-file", {
-      auth: "token 0000000000000000000000000000000000000001"
-    }).then(instance => {
+      auth: "token 0000000000000000000000000000000000000001",
+    }).then((instance) => {
       octokit = instance;
     });
   });
@@ -20,10 +20,10 @@ describe("api.github.com", () => {
         repo: "create-file",
         path: "test.txt",
         message: "create test.txt",
-        content: btoa("Test content")
+        content: btoa("Test content"),
       })
 
-      .then(response => {
+      .then((response) => {
         expect(response.data.content.type).toEqual("file");
       });
   });

@@ -8,8 +8,8 @@ describe("https://github.com/octokit/rest.js/issues/861", () => {
     nock("https://issues-861-test.com", {
       reqheaders: {
         accept: "application/vnd.github.antiope-preview+json",
-        authorization: "token 123"
-      }
+        authorization: "token 123",
+      },
     })
       .post("/repos/swinton/example/check-runs")
       .reply(201, {})
@@ -17,7 +17,7 @@ describe("https://github.com/octokit/rest.js/issues/861", () => {
 
     const octokit = new Octokit({
       baseUrl: "https://issues-861-test.com",
-      auth: "token 123"
+      auth: "token 123",
     });
 
     return octokit.checks.create({
@@ -28,7 +28,7 @@ describe("https://github.com/octokit/rest.js/issues/861", () => {
       status: "completed",
       started_at: new Date().toISOString(),
       completed_at: new Date().toISOString(),
-      conclusion: "success"
+      conclusion: "success",
     });
   });
 });

@@ -11,9 +11,9 @@ await octokit.registerEndpoints({
   misc: {
     getRoot: {
       method: "GET",
-      url: "/"
-    }
-  }
+      url: "/",
+    },
+  },
 });
 ```
 
@@ -23,8 +23,8 @@ do
 Object.assign(octokit.misc, {
   getRoot: octokit.request.defaults({
     method: "GET",
-    url: "/"
-  })
+    url: "/",
+  }),
 });
 ```
 
@@ -51,31 +51,31 @@ octokit.registerEndpoints({
       method: "PATCH",
       url: "/repos/:owner/:repo/foo",
       headers: {
-        accept: "application/vnd.github.foo-bar-preview+json"
+        accept: "application/vnd.github.foo-bar-preview+json",
       },
       params: {
         owner: {
           required: true,
-          type: "string"
+          type: "string",
         },
         repo: {
           required: true,
-          type: "string"
+          type: "string",
         },
         baz: {
           required: true,
           type: "string",
-          enum: ["qux", "quux", "quuz"]
-        }
-      }
-    }
-  }
+          enum: ["qux", "quux", "quuz"],
+        },
+      },
+    },
+  },
 });
 
 octokit.foo.bar({
   owner: "octokit",
   repo: "rest.js",
-  baz: "quz"
+  baz: "quz",
 });
 ```
 
