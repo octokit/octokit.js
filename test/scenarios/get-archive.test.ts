@@ -17,7 +17,7 @@ describe("api.github.com", () => {
 
   it('octokit.repos.archive({owner: "octokit-fixture-org", repo: "get-archive"})', () => {
     return octokit.repos
-      .getArchiveLink({
+      .downloadArchive({
         owner: "octokit-fixture-org",
         repo: "get-archive",
         archive_format: "tarball",

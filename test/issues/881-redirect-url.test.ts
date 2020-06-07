@@ -24,7 +24,7 @@ describe("https://github.com/octokit/rest.js/issues/881", () => {
     });
 
     return octokit.repos
-      .getArchiveLink({
+      .downloadArchive({
         method: "HEAD",
         owner: "octocat",
         repo: "Hello-World",

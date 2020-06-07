@@ -40,7 +40,7 @@ describe("api.github.com", () => {
       .then((result) => {
         assetId = releaseId;
 
-        return octokit.repos.listAssetsForRelease({
+        return octokit.repos.listReleaseAssets({
           owner: "octokit-fixture-org",
           repo: "release-assets",
           release_id: releaseId,

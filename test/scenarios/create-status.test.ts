@@ -11,9 +11,9 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.repos.createStatus()", () => {
+  it("octokit.repos.createCommitStatus()", () => {
     return Promise.all([
-      octokit.repos.createStatus({
+      octokit.repos.createCommitStatus({
         owner: "octokit-fixture-org",
         repo: "create-status",
         sha: "0000000000000000000000000000000000000001",
@@ -22,7 +22,7 @@ describe("api.github.com", () => {
         description: "create-status failure test",
         context: "example/1",
       }),
-      octokit.repos.createStatus({
+      octokit.repos.createCommitStatus({
         owner: "octokit-fixture-org",
         repo: "create-status",
         sha: "0000000000000000000000000000000000000001",
@@ -34,7 +34,7 @@ describe("api.github.com", () => {
     ])
 
       .then(() => {
-        return octokit.repos.listStatusesForRef({
+        return octokit.repos.listCommitStatusesForRef({
           owner: "octokit-fixture-org",
           repo: "create-status",
           ref: "0000000000000000000000000000000000000001",
