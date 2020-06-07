@@ -65,7 +65,7 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.repos.removeBranchProtection({
+        return octokit.repos.deleteBranchProtection({
           owner: "octokit-fixture-org",
           repo: "branch-protection",
           branch: "master",
