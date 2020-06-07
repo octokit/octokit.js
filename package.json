@@ -61,7 +61,7 @@
     "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
     "start-fixtures-server": "octokit-fixtures-server",
-    "pretestx": "npm run -s lint",
+    "pretest": "npm run -s lint",
     "test": "jest --coverage",
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals test/typescript-validate.ts"
   },
