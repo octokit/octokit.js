@@ -90,12 +90,17 @@ module.exports = {
     {
       resolve: "gatsby-plugin-versioned-docs",
       options: {
-        currentVersion: "v17", // configure the path for the current version
+        currentVersion: "v18", // configure the path for the current version
         versions: [
           {
             name: "v16", // the path of the older version
             branch: "16.x", // older versions specify a branch name for this repo
             endpoints: "2.x", // ...and one for the endpoint methods
+          },
+          {
+            name: "v17", // the path of the older version
+            branch: "17.x", // older versions specify a branch name for this repo
+            endpoints: "3.x", // ...and one for the endpoint methods
           },
         ],
       },
