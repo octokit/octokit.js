@@ -1,5 +1,3 @@
-const upperFirst = require("lodash/upperFirst");
-
 module.exports = {
   // https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/
   pathPrefix: "/rest.js",
