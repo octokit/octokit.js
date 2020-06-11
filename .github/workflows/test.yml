@@ -6,8 +6,8 @@ name: Test
       - next
       - beta
       - dependabot/npm_and_yarn/**
-      - 15.x
       - 16.x
+      - 17.x
   pull_request:
     types:
       - opened
@@ -20,6 +20,7 @@ jobs:
         node_version:
           - 10
           - 12
+          - 14
     steps:
       - uses: actions/checkout@master
       - name: "Test with Node.js ${{ matrix.node_version }}"
