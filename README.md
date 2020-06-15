@@ -1,4 +1,5 @@
-# rest.js
+# rest 
+## rest.js
 
 > GitHub REST API client for JavaScript
 
