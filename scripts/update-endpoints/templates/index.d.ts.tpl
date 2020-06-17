@@ -320,7 +320,7 @@ export class Octokit {
     before(name: string, callback: (options: Octokit.HookOptions) => void): void
     after(name: string, callback: (response: Octokit.Response<any>, options: Octokit.HookOptions) => void): void
     error(name: string, callback: (error: Octokit.HookError, options: Octokit.HookOptions) => void): void
-    wrap(name: string, callback: (request: (options: Octokit.HookOptions) => Promise<Octokit.Response<any>>, options: Octokit.HookOptions) => void): void
+    wrap(name: string, callback: (request: (options: Octokit.HookOptions) => Promise<Octokit.Response<any>>, options: Octokit.HookOptions) => Promise<Octokit.Response<any>>): void
   }
 
   static plugin(plugin: Octokit.Plugin | Octokit.Plugin[]): Octokit.Static;

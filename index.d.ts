@@ -33704,7 +33704,7 @@ export class Octokit {
           options: Octokit.HookOptions
         ) => Promise<Octokit.Response<any>>,
         options: Octokit.HookOptions
-      ) => void
+      ) => Promise<Octokit.Response<any>>
     ): void;
   };
 
