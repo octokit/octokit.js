@@ -16,7 +16,7 @@ const octokit = new Octokit({
 const { data } = await octokit.request("/user");
 ```
 
-To use a different authentication strategy, set `options.authStrategy`. The officially supported authentication strategies are listed on the [`@octokit/auth` README](https://github.com/octokit/auth-app.js#readme).
+To use a different authentication strategy, set `options.authStrategy`. The officially supported authentication strategies are listed on the [`@octokit/auth` README](https://github.com/octokit/auth.js#readme).
 
 Here is an example for GitHub App authentication
 
