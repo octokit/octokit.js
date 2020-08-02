@@ -29,7 +29,7 @@ labels: bug
 
 **Minimal test case to reproduce the problem**
 
-<!-- Please nclude the steps to reproduce the issue. If you can, please create a reproducible test case on runkit.com. Example: https://runkit.com/gr2m/5aa034f1440b420012a6eebf -->
+<!-- Please include the steps to reproduce the issue. If you can, please create a reproducible test case on runkit.com. Example: https://runkit.com/gr2m/5aa034f1440b420012a6eebf -->
 
 **What did you expect to happen?**
 
