@@ -21,8 +21,8 @@ const octokit = new MyOctokit({
         `Request quota exhausted for request ${options.method} ${options.url}`
       );
 
-      if (options.request.retryCount === 0) {
-        // only retries once
+      // Retry twice after hitting a rate limit error and waiting for X-RateLimit-Reset, then give up
+      if (options.request.retryCount <= 2) {
         console.log(`Retrying after ${retryAfter} seconds!`);
         return true;
       }
