@@ -6,7 +6,9 @@ When you send too many requests in too little time you will likely hit errors du
 
 In order to automatically throttle requests as recommended in [GitHub’s best practices for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/), we recommend you install the [`@octokit/plugin-throttling` plugin](https://github.com/octokit/plugin-throttling.js).
 
-The `throttle.onAbuseLimit` and `throttle.onRateLimit` options are required. Return `true` to automatically retry the request after `retryAfter` seconds.
+The `throttle.onAbuseLimit` and `throttle.onRateLimit` options are required.
+
+Return `true` from these functions to automatically retry the request after `retryAfter` seconds.  Return `false` or `undefined` to skip retry and throw the error.
 
 ```js
 const { Octokit } = require("@octokit/rest");
