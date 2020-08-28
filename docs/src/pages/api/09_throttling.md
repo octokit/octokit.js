@@ -8,7 +8,7 @@ In order to automatically throttle requests as recommended in [GitHub’s best p
 
 The `throttle.onAbuseLimit` and `throttle.onRateLimit` options are required.
 
-Return `true` from these functions to automatically retry the request after `retryAfter` seconds.  Return `false` or `undefined` to skip retry and throw the error.  For rate limit errors, `retryAfter` defaults to seconds until `X-RateLimit-Reset`.  For abuse errors, `retryAfter` defaults to the `retry-after` header but is a minimum of five seconds.
+Return `true` from these functions to automatically retry the request after `retryAfter` seconds. Return `false` or `undefined` to skip retry and throw the error. For rate limit errors, `retryAfter` defaults to seconds until `X-RateLimit-Reset`. For abuse errors, `retryAfter` defaults to the `retry-after` header but is a minimum of five seconds.
 
 ```js
 const { Octokit } = require("@octokit/rest");
