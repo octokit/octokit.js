@@ -36,9 +36,9 @@ We would love you to contribute to `@octokit/rest`, pull requests are very welco
 
 ## Credits
 
-`@octokit/rest` was originally created as [`node-github`](https://www.npmjs.com/package/github) in 2012 by Mike de Boer from Cloud9 IDE, Inc.
+`@octokit/rest` was originally created as [`node-github`](https://www.npmjs.com/package/github) in 2012 by Mike de Boer from Cloud9 IDE, Inc. [The original commit](https://github.blog/2020-04-09-from-48k-lines-of-code-to-10-the-story-of-githubs-javascript-sdk/) is from 2010 which predates the npm registry.
 
-It was adopted and renamed by GitHub in 2017
+It was adopted and renamed by GitHub in 2017. Learn more about it's origin on GitHub's blog: [From 48k lines of code to 10—the story of GitHub’s JavaScript SDK](https://github.blog/2020-04-09-from-48k-lines-of-code-to-10-the-story-of-githubs-javascript-sdk/)
 
 ## LICENSE
 
