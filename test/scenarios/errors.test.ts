@@ -32,7 +32,7 @@ describe("api.github.com", () => {
           },
         ]);
         expect(error.documentation_url).toMatch(
-          new RegExp("v3/issues/labels/#create-a-label")
+          new RegExp("rest/reference/issues#create-a-label")
         );
       });
   });
