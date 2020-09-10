@@ -12,9 +12,10 @@
 4. [Hooks ⑤ & ⑨](#request)
 
 <a name="endpoint-options"></a>
+
 ## Endpoint options (① - ④)
 
-`@octokit/rest` exposes a method for each [REST API endpoint](https://developer.github.com/v3/), for example `octokit.repos.listForOrg()` for [`GET /orgs/:org/repos`](https://developer.github.com/v3/repos/#list-organization-repositories). The methods are generated in [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/). The [`src/generated/endpoints.ts` file](https://github.com/octokit/plugin-rest-endpoint-methods.js/blob/master/src/generated/endpoints.ts) defines the **② endpoint default options** `method`, `url`, and in some cases `mediaType` and `headers`.
+`@octokit/rest` exposes a method for each [REST API endpoint](https://docs.github.com/en/rest/reference/), for example `octokit.repos.listForOrg()` for [`GET /orgs/:org/repos`](https://docs.github.com/en/rest/reference/repos/#list-organization-repositories). The methods are generated in [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/). The [`src/generated/endpoints.ts` file](https://github.com/octokit/plugin-rest-endpoint-methods.js/blob/master/src/generated/endpoints.ts) defines the **② endpoint default options** `method`, `url`, and in some cases `mediaType` and `headers`.
 
 **② endpoint default options** are merged with **① global defaults**, which are based on [@octokit/endpoint/src/defaults.ts](https://github.com/octokit/endpoint.js/blob/master/src/defaults.ts) and the options that were passed into the `new Octokit(options)` constructor.
 
@@ -23,7 +24,7 @@ Both are merged with **③ user options** passed into each method. Altogether th
 **Example**: get all public repositories of the the [@octokit](https://github.com/octokit) GitHub organization.
 
 ```js
-octokit.repos.listForOrg({ org: 'octokit', type: 'public' })
+octokit.repos.listForOrg({ org: "octokit", type: "public" });
 ```
 
 **④ endpoint options** will be
@@ -74,6 +75,7 @@ octokit.repos.listForOrg({ org: 'octokit', type: 'public' })
 </table>
 
 <a name="transform"></a>
+
 ## Transform endpoint to request options (⑥ - ⑦)
 
 **④ Endpoint options** are **⑥ transformed** into **⑦ request options** using [@octokit/endpoint](https://github.com/octokit/endpoint.js).
@@ -101,6 +103,7 @@ For example, the endpoint options shown above would result in
 </table>
 
 <a name="request"></a>
+
 ## Sending a request & receiving a response ⑧ & ⑩
 
 Using **⑦ request options**, a **⑧ request** is sent to the GitHub REST API. The **⑩ response** is returned to the user.
@@ -108,6 +111,7 @@ Using **⑦ request options**, a **⑧ request** is sent to the GitHub REST API.
 Requests are sent using [`@octokit/request`](https://github.com/octokit/request.js). It's using the native fetch method in the browsers and [node-fetch](https://github.com/bitinn/node-fetch) in other environments.
 
 <a name="hooks"></a>
+
 ## Hooks ⑤ & ⑨
 
 Hooks are used to inject functionality like authentication. For example, the [request log plugin](https://github.com/octokit/plugin-request-log.js) is registering a request hook in [src/index.ts](https://github.com/octokit/plugin-request-log.js/blob/e8308e36e049946a0b1813b8b25aa28d4a6c8789/src/index.ts#L9-L35). A debug message is logged before sending the request, and an info message is logged once a response is received.
@@ -115,20 +119,20 @@ Hooks are used to inject functionality like authentication. For example, the [re
 Hooks can be registered using `octokit.hook.{before|after|error|wrap}`:
 
 ```js
-octokit.hook.before('request', async (options) => {
-  validate(options)
-})
-octokit.hook.after('request', async (response, options) => {
-  console.log(`${options.method} ${options.url}: ${response.status}`)
-})
-octokit.hook.error('request', async (error, options) => {
+octokit.hook.before("request", async (options) => {
+  validate(options);
+});
+octokit.hook.after("request", async (response, options) => {
+  console.log(`${options.method} ${options.url}: ${response.status}`);
+});
+octokit.hook.error("request", async (error, options) => {
   if (error.status === 304) {
-    return findInCache(error.headers.etag)
+    return findInCache(error.headers.etag);
   }
 
-  throw error
-})
-octokit.hook.wrap('request', async (request, options) => {})
+  throw error;
+});
+octokit.hook.wrap("request", async (request, options) => {});
 ```
 
 The methods can return a Promise for asynchronous execution. `options` can be changed in the `octokit.hook.before` callback before they are **⑥ transformed**. The **⑩ response** can be changed in the `octokit.hook.after` callback before it is returned to the user. `octokit.hook.wrap` allows to do both, or replace the original request method altogether with a custom request method.

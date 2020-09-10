@@ -58,8 +58,8 @@
   "scripts": {
     "build": "pika build",
     "coverage": "nyc report --reporter=html && open coverage/index.html",
-    "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
-    "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' README.md package.json",
+    "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' *.md package.json",
+    "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' 'docs/*.{js,json}' 'docs/src/**/*' *.md package.json",
     "start-fixtures-server": "octokit-fixtures-server",
     "pretest": "npm run -s lint",
     "test": "jest --coverage",

@@ -29,7 +29,7 @@ describe("https://github.com/octokit/rest.js/issues/1497", () => {
           "Only organization repositories can have users and team restrictions",
         ],
         documentation_url:
-          "https://developer.github.com/v3/repos/branches/#update-branch-protection",
+          "https://docs.github.com/en/rest/reference/repos/#update-branch-protection",
       });
 
     const octokit = new Octokit({

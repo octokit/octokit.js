@@ -49,7 +49,7 @@ Learn more about [authentication](#authentication).
   auth: "secret123",
 ```
 
-Setting a user agent [is required](https://developer.github.com/v3/#user-agent-required). It defaults to `octokit/rest.js v1.2.3` where `v1.2.3` is the current version of `@octokit/rest`, but you should set it to something that identifies your app or script.
+Setting a user agent [is required](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required). It defaults to `octokit/rest.js v1.2.3` where `v1.2.3` is the current version of `@octokit/rest`, but you should set it to something that identifies your app or script.
 
 ```js
   userAgent: 'myApp v1.2.3',
@@ -69,7 +69,7 @@ A default time zone can be enabled by setting the `timeZone` option.
   timeZone: 'Europe/Amsterdam',
 ```
 
-Learn more about [using time zones with the GitHub API](https://developer.github.com/v3/#using-the-time-zone-header).
+Learn more about [using time zones with the GitHub API](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#timezones).
 
 In order to use Octokit with GitHub Enterprise, set the `baseUrl` option.
 
@@ -117,7 +117,7 @@ const { data: pullRequest } = await octokit.pulls.get({
 });
 ```
 
-Some API endpoints support alternative response formats, see [Media types](https://developer.github.com/v3/media/). For example, to [request the above pull request in a diff format](https://developer.github.com/v3/media/#diff), pass the `mediaType.format` option.
+Some API endpoints support alternative response formats, see [Media types](https://docs.github.com/en/rest/overview/media-types). For example, to [request the above pull request in a diff format]((https://docs.github.com/en/rest/overview/media-types/#diff), pass the `mediaType.format` option.
 
 Learn more about [request formats](#request-formats).
 
@@ -132,7 +132,7 @@ const { data: diff } = await octokit.pulls.get({
 });
 ```
 
-For the API endpoints that do not have a matching method, such as the [root endpoint](https://developer.github.com/v3/#root-endpoint) or legacy endpoints, you can send custom requests.
+For the API endpoints that do not have a matching method, such as the [root endpoint](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#root-endpoint) or legacy endpoints, you can send custom requests.
 
 Learn more about [custom requests](#custom-requests).
 
