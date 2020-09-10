@@ -2,7 +2,7 @@
 title: "Previews"
 ---
 
-To enable any of [GitHub’s API Previews](https://developer.github.com/v3/previews/),
+To enable any of [GitHub’s API Previews](https://docs.github.com/en/rest/overview/api-previews/),
 pass the `previews` option to the GitHub constructor
 
 ```js

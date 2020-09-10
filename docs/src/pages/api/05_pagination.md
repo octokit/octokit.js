@@ -2,7 +2,7 @@
 title: "Pagination"
 ---
 
-All endpoint methods starting with `.list*` do not return all results at once but instead return the first 30 items by default, see also [GitHub’s REST API pagination documentation](https://developer.github.com/v3/#pagination).
+All endpoint methods starting with `.list*` do not return all results at once but instead return the first 30 items by default, see also [GitHub’s REST API pagination documentation](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#pagination).
 
 To automatically receive all results across all pages, you can use the `octokit.paginate()` method:
 
@@ -20,7 +20,7 @@ octokit
 
 `octokit.paginate()` accepts the same options as [`octokit.request()`](#custom-requests). You can optionally pass an additional function to map the results from each response. The map must return a new value, usually an array with mapped data.
 
-**Note:** the map function is called with the `{ data, headers, status, url }` response object. The `data` property is guaranteed to be an array of the result items, even for list endpoints that respond with an object instead of an array, such as the [search endpoints](https://developer.github.com/v3/search/#example).
+**Note:** the map function is called with the `{ data, headers, status, url }` response object. The `data` property is guaranteed to be an array of the result items, even for list endpoints that respond with an object instead of an array, such as the [search endpoints](https://docs.github.com/en/rest/reference/search/#example).
 
 ```js
 octokit

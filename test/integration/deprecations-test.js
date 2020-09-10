@@ -1075,9 +1075,9 @@ describe("deprecations", () => {
    * URL though: `/applications/:client_id/tokens/:access_token`. We identify this acception by looking
    * for this path.
    *
-   *  1. [Check an authorization](https://developer.github.com/v3/oauth_authorizations/#check-an-authorization)
-   *  2. [Reset an authorization](https://developer.github.com/v3/oauth_authorizations/#reset-an-authorization)
-   *  3. [Revoke an authorization for an application](https://developer.github.com/v3/oauth_authorizations/#revoke-an-authorization-for-an-application)
+   *  1. [Check an authorization](https://docs.github.com/en/rest/reference/apps/#check-an-authorization)
+   *  2. [Reset an authorization](https://docs.github.com/en/rest/reference/apps/#reset-an-authorization)
+   *  3. [Revoke an authorization for an application](https://docs.github.com/en/rest/reference/apps/#revoke-an-authorization-for-an-application)
    */
   it("OAuth client & secret to check authorization", () => {
     nock("https://authentication-test-host.com", {
