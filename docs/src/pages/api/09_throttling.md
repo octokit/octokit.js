@@ -4,7 +4,7 @@ title: "Throttling"
 
 When you send too many requests in too little time you will likely hit errors due to rate and/or abuse limits.
 
-In order to automatically throttle requests as recommended in [GitHub’s best practices for integrators](https://docs.github.com/en/rest/reference/guides/best-practices-for-integrators/), we recommend you install the [`@octokit/plugin-throttling` plugin](https://github.com/octokit/plugin-throttling.js).
+In order to automatically throttle requests as recommended in [GitHub’s best practices for integrators](https://docs.github.com/en/rest/guides/best-practices-for-integrators), we recommend you install the [`@octokit/plugin-throttling` plugin](https://github.com/octokit/plugin-throttling.js).
 
 The `throttle.onAbuseLimit` and `throttle.onRateLimit` options are required.
 
