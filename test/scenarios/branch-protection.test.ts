@@ -16,7 +16,7 @@ describe("api.github.com", () => {
       .getBranchProtection({
         owner: "octokit-fixture-org",
         repo: "branch-protection",
-        branch: "master",
+        branch: "main",
       })
 
       .catch((error) => {
@@ -31,7 +31,7 @@ describe("api.github.com", () => {
         return octokit.repos.updateBranchProtection({
           owner: "octokit-fixture-org",
           repo: "branch-protection",
-          branch: "master",
+          branch: "main",
           required_status_checks: null,
           required_pull_request_reviews: null,
           restrictions: null,
@@ -43,7 +43,7 @@ describe("api.github.com", () => {
         return octokit.repos.updateBranchProtection({
           owner: "octokit-fixture-org",
           repo: "branch-protection",
-          branch: "master",
+          branch: "main",
           required_status_checks: {
             strict: true,
             contexts: ["foo/bar"],
@@ -68,7 +68,7 @@ describe("api.github.com", () => {
         return octokit.repos.deleteBranchProtection({
           owner: "octokit-fixture-org",
           repo: "branch-protection",
-          branch: "master",
+          branch: "main",
         });
       });
   });
