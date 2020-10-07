@@ -21,7 +21,7 @@ describe("api.github.com", () => {
         owner: "octokit-fixture-org",
         repo: "get-archive",
         archive_format: "tarball",
-        ref: "master",
+        ref: "main",
       })
 
       .then((response) => {
