@@ -7,7 +7,7 @@ Authentication is optional for some REST API endpoints accessing public data, bu
 GitHub supports different authentication strategies:
 
 1. **Personal access token** ([create](https://github.com/settings/tokens/new)). This is the default authentication strategy. Set the `options.auth` option to the token in `new Octokit(options)`. Learn more about the built-in [`@octokit/auth-token` authentication strategy](https://github.com/octokit/auth-token.js).
-2. **OAuth Apps**: authenticate using user access token created by an OAuth app, to which you granted selected permissions, or as the OAuth App itsel (OAuth using `client_id` and `client_secret`). Learn more about the optional [`@octokit/auth-oauth-app` authentication strategy](https://github.com/octokit/auth-oauth-app.js)
+2. **OAuth Apps**: authenticate using user access token created by an OAuth app, to which you granted selected permissions, or as the OAuth App itself (OAuth using `client_id` and `client_secret`). Learn more about the optional [`@octokit/auth-oauth-app` authentication strategy](https://github.com/octokit/auth-oauth-app.js)
 3. **GitHub Apps**: authenticate using an installation access token or as GitHub App itself. Learn more about the optional [`@octokit/auth-app` authentication strategy](https://github.com/octokit/auth-app.js/).
 4. **GitHub Actions**: authenticate using the `GITHUB_TOKEN` secret which is provided to GitHub Actions Workflows. Learn more about the optional [`@octokit/auth-action` authentication strategy](https://github.com/octokit/auth-action.js).
 
