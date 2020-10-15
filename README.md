@@ -5,16 +5,38 @@
 [![@latest](https://img.shields.io/npm/v/@octokit/rest.svg)](https://www.npmjs.com/package/@octokit/rest)
 [![Build Status](https://github.com/octokit/rest.js/workflows/Test/badge.svg)](https://github.com/octokit/rest.js/actions?query=workflow%3ATest+branch%3Amaster)
 
-## Installation
+## Usage
 
-```shell
-npm install @octokit/rest
+<table>
+<tbody valign=top align=left>
+<tr><th>
+Browsers
+</th><td width=100%>
+Load <code>@octokit/rest</code> directly from <a href="https://cdn.pika.dev">cdn.pika.dev</a>
+        
+```html
+<script type="module">
+import { Octokit } from "https://cdn.pika.dev/@octokit/rest";
+</script>
 ```
 
-## Usage
+</td></tr>
+<tr><th>
+Node
+</th><td>
+
+Install with <code>npm install @octokit/rest</code>
 
 ```js
 const { Octokit } = require("@octokit/rest");
+// or: import { Octokit } from "@octokit/rest";
+```
+
+</td></tr>
+</tbody>
+</table>
+
+```js
 const octokit = new Octokit();
 
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
