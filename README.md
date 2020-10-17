@@ -12,11 +12,11 @@
 <tr><th>
 Browsers
 </th><td width=100%>
-Load <code>@octokit/rest</code> directly from <a href="https://cdn.pika.dev">cdn.pika.dev</a>
+Load <code>@octokit/rest</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
         
 ```html
 <script type="module">
-import { Octokit } from "https://cdn.pika.dev/@octokit/rest";
+import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
 </script>
 ```
 
