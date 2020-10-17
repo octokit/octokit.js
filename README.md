@@ -53,11 +53,11 @@ The `octokit` package integrates the three main Octokit libraries
 <tr><th>
 Browsers
 </th><td width=100%>
-Load <code>octokit</code> directly from <a href="https://cdn.pika.dev">cdn.pika.dev</a>
+Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
         
 ```html
 <script type="module">
-import { Octokit, App } from "https://cdn.pika.dev/octokit";
+import { Octokit, App } from "https://cdn.skypack.dev/octokit";
 </script>
 ```
 
@@ -68,7 +68,7 @@ Deno
 Load <code>octokit</code> directly from <a href="https://cdn.pika.dev">cdn.pika.dev</a>
         
 ```ts
-import { Octokit, App, Action } from "https://cdn.pika.dev/octokit";
+import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit";
 ```
 
 </td></tr>
@@ -299,7 +299,7 @@ if (code) {
 **TODO:** create a `@octokit/oauth-client` module which does the above automagically. Here is how it could work:
 
 ```js
-import { createOAuthClientAuth } from "https://cdn.pika.dev/@octokit/auth-oauth-client";
+import { createOAuthClientAuth } from "https://cdn.skypack.dev/@octokit/auth-oauth-client";
 const auth = createOAuthClientAuth({
   // all options are optional
   baseUrl: "/api/github/oauth",
