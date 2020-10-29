@@ -107,7 +107,7 @@ const octokit = new Octokit({ auth: `personal-access-token123` });
 octokit.repos
   .listForOrg({
     org: "octokit",
-    type: "private"
+    type: "private",
   })
   .then(({ data }) => {
     // handle data
@@ -174,18 +174,52 @@ import { createServer } from "http";
 
 const app = new App({ id, privateKey });
 
+// retrieve information as the app
+const { data } = await app.request("/app");
+console.log("authenticated as %s app (%s)", data.name, data.html_url);
+
 // iterate trough all repositories the app has access to and create a dispatch event
 // https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
-for await (const repo of app.eachRepository.iterator()) {
-  await repo.createDispatchEvent({
+for await (const { octokit, repository } of app.eachRepository.iterator()) {
+  await octokit.rest.repos.createDispatchEvent({
+    owner: repository.owner.login,
+    repo: repository.name,
     event_type: "my_event",
     client_payload: {
-      foo: "bar"
-    }
+      foo: "bar",
+    },
   });
-  console.log("Event distpatched for %s", repo.full_name);
+  console.log("Event distpatched for %s", repository.full_name);
 }
 ```
+
+The app can also iterate through repositories using a callback API instead
+
+```js
+await app.eachRepository(({ octokit, repository }) => /* ... */)
+```
+
+The app can iterate the same way through all installations
+
+```js
+for await (const { octokit, installation } of app.eachInstallation.iterator()) { /* ... */ }
+await app.eachInstallation(({ octokit, installation }) => /* ... */)
+```
+
+The app can retrieve an octokit instance for a specific installation
+
+```js
+const { octokit, installation } = await app.asInstallation(123)
+await app.asInstallation(123, ({ octokit, installation }) => /* ... */)
+```
+
+When sending any request that requires an installation access token, the app attempts to derive the installation from the request
+
+```js
+const { data } = app.rest.repos.get({ owner: "octokit", repo: "octokit.js" });
+```
+
+The above request will [retrieve the installation for the `octokit/octokit.js` repository](https://docs.github.com/en/free-pro-team@latest/rest/reference/apps#get-a-repository-installation-for-the-authenticated-app) and cache it for future requests to the same repository or the `octokit` org. It will then create an installation access token and cache that as well. Then it will use the retrieved token to authenticate the `GET /repos/octokit/octokit.js` request.
 
 ### Webhooks
 
@@ -195,11 +229,15 @@ See https://github.com/octokit/webhooks.js/.
 import { App } from "octokit";
 
 const app = new App({
-  webhooks: { secret }
+  webhooks: { secret },
 });
 
-app.webhooks.on("issue.opened", ({ repo }) => {
-  return repo.issues.createComment({ body: "Hello, World!" });
+app.webhooks.on("issue.opened", ({ octokit, payload }) => {
+  return octokit.rest.issues.createComment({
+    owner: payload.repository.owner.login,
+    repo: payload.repository.name,
+    body: "Hello, World!",
+  });
 });
 
 app.webhooks.verifyAndReceive({ id, name, payload, signature });
@@ -211,11 +249,15 @@ app.webhooks.verifyAndReceive({ id, name, payload, signature });
 import { App, getNodeMiddleware } from "octokit";
 
 const app = new App({
-  webhooks: { secret }
+  webhooks: { secret },
 });
 
-app.webhooks.on("issue.opened", ({ repo }) => {
-  return repo.issues.createComment({ body: "Hello, World!" });
+app.webhooks.on("issue.opened", ({ octokit, payload }) => {
+  return octokit.rest.issues.createComment({
+    owner: payload.repository.owner.login,
+    repo: payload.repository.name,
+    body: "Hello, World!",
+  });
 });
 
 require("http")
@@ -235,7 +277,7 @@ import { App } from "octokit";
 
 const app = new App({ clientId, clientSecret });
 const { url } = app.getAuthorizationUrl({
-  state: "state123"
+  state: "state123",
 });
 // url looks like this: https://github.com/login/oauth/authorize?client_id=...
 // "state123" is a random string that you need to store for verification later
@@ -312,9 +354,9 @@ const auth = createOAuthClientAuth({
     const response = await fetch(baseUrl + "/token", {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
       },
-      body: JSON.stringify(code)
+      body: JSON.stringify(code),
     });
     const { token, scopes } = await response.json();
     return { token, scopes };
@@ -322,18 +364,18 @@ const auth = createOAuthClientAuth({
   checkToken: async (token, { baseUrl }) => {
     await fetch(baseUrl + "/token", {
       headers: {
-        authorization: "token " + token
+        authorization: "token " + token,
       },
-      body: JSON.stringify(code)
+      body: JSON.stringify(code),
     });
   },
   resetToken: async (token, { baseUrl }) => {
     const response = await fetch(baseUrl + "/token", {
       method: "fetch",
       headers: {
-        authorization: "token " + token
+        authorization: "token " + token,
       },
-      body: JSON.stringify(code)
+      body: JSON.stringify(code),
     });
     const { token } = await response.json();
     return { token };
@@ -342,18 +384,18 @@ const auth = createOAuthClientAuth({
     await fetch(baseUrl + "/token", {
       method: "delete",
       headers: {
-        authorization: "token " + token
+        authorization: "token " + token,
       },
-      body: JSON.stringify(code)
+      body: JSON.stringify(code),
     });
   },
   deleteAuthorization: async (token, { baseUrl }) => {
     await fetch(baseUrl + "/grant", {
       method: "delete",
       headers: {
-        authorization: "token " + token
+        authorization: "token " + token,
       },
-      body: JSON.stringify(code)
+      body: JSON.stringify(code),
     });
   },
   // persist authentication in local store
@@ -367,7 +409,7 @@ const auth = createOAuthClientAuth({
     },
     async del(key) {
       localStorage.removeItem(key);
-    }
+    },
   },
   // persist code verification state in local store
   // set to false to disable persistance
@@ -380,8 +422,8 @@ const auth = createOAuthClientAuth({
     },
     async del(key) {
       localStorage.removeItem(key);
-    }
-  }
+    },
+  },
 });
 
 // retrieve token using `createToken()`
