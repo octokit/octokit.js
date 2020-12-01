@@ -2,7 +2,7 @@
 title: "Debug"
 ---
 
-The simplest way to receive debug information is to set the [`log` client option](client-options) to `console`.
+The simplest way to receive debug information is to set the `log` client option to `console`.
 
 ```js
 const octokit = require("@octokit/rest")({
