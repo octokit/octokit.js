@@ -106,35 +106,35 @@ export default async function () {
 
   // request & endpoint
   octokit.request("/");
-  octokit.request("GET /repos/:owner/:repo/issues", {
+  octokit.request("GET /repos/{owner}/{repo}/issues", {
     owner: "octokit",
     repo: "rest.js",
   });
   octokit.request({
     method: "GET",
-    url: "/repos/:owner/:repo/issues",
+    url: "/repos/{owner}/{repo}/issues",
     owner: "octokit",
     repo: "rest.js",
   });
   octokit.request.endpoint("/");
-  octokit.request.endpoint("GET /repos/:owner/:repo/issues", {
+  octokit.request.endpoint("GET /repos/{owner}/{repo}/issues", {
     owner: "octokit",
     repo: "rest.js",
   });
   octokit.request.endpoint({
     method: "GET",
-    url: "/repos/:owner/:repo/issues",
+    url: "/repos/{owner}/{repo}/issues",
     owner: "octokit",
     repo: "rest.js",
   });
   octokit.request.endpoint.merge({ foo: "bar" });
   octokit.request.endpoint
     .defaults({ owner: "octokit", repo: "rest.js" })
-    .merge({ method: "GET", url: "/repos/:owner/:repo/issues" });
+    .merge({ method: "GET", url: "/repos/{owner}/{repo}/issues" });
 
   // pagination
   octokit
-    .paginate("GET /repos/:owner/:repo/issues", {
+    .paginate("GET /repos/{owner}/{repo}/issues", {
       owner: "octokit",
       repo: "rest.js",
     })
@@ -144,7 +144,7 @@ export default async function () {
 
   octokit
     .paginate(
-      "GET /repos/:owner/:repo/issues",
+      "GET /repos/{owner}/{repo}/issues",
       { owner: "octokit", repo: "rest.js" },
       (response) => response.data.map((issue) => issue.title)
     )
@@ -238,7 +238,7 @@ export default async function () {
         name: "bug",
         url: "",
       },
-      status: 201,
+      status: 200,
       url: "",
     };
   }

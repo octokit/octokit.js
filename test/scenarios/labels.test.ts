@@ -57,10 +57,6 @@ describe("api.github.com", () => {
           repo: "labels",
           name: "test-label-updated",
         });
-      })
-
-      .then((result) => {
-        expect(result.data).toEqual(undefined);
       });
   });
 });

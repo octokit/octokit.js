@@ -137,7 +137,7 @@ describe("deprecations", () => {
     expect(url).to.equal(
       "https://api.github.com/repos/octocat/hello-world/issues/123"
     );
-    expect(options.url).to.equal("/repos/:owner/:repo/issues/:issue_number");
+    expect(options.url).to.equal("/repos/{owner}/{repo}/issues/{issue_number}");
     expect("number" in options).to.equal(false);
     expect(options.issue_number).to.equal(123);
     expect(warnCalledCount).to.equal(2);
@@ -1072,7 +1072,7 @@ describe("deprecations", () => {
   /**
    * There is a special case for OAuth applications, when `clientId` and `clientSecret` is passed as
    * Basic Authorization instead of query parameters. The only routes where that applies share the same
-   * URL though: `/applications/:client_id/tokens/:access_token`. We identify this acception by looking
+   * URL though: `/applications/{client_id}/tokens/{access_token}`. We identify this acception by looking
    * for this path.
    *
    *  1. [Check an authorization](https://docs.github.com/en/rest/reference/apps/#check-an-authorization)
@@ -1107,15 +1107,15 @@ describe("deprecations", () => {
 
     return Promise.all([
       octokit.request(
-        "GET /applications/:client_id/tokens/:access_token",
+        "GET /applications/{client_id}/tokens/{access_token}",
         options
       ),
       octokit.request(
-        "POST /applications/:client_id/tokens/:access_token",
+        "POST /applications/{client_id}/tokens/{access_token}",
         options
       ),
       octokit.request(
-        "DELETE /applications/:client_id/tokens/:access_token",
+        "DELETE /applications/{client_id}/tokens/{access_token}",
         options
       ),
     ]);

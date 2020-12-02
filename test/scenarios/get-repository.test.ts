@@ -19,6 +19,7 @@ describe("api.github.com", () => {
       })
 
       .then((response) => {
+        // @ts-ignore unclear what causes "Object is possibly 'null'" TypeScript error
         expect(response.data.owner.login).toEqual("octokit-fixture-org");
       });
   });

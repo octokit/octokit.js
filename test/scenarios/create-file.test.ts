@@ -24,6 +24,7 @@ describe("api.github.com", () => {
       })
 
       .then((response) => {
+        // @ts-ignore https://github.com/github/rest-api-description/issues/107
         expect(response.data.content.type).toEqual("file");
       });
   });

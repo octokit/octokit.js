@@ -177,7 +177,7 @@ describe("pagination", () => {
     const iterator = octokit.paginate
       .iterator({
         method: "GET",
-        url: "/orgs/:org",
+        url: "/orgs/{org}",
         org: "myorg",
       })
       [Symbol.asyncIterator]();

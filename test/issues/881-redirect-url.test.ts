@@ -24,15 +24,15 @@ describe("https://github.com/octokit/rest.js/issues/881", () => {
     });
 
     return octokit.repos
-      .downloadArchive({
+      .downloadTarballArchive({
         method: "HEAD",
         owner: "octocat",
         repo: "Hello-World",
-        archive_format: "tarball",
         ref: "master",
       })
 
       .then((response) => {
+        // @ts-ignore https://github.com/octokit/types.ts/issues/211
         expect(response.url).toEqual(
           "https://issue-881-codeload.github.com/octocat/Hello-World/legacy.tar.gz/master"
         );
