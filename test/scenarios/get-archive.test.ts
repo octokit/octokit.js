@@ -15,16 +15,16 @@ describe("api.github.com", () => {
     return it.skip("octokit.repos.archive() (#758)");
   }
 
-  it('octokit.repos.archive({owner: "octokit-fixture-org", repo: "get-archive"})', () => {
+  it('octokit.repos.downloadTarballArchive({owner: "octokit-fixture-org", repo: "get-archive"})', () => {
     return octokit.repos
-      .downloadArchive({
+      .downloadTarballArchive({
         owner: "octokit-fixture-org",
         repo: "get-archive",
-        archive_format: "tarball",
         ref: "main",
       })
 
       .then((response) => {
+        // @ts-ignore https://github.com/octokit/types.ts/issues/211
         expect(response.data.byteLength).toEqual(172);
       });
   });

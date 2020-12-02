@@ -39,7 +39,7 @@ describe("registerEndpoints", () => {
               type: "string",
             },
           },
-          url: "/repos/:owner/:repo/issues/:issue_number",
+          url: "/repos/{owner}/{repo}/issues/{issue_number}",
         },
       },
     });

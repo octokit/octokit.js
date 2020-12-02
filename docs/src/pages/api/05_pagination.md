@@ -8,7 +8,7 @@ To automatically receive all results across all pages, you can use the `octokit.
 
 ```js
 octokit
-  .paginate("GET /repos/:owner/:repo/issues", {
+  .paginate("GET /repos/{owner}/{repo}/issues", {
     owner: "octokit",
     repo: "rest.js",
   })
@@ -25,7 +25,7 @@ octokit
 ```js
 octokit
   .paginate(
-    "GET /repos/:owner/:repo/issues",
+    "GET /repos/{owner}/{repo}/issues",
     { owner: "octokit", repo: "rest.js" },
     (response) => response.data.map((issue) => issue.title)
   )

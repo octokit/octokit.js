@@ -49,7 +49,7 @@ octokit.registerEndpoints({
   foo: {
     bar: {
       method: "PATCH",
-      url: "/repos/:owner/:repo/foo",
+      url: "/repos/{owner}/{repo}/foo",
       headers: {
         accept: "application/vnd.github.foo-bar-preview+json",
       },
