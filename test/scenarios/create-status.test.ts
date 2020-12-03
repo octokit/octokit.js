@@ -42,6 +42,7 @@ describe("api.github.com", () => {
       })
 
       .then((response) => {
+        // @ts-ignore type error likely caused by tempoaray workaround at https://github.com/octokit/types.ts/blob/2f664bcc543c0dd668645571839475f39f8c8b4b/scripts/update-endpoints/templates/endpoints.ts.template#L97-L99
         expect(response.data.length).toEqual(2);
 
         return octokit.repos.getCombinedStatusForRef({

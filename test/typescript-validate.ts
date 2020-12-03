@@ -134,22 +134,22 @@ export default async function () {
 
   // pagination
   octokit
-    .paginate("GET /repos/{owner}/{repo}/issues", {
+    .paginate("GET /repos/{owner}/{repo}/labels", {
       owner: "octokit",
       repo: "rest.js",
     })
-    .then((issues) => {
-      // issues is an array of all issue objects
+    .then((labels) => {
+      // labels is an array of all issue objects
     });
 
   octokit
     .paginate(
-      "GET /repos/{owner}/{repo}/issues",
+      "GET /repos/{owner}/{repo}/labels",
       { owner: "octokit", repo: "rest.js" },
-      (response) => response.data.map((issue) => issue.title)
+      (response) => response.data.map((label) => label.name)
     )
-    .then((issueTitles) => {
-      // issueTitles is now an array with the titles only
+    .then((labelNames) => {
+      // labelNames is now an array with the names only
     });
 
   const options = octokit.issues.listForRepo.endpoint.merge({
