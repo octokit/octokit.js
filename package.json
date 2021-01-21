@@ -17,5 +17,10 @@
   },
   "devDependencies": {
     "prettier": "^1.19.1"
+  },
+  "renovate": {
+    "extends": [
+      "github>octokit/.github"
+    ]
   }
 }
