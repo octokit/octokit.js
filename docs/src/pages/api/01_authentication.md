@@ -36,7 +36,7 @@ const { createAppAuth } = require("@octokit/auth-app");
 const appOctokit = new Octokit({
   authStrategy: createAppAuth,
   auth: {
-    id: 123,
+    appId: 123,
     privateKey: process.env.PRIVATE_KEY,
     // optional: this will make appOctokit authenticate as app (JWT)
     //           or installation (access token), depending on the request URL
