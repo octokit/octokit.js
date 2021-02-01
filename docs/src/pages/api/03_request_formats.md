@@ -2,9 +2,9 @@
 title: "Request formats & aborts"
 ---
 
-Some API endpoints support alternative response formats, see [Media types](https://docs.github.com/en/rest/reference/media/).
+Some API endpoints support alternative response formats, see [Media types](https://docs.github.com/en/rest/overview/media-types).
 
-For example, to request a [pull request as diff format](https://docs.github.com/en/rest/reference/media/#diff), set the `mediaType.format` option
+For example, to request a [pull request as diff format](https://docs.github.com/en/rest/overview/media-types#commits-commit-comparison-and-pull-requests), set the `mediaType.format` option
 
 ```js
 const { data: prDiff } = await octokit.pulls.get({

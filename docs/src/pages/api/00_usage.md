@@ -119,7 +119,7 @@ const { data: pullRequest } = await octokit.pulls.get({
 
 Some API endpoints support alternative response formats, see [Media types](https://docs.github.com/en/rest/overview/media-types). For example, to [request the above pull request in a diff format](https://docs.github.com/en/rest/overview/media-types/#diff), pass the `mediaType.format` option.
 
-Learn more about [request formats](#request-formats).
+Learn more about [request formats](#request-formats-aborts).
 
 ```js
 const { data: diff } = await octokit.pulls.get({
