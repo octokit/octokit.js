@@ -35,7 +35,7 @@
     "@octokit/core": "^3.2.3",
     "@octokit/plugin-paginate-rest": "^2.6.2",
     "@octokit/plugin-request-log": "^1.0.2",
-    "@octokit/plugin-rest-endpoint-methods": "4.10.1"
+    "@octokit/plugin-rest-endpoint-methods": "4.10.2"
   },
   "devDependencies": {
     "@octokit/auth": "^3.0.1",
