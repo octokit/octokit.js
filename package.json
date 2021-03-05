@@ -1,15 +1,14 @@
 {
   "name": "octokit",
   "version": "1.0.0-hello-world",
-  "description": "🏗️ Work in Progress 🔜 Official GitHub Platform client for Node.js & Browsers",
-  "homepage": "https://github.com/octokit/octokit.js/pull/2",
+  "description": "ðï¸ Work in Progress ð Official GitHub Platform client for Node.js & Browsers",
   "keywords": [
     "github",
     "api",
     "sdk"
   ],
   "author": "Gregor Martynus (https://github.com/gr2m)",
-  "repository": "https://github.com/octokit/octokit.js",
+  "repository": "github:octokit/octokit.js",
   "license": "MIT",
   "scripts": {
     "lint": "prettier --check README.md",
