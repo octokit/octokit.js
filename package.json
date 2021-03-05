@@ -30,7 +30,7 @@
       "url": "https://github.com/gr2m"
     }
   ],
-  "repository": "https://github.com/octokit/rest.js",
+  "repository": "github:octokit/rest.js",
   "dependencies": {
     "@octokit/core": "^3.2.3",
     "@octokit/plugin-paginate-rest": "^2.6.2",
