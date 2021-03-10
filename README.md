@@ -338,7 +338,7 @@ if (code) {
 
 <a name="todo-oauth-client"></a>
 
-**TODO:** create a `@octokit/oauth-client` module which does the above automagically. Here is how it could work:
+**TODO:** create the `@octokit/auth-oauth-client` module which does the above automagically. Here is how it could work:
 
 ```js
 import { createOAuthClientAuth } from "https://cdn.skypack.dev/@octokit/auth-oauth-client";
