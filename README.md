@@ -260,9 +260,7 @@ app.webhooks.on("issue.opened", ({ octokit, payload }) => {
   });
 });
 
-require("http")
-  .createServer(getNodeMiddleware(app))
-  .listen(3000);
+require("http").createServer(getNodeMiddleware(app)).listen(3000);
 // Can now retrieve GitHub webhooks /api/github/webhooks
 ```
 
@@ -302,9 +300,7 @@ app.oauth.on("token", ({ token, octokit }) => {
   // client is a pre-authorized `octokit` instance
 });
 
-require("http")
-  .createServer(getNodeMiddleware(app))
-  .listen(3000);
+require("http").createServer(getNodeMiddleware(app)).listen(3000);
 // e.g. `GET /api/github/oauth/login?state=state123` redirects to https://github.com/login/oauth/authorize?client_id=abc4567&state=state123
 ```
 

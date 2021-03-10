@@ -15,7 +15,7 @@
     "lint:fix": "prettier --write README.md"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.0"
   },
   "renovate": {
     "extends": [
