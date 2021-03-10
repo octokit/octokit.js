@@ -456,7 +456,7 @@ await {
 });
 
 // - Sign in (redirects to OAuth authorization page): {type: "signIn"}
-// - Exchange the OAuth code for token: {type: "createToken", token: "..."}
+// - Exchange the OAuth code for token: {type: "createToken", code: "..."}
 // - Verify current token: {type: "checkToken"}
 // - Delete and invalidate token: {type: "deleteToken"}
 // - Delete without invalidation: {type: "deleteToken", offline: true}
