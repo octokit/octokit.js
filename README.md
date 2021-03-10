@@ -323,10 +323,18 @@ if (code) {
     location.search.replace(/\b(code|state)=\w+/g, "").replace(/[?&]+$/, "");
   history.pushState({}, "", path);
 
-  // see below
-  await octokit.auth({ type: "createToken", code });
-
-  // octokit is now authenticated
+  // exchange the code for a token with your backend.
+  // If you use https://github.com/octokit/oauth-app.js
+  // the exchange would look something like this
+  const response = await fetch("/api/github/oauth/token", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ code }),
+  });
+  const { token } = await response.json();
+  // `token` is the OAuth Access Token that can be use
 }
 ```
 
@@ -350,7 +358,16 @@ const auth = createOAuthClientAuth({
   signIn() {
     location.href = "/login";
   },
-  async createToken(authentication, { code }) {
+  async createToken(authentication) {
+    const code = new URL(location.href).searchParams.get("code");
+    if (!code) throw new Error("?code query parameter is not set");
+
+    // remove ?code=... from URL
+    const path =
+      location.pathname +
+      location.search.replace(/\b(code|state)=\w+/g, "").replace(/[?&]+$/, "");
+    history.pushState({}, "", path);
+
     const response = await fetch(baseUrl + "/token", {
       method: "POST",
       headers: {
