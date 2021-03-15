@@ -93,7 +93,7 @@ export default async function () {
 
   const findInCache = (etag: string) => ({ hello: "world" });
   octokit.hook.error("request", async (error, options) => {
-    if (error.status === 304) {
+    if ("status" in error && error.status === 304) {
       return findInCache(error.headers.etag);
     }
 
