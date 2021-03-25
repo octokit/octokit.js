@@ -1,11 +1,12 @@
 {
   "name": "octokit",
-  "version": "1.0.0-hello-world",
-  "description": "ðï¸ Work in Progress ð Official GitHub Platform client for Node.js & Browsers",
+  "version": "0.0.0-development",
+  "description": "The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno",
   "keywords": [
     "github",
     "api",
-    "sdk"
+    "sdk",
+    "octokit"
   ],
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "repository": "github:octokit/octokit.js",
