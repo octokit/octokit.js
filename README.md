@@ -124,7 +124,7 @@ TBD, See
 TBD, See
 
 1. https://github.com/octokit/core.js#authentication
-1. https://github.com/octokit/auth.js#readme
+1. https://github.com/octokit/authentication-strategies.js#readme
 
 ### REST API
 
