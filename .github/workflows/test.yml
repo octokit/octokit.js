@@ -1,0 +1,35 @@
+name: Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  test_matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: ["12", "14"]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: npm test
+
+  test:
+    runs-on: ubuntu-latest
+    needs: test_matrix
+    steps:
+      - run: echo ok
