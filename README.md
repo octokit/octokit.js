@@ -32,7 +32,8 @@ The `octokit` package integrates the three main Octokit libraries
   - [GitHub App](#github-app)
   - [Webhooks](#webhooks)
   - [OAuth](#oauth)
-    - [OAuth login for browser apps](#oauth-login-for-browser-apps)
+  - [App Server](#app-server)
+  - [OAuth for browser apps](#oauth-for-browser-apps)
 - [Action client](#action-client)
 - [LICENSE](#license)
 
