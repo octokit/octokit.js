@@ -18,22 +18,21 @@ The `octokit` package integrates the three main Octokit libraries
 
 - [Features](#features)
 - [Usage](#usage)
-- [API Client](#api-client)
-  - [Options](#options)
+- [`Octokit` API Client](#octokit-api-client)
+  - [Constructor options](#constructor-options)
   - [Authentication](#authentication)
   - [REST API](#rest-api)
     - [Arbitrary requests](#arbitrary-requests)
     - [Endpoint methods](#endpoint-methods)
     - [Pagination](#pagination)
-    - [Media Types](#media-types)
+    - [Media Type previews and formats](#media-type-previews-and-formats)
   - [GraphQL API queries](#graphql-api-queries)
+    - [Schema previews](#schema-previews)
 - [App client](#app-client)
   - [GitHub App](#github-app)
   - [Webhooks](#webhooks)
-    - [Node server example](#node-server-example)
-  - [OAuth App](#oauth-app)
-    - [Node server example](#node-server-example-1)
-    - [OAuth browser example](#oauth-browser-example)
+  - [OAuth](#oauth)
+    - [OAuth login for browser apps](#oauth-login-for-browser-apps)
 - [Action client](#action-client)
 - [LICENSE](#license)
 
@@ -41,10 +40,11 @@ The `octokit` package integrates the three main Octokit libraries
 
 ## Features
 
-- **Compatible**. Works in all modern browsers, [Node.js](https://nodejs.org/), and [Deno](https://deno.land/).
+- **Complete**. All features of GitHub's platform APIs are covered.
+- **Prescriptive**. All recommended best practises are implemented.
+- **Universal**. Works in all modern browsers, [Node.js](https://nodejs.org/), and [Deno](https://deno.land/).
 - **Tested**. All libraries have a 100% test coverage.
 - **Typed**. All libraries have extensive TypeScript declarations.
-- **Complete**. All features of GitHub's platform APIs are covered. All recommended best practises are implemented.
 - **Decomposable**. Use only the code you need. You can build your own Octokit in only a few lines of code or use the underlying static methods. Make your own tradeoff between functionality and bundle size.
 - **Extendable**. A feature missing? Add functionalities with plugins, hook into the request or webhook lifecycle or implement your own authentication strategy.
 
@@ -99,96 +99,476 @@ const { Octokit, App, Action } = require("octokit");
 </tbody>
 </table>
 
-## API Client
+## `Octokit` API Client
+
+**standalone minimal Octokit**: [`@octokit/core`](https://github.com/octokit/core.js/#readme).
+
+The `Octokit` client can be used to send requests to [GitHub's REST API](docs.github.com/rest/) and queries to [GitHub's GraphQL API](docs.github.com/graphql).
+
+**Example**: Get the username for the authenticated user.
 
 ```js
 // Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
 const octokit = new Octokit({ auth: `personal-access-token123` });
 
-// Compare: https://docs.github.com/en/rest/reference/repos#list-organization-repositories
-const { data } = await octokit.repos.listForOrg({
-  org: "octokit",
-  type: "private",
+// Compare: https://docs.github.com/en/rest/reference/users#get-the-authenticated-user
+const {
+  data: { login },
+} = await octokit.users.getAuthenticated();
+console.log("Hello, %s", login);
+```
+
+### Constructor options
+
+The most commonly used options are
+
+<table>
+  <thead align=left>
+    <tr>
+      <th>
+        name
+      </th>
+      <th>
+        type
+      </th>
+      <th width=100%>
+        description
+      </th>
+    </tr>
+  </thead>
+  <tbody align=left valign=top>
+    <tr>
+      <th>
+        <code>userAgent</code>
+      </th>
+      <td>
+        <code>String</code>
+      </td>
+      <td>
+
+Setting a user agent is required for all requests sent to GitHub's Platform APIs. The user agent defaults to something like this: `octokit.js/v1.2.3 Node.js/v8.9.4 (macOS High Sierra; x64)`. It is recommend to set your own user agent, which will prepend the default one.
+
+```js
+const octokit = new Octokit({
+  userAgent: "my-app/v1.2.3",
 });
 ```
 
-### Options
+</td>
+    </tr>
+    <tr>
+      <th>
+        <code>authStrategy</code>
+      </th>
+      <td>
+        <code>Function<code>
+      </td>
+      <td>
 
-TBD, See
+Defaults to [`@octokit/auth-token`](https://github.com/octokit/auth-token.js#readme).
 
-1. https://github.com/octokit/core.js#options
-2. Throttling options: https://github.com/octokit/plugin-throttling.js/
+See [Authentication](#authentication) below.
+
+</td>
+    </tr>
+    <tr>
+      <th>
+        <code>auth</code>
+      </th>
+      <td>
+        <code>String</code> or <code>Object</code>
+      </td>
+      <td>
+
+Set to a [personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) unless you changed the `authStrategy` option.
+
+See [Authentication](#authentication) below.
+
+</td>
+    </tr>
+    <tr>
+      <th>
+        <code>baseUrl</code>
+      </th>
+      <td>
+        <code>String</code>
+      </td>
+      <td>
+
+When using with GitHub Enterprise Server, set `options.baseUrl` to the root URL of the API. For example, if your GitHub Enterprise Server's hostname is `github.acme-inc.com`, then set `options.baseUrl` to `https://github.acme-inc.com/api/v3`. Example
+
+```js
+const octokit = new Octokit({
+  baseUrl: "https://github.acme-inc.com/api/v3",
+});
+```
+
+</td>
+    </tr>
+  </tbody>
+</table>
+
+Advanced options
+
+<table>
+  <thead align=left>
+    <tr>
+      <th>
+        name
+      </th>
+      <th>
+        type
+      </th>
+      <th width=100%>
+        description
+      </th>
+    </tr>
+  </thead>
+  <tbody align=left valign=top>
+    <tr>
+      <th>
+        <code>request</code>
+      </th>
+      <td>
+        <code>Object</code>
+      </td>
+      <td>
+
+- `request.signal`: Use an [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) instance to cancel a request. [`abort-controller`](https://www.npmjs.com/package/abort-controller) is an implementation for Node.
+- `request.fetch`: Replacement for [built-in fetch method](https://github.com/bitinn/node-fetch). Useful for testing with [`fetch-mock`](https://github.com/wheresrhys/fetch-mock)
+
+Node only
+
+- `request.timeout` sets a request timeout, defaults to 0
+- `request.agent`: A [`http(s).Agent`](https://nodejs.org/api/http.html#http_class_http_agent) e.g. for proxy usage
+
+The `request` option can also be set on a per-request basis.
+
+</td></tr>
+    <tr>
+      <th>
+        <code>timeZone</code>
+      </th>
+      <td>
+        <code>String</code>
+      </td>
+      <td>
+
+Sets the `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
+```js
+const octokit = new Octokit({
+  timeZone: "America/Los_Angeles",
+});
+```
+
+The time zone header will determine the timezone used for generating the timestamp when creating commits. See [GitHub's Timezones documentation](https://developer.github.com/v3/#timezones).
+
+</td>
+    </tr>
+    <tr>
+      <th>
+        <code>throttle</code>
+      </th>
+      <td>
+        <code>Object</code>
+      </td>
+      <td>
+
+`Octokit` implements request throttling using [`@octokit/plugin-throttling`](https://github.com/octokit/plugin-throttling.js/#readme)
+
+By default, requests are retried once and warnings are logged in case hitting a rate or abuse limit
+
+```js
+{
+  onRateLimit: (retryAfter, options, octokit) => {
+    octokit.log.warn(
+      `Request quota exhausted for request ${options.method} ${options.url}`
+    );
+
+    if (options.request.retryCount === 0) {
+      // only retries once
+      octokit.log.info(`Retrying after ${retryAfter} seconds!`);
+      return true;
+    }
+  },
+  onAbuseLimit: (retryAfter, options, octokit) => {
+    octokit.log.warn(
+      `Abuse detected for request ${options.method} ${options.url}`
+    );
+
+    if (options.request.retryCount === 0) {
+      // only retries once
+      octokit.log.info(`Retrying after ${retryAfter} seconds!`);
+      return true;
+    }
+  },
+};
+```
+
+Throttling in a cluster is supported using a Redis backend. See [`@octokit/plugin-throttling` Clustering](https://github.com/octokit/plugin-throttling.js/#clustering)
+
+</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Authentication
 
-TBD, See
+By default, the `Octokit` API client supports authentication using a static token.
 
-1. https://github.com/octokit/core.js#authentication
-1. https://github.com/octokit/authentication-strategies.js#readme
+There are different means of authentication that are supported by GitHub, that are described in detail at [octokit/authentication-strategies.js](https://github.com/octokit/authentication-strategies.js/#readme). You can set each of them as the `authStrategy` constructor option, and pass the strategy options as the `auth` constructor option.
+
+For example, in order to authenticate as a GitHub App Installation:
+
+```js
+import { createAppAuth } from "@octokit/auth-app";
+const octokit = new Octokit({
+  authStrategy: createAppAuth,
+  auth: {
+    appId: 1,
+    privateKey: "-----BEGIN PRIVATE KEY-----\n...",
+    installationId: 123,
+  },
+});
+
+// authenticates as app based on request URLs
+const {
+  data: { slug },
+} = await octokit.apps.getAuthenticated();
+
+// creates an installation access token as needed
+// assumes that installationId 123 belongs to @octocat, otherwise the request will fail
+await octokit.issues.create({
+  owner: "octocat",
+  repo: "hello-world",
+  title: "Hello world from " + slug,
+});
+```
+
+In most cases you can use the [`App`](#github-app) or [`OAuthApp`](#oauth-app) SDK which provide APIs and internal wiring to cover most usecase.
+
+For example, to implement the above using `App`
+
+```js
+const app = new App({ appId, privateKey });
+const { data: slug } = await app.octokit.apps.getAuthenticated();
+const { octokit } = await app.getInstallationOctokit(123);
+await octokit.issues.create({
+  owner: "octocat",
+  repo: "hello-world",
+  title: "Hello world from " + slug,
+});
+```
+
+Learn more about [how authentication strategies work](https://github.com/octokit/authentication-strategies.js/#how-authentication-strategies-work) or how to [create your own](https://github.com/octokit/authentication-strategies.js/#create-your-own-octokit-authentication-strategy-module).
 
 ### REST API
 
 #### Arbitrary requests
 
+**standalone method**: [`@octokit/request`](https://github.com/octokit/request.js#readme)
+
+An http request can be sent using `octokit.request`. It's API is matching GitHub's REST API documentation 1:1.
+
+Example: [Create an issue](https://docs.github.com/en/rest/reference/issues#create-an-issue)
+
+[![Screenshot of REST API reference documentation for Create an issue](assets/create-an-issue-reference.png)](https://docs.github.com/en/rest/reference/issues#create-an-issue)
+
+The according API to send the request with an `octokit` instance:
+
 ```js
-// See https://docs.github.com/en/rest/reference/repos#list-organization-repositories
-const response = await octokit.request("GET /orgs/{org}/repos", {
-  org: "octokit",
-  type: "private",
+await octokit.request("POST /repos/{owner}/{repo}/issues", {
+  owner: "octocat",
+  repo: "hello-world",
+  title: "Hello, world!",
+  body: "I created this issue using Octokit!",
 });
 ```
 
+The request is authenticated, retried, and throttled transparently by the `octokit` instance. The `accept` and `user-agent` headers are set as well.
+
+The 1st argument is the REST API route as listed in GitHub's API documentation. The 2nd argument is an object with all parameters, independent of whether they are used in the path, query, or body.
+
+See the standalone [`@octokit/request`](https://github.com/octokit/request.js#readme) module for more details on the `.request()` APIs.
+
+If you only need the request options, but want to send the actual request using your own method, use `octokit.request.endpoint(route, parameters)`. See the standalone [`@octokit/endpoint`](https://github.com/octokit/endpoint.js#readme) module for more details on the `.endpoint()` APIs.
+
 #### Endpoint methods
 
-TBD, see https://octokit.github.io/rest.js/
+**plugin**: [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/#readme).
+
+Every REST API endpoint has an according method for better code readability and developer convenience.
+
+Example: [Create an issue](https://docs.github.com/en/rest/reference/issues#create-an-issue)
 
 ```js
-octokit.rest.repos.listForOrg({ org: "octokit" });
+await octokit.rest.issues.create({
+  owner: "octocat",
+  repo: "hello-world",
+  title: "Hello, world!",
+  body: "I created this issue using Octokit!",
+});
 ```
+
+The REST API endpoint methods are generated automatically from [GitHub's OpenAPI specification](https://github.com/github/rest-api-description/). We track operation ID or parameter name changes in order to implement deprecation warnings and reduce the frequency of breaking changes.
+
+Every endpoint method is an instance of `octokit.request` with defaults set, so it supports the same parameters as well as the `.endpoint()` API.
 
 #### Pagination
 
-TBD, see https://github.com/octokit/plugin-paginate-rest.js
+**plugin**: [`@octokit/plugin-paginate-rest`](https://github.com/octokit/plugin-paginate-rest.js/#readme).
 
-#### Media Types
+All `octokit.rest.*.list*` endpoints return the first 30 items by default. If you want to retrieve all items, you an use the pagination API.
 
-TBD
+Example: iterate through all issues in a repository
+
+```js
+const iterator = octokit.paginate.iterator(octokit.rest.issues.listForRepo, {
+  owner: "octocat",
+  repo: "hello-world",
+  per_page: 100,
+});
+
+// iterate through each response
+for await (const { data: issues } of iterator) {
+  for (const issue of issues) {
+    console.log("Issue #%d: %s", issue.number, issue.title);
+  }
+}
+```
+
+Using the [async iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) is the most memory efficient way to iterate through all items. But you can also retrieve all items in a single call
+
+```js
+const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
+  owner: "octocat",
+  repo: "hello-world",
+  per_page: 100,
+});
+```
+
+#### Media Type previews and formats
+
+Media type previews and formats can be set using `mediaType: { format, previews }` on every request. Required API previews are set automatically on the respective REST API endpoint methods.
+
+Example: retrieve the raw content of a `package.json` file
+
+```js
+const { data } = octokit.rest.repos.getContent({
+  mediaType: {
+    format: "raw",
+  },
+  owner: "octocat",
+  repo: "hello-world",
+  path: "package.json",
+});
+console.log("package name: %s", JSON.parse(data).name);
+```
+
+Examaple: retrieve a repository with topics
+
+```js
+const { data } = octokit.rest.repos.getContent({
+  mediaType: {
+    previews: ["mercy"],
+  },
+  owner: "octocat",
+  repo: "hello-world",
+});
+console.log("topics on octocat/hello-world: %j", data.topics);
+```
+
+Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [API previews](https://docs.github.com/en/rest/overview/api-previews).
 
 ### GraphQL API queries
 
-See https://github.com/octokit/graphql.js/
+**standalone method**: [`@octokit/gpraphql`](https://github.com/octokit/gpraphql.js#readme)
+
+Example: get the login of the authenticated user
 
 ```js
-octokit.graphql(`{
+const {
+  viewer: { login },
+} = await octokit.graphql(`{
   viewer {
     login
   }
 }`);
 ```
 
+Variables can be passed as 2nd argument
+
+```js
+const { lastIssues } = await octokit.graphql(
+  `
+    query lastIssues($owner: String!, $repo: String!, $num: Int = 3) {
+      repository(owner: $owner, name: $repo) {
+        issues(last: $num) {
+          edges {
+            node {
+              title
+            }
+          }
+        }
+      }
+    }
+  `,
+  {
+    owner: "octokit",
+    repo: "graphql.js",
+  }
+);
+```
+
+#### Schema previews
+
+Previews can be enabled using the `{mediaType: previews: [] }` option.
+
+Example: create a label
+
+```js
+await octokit.graphql(
+  `mutation createLabel($repositoryId:ID!,name:String!,color:String!) {
+  createLabel(input:{repositoryId:$repositoryId,name:$name}) {
+    label: {
+      id
+    }
+  }
+}`,
+  {
+    repositoryId: 1,
+    name: "important",
+    color: "cc0000",
+  }
+);
+```
+
+Learn more about [GitHub's GraphQL schema previews](https://docs.github.com/en/graphql/overview/schema-previews)
+
 ## App client
 
-Combines features for
-
-- GitHub Apps
-- Webhooks
-- OAuth
+The `App` client combines features for GitHub Apps, Webhooks, and OAuth
 
 ### GitHub App
 
+**Standalone module**: [`@octokit/app`](https://github.com/octokit/app.js/#readme)
+
+For integrators, GitHub Apps are a means of authentication and authorization. A GitHub app can be registered on a GitHub user or organization account. A GitHub App registration defines a set of permissions and webhooks events it wants to receive and provides a set of credentials in return. Users can grant access to repositories by installing them.
+
+Some API endpoints require the GitHub app to authenticate as itself using a JSON Web Token (JWT). For requests affecting an installation, an installation access token has to be created using the app's credentials and the installation ID.
+
+The `App` client takes care of all that for you.
+
+Example: Dispatch a repository event in every repository the app is installed on
+
 ```js
 import { App } from "octokit";
-import { createServer } from "http";
 
 const app = new App({ appId, privateKey });
 
-// retrieve information as the app
-const { data } = await app.request("/app");
-console.log("authenticated as %s app (%s)", data.name, data.html_url);
-
-// iterate trough all repositories the app has access to and create a dispatch event
-// https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
 for await (const { octokit, repository } of app.eachRepository.iterator()) {
+  // https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
   await octokit.rest.repos.createDispatchEvent({
     owner: repository.owner.login,
     repo: repository.name,
@@ -201,59 +581,25 @@ for await (const { octokit, repository } of app.eachRepository.iterator()) {
 }
 ```
 
-The app can also iterate through repositories using a callback API instead
+Example: Get an `octokit` instance authenticated as an installation
 
 ```js
-await app.eachRepository(({ octokit, repository }) => /* ... */)
+const octokit = await app.getInstallationOctokit(123);
 ```
 
-The app can iterate the same way through all installations
-
-```js
-for await (const { octokit, installation } of app.eachInstallation.iterator()) { /* ... */ }
-await app.eachInstallation(({ octokit, installation }) => /* ... */)
-```
-
-The app can retrieve an octokit instance for a specific installation
-
-```js
-const { octokit, installation } = await app.asInstallation(123)
-await app.asInstallation(123, ({ octokit, installation }) => /* ... */)
-```
-
-When sending any request that requires an installation access token, the app attempts to derive the installation from the request
-
-```js
-const { data } = app.rest.repos.get({ owner: "octokit", repo: "octokit.js" });
-```
-
-The above request will [retrieve the installation for the `octokit/octokit.js` repository](https://docs.github.com/en/free-pro-team@latest/rest/reference/apps#get-a-repository-installation-for-the-authenticated-app) and cache it for future requests to the same repository or the `octokit` org. It will then create an installation access token and cache that as well. Then it will use the retrieved token to authenticate the `GET /repos/octokit/octokit.js` request.
+Learn more about [apps](https://docs.github.com/apps).
 
 ### Webhooks
 
-See https://github.com/octokit/webhooks.js/.
+**Standalone module**: [`@octokit/webhooks`](https://github.com/octokit/webhooks.js/#readme)
 
-```js
-import { App } from "octokit";
+When installing an app, events that the app registration requests will be sent as requests to the webhook URL set in the app's registration.
 
-const app = new App({
-  appId,
-  privateKey,
-  webhooks: { secret },
-});
+Webhook event requests are signed using the webhook secret, which is also part of the app's registration. You must verify that secret before handling the request payload.
 
-app.webhooks.on("issue.opened", ({ octokit, payload }) => {
-  return octokit.rest.issues.createComment({
-    owner: payload.repository.owner.login,
-    repo: payload.repository.name,
-    body: "Hello, World!",
-  });
-});
+The `app.webhooks.*` APIs provide methods to receiving, verifying, and handling webhook events.
 
-app.webhooks.verifyAndReceive({ id, name, payload, signature });
-```
-
-#### Node server example
+Exmaple: create a comment on new issues
 
 ```js
 import { App, createNodeMiddleware } from "octokit";
@@ -272,13 +618,26 @@ app.webhooks.on("issue.opened", ({ octokit, payload }) => {
   });
 });
 
+// Your app can now receive webhook events at `/api/github/webhooks`
 require("http").createServer(createNodeMiddleware(app)).listen(3000);
-// Can now retrieve GitHub webhooks /api/github/webhooks
 ```
 
-### OAuth App
+For serverless environments, you can explicitly verify and receive an event
 
-See https://github.com/octokit/oauth-app.js/.
+```js
+await app.webhooks.verifyAndReceive({
+  id: request.headers["x-github-delivery"],
+  name: request.headers["x-github-event"],
+  signature: request.headers["x-hub-signature-256"],
+  payload: request.body,
+});
+```
+
+Learn more about [GitHub webhooks](https://docs.github.com/webhooks).
+
+### OAuth
+
+**Standalone module:** [`@octokit/oauth-app`](https://github.com/octokit/oauth-app.js/#readme)
 
 Both OAuth Apps and GitHub Apps support authenticating GitHub users using OAuth, see [Authorizing OAuth Apps](https://docs.github.com/en/developers/apps/authorizing-oauth-apps) and [Identifying and authorizing users for GitHub Apps](https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps).
 
@@ -290,47 +649,125 @@ There are some differences:
 
 `App` is for GitHub Apps. If you need OAuth App-specific functionality, use [`OAuthApp` instead](https://github.com/octokit/oauth-app.js/).
 
-```js
-import { App } from "octokit";
-
-const app = new App({ clientId, clientSecret });
-
-app.oauth.on("token", ({ token, octokit }) => {
-  // token is the OAuth access token itself
-  // client is a pre-authorized `octokit` instance
-});
-
-// create token using GitHub's OAuth Device flow
-app.oauth.createToken({
-  onVerification({ user_token, verification_uri }) {
-    console.log("Please enter %s at %s", user_token, verifcation_url);
-  },
-});
-```
-
-#### Node server example
+Example: Watch a repository when a user logs in using the OAuth web flow
 
 ```js
 import { App, createNodeMiddleware } from "octokit";
 
-const app = new App({ clientId, clientSecret });
-
-app.oauth.on("token.created", ({ token, octokit }) => {
-  // token is the OAuth access token itself
-  // `octokit` is authenticated using the token.
+const app = new App({
+  oauth: { clientId, clientSecret },
 });
 
+app.oauth.on("token.created", async ({ token, octokit }) => {
+  await octokit.rest.activity.setRepoSubscription({
+    owner: "octocat",
+    repo: "hello-world",
+    subscribed: true,
+  });
+});
+
+// Your app can receive the OAuth redirect at /api/github/oauth/callback
+// Users can initiate the OAuth web flow by opening /api/oauth/login
 require("http").createServer(createNodeMiddleware(app)).listen(3000);
-// e.g. `GET /api/github/oauth/login?state=state123` redirects to https://github.com/login/oauth/authorize?client_id=abc4567&state=state123
 ```
 
-After the user authenticated, they get redirected to the `(User) Authorization callback URL` which is configured in the app's settings. If you set it to `<your apps domain>/api/github/oauth/callback`, then a `"token"` event gets emitted automatically.
+For serverless environments, you can explicitly exchange the `code` from the OAuth web flow redircet for an access token.
+`app.oauth.createToken()` returns an authentication object and emits the "token.created" event.
 
-#### OAuth browser example
+```js
+const { token } = await app.oauth.createToken({
+  code: request.query.code,
+});
+```
+
+Example: create a token using the device flow.
+
+```js
+const { token } = await app.oauth.createToken({
+  async onVerification(verification) {
+    await sendMessageToUser(
+      request.body.phoneNumber,
+      `Your code is ${verification.user_code}. Enter it at ${verification.verification_uri}`
+    );
+  },
+});
+```
+
+Example: Create an OAuth App Server with default scopes
+
+```js
+import { OAuthApp, createNodeMiddleware } from "octokit";
+
+const app = new OAuthApp({
+  clientId,
+  clientSecret,
+  defaultScopes: ["repo", "gist"],
+});
+
+app.oauth.on("token", async ({ token, octokit }) => {
+  await octokit.rest.gists.create({
+    description: "I created this gist using Octokit!",
+    public: true,
+    files: {
+      "example.js": `/* some code here */`,
+    },
+  });
+});
+
+// Your app can receive the OAuth redirect at /api/github/oauth/callback
+// Users can initiate the OAuth web flow by opening /api/oauth/login
+require("http").createServer(createNodeMiddleware(app)).listen(3000);
+```
+
+### App Server
+
+After registering your GitHub app, you need to create and deploy a server which can retrieve the webhook event requests from GitHub as well as accept redirects from the OAuth user web flow.
+
+The simplest way to create such a server is to use `createNodeMiddleware()`, it works with both, Node's [`http.createServer()`](https://nodejs.org/api/http.html#http_http_createserver_options_requestlistener) method as well as an [Express middleware](https://expressjs.com/en/guide/using-middleware.html).
+
+The default routes that the middleware exposes are
+
+| Route                                   | Route Description                                                                                                                                                                                                                                                                                                                                                             |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST /api/github/webhooks`             | Endpoint to receive GitHub Webhook Event requests                                                                                                                                                                                                                                                                                                                             |
+| `GET /api/github/oauth/login`           | Redirects to GitHub's authorization endpoint. Accepts optional `?state` and `?scopes` query parameters. `?scopes` is a comma-separated list of [supported OAuth scope names](https://docs.github.com/en/developers/apps/scopes-for-oauth-apps#available-scopes)                                                                                                               |
+| `GET /api/github/oauth/callback`        | The client's redirect endpoint. This is where the `token` event gets triggered                                                                                                                                                                                                                                                                                                |
+| `POST /api/github/oauth/token`          | Exchange an authorization code for an OAuth Access token. If successful, the `token` event gets triggered.                                                                                                                                                                                                                                                                    |
+| `GET /api/github/oauth/token`           | Check if token is valid. Must authenticate using token in `Authorization` header. Uses GitHub's [`POST /applications/{client_id}/token`](https://docs.github.com/en/rest/reference/apps#check-a-token) endpoint                                                                                                                                                               |
+| `PATCH /api/github/oauth/token`         | Resets a token (invalidates current one, returns new token). Must authenticate using token in `Authorization` header. Uses GitHub's [`PATCH /applications/{client_id}/token`](https://docs.github.com/en/rest/reference/apps#reset-a-token) endpoint.                                                                                                                         |
+| `PATCH /api/github/oauth/refresh-token` | Refreshes an expiring token (invalidates current one, returns new access token and refresh token). Must authenticate using token in `Authorization` header. Uses GitHub's [`POST https://github.com/login/oauth/access_token`](https://docs.github.com/en/developers/apps/refreshing-user-to-server-access-tokens#renewing-a-user-token-with-a-refresh-token) OAuth endpoint. |
+| `POST /api/github/oauth/token/scoped`   | Creates a scoped token (does not invalidate the current one). Must authenticate using token in `Authorization` header. Uses GitHub's [`POST /applications/{client_id}/token/scoped`](https://docs.github.com/en/rest/reference/apps#create-a-scoped-access-token) endpoint.                                                                                                   |
+| `DELETE /api/github/oauth/token`        | Invalidates current token, basically the equivalent of a logout. Must authenticate using token in `Authorization` header.                                                                                                                                                                                                                                                     |
+| `DELETE /api/github/oauth/grant`        | Revokes the user's grant, basically the equivalent of an uninstall. must authenticate using token in `Authorization` header.                                                                                                                                                                                                                                                  |
+
+Example: create a GitHub server with express
+
+```js
+import express from "express";
+import { App, createNodeMiddleware } from "octokit";
+
+const expressApp = express();
+const octokitApp = new OAuthApp({
+  appId,
+  privateKey,
+  webhooks: { secret },
+  oauth: { clientId, clientSecret },
+});
+
+expressApp.use(createNodeMiddleware(app));
+
+expressApp.listen(3000, () => {
+  console.log(`Example app listening at http://localhost:3000`);
+});
+```
+
+### OAuth for browser apps
+
+You must not expose your app's client secret to the user, so you cannot use the `App` constructor. Instead, you have to a server using the `App` constructor which exposes the `/api/github/oauth/*` routes, through which you can safely implement an OAuth login for apps running in a web browser.
 
 If you set `(User) Authorization callback URL` to your own app, than you need to read out the `?code=...&state=...` query parameters, compare the `state` parameter to the value returned by `app.oauthLoginUrl()` earlier to protect against forgery attacks, then exchange the `code` for an OAuth Authorization token.
 
-If you use `createNodeMiddleware()`, the default route to do that is `POST /api/github/oauth/token`.
+If you run an [app server](#app-server) as described above, the default route to do that is `POST /api/github/oauth/token`.
 
 Once you successfully retrieved the token, it is also recommended to remove the `?code=...&state=...` query parameters from the browser's URL
 
@@ -355,18 +792,26 @@ if (code) {
   });
   const { token } = await response.json();
   // `token` is the OAuth Access Token that can be use
+
+  const { Octokit } = await import("https://cdn.skypack.dev/@octokit/core");
+  const octokit = new Octokit({ auth: token });
+
+  const {
+    data: { login },
+  } = octokit.request("GET /user");
+  alert("Hi there, " + login);
 }
 ```
 
-<a name="todo-oauth-client"></a>
+🚧 We are working on [`@octokit/auth-oauth-user-client`](https://github.com/octokit/auth-oauth-user-client.js#readme) to provide a simple API for all methods related to OAuth user tokens.
 
-We are working on [`@octokit/auth-oauth-user-client`](https://github.com/octokit/auth-oauth-user-client.js#readme) to make the above possible and provide a simple API for all methods related to OAuth user tokens
-
-**TODO:** Add a new `/api/github/oauth/octokit.js` URL the node middleware which will return a pre-authenticated `octokit` client.
+The plan is to add an new `GET /api/github/oauth/octokit.js` route to the node middleware which will return a JavaScript file that can be imported into an HTML file. It will make a pre-authenticated `octokit` Instance available.
 
 ## Action client
 
-TBD, see https://github.com/octokit/action.js
+**standalone module:** [`@octokit/action`](https://github.com/octokit/action.js#readme)
+
+🚧 A fully fledged `Action` client is pending. You can use [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) for the time being
 
 ## LICENSE
 
