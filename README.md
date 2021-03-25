@@ -4,7 +4,7 @@ There is no code. This repository is documentation only, laying out what the fin
 
 # octokit.js
 
-> The all-batteries-included Octokit SDK for Browser, Node.js, and Deno.
+> The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno.
 
 The `octokit` package integrates the three main Octokit libraries
 
@@ -360,149 +360,9 @@ if (code) {
 
 <a name="todo-oauth-client"></a>
 
-**TODO:** create the `@octokit/auth-oauth-user-client` module which can exchange the OAuth code for a token and much more. Here is how it could work:
+We are working on [`@octokit/auth-oauth-user-client`](https://github.com/octokit/auth-oauth-user-client.js#readme) to make the above possible and provide a simple API for all methods related to OAuth user tokens
 
-```js
-import { createOAuthClientAuth } from "https://cdn.skypack.dev/@octokit/auth-oauth-client";
-const auth = createOAuthClientAuth({
-  // default functions to to create/check/reset/refresh/delete token and to delete authorization for the app
-  async getSession(authentication) {
-    if (authentication.token) {
-      return {
-        ...authentication,
-        isSignedIn: true,
-      };
-    }
-    return { isSigned: false };
-  },
-  signIn() {
-    location.href = "/login";
-  },
-  async createToken(authentication) {
-    const code = new URL(location.href).searchParams.get("code");
-    if (!code) throw new Error("?code query parameter is not set");
-
-    // remove ?code=... from URL
-    const path =
-      location.pathname +
-      location.search.replace(/\b(code|state)=\w+/g, "").replace(/[?&]+$/, "");
-    history.pushState({}, "", path);
-
-    const response = await fetch(baseUrl + "/token", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ code }),
-    });
-    return response.json();
-  },
-  async checkToken({ token }) {
-    return fetch(baseUrl + "/token", {
-      headers: {
-        authorization: "token " + token,
-      },
-    }).then(
-      () => true,
-      (error) => {
-        if (error.status === 404) return false;
-        throw error;
-      }
-    );
-  },
-  async resetToken({ token }) {
-    const response = await fetch(baseUrl + "/token", {
-      method: "fetch",
-      headers: {
-        authorization: "token " + token,
-      },
-    });
-    return response.json();
-  },
-  async refreshToken({ token, refreshToken }) {
-    const response = await fetch(baseUrl + "/token", {
-      method: "fetch",
-      headers: {
-        authorization: "token " + token,
-      },
-      body: JSON.stringify({ refreshToken }),
-    });
-    return response.json();
-  },
-  async deleteToken({ token }, { offline }) {
-    if (offline) return;
-    await fetch(baseUrl + "/token", {
-      method: "delete",
-      headers: {
-        authorization: "token " + token,
-      },
-    });
-  },
-  async deleteAuthorization({ token }) {
-    await fetch(baseUrl + "/grant", {
-      method: "delete",
-      headers: {
-        authorization: "token " + token,
-      },
-    });
-  },
-  // persist authentication in local store
-  // set to false to disable persistance
-  authStore: {
-    async get(key) {
-      return JSON.parse(localStorage.getItem(key));
-    },
-    async set(key, authentication) {
-      localStorage.setItem(key, JSON.stringify(authentication));
-    },
-    async del(key) {
-      localStorage.removeItem(key);
-    },
-  },
-  // persist code verification state in local store
-  // set to false to disable persistance
-  stateStore: {
-    async get(key) {
-      return localStorage.getItem(key);
-    },
-    async set(key, state) {
-      localStorage.setItem(key, state);
-    },
-    async del(key) {
-      localStorage.removeItem(key);
-    },
-  },
-});
-
-// retrieve token using `createToken({ type: "getSession" })`
-// if ?code=... parameter is not set and authentication cannot be retrievd from the local store,
-// then `token` is undefined and `isSignedIn` is set to false`
-// `type` is either `app` or `oauth-app`.
-// `scopes` is only set for OAuth apps.
-// `refreshToken` and `exprisesAt` is only set for GitHub apps, only only when enabled.
-await {
-  token,
-  type,
-  isSignedIn,
-  createdAt,
-  scopes,
-  refreshToken,
-  expiresAt,
-} = await auth({
-  type: "getSession",
-});
-
-// - Sign in (redirects to OAuth authorization page): {type: "signIn"}
-// - Exchange the OAuth code for token: {type: "createToken", code: "..."}
-// - Verify current token: {type: "checkToken"}
-// - Delete and invalidate token: {type: "deleteToken"}
-// - Delete without invalidation: {type: "deleteToken", offline: true}
-// - Reset a token, pass {type: "resetToken"}
-// - Revoke access for the OAuth App, pass {type: "deleteAuthorization"}
-```
-
-**TODO:** Add a new `/api/github/oauth/client.js` URL the node middleware which will return a pre-authenticated `octokit` client.
-You can use `octokit.auth()` to check if a user is signed in, trigger the oauth sign in or sign the user out.
+**TODO:** Add a new `/api/github/oauth/octokit.js` URL the node middleware which will return a pre-authenticated `octokit` client.
 
 ## Action client
 
