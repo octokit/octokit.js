@@ -14,7 +14,7 @@ octokit
   })
   .then((issues) => {
     // issues is an array of all issue objects. It is not wrapped in a { data, headers, status, url } object
-    // like results from `octokit.request()` or any of the endpoint methods such as `octokit.issues.listForRepo()`
+    // like results from `octokit.request()` or any of the endpoint methods such as `octokit.rest.issues.listForRepo()`
   });
 ```
 
@@ -45,11 +45,11 @@ octokit.paginate("GET /organizations", (response, done) => {
 });
 ```
 
-To paginate responses for one of the registered endpoint methods such as `octokit.issues.listForRepo()` you can pass the method directly as first argument to `octokit.paginate`:
+To paginate responses for one of the registered endpoint methods such as `octokit.rest.issues.listForRepo()` you can pass the method directly as first argument to `octokit.paginate`:
 
 ```js
 octokit
-  .paginate(octokit.issues.listForRepo, {
+  .paginate(octokit.rest.issues.listForRepo, {
     owner: "octokit",
     repo: "rest.js",
   })
@@ -62,7 +62,7 @@ If your runtime environment supports async iterators (such as most modern browse
 
 ```js
 for await (const response of octokit.paginate.iterator(
-  octokit.issues.listForRepo,
+  octokit.rest.issues.listForRepo,
   {
     owner: "octokit",
     repo: "rest.js",

@@ -11,8 +11,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it('octokit.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
-    return octokit.repos
+  it('octokit.rest.repos.get({owner: "octokit-fixture-org", repo: "hello-world"})', () => {
+    return octokit.rest.repos
       .get({
         owner: "octokit-fixture-org",
         repo: "hello-world",

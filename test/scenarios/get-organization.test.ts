@@ -10,8 +10,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it('octokit.orgs.get({owner: "octokit-fixture-org"})', () => {
-    return octokit.orgs
+  it('octokit.rest.orgs.get({owner: "octokit-fixture-org"})', () => {
+    return octokit.rest.orgs
       .get({ org: "octokit-fixture-org" })
 
       .then((response) => {

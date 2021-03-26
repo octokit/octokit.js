@@ -16,7 +16,7 @@ Previews can also be enabled for a single request by passing the `mediaType.prev
 ```js
 const {
   data: { topics },
-} = await octokit.repos.get({
+} = await octokit.rest.repos.get({
   owner: "octokit",
   repo: "rest.js",
   mediaType: {

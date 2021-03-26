@@ -40,7 +40,7 @@ const { Octokit } = require("@octokit/rest");
 const octokit = new Octokit();
 
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
-octokit.repos
+octokit.rest.repos
   .listForOrg({
     org: "octokit",
     type: "public",
@@ -50,7 +50,7 @@ octokit.repos
   });
 ```
 
-See https://octokit.github.io/rest.js/ for full documentation.
+See https://octokit.rest.github.io/rest.js/ for full documentation.
 
 ## Contributing
 

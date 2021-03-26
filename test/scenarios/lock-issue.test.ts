@@ -11,8 +11,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.issues.{lock,unlock}()", () => {
-    return octokit.issues
+  it("octokit.rest.issues.{lock,unlock}()", () => {
+    return octokit.rest.issues
       .lock({
         owner: "octokit-fixture-org",
         repo: "lock-issue",
@@ -20,7 +20,7 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.issues.unlock({
+        return octokit.rest.issues.unlock({
           owner: "octokit-fixture-org",
           repo: "lock-issue",
           issue_number: 1,

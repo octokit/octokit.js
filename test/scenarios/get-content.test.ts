@@ -11,8 +11,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.repos.getContent()", () => {
-    return octokit.repos
+  it("octokit.rest.repos.getContent()", () => {
+    return octokit.rest.repos
       .getContent({
         owner: "octokit-fixture-org",
         repo: "hello-world",
@@ -26,7 +26,7 @@ describe("api.github.com", () => {
 
         expect(response.data.length).toEqual(1);
 
-        return octokit.repos.getContent({
+        return octokit.rest.repos.getContent({
           owner: "octokit-fixture-org",
           repo: "hello-world",
           path: "README.md",

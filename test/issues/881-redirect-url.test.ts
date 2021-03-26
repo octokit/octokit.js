@@ -23,7 +23,7 @@ describe("https://github.com/octokit/rest.js/issues/881", () => {
       },
     });
 
-    return octokit.repos
+    return octokit.rest.repos
       .downloadTarballArchive({
         method: "HEAD",
         owner: "octocat",

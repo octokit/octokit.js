@@ -42,7 +42,7 @@ function myPlugin(octokit, options) {
 
 ---
 
-You can register custom endpoint methods such as `octokit.repos.get()` using the `octokit.registerEndpoints(routes)` method
+You can register custom endpoint methods such as `octokit.rest.repos.get()` using the `octokit.registerEndpoints(routes)` method
 
 ```js
 octokit.registerEndpoints({
