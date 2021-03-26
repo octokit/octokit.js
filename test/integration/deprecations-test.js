@@ -659,7 +659,7 @@ describe("deprecations", () => {
         expect(authentication).to.deep.equal({
           type: "deprecated",
           message:
-            'Setting the "new Octokit({ auth })" option to an object without also setting the "authStrategy" option is deprecated and will be removed in v17. See (https://octokit.rest.github.io/rest.js/#authentication)',
+            'Setting the "new Octokit({ auth })" option to an object without also setting the "authStrategy" option is deprecated and will be removed in v17. See (https://octokit.github.io/rest.js/#authentication)',
         });
       });
   });
