@@ -1,7 +1,3 @@
-# 🚧 THIS IS WORK IN PROGRESS
-
-There is no code. This repository is documentation only, laying out what the final `octokit` package should look like.
-
 # octokit.js
 
 > The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno.
