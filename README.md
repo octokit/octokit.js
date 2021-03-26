@@ -50,7 +50,7 @@ octokit.rest.repos
   });
 ```
 
-See https://octokit.rest.github.io/rest.js/ for full documentation.
+See https://octokit.github.io/rest.js for full documentation.
 
 ## Contributing
 
