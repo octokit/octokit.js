@@ -11,8 +11,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.repos.get() with previous name (https://github.com/cypress-io/cypress/issues/1314)", () => {
-    return octokit.repos
+  it("octokit.rest.repos.get() with previous name (https://github.com/cypress-io/cypress/issues/1314)", () => {
+    return octokit.rest.repos
       .update({
         owner: "octokit-fixture-org",
         repo: "rename-repository",
@@ -20,14 +20,14 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.repos.get({
+        return octokit.rest.repos.get({
           owner: "octokit-fixture-org",
           repo: "rename-repository",
         });
       })
 
       .then(() => {
-        return octokit.repos.update({
+        return octokit.rest.repos.update({
           owner: "octokit-fixture-org",
           repo: "rename-repository",
           name: "rename-repository-newname",

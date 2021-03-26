@@ -4,7 +4,7 @@ const { Octokit } = require("../../");
 require("../mocha-node-setup");
 
 describe("https://github.com/octokit/rest.js/issues/1497", () => {
-  it("octokit.repos.updateBranchProtection()", () => {
+  it("octokit.rest.repos.updateBranchProtection()", () => {
     nock("https://request-errors-test.com", {
       reqheaders: {
         accept:
@@ -36,7 +36,7 @@ describe("https://github.com/octokit/rest.js/issues/1497", () => {
       baseUrl: "https://request-errors-test.com",
       auth: "token secret123",
     });
-    return octokit.repos
+    return octokit.rest.repos
       .updateBranchProtection({
         mediaType: { previews: ["hellcat", "luke-cage", "zzzax"] },
         owner: "gr2m",

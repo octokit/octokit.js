@@ -11,8 +11,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it('octokit.search.issuesAndPullRequests({q: "sesame repo:octokit-fixture-org/search-issues"})', () => {
-    return octokit.search
+  it('octokit.rest.search.issuesAndPullRequests({q: "sesame repo:octokit-fixture-org/search-issues"})', () => {
+    return octokit.rest.search
       .issuesAndPullRequests({
         q: "sesame repo:octokit-fixture-org/search-issues",
       })

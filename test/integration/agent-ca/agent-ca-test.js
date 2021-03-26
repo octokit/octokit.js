@@ -37,7 +37,7 @@ describe("custom client certificate", () => {
       request: { agent },
     });
 
-    return octokit.repos.get({
+    return octokit.rest.repos.get({
       owner: "octokit",
       repo: "rest.js",
     });
@@ -53,7 +53,7 @@ describe("custom client certificate", () => {
       request: { agent },
     });
 
-    return octokit.repos.get({
+    return octokit.rest.repos.get({
       owner: "octokit",
       repo: "rest.js",
     });

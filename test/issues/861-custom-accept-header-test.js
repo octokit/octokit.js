@@ -20,7 +20,7 @@ describe("https://github.com/octokit/rest.js/issues/861", () => {
       auth: "token 123",
     });
 
-    return octokit.checks.create({
+    return octokit.rest.checks.create({
       owner: "swinton",
       repo: "example",
       name: "feedback",

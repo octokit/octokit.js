@@ -11,11 +11,11 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.repos.*Assets", () => {
+  it("octokit.rest.repos.*Assets", () => {
     let releaseId: number;
     let assetId: number;
 
-    return octokit.repos
+    return octokit.rest.repos
       .getReleaseByTag({
         owner: "octokit-fixture-org",
         repo: "release-assets",
@@ -40,7 +40,7 @@ describe("api.github.com", () => {
       .then((result) => {
         assetId = releaseId;
 
-        return octokit.repos.listReleaseAssets({
+        return octokit.rest.repos.listReleaseAssets({
           owner: "octokit-fixture-org",
           repo: "release-assets",
           release_id: releaseId,
@@ -48,7 +48,7 @@ describe("api.github.com", () => {
       })
 
       .then((result) => {
-        return octokit.repos.getReleaseAsset({
+        return octokit.rest.repos.getReleaseAsset({
           owner: "octokit-fixture-org",
           repo: "release-assets",
           asset_id: assetId,
@@ -56,7 +56,7 @@ describe("api.github.com", () => {
       })
 
       .then((result) => {
-        return octokit.repos.updateReleaseAsset({
+        return octokit.rest.repos.updateReleaseAsset({
           owner: "octokit-fixture-org",
           repo: "release-assets",
           asset_id: assetId,
@@ -66,7 +66,7 @@ describe("api.github.com", () => {
       })
 
       .then((result) => {
-        return octokit.repos.deleteReleaseAsset({
+        return octokit.rest.repos.deleteReleaseAsset({
           owner: "octokit-fixture-org",
           repo: "release-assets",
           asset_id: assetId,

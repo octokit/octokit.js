@@ -30,7 +30,7 @@ describe("api.github.com", () => {
 
     const iterator = octokit.paginate
       // @ts-ignore TODO: *.endpoint.merge on endpoint methods should always return .url property
-      .iterator(octokit.issues.listForRepo.endpoint.merge(options))
+      .iterator(octokit.rest.issues.listForRepo.endpoint.merge(options))
       [Symbol.asyncIterator]();
 
     return iterator

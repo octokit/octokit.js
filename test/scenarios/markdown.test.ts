@@ -11,8 +11,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.markdown.render() & .renderMarkdownRaw()", () => {
-    return octokit.markdown
+  it("octokit.rest.markdown.render() & .renderMarkdownRaw()", () => {
+    return octokit.rest.markdown
       .render({
         text: `### Hello
 
@@ -31,7 +31,7 @@ b597b5d`,
         );
         expect(response.data).toMatch(/<tt>b597b5d<\/tt>/);
 
-        return octokit.markdown.renderRaw({
+        return octokit.rest.markdown.renderRaw({
           data: `### Hello
 
 b597b5d`,
@@ -43,8 +43,8 @@ b597b5d`,
       });
   });
 
-  it("octokit.markdown.render() with capitalized headers.Accept", () => {
-    return octokit.markdown
+  it("octokit.rest.markdown.render() with capitalized headers.Accept", () => {
+    return octokit.rest.markdown
       .render({
         text: `### Hello
 

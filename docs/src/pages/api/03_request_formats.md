@@ -7,7 +7,7 @@ Some API endpoints support alternative response formats, see [Media types](https
 For example, to request a [pull request as diff format](https://docs.github.com/en/rest/overview/media-types#commits-commit-comparison-and-pull-requests), set the `mediaType.format` option
 
 ```js
-const { data: prDiff } = await octokit.pulls.get({
+const { data: prDiff } = await octokit.rest.pulls.get({
   owner: "octokit",
   repo: "rest.js",
   pull_number: 1278,
@@ -21,7 +21,7 @@ The [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortCont
 
 ```js
 const controller = new AbortController();
-const { data: prDiff } = await octokit.pulls.get({
+const { data: prDiff } = await octokit.rest.pulls.get({
   owner: "octokit",
   repo: "rest.js",
   pull_number: 1278,

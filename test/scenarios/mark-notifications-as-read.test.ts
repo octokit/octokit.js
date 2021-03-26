@@ -11,7 +11,7 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.activity.markNotificationsAsRead()", () => {
-    return octokit.activity.markNotificationsAsRead();
+  it("octokit.rest.activity.markNotificationsAsRead()", () => {
+    return octokit.rest.activity.markNotificationsAsRead();
   });
 });

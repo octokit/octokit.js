@@ -107,10 +107,10 @@ Most of GitHub’s REST API endpoints have matching methods. All endpoint method
 (async () => {
 ```
 
-For example to retrieve a pull request, use [`octokit.pulls.get()`](#octokit-routes-pulls-get). We recommend to use the search above to find the endpoint method you are looking for
+For example to retrieve a pull request, use [`octokit.rest.pulls.get()`](#octokit-routes-pulls-get). We recommend to use the search above to find the endpoint method you are looking for
 
 ```js
-const { data: pullRequest } = await octokit.pulls.get({
+const { data: pullRequest } = await octokit.rest.pulls.get({
   owner: "octokit",
   repo: "rest.js",
   pull_number: 123,
@@ -122,7 +122,7 @@ Some API endpoints support alternative response formats, see [Media types](https
 Learn more about [request formats](#request-formats-aborts).
 
 ```js
-const { data: diff } = await octokit.pulls.get({
+const { data: diff } = await octokit.rest.pulls.get({
   owner: "octokit",
   repo: "rest.js",
   pull_number: 123,
@@ -160,7 +160,7 @@ Some endpoints return a list which has to be paginated in order to retrieve the 
 Learn more about [pagination](#pagination).
 
 ```js
-  octokit.paginate(octokit.issues.listForRepo, {
+  octokit.paginate(octokit.rest.issues.listForRepo, {
     owner: 'octokit',
     repo: 'rest.js'
   })

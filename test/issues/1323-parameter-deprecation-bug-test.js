@@ -10,7 +10,7 @@ describe("https://github.com/octokit/rest.js/issues/1323", () => {
       .reply(200, {});
 
     const octokit = new Octokit();
-    return octokit.issues.get({
+    return octokit.rest.issues.get({
       owner: "probot",
       repo: "probot",
       issue_number: 1,

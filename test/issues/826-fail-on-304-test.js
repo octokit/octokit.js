@@ -12,7 +12,7 @@ describe("https://github.com/octokit/rest.js/issues/826", () => {
     const octokit = new Octokit({
       baseUrl: "https://request-errors-test.com",
     });
-    return octokit.repos
+    return octokit.rest.repos
       .listForOrg({
         org: "octokit",
         type: "public",

@@ -27,7 +27,7 @@ describe("apps", () => {
       .get("/app")
       .reply(200, {});
 
-    return octokit.apps.getAuthenticated();
+    return octokit.rest.apps.getAuthenticated();
   });
 
   it('adds "machine-man" preview header to custom media type', () => {
@@ -41,7 +41,7 @@ describe("apps", () => {
       .get("/app")
       .reply(200, {});
 
-    return octokit.apps.getAuthenticated({
+    return octokit.rest.apps.getAuthenticated({
       mediaType: {
         previews: ["foo-bar"],
       },

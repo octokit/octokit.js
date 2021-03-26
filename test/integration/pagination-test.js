@@ -235,7 +235,7 @@ describe("pagination", () => {
       );
 
     const octokit = new Octokit();
-    const options = octokit.search.issuesAndPullRequests.endpoint.merge({
+    const options = octokit.rest.search.issuesAndPullRequests.endpoint.merge({
       q: "repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26",
       per_page: 1,
       headers: {
@@ -293,7 +293,7 @@ describe("pagination", () => {
       );
 
     const octokit = new Octokit();
-    const options = octokit.apps.listRepos.endpoint.merge({
+    const options = octokit.rest.apps.listRepos.endpoint.merge({
       per_page: 1,
     });
 
@@ -346,7 +346,7 @@ describe("pagination", () => {
       );
 
     const octokit = new Octokit();
-    const options = octokit.apps.listInstallationsForAuthenticatedUser.endpoint.merge(
+    const options = octokit.rest.apps.listInstallationsForAuthenticatedUser.endpoint.merge(
       {
         per_page: 1,
       }
@@ -373,7 +373,7 @@ describe("pagination", () => {
       });
 
     const octokit = new Octokit();
-    const options = octokit.apps.listRepos.endpoint.merge({
+    const options = octokit.rest.apps.listRepos.endpoint.merge({
       per_page: 1,
     });
 
@@ -392,7 +392,7 @@ describe("pagination", () => {
       });
 
     const octokit = new Octokit();
-    const options = octokit.repos.getCombinedStatusForRef.endpoint.merge({
+    const options = octokit.rest.repos.getCombinedStatusForRef.endpoint.merge({
       owner: "octokit",
       repo: "rest.js",
       ref: "abc4567",

@@ -12,7 +12,7 @@ describe("api.github.com", () => {
   });
 
   it("(#684) errors-test", () => {
-    return octokit.issues
+    return octokit.rest.issues
       .createLabel({
         owner: "octokit-fixture-org",
         repo: "errors",

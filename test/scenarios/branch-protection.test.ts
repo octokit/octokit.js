@@ -11,8 +11,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.repos.{get,update,remove}BranchProtection()", () => {
-    return octokit.repos
+  it("octokit.rest.repos.{get,update,remove}BranchProtection()", () => {
+    return octokit.rest.repos
       .getBranchProtection({
         owner: "octokit-fixture-org",
         repo: "branch-protection",
@@ -28,7 +28,7 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.repos.updateBranchProtection({
+        return octokit.rest.repos.updateBranchProtection({
           owner: "octokit-fixture-org",
           repo: "branch-protection",
           branch: "main",
@@ -40,7 +40,7 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.repos.updateBranchProtection({
+        return octokit.rest.repos.updateBranchProtection({
           owner: "octokit-fixture-org",
           repo: "branch-protection",
           branch: "main",
@@ -65,7 +65,7 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.repos.deleteBranchProtection({
+        return octokit.rest.repos.deleteBranchProtection({
           owner: "octokit-fixture-org",
           repo: "branch-protection",
           branch: "main",

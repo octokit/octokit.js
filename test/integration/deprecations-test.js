@@ -25,7 +25,7 @@ describe("deprecations", () => {
     expect(() => new DeprecatedOctokit()).to.not.throw();
     expect(typeof DeprecatedOctokit.plugin).to.equal("function");
   });
-  it("octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)", () => {
+  it("octokit.rest.search.issues() has been renamed to octokit.rest.search.issuesAndPullRequests() (2018-12-27)", () => {
     let warnCalledCount = 0;
     const octokit = new Mocktokit({
       log: {
@@ -36,8 +36,8 @@ describe("deprecations", () => {
     });
 
     return Promise.all([
-      octokit.search.issues({ q: "foo" }),
-      octokit.search.issues({ q: "foo" }),
+      octokit.rest.search.issues({ q: "foo" }),
+      octokit.rest.search.issues({ q: "foo" }),
     ]).then(() => {
       expect(warnCalledCount).to.equal(1);
     });
@@ -60,12 +60,12 @@ describe("deprecations", () => {
     });
 
     return Promise.all([
-      octokit.issues.get({
+      octokit.rest.issues.get({
         owner: "octocat",
         repo: "hello-world",
         number: 123,
       }),
-      octokit.issues.get({
+      octokit.rest.issues.get({
         owner: "octocat",
         repo: "hello-world",
         number: 123,
@@ -93,7 +93,7 @@ describe("deprecations", () => {
       },
     });
 
-    return octokit.issues
+    return octokit.rest.issues
       .get({
         owner: "octocat",
         repo: "hello-world",
@@ -108,12 +108,12 @@ describe("deprecations", () => {
   it("deprecated parameter: passing no options", () => {
     const octokit = new Octokit();
 
-    return octokit.issues.get().catch((error) => {
+    return octokit.rest.issues.get().catch((error) => {
       expect(error.status).to.equal(400);
     });
   });
 
-  it("octokit.issues.get.endpoint({owner, repo, number}) returns correct URL and logs deprecation", () => {
+  it("octokit.rest.issues.get.endpoint({owner, repo, number}) returns correct URL and logs deprecation", () => {
     let warnCalledCount = 0;
     const octokit = new Octokit({
       log: {
@@ -123,12 +123,12 @@ describe("deprecations", () => {
       },
     });
 
-    const { url } = octokit.issues.get.endpoint({
+    const { url } = octokit.rest.issues.get.endpoint({
       owner: "octocat",
       repo: "hello-world",
       number: 123,
     });
-    const options = octokit.issues.get.endpoint.merge({
+    const options = octokit.rest.issues.get.endpoint.merge({
       owner: "octocat",
       repo: "hello-world",
       number: 123,
@@ -143,7 +143,7 @@ describe("deprecations", () => {
     expect(warnCalledCount).to.equal(2);
   });
 
-  it("octokit.paginate(octokit.pulls.listReviews.merge({owner, repo, number}))", () => {
+  it("octokit.paginate(octokit.rest.pulls.listReviews.merge({owner, repo, number}))", () => {
     nock("https://deprecation-host.com")
       .get("/repos/octocat/hello-world/pulls/123/reviews")
       .query({
@@ -194,7 +194,7 @@ describe("deprecations", () => {
       },
     });
 
-    const options = octokit.pulls.listReviews.endpoint.merge({
+    const options = octokit.rest.pulls.listReviews.endpoint.merge({
       owner: "octocat",
       repo: "hello-world",
       number: 123,
@@ -239,7 +239,7 @@ describe("deprecations", () => {
 
     expect(warnCalledCount).to.equal(1);
 
-    return octokit.orgs.get({ org: "myorg" });
+    return octokit.rest.orgs.get({ org: "myorg" });
   });
 
   it("octokit.authenticate(): basic with 2fa", () => {
@@ -282,7 +282,7 @@ describe("deprecations", () => {
       },
     });
 
-    return octokit.orgs.get({ org: "myorg" });
+    return octokit.rest.orgs.get({ org: "myorg" });
   });
 
   it("octokit.authenticate(): basic with async 2fa", () => {
@@ -325,7 +325,7 @@ describe("deprecations", () => {
       },
     });
 
-    return octokit.orgs.get({ org: "myorg" });
+    return octokit.rest.orgs.get({ org: "myorg" });
   });
 
   it("octokit.authenticate(): basic with 2fa and invalid one-time-password", () => {
@@ -374,7 +374,7 @@ describe("deprecations", () => {
       },
     });
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({ org: "myorg" })
 
       .then(() => {
@@ -414,7 +414,7 @@ describe("deprecations", () => {
       password: "password",
     });
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({ org: "myorg" })
       .then(() => {
         throw new Error('should fail with "on2fa missing" error');
@@ -450,7 +450,7 @@ describe("deprecations", () => {
       token: "abc4567",
     });
 
-    return octokit.orgs.get({ org: "myorg" });
+    return octokit.rest.orgs.get({ org: "myorg" });
   });
 
   it("octokit.authenticate(): oauth token", () => {
@@ -471,7 +471,7 @@ describe("deprecations", () => {
       token: "abc4567",
     });
 
-    return octokit.orgs.get({ org: "myorg" });
+    return octokit.rest.orgs.get({ org: "myorg" });
   });
 
   it("octokit.authenticate(): oauth token with query", () => {
@@ -492,7 +492,7 @@ describe("deprecations", () => {
       token: "abc4567",
     });
 
-    return octokit.repos.listForOrg({ org: "myorg", per_page: 1 });
+    return octokit.rest.repos.listForOrg({ org: "myorg", per_page: 1 });
   });
 
   it("octokit.authenticate(): oauth key & secret", () => {
@@ -514,7 +514,7 @@ describe("deprecations", () => {
       secret: "oauthsecret",
     });
 
-    return octokit.orgs.get({ org: "myorg" });
+    return octokit.rest.orgs.get({ org: "myorg" });
   });
 
   it("octokit.authenticate(): oauth key & secret with query", () => {
@@ -564,7 +564,7 @@ describe("deprecations", () => {
       token: "abc4567",
     });
 
-    return octokit.orgs.get({ org: "myorg" });
+    return octokit.rest.orgs.get({ org: "myorg" });
   });
 
   it("octokit.authenticate(): without options", () => {
@@ -647,7 +647,7 @@ describe("deprecations", () => {
       },
     });
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({ org: "myorg" })
       .then(() => {
         // deprecation is only logged once per process, I couldn't figure out how to reset the counter
@@ -659,7 +659,7 @@ describe("deprecations", () => {
         expect(authentication).to.deep.equal({
           type: "deprecated",
           message:
-            'Setting the "new Octokit({ auth })" option to an object without also setting the "authStrategy" option is deprecated and will be removed in v17. See (https://octokit.github.io/rest.js/#authentication)',
+            'Setting the "new Octokit({ auth })" option to an object without also setting the "authStrategy" option is deprecated and will be removed in v17. See (https://octokit.rest.github.io/rest.js/#authentication)',
         });
       });
   });
@@ -689,7 +689,7 @@ describe("deprecations", () => {
       },
     });
 
-    return octokit.orgs.get({ org: "myorg" }).then(() => {
+    return octokit.rest.orgs.get({ org: "myorg" }).then(() => {
       // deprecation is only logged once per process, I couldn't figure out how to reset the counter
       // expect(warnCalledCount).to.equal(1);
     });
@@ -718,7 +718,7 @@ describe("deprecations", () => {
       },
     });
 
-    return octokit.orgs.get({ org: "myorg" }).then(() => {
+    return octokit.rest.orgs.get({ org: "myorg" }).then(() => {
       // deprecation is only logged once per process, I couldn't figure out how to reset the counter
       // expect(warnCalledCount).to.equal(1);
     });
@@ -1410,14 +1410,16 @@ describe("deprecations", () => {
         },
       },
     });
-    const searchOptions = octokit.search.issuesAndPullRequests.endpoint.merge({
-      q: "repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26",
-      per_page: 1,
-      headers: {
-        "accept-encoding": "",
-      },
-    });
-    const listReposOptions = octokit.apps.listRepos.endpoint.merge({
+    const searchOptions = octokit.rest.search.issuesAndPullRequests.endpoint.merge(
+      {
+        q: "repo:web-platform-tests/wpt is:pr is:open updated:>2019-02-26",
+        per_page: 1,
+        headers: {
+          "accept-encoding": "",
+        },
+      }
+    );
+    const listReposOptions = octokit.rest.apps.listRepos.endpoint.merge({
       per_page: 1,
     });
 

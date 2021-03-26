@@ -43,8 +43,8 @@ describe("Smoke tests", () => {
       },
     });
 
-    expect(octokit.repos.get).toBeInstanceOf(Function);
-    return octokit.repos.get({
+    expect(octokit.rest.repos.get).toBeInstanceOf(Function);
+    return octokit.rest.repos.get({
       owner: "octocat",
       repo: "hello-world",
     });

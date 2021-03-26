@@ -11,9 +11,9 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.repos.createCommitStatus()", () => {
+  it("octokit.rest.repos.createCommitStatus()", () => {
     return Promise.all([
-      octokit.repos.createCommitStatus({
+      octokit.rest.repos.createCommitStatus({
         owner: "octokit-fixture-org",
         repo: "create-status",
         sha: "0000000000000000000000000000000000000001",
@@ -22,7 +22,7 @@ describe("api.github.com", () => {
         description: "create-status failure test",
         context: "example/1",
       }),
-      octokit.repos.createCommitStatus({
+      octokit.rest.repos.createCommitStatus({
         owner: "octokit-fixture-org",
         repo: "create-status",
         sha: "0000000000000000000000000000000000000001",
@@ -34,7 +34,7 @@ describe("api.github.com", () => {
     ])
 
       .then(() => {
-        return octokit.repos.listCommitStatusesForRef({
+        return octokit.rest.repos.listCommitStatusesForRef({
           owner: "octokit-fixture-org",
           repo: "create-status",
           ref: "0000000000000000000000000000000000000001",
@@ -45,7 +45,7 @@ describe("api.github.com", () => {
         // @ts-ignore type error likely caused by tempoaray workaround at https://github.com/octokit/types.ts/blob/2f664bcc543c0dd668645571839475f39f8c8b4b/scripts/update-endpoints/templates/endpoints.ts.template#L97-L99
         expect(response.data.length).toEqual(2);
 
-        return octokit.repos.getCombinedStatusForRef({
+        return octokit.rest.repos.getCombinedStatusForRef({
           owner: "octokit-fixture-org",
           repo: "create-status",
           ref: "0000000000000000000000000000000000000001",

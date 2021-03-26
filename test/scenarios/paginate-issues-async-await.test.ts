@@ -26,7 +26,7 @@ describe("api.github.com", () => {
     const results = [];
     for await (const result of octokit.paginate.iterator(
       // @ts-ignore TODO: *.endpoint.merge on endpoint methods should always return .url property
-      octokit.issues.listForRepo.endpoint.merge(options)
+      octokit.rest.issues.listForRepo.endpoint.merge(options)
     )) {
       results.push(...result.data);
     }

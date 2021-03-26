@@ -16,7 +16,7 @@ describe("request 304s", () => {
   it("304 etag", () => {
     nock("https://request-errors-test.com").get("/orgs/myorg").reply(304, "");
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({ org: "myorg", headers: { "If-None-Match": "etag" } })
       .then((response) => {
         expect.fail("should throw error");
@@ -29,7 +29,7 @@ describe("request 304s", () => {
   it("304 last-modified", () => {
     nock("https://request-errors-test.com").get("/orgs/myorg").reply(304, "");
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({
         org: "myorg",
         headers: {

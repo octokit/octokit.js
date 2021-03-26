@@ -11,8 +11,8 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.issues.*", () => {
-    return octokit.issues
+  it("octokit.rest.issues.*", () => {
+    return octokit.rest.issues
       .listLabelsForRepo({
         owner: "octokit-fixture-org",
         repo: "labels",
@@ -21,7 +21,7 @@ describe("api.github.com", () => {
       .then((result) => {
         expect(Array.isArray(result.data)).toEqual(true);
 
-        return octokit.issues.createLabel({
+        return octokit.rest.issues.createLabel({
           owner: "octokit-fixture-org",
           repo: "labels",
           name: "test-label",
@@ -32,7 +32,7 @@ describe("api.github.com", () => {
       .then((result) => {
         expect(result.data.name).toEqual("test-label");
 
-        return octokit.issues.getLabel({
+        return octokit.rest.issues.getLabel({
           owner: "octokit-fixture-org",
           repo: "labels",
           name: "test-label",
@@ -40,7 +40,7 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.issues.updateLabel({
+        return octokit.rest.issues.updateLabel({
           owner: "octokit-fixture-org",
           repo: "labels",
           name: "test-label",
@@ -52,7 +52,7 @@ describe("api.github.com", () => {
       .then((result) => {
         expect(result.data.name).toEqual("test-label-updated");
 
-        return octokit.issues.deleteLabel({
+        return octokit.rest.issues.deleteLabel({
           owner: "octokit-fixture-org",
           repo: "labels",
           name: "test-label-updated",

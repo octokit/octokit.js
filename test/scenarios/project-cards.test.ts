@@ -11,41 +11,41 @@ describe("api.github.com", () => {
     });
   });
 
-  it("octokit.projects.*ProjectCard()", () => {
-    return octokit.projects
+  it("octokit.rest.projects.*ProjectCard()", () => {
+    return octokit.rest.projects
       .createCard({
         column_id: 1000,
         note: "Example card 1",
       })
 
       .then(() => {
-        return octokit.projects.createCard({
+        return octokit.rest.projects.createCard({
           column_id: 1000,
           note: "Example card 2",
         });
       })
 
       .then(() => {
-        return octokit.projects.listCards({
+        return octokit.rest.projects.listCards({
           column_id: 1000,
         });
       })
 
       .then(() => {
-        return octokit.projects.getCard({
+        return octokit.rest.projects.getCard({
           card_id: 1000,
         });
       })
 
       .then(() => {
-        return octokit.projects.updateCard({
+        return octokit.rest.projects.updateCard({
           card_id: 1000,
           note: "Example card 1 updated",
         });
       })
 
       .then(() => {
-        return octokit.projects.moveCard({
+        return octokit.rest.projects.moveCard({
           card_id: 1000,
           position: "top",
           column_id: 1001,
@@ -53,7 +53,7 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.projects.moveCard({
+        return octokit.rest.projects.moveCard({
           card_id: 1001,
           position: "bottom",
           column_id: 1001,
@@ -61,14 +61,14 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.projects.moveCard({
+        return octokit.rest.projects.moveCard({
           card_id: 1000,
           position: "after:1001",
         });
       })
 
       .then(() => {
-        return octokit.projects.deleteCard({
+        return octokit.rest.projects.deleteCard({
           card_id: 1000,
         });
       });

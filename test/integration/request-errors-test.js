@@ -38,7 +38,7 @@ describe("request errors", () => {
       baseUrl: "https://request-errors-test.com",
     });
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({ org: "myorg" })
 
       .catch((error) => {
@@ -57,7 +57,7 @@ describe("request errors", () => {
       baseUrl: "https://request-errors-test.com",
     });
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({ org: "myorg" })
 
       .catch((error) => {
@@ -74,7 +74,7 @@ describe("request errors", () => {
       baseUrl: "https://request-errors-test.com",
     });
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({ org: "myorg" })
 
       .catch((error) => {
@@ -97,7 +97,7 @@ describe("request errors", () => {
       baseUrl: "https://request-errors-test.com",
     });
 
-    return octokit.orgs
+    return octokit.rest.orgs
       .get({ org: "myorg" })
 
       .catch((error) => {

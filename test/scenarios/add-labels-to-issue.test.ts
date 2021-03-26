@@ -12,7 +12,7 @@ describe("api.github.com", () => {
   });
 
   it("(#587) add-labels-to-issue-test", () => {
-    return octokit.issues
+    return octokit.rest.issues
       .create({
         owner: "octokit-fixture-org",
         repo: "add-labels-to-issue",
@@ -20,7 +20,7 @@ describe("api.github.com", () => {
       })
 
       .then(() => {
-        return octokit.issues.addLabels({
+        return octokit.rest.issues.addLabels({
           owner: "octokit-fixture-org",
           repo: "add-labels-to-issue",
           issue_number: 1,
