@@ -67,7 +67,7 @@ Deno
 Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
         
 ```ts
-import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit";
+import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit?dts";
 ```
 
 </td></tr>
