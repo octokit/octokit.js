@@ -42,6 +42,7 @@ The `octokit` package integrates the three main Octokit libraries
 Known issues
 
 1. [#16](https://github.com/octokit/octokit.js/issues/16) - Set correct type for octokit instances
+1. [#17](https://github.com/octokit/octokit.js/issues/17) - Build error: Type 'OctokitClassType<O>' does not satisfy the constraint '(new (...args: any[]) => { [x: string]: any; }) & typeof Octokit'.
 
 ## Features
 
