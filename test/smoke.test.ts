@@ -30,7 +30,7 @@ describe("Smoke tests", () => {
       privateKey: "",
     });
 
-    expect(app.octokit.rest.repos.get).toBeInstanceOf(Function);
+    expect(app.octokit.request).toBeInstanceOf(Function);
   });
 
   it("OAuthApp is a function", () => {
@@ -51,6 +51,6 @@ describe("Smoke tests", () => {
       clientSecret: "",
     });
 
-    expect(app.octokit.rest.repos.get).toBeInstanceOf(Function);
+    expect(app.octokit.request).toBeInstanceOf(Function);
   });
 });
