@@ -14,29 +14,35 @@ export const Octokit = OctokitCore.plugin(
 ).defaults({
   userAgent: `octokit-rest.js/${VERSION}`,
   throttle: {
-    onRateLimit: (retryAfter: number, options: any, octokit: any) => {
-      octokit.log.warn(
-        `Request quota exhausted for request ${options.method} ${options.url}`
-      );
-
-      if (options.request.retryCount === 0) {
-        // only retries once
-        octokit.log.info(`Retrying after ${retryAfter} seconds!`);
-        return true;
-      }
-    },
-    onAbuseLimit: (retryAfter: number, options: any, octokit: any) => {
-      octokit.log.warn(
-        `Abuse detected for request ${options.method} ${options.url}`
-      );
-
-      if (options.request.retryCount === 0) {
-        // only retries once
-        octokit.log.info(`Retrying after ${retryAfter} seconds!`);
-        return true;
-      }
-    },
+    onRateLimit,
+    onAbuseLimit,
   },
 });
+
+// istanbul ignore next no need to test internals of the throttle plugin
+function onRateLimit(retryAfter: number, options: any, octokit: any) {
+  octokit.log.warn(
+    `Request quota exhausted for request ${options.method} ${options.url}`
+  );
+
+  if (options.request.retryCount === 0) {
+    // only retries once
+    octokit.log.info(`Retrying after ${retryAfter} seconds!`);
+    return true;
+  }
+}
+
+// istanbul ignore next no need to test internals of the throttle plugin
+function onAbuseLimit(retryAfter: number, options: any, octokit: any) {
+  octokit.log.warn(
+    `Abuse detected for request ${options.method} ${options.url}`
+  );
+
+  if (options.request.retryCount === 0) {
+    // only retries once
+    octokit.log.info(`Retrying after ${retryAfter} seconds!`);
+    return true;
+  }
+}
 
 export type Octokit = InstanceType<typeof Octokit>;
