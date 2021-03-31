@@ -12,6 +12,7 @@
   "repository": "github:octokit/octokit.js",
   "license": "MIT",
   "scripts": {
+    "build": "pika build",
     "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' '*.{md,json}'",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' '*.{md,json}'",
     "pretest": "npm run -s lint",
