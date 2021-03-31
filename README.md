@@ -56,7 +56,7 @@ Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.sk
         
 ```html
 <script type="module">
-import { Octokit, App } from "https://cdn.skypack.dev/octokit";
+import { Octokit, App } from "https://cdn.skypack.dev/octokit@beta";
 </script>
 ```
 
@@ -67,7 +67,7 @@ Deno
 Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
         
 ```ts
-import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit?dts";
+import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit@beta?dts";
 ```
 
 </td></tr>
@@ -75,7 +75,7 @@ import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit?dts";
 Node 12+
 </th><td>
 
-Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
+Install with <code>npm install octokit@beta</code>, or <code>yarn add octokit@beta</code>
 
 ```js
 import { Octokit, App, Action } from "octokit";
@@ -86,7 +86,7 @@ import { Octokit, App, Action } from "octokit";
 Node 10 and below
 </th><td>
 
-Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
+Install with <code>npm install octokit@beta</code>, or <code>yarn add octokit@beta</code>
 
 ```js
 const { Octokit, App, Action } = require("octokit");
