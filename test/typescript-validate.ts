@@ -165,17 +165,6 @@ export default async function () {
     console.log(response.data.map((repo) => repo.id));
   }
 
-  // register endpoints
-  octokit.registerEndpoints({
-    funk: {
-      method: "DELETE",
-      url: "/funk",
-      request: {
-        foo: "bar",
-      },
-    },
-  });
-
   // Plugins
   const MyOctokit = Octokit.plugin((octokit, options) => {
     octokit.hook.wrap("request", async (request, options) => {
