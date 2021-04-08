@@ -16,12 +16,13 @@
     "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' '*.{md,json}'",
     "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' '*.{md,json}'",
     "pretest": "npm run -s lint",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^11.3.1",
+    "@octokit/app": "^11.4.1",
     "@octokit/core": "^3.3.1",
-    "@octokit/oauth-app": "^3.1.0",
+    "@octokit/oauth-app": "^3.3.0",
     "@octokit/plugin-paginate-rest": "^2.13.3",
     "@octokit/plugin-rest-endpoint-methods": "^5.0.0",
     "@octokit/plugin-retry": "^3.0.7",

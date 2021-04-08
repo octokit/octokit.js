@@ -12,6 +12,7 @@ The `octokit` package integrates the three main Octokit libraries
 
 <!-- toc -->
 
+- [Beta](#beta)
 - [Features](#features)
 - [Usage](#usage)
 - [`Octokit` API Client](#octokit-api-client)
