@@ -1,21 +1,109 @@
 {
   "name": "octokit",
-  "version": "1.0.0-hello-world",
-  "description": "ðï¸ Work in Progress ð Official GitHub Platform client for Node.js & Browsers",
+  "version": "0.0.0-development",
+  "description": "The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno",
   "keywords": [
     "github",
     "api",
-    "sdk"
+    "sdk",
+    "octokit"
   ],
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "repository": "github:octokit/octokit.js",
   "license": "MIT",
   "scripts": {
-    "lint": "prettier --check README.md",
-    "lint:fix": "prettier --write README.md"
+    "build": "pika build",
+    "lint": "prettier --check '{src,test}/**/*.{js,json,ts}' '*.{md,json}'",
+    "lint:fix": "prettier --write '{src,test}/**/*.{js,json,ts}' '*.{md,json}'",
+    "pretest": "npm run -s lint",
+    "test": "jest --coverage",
+    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
+  },
+  "dependencies": {
+    "@octokit/app": "^11.4.1",
+    "@octokit/core": "^3.3.1",
+    "@octokit/oauth-app": "^3.3.0",
+    "@octokit/plugin-paginate-rest": "^2.13.3",
+    "@octokit/plugin-rest-endpoint-methods": "^5.0.0",
+    "@octokit/plugin-retry": "^3.0.7",
+    "@octokit/plugin-throttling": "^3.4.1",
+    "@octokit/types": "^6.13.0"
   },
   "devDependencies": {
-    "prettier": "^2.0.0"
+    "@octokit/tsconfig": "^1.0.2",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.9.2",
+    "@pika/plugin-build-web": "^0.9.2",
+    "@pika/plugin-ts-standard-pkg": "^0.9.2",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.36",
+    "fetch-mock": "^9.11.0",
+    "jest": "^26.6.3",
+    "mockdate": "^3.0.5",
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.4.2",
+    "semantic-release-plugin-update-version-in-files": "^1.1.0",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.3"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "/docs/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
+  "release": {
+    "branches": [
+      "+([0-9]).x",
+      "main",
+      "next",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ],
+      [
+        "semantic-release-plugin-update-version-in-files",
+        {
+          "files": [
+            "pkg/dist-web/*",
+            "pkg/dist-node/*",
+            "pkg/*/version.*"
+          ]
+        }
+      ]
+    ]
   },
   "renovate": {
     "extends": [

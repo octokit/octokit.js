@@ -1,7 +1,3 @@
-# 🚧 THIS IS WORK IN PROGRESS
-
-There is no code. This repository is documentation only, laying out what the final `octokit` package should look like.
-
 # octokit.js
 
 > The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno.
@@ -71,7 +67,7 @@ Deno
 Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
         
 ```ts
-import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit";
+import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit?dts";
 ```
 
 </td></tr>
@@ -353,7 +349,7 @@ For example, to implement the above using `App`
 
 ```js
 const app = new App({ appId, privateKey });
-const { data: slug } = await app.octokit.apps.getAuthenticated();
+const { data: slug } = await app.octokit.rest.apps.getAuthenticated();
 const { octokit } = await app.getInstallationOctokit(123);
 await octokit.issues.create({
   owner: "octocat",

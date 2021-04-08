@@ -1,0 +1,5 @@
+{
+  "extends": "@octokit/tsconfig",
+  "include": ["src/**/*"],
+  "compilerOptions": { "esModuleInterop": true }
+}
