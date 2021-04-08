@@ -40,10 +40,6 @@ The `octokit` package integrates the three main Octokit libraries
 
 `octokit` is currently in beta. Please give it a try and let us know how it works for you!
 
-Known issues
-
-1. [#16](https://github.com/octokit/octokit.js/issues/16) - Set correct type for octokit instances
-
 ## Features
 
 - **Complete**. All features of GitHub's platform APIs are covered.
