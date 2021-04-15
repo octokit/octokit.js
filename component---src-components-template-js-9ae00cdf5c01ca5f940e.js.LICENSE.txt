@@ -1,0 +1,94 @@
+/*!
+   * elasticlunr.Configuration
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.DocumentStore
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.EventEmitter
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.Index
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.InvertedIndex
+   * Copyright (C) 2016 Wei Song
+   * Includes code from - http://tartarus.org/~martin/PorterStemmer/js.txt
+   */
+
+/*!
+   * elasticlunr.Pipeline
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.js
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.stemmer
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   * Includes code from - http://tartarus.org/~martin/PorterStemmer/js.txt
+   */
+
+/*!
+   * elasticlunr.stopWordFilter
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.tokenizer
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.trimmer
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * elasticlunr.utils
+   * Copyright (C) 2016 Oliver Nightingale
+   * Copyright (C) 2016 Wei Song
+   */
+
+/*!
+   * lunr.SortedSet
+   * Copyright (C) 2016 Oliver Nightingale
+   */
+
+/**
+ * elasticlunr - http://weixsong.github.io
+ * Lightweight full-text search engine in Javascript for browser search and offline search. - 0.9.5
+ *
+ * Copyright (C) 2016 Oliver Nightingale
+ * Copyright (C) 2016 Wei Song
+ * MIT Licensed
+ * @license
+ */
+
+/** @license React v16.13.1
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
