@@ -94,7 +94,8 @@ export default async function () {
   });
 
   const findInCache = (etag: string) => ({ hello: "world" });
-  octokit.hook.error("request", async (error, options) => {
+  // @ts-expect-error - gr2m/before-after-hook#91
+  octokit.hook.error("request", async (error) => {
     if ("status" in error && error.status === 304) {
       return findInCache(error.headers.etag);
     }
