@@ -18,7 +18,7 @@ describe("Smoke tests", () => {
       () =>
         new App({
           appId: 123,
-          privateKey: "",
+          privateKey: "private key here",
         })
     ).not.toThrow();
   });
@@ -27,7 +27,7 @@ describe("Smoke tests", () => {
     let app: App;
     app = new App({
       appId: 123,
-      privateKey: "",
+      privateKey: "private key here",
     });
 
     expect(app.octokit.request).toBeInstanceOf(Function);
