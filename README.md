@@ -506,7 +506,7 @@ Learn more about [Media type formats](https://docs.github.com/en/rest/overview/m
 
 ### GraphQL API queries
 
-**standalone method**: [`@octokit/gpraphql`](https://github.com/octokit/gpraphql.js#readme)
+**standalone method**: [`@octokit/graphql`](https://github.com/octokit/graphql.js#readme)
 
 Example: get the login of the authenticated user
 
