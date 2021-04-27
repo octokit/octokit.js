@@ -362,7 +362,7 @@ Learn more about [how authentication strategies work](https://github.com/octokit
 
 ### REST API
 
-There are two ways of using the GitHub REST API, the [`octokit.rest.*` endpoint methods](#endpoint-methods) and [`octokit.request`](#arbitrary-requests). Both act on the same GitHub REST API and `octokit.rest` is just a set of convenience methods that use `octokit.request` internally.
+There are two ways of using the GitHub REST API, the [`octokit.rest.*` endpoint methods](#endpoint-methods) and [`octokit.request`](#arbitrary-requests). Both act the same way, the `octokit.rest.*` methods are just added for convenience, they use `octokit.request` internally.
 
 For example
 
@@ -388,9 +388,9 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 
 In both cases a given request is authenticated, retried, and throttled transparently by the `octokit` instance which also manages the `accept` and `user-agent` headers as needed.
 
-`octokit.request` is somewhat lower level and can be used to send requests to other domains by passing a full URL and to send requests to endpoints that are not (yet) documented in [GitHub's REST API documentation](https://docs.github.com/rest).
+`octokit.request` can be used to send requests to other domains by passing a full URL and to send requests to endpoints that are not (yet) documented in [GitHub's REST API documentation](https://docs.github.com/rest).
 
-#### `octokit.rest` endpoint methods ([`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/#readme))
+#### `octokit.rest` endpoint methods
 
 Every GitHub REST API endpoint has an associated `octokit.rest` endpoint method for better code readability and developer convenience. See [`@octokit/plugin-rest-endpoint-methods`](https://github.com/octokit/plugin-rest-endpoint-methods.js/#readme) for full details.
 
@@ -407,11 +407,11 @@ await octokit.rest.issues.create({
 
 The `octokit.rest` endpoint methods are generated automatically from [GitHub's OpenAPI specification](https://github.com/github/rest-api-description/). We track operation ID and parameter name changes in order to implement deprecation warnings and reduce the frequency of breaking changes.
 
-Under the covers, every endpoint method is actually an instance of `octokit.request` with defaults set, so it supports the same parameters as well as the `.endpoint()` API.
+Under the covers, every endpoint method is just `octokit.request` with defaults set, so it supports the same parameters as well as the `.endpoint()` API.
 
-#### Arbitrary requests
+#### `octokit.request()`
 
-You can call the GitHub REST API directly using `octokit.request`. The `reqeust` API matches GitHub's REST API documentation 1:1 so anything you see there, you can call using `request`. See [`@octokit/request`](https://github.com/octokit/request.js#readme) for all the details.
+You can call the GitHub REST API directly using `octokit.request`. The `request` API matches GitHub's REST API documentation 1:1 so anything you see there, you can call using `request`. See [`@octokit/request`](https://github.com/octokit/request.js#readme) for all the details.
 
 Example: [Create an issue](https://docs.github.com/en/rest/reference/issues#create-an-issue)
 
@@ -420,6 +420,7 @@ Example: [Create an issue](https://docs.github.com/en/rest/reference/issues#crea
 The `octokit.request` API call corresponding to that issue creation documentation looks like this:
 
 ```js
+// https://docs.github.com/en/rest/reference/issues#create-an-issue
 await octokit.request("POST /repos/{owner}/{repo}/issues", {
   owner: "octocat",
   repo: "hello-world",
@@ -430,9 +431,9 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 
 The 1st argument is the REST API route as listed in GitHub's API documentation. The 2nd argument is an object with all parameters, independent of whether they are used in the path, query, or body.
 
-#### Pagination ([`@octokit/plugin-paginate-rest`](https://github.com/octokit/plugin-paginate-rest.js/#readme))
+#### Pagination
 
-All `octokit.rest.*.list*` endpoints return the first 30 items by default. If you want to retrieve all items, you an use the pagination API.
+All REST API endpoints that paginate return the first 30 items by default. If you want to retrieve all items, you an use the pagination API. The pagination API expects the REST API route as first argument, but you can also pass any of the `octokit.rest.*.list*` methods for convenience and better code readability.
 
 Example: iterate through all issues in a repository
 
@@ -494,7 +495,7 @@ console.log("topics on octocat/hello-world: %j", data.topics);
 
 Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [API previews](https://docs.github.com/en/rest/overview/api-previews).
 
-### GraphQL API queries ([`@octokit/graphql`](https://github.com/octokit/graphql.js#readme))
+### GraphQL API queries
 
 Octokit also supports GitHub's GraphQL API directly -- you can use the same queries shown in the documentation and available in the GraphQL explorer in your calls with `octokit.graphql`.
 
