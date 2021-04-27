@@ -6,6 +6,7 @@ on:
       - next
       - beta
       - "*.x" # maintenance release branches, e.g. v1.x
+      - debug # test fixes that require a published npm package
 
 jobs:
   release:
