@@ -480,7 +480,7 @@ const { data } = octokit.rest.repos.getContent({
 console.log("package name: %s", JSON.parse(data).name);
 ```
 
-Examaple: retrieve a repository with topics
+Example: retrieve a repository with topics
 
 ```js
 const { data } = octokit.rest.repos.getContent({
