@@ -111,7 +111,7 @@ const octokit = new Octokit({ auth: `personal-access-token123` });
 // Compare: https://docs.github.com/en/rest/reference/users#get-the-authenticated-user
 const {
   data: { login },
-} = await octokit.users.getAuthenticated();
+} = await octokit.rest.users.getAuthenticated();
 console.log("Hello, %s", login);
 ```
 
@@ -351,7 +351,7 @@ For example, to implement the above using `App`
 const app = new App({ appId, privateKey });
 const { data: slug } = await app.octokit.rest.apps.getAuthenticated();
 const { octokit } = await app.getInstallationOctokit(123);
-await octokit.issues.create({
+await octokit.rest.issues.create({
   owner: "octocat",
   repo: "hello-world",
   title: "Hello world from " + slug,
