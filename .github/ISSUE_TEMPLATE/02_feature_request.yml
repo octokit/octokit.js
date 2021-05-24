@@ -1,6 +1,6 @@
 ---
 name: "🧚‍♂️ Feature Request"
-about: "Wouldn’t it be nice if 💭"
+description: "Wouldn’t it be nice if 💭"
 labels: feature
 body:
 - type: checkboxes
@@ -25,7 +25,7 @@ body:
   validations:
     required: true
 - type: textarea
-  id: summary
+  id: alternatives
   attributes:
     label: Alternatives you tried
     description: Describe the workarounds you tried so far and how they worked for you
