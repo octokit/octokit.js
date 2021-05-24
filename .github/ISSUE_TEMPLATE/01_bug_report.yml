@@ -25,9 +25,9 @@ body:
     options:
       - label: TypeScript
       - label: Enterprise
+      - label: Browsers
       - label: Node
       - label: Deno
-      - label: Browsers
 - type: textarea
   id: version
   attributes:
