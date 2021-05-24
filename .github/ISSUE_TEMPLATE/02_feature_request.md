@@ -1,8 +1,8 @@
+---
 name: "🧚‍♂️ Feature Request"
 about: "Wouldn’t it be nice if 💭"
 labels: feature
----
-
+body:
 - type: checkboxes
   id: search
   attributes:
