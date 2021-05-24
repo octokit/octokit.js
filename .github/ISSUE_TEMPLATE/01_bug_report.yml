@@ -45,4 +45,4 @@ body:
   attributes:
     label: Would you be interested in contributing a fix?
     options:
-      - label: yes
+      - label: "yes"
