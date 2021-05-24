@@ -31,3 +31,9 @@ body:
     description: Describe the workarounds you tried so far and how they worked for you
   validations:
     required: true
+- type: checkboxes
+  id: contributor
+  attributes:
+    label: Would you be interested in contributing the feature?
+    options:
+      - label: "yes"
