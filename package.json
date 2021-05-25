@@ -38,7 +38,7 @@
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.36",
     "fetch-mock": "^9.11.0",
-    "jest": "^26.6.3",
+    "jest": "^27.0.0",
     "mockdate": "^3.0.5",
     "prettier": "^2.2.1",
     "semantic-release": "^17.4.2",
