@@ -100,7 +100,7 @@ const { Octokit, App, Action } = require("octokit");
 
 **standalone minimal Octokit**: [`@octokit/core`](https://github.com/octokit/core.js/#readme).
 
-The `Octokit` client can be used to send requests to [GitHub's REST API](docs.github.com/rest/) and queries to [GitHub's GraphQL API](docs.github.com/graphql).
+The `Octokit` client can be used to send requests to [GitHub's REST API](https://docs.github.com/rest/) and queries to [GitHub's GraphQL API](https://docs.github.com/graphql).
 
 **Example**: Get the username for the authenticated user.
 
