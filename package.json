@@ -40,7 +40,7 @@
     "fetch-mock": "^9.11.0",
     "jest": "^27.0.0",
     "mockdate": "^3.0.5",
-    "prettier": "2.2.1",
+    "prettier": "2.3.0",
     "semantic-release": "^17.4.2",
     "semantic-release-plugin-update-version-in-files": "^1.1.0",
     "ts-jest": "^27.0.0-next.12",
