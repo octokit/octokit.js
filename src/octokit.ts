@@ -2,15 +2,15 @@ import { Octokit as OctokitCore } from "@octokit/core";
 import { paginateRest } from "@octokit/plugin-paginate-rest";
 import { restEndpointMethods } from "@octokit/plugin-rest-endpoint-methods";
 import { retry } from "@octokit/plugin-retry";
-import { throttling } from "@octokit/plugin-throttling";
+// import { throttling } from "@octokit/plugin-throttling";
 
 import { VERSION } from "./version";
 
 export const Octokit = OctokitCore.plugin(
   restEndpointMethods,
   paginateRest,
-  retry,
-  throttling
+  retry
+  // throttling
 ).defaults({
   userAgent: `octokit-rest.js/${VERSION}`,
   throttle: {
