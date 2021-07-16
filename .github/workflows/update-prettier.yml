@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           version: 12
+          cache: npm
       - uses: actions/cache@v2
         with:
           path: ~/.npm
