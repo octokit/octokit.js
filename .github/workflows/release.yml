@@ -17,12 +17,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "12.x"
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          cache: npm
       - run: npm ci
       - run: npm run build
       - run: npx semantic-release
