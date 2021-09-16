@@ -361,7 +361,7 @@ await octokit.rest.issues.create({
 
 Learn more about [how authentication strategies work](https://github.com/octokit/authentication-strategies.js/#how-authentication-strategies-work) or how to [create your own](https://github.com/octokit/authentication-strategies.js/#create-your-own-octokit-authentication-strategy-module).
 
-### Proxy Servers
+### Proxy Servers (Node.js only)
 
 By default, the `Octokit` API client does not make use of the standard proxy server environment variables. To add support for proxy servers you will need to provide an https client that supports them such as [proxy-agent](https://www.npmjs.com/package/proxy-agent).
 
