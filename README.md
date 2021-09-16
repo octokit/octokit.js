@@ -368,11 +368,11 @@ By default, the `Octokit` API client does not make use of the standard proxy ser
 For example, this would use a `proxy-agent` generated client that would configure the proxy based on the standard environment variables `http_proxy`, `https_proxy` and `no_proxy`:
 
 ```js
-import ProxyAgent  from "proxy-agent";
+import ProxyAgent from "proxy-agent";
 
 const octokit = new Octokit({
   request: {
-    agent: new ProxyAgent()
+    agent: new ProxyAgent(),
   },
 });
 ```
@@ -383,7 +383,7 @@ If you are writing a module that uses `Octokit` and is designed to be used by ot
 octokit.rest.repos.get({
   owner,
   repo,
-  request: { agent }
+  request: { agent },
 });
 ```
 
