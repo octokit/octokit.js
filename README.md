@@ -17,6 +17,7 @@ The `octokit` package integrates the three main Octokit libraries
 - [`Octokit` API Client](#octokit-api-client)
   - [Constructor options](#constructor-options)
   - [Authentication](#authentication)
+  - [Proxy Servers](#proxy-servers)
   - [REST API](#rest-api)
     - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
     - [`octokit.request()`](#octokitrequest)
@@ -359,6 +360,32 @@ await octokit.rest.issues.create({
 ```
 
 Learn more about [how authentication strategies work](https://github.com/octokit/authentication-strategies.js/#how-authentication-strategies-work) or how to [create your own](https://github.com/octokit/authentication-strategies.js/#create-your-own-octokit-authentication-strategy-module).
+
+### Proxy Servers (Node.js only)
+
+By default, the `Octokit` API client does not make use of the standard proxy server environment variables. To add support for proxy servers you will need to provide an https client that supports them such as [proxy-agent](https://www.npmjs.com/package/proxy-agent).
+
+For example, this would use a `proxy-agent` generated client that would configure the proxy based on the standard environment variables `http_proxy`, `https_proxy` and `no_proxy`:
+
+```js
+import ProxyAgent from "proxy-agent";
+
+const octokit = new Octokit({
+  request: {
+    agent: new ProxyAgent(),
+  },
+});
+```
+
+If you are writing a module that uses `Octokit` and is designed to be used by other people, you should ensure that consumers can provide an alternative agent for your `Octokit` or as a paramater to specific calls such as:
+
+```js
+octokit.rest.repos.get({
+  owner,
+  repo,
+  request: { agent },
+});
+```
 
 ### REST API
 
