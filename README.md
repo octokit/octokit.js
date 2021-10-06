@@ -712,7 +712,7 @@ app.oauth.on("token.created", async ({ token, octokit }) => {
 require("http").createServer(createNodeMiddleware(app)).listen(3000);
 ```
 
-For serverless environments, you can explicitly exchange the `code` from the OAuth web flow redircet for an access token.
+For serverless environments, you can explicitly exchange the `code` from the OAuth web flow redirect for an access token.
 `app.oauth.createToken()` returns an authentication object and emits the "token.created" event.
 
 ```js
