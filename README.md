@@ -68,7 +68,7 @@ Deno
 Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
         
 ```ts
-import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit?dts";
+import { Octokit, App } from "https://cdn.skypack.dev/octokit?dts";
 ```
 
 </td></tr>
@@ -79,7 +79,7 @@ Node 12+
 Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
 
 ```js
-import { Octokit, App, Action } from "octokit";
+import { Octokit, App } from "octokit";
 ```
 
 </td></tr>
@@ -90,7 +90,7 @@ Node 10 and below
 Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
 
 ```js
-const { Octokit, App, Action } = require("octokit");
+const { Octokit, App } = require("octokit");
 ```
 
 </td></tr>
