@@ -389,7 +389,7 @@ octokit.rest.repos.get({
 
 ### REST API
 
-There are two ways of using the GitHub REST API, the [`octokit.rest.*` endpoint methods](#endpoint-methods) and [`octokit.request`](#arbitrary-requests). Both act the same way, the `octokit.rest.*` methods are just added for convenience, they use `octokit.request` internally.
+There are two ways of using the GitHub REST API, the [`octokit.rest.*` endpoint methods](#octokitrest-endpoint-methods) and [`octokit.request`](#octokitrequest). Both act the same way, the `octokit.rest.*` methods are just added for convenience, they use `octokit.request` internally.
 
 For example
 
