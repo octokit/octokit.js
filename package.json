@@ -41,7 +41,7 @@
     "fetch-mock": "^9.11.0",
     "jest": "^27.0.0",
     "mockdate": "^3.0.5",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "prettier": "2.4.1",
     "semantic-release": "^18.0.0",
     "semantic-release-plugin-update-version-in-files": "^1.1.0",
