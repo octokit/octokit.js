@@ -12,7 +12,7 @@ Thank you 💖
 Before you create a new Issue:
 
 1. Please make sure there is no [open issue](https://github.com/octokit/auth-oauth-user-client.js/issues?utf8=%E2%9C%93&q=is%3Aissue) yet.
-2. If it is a bug report, include the steps to reproduce the issue, and please create a reproducible test case on [runkit.com](https://runkit.com/). Example: https://runkit.com/gr2m/octokit-rest-js-1808
+2. If it is a bug report, include the steps to reproduce the issue, and please create a reproducible test case on [runkit.com](https://runkit.com/). Example: <https://runkit.com/gr2m/octokit-rest-js-1808>
 3. If it is a feature request, please share the motivation for the new feature, what alternatives you tried, and how you would implement it.
 4. Please include links to the corresponding GitHub documentation.
 
@@ -41,7 +41,7 @@ npm test
 - Submit a pull request from your topic branch to the main branch on the `octokit/auth-oauth-user-client.js` repository.
 - Be sure to tag any issues your pull request is taking care of / contributing to. Adding "Closes #123" to a pull request description will automatically close the issue once the pull request is merged in.
 
-## Testing a pull request from GitHub repo locally:
+## Testing a pull request from GitHub repo locally
 
 You can install `@octokit/auth-oauth-user-client` from each pull request. Replace `[PULL REQUEST NUMBER]`:
 
@@ -69,3 +69,18 @@ on GitHub, generates changelogs from the commit messages and puts them into the 
 Before the publish it runs the `npm run build` script which creates a `pkg/` folder with distributions for browsers, node and Typescript definitions. The contents of the `pkg/` folder are published to the npm registry.
 
 If the pull request looks good but does not follow the commit conventions, use the <kbd>Squash & merge</kbd> button.
+
+> ⚠️ making sure the message is semantic-release compliant before clicking <kbd>Confirm squash and merge</kbd>:
+
+![Screenshot of GitHub's Squash and Merge confirm dialog](assets/squash-and-merge-dialog.png)]
+
+### Troubleshooting
+
+<details>
+  <summary>What can I do if I <i>squashed and merged</i> with a commit message which is not <a href="https://github.com/semantic-release/semantic-release">semantic-release</a> compliant?</summary>
+
+1. After merging, do a follow up on `https://github.com/octokit/<repository name>/actions/workflows/release.yml` to assure your commit is not triggering any release. You can find an example of a commit squashed and merged with a non semantic-release commit message [here](https://github.com/octokit/plugin-throttling.js/runs/5390685684?check_suite_focus=true)
+2. Mention (`@username`) the maintainers of the project in your merged _Pull Request_ to let them know there was an issue with your merged _Pull Request_. We need to make sure no _Pull Request_ is merged until this issue is addressed.
+3. Open a new _Pull Request_ with an [empty commit](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---allow-empty). In the description, link to the previous merged _Pull Request_ to give context to the reviewers and request a Review from the maintainers. This time make sure the message is [semantic-release](https://github.com/semantic-release/semantic-release) compliant.
+
+</details>
