@@ -460,7 +460,7 @@ The 1st argument is the REST API route as listed in GitHub's API documentation. 
 
 #### Pagination
 
-All REST API endpoints that paginate return the first 30 items by default. If you want to retrieve all items, you an use the pagination API. The pagination API expects the REST API route as first argument, but you can also pass any of the `octokit.rest.*.list*` methods for convenience and better code readability.
+All REST API endpoints that paginate return the first 30 items by default. If you want to retrieve all items, you can use the pagination API. The pagination API expects the REST API route as first argument, but you can also pass any of the `octokit.rest.*.list*` methods for convenience and better code readability.
 
 Example: iterate through all issues in a repository
 
