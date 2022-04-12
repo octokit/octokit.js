@@ -491,6 +491,8 @@ const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
 
 #### Media Type previews and formats
 
+**Note**: The concept of _previews_ has been deprecated from REST API endpoints hosted via `api.github.com` but it still exists in GHE (GitHub Enterprise Server) version 3.2 and below. Instead of using _previews_ going forward, new features are now being tested using beta previews that users will have to opt-in to.
+
 Media type previews and formats can be set using `mediaType: { format, previews }` on every request. Required API previews are set automatically on the respective REST API endpoint methods.
 
 Example: retrieve the raw content of a `package.json` file
@@ -520,7 +522,7 @@ const { data } = octokit.rest.repos.getContent({
 console.log("topics on octocat/hello-world: %j", data.topics);
 ```
 
-Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [API previews](https://docs.github.com/en/rest/overview/api-previews).
+Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [previews](https://docs.github.com/en/enterprise-server@3.2/rest/overview/api-previews) used on GitHub Enterprise Server.
 
 ### GraphQL API queries
 
