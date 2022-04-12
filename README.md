@@ -491,7 +491,7 @@ const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
 
 #### Media Type previews and formats
 
-**Note**: The concept of _previews_ has been deprecated from REST API endpoints hosted via `api.github.com` but it still exists in GHE (GitHub Enterprise Server) version 3.2 and below. Instead of using _previews_ going forward, new features are now being tested using beta previews that users will have to opt-in to.
+**Note**: The concept of _preview headers_ has been deprecated from REST API endpoints hosted via `api.github.com` but it still exists in GHES (GitHub Enterprise Server) version 3.2 and below. Instead of using _preview headers_ going forward, new features are now being tested using beta previews that users will have to opt-in to.
 
 Media type previews and formats can be set using `mediaType: { format, previews }` on every request. Required API previews are set automatically on the respective REST API endpoint methods.
 
