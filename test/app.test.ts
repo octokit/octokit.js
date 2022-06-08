@@ -203,8 +203,6 @@ describe("App", () => {
       );
 
     app.webhooks.on("issues.opened", async ({ octokit, payload }) => {
-      console.log("issues.opened handler called");
-
       await octokit.rest.issues.createComment({
         owner: payload.repository.owner.login,
         repo: payload.repository.name,
