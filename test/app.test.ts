@@ -64,6 +64,7 @@ describe("App", () => {
         request: {
           fetch: mock,
         },
+        throttle: { enabled: false },
       }),
     });
   });
