@@ -12,7 +12,7 @@ export const Octokit = OctokitCore.plugin(
   retry,
   throttling
 ).defaults({
-  userAgent: `octokit-rest.js/${VERSION}`,
+  userAgent: `octokit.js/${VERSION}`,
   throttle: {
     onRateLimit,
     onAbuseLimit,
