@@ -377,7 +377,7 @@ const octokit = new Octokit({
 });
 ```
 
-If you are writing a module that uses `Octokit` and is designed to be used by other people, you should ensure that consumers can provide an alternative agent for your `Octokit` or as a paramater to specific calls such as:
+If you are writing a module that uses `Octokit` and is designed to be used by other people, you should ensure that consumers can provide an alternative agent for your `Octokit` or as a parameter to specific calls such as:
 
 ```js
 octokit.rest.repos.get({
