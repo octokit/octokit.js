@@ -26,7 +26,7 @@
     "@octokit/plugin-paginate-rest": "^2.18.0",
     "@octokit/plugin-rest-endpoint-methods": "^5.14.0",
     "@octokit/plugin-retry": "^3.0.9",
-    "@octokit/plugin-throttling": "^3.5.1",
+    "@octokit/plugin-throttling": "^4.0.0",
     "@octokit/types": "^6.35.0"
   },
   "devDependencies": {
