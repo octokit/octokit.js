@@ -20,11 +20,11 @@
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^13.0.3",
-    "@octokit/core": "^4.0.2",
-    "@octokit/oauth-app": "^4.0.4",
-    "@octokit/plugin-paginate-rest": "^2.18.0",
-    "@octokit/plugin-rest-endpoint-methods": "^5.14.0",
+    "@octokit/app": "^13.0.5",
+    "@octokit/core": "^4.0.4",
+    "@octokit/oauth-app": "^4.0.6",
+    "@octokit/plugin-paginate-rest": "^3.0.0",
+    "@octokit/plugin-rest-endpoint-methods": "^6.0.0",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^4.0.1",
     "@octokit/types": "^6.35.0"
