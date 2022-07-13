@@ -31,7 +31,7 @@ jobs:
     needs: test_matrix
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
-      - uses: actions/cache@c3f1317a9e7b1ef106c153ac8c0f00fed3ddbc0d # tag=v3
+      - uses: actions/cache@0865c47f36e68161719c5b124609996bb5c40129 # tag=v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
