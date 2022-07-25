@@ -642,7 +642,7 @@ Webhook event requests are signed using the webhook secret, which is also part o
 
 The `app.webhooks.*` APIs provide methods to receiving, verifying, and handling webhook events.
 
-Exmaple: create a comment on new issues
+Example: create a comment on new issues
 
 ```js
 import { App, createNodeMiddleware } from "octokit";
