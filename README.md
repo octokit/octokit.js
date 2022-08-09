@@ -275,7 +275,7 @@ The time zone header will determine the timezone used for generating the timesta
 
 `Octokit` implements request throttling using [`@octokit/plugin-throttling`](https://github.com/octokit/plugin-throttling.js/#readme)
 
-By default, requests are retried once and warnings are logged in case hitting a rate or abuse limit
+By default, requests are retried once and warnings are logged in case of hitting a rate or secondary rate limit
 
 ```js
 {
@@ -290,9 +290,9 @@ By default, requests are retried once and warnings are logged in case hitting a 
       return true;
     }
   },
-  onAbuseLimit: (retryAfter, options, octokit) => {
+  onSecondaryRateLimit: (retryAfter, options, octokit) => {
     octokit.log.warn(
-      `Abuse detected for request ${options.method} ${options.url}`
+      `SecondaryRateLimit detected for request ${options.method} ${options.url}`
     );
 
     if (options.request.retryCount === 0) {
