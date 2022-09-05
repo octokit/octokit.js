@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
       - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@9efe00a0025efeba48d576d3e3098477d681ce43
+        uses: actions/setup-node@b4b18e5317cee56876918c4f099a680d3bca1cb8
         with:
           node-version: ${{ matrix.node_version }}
           cache: npm
