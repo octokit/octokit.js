@@ -583,6 +583,9 @@ await octokit.graphql(
     repositoryId: 1,
     name: "important",
     color: "cc0000",
+    mediaType: {
+      previews: ["bane"]
+    }
   }
 );
 ```
