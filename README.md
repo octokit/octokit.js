@@ -787,10 +787,10 @@ Example: create a GitHub server with express
 
 ```js
 import express from "express";
-import { OAuthApp, createNodeMiddleware } from "octokit";
+import { App, createNodeMiddleware } from "octokit";
 
 const expressApp = express();
-const octokitApp = new OAuthApp({
+const octokitApp = new App({
   appId,
   privateKey,
   webhooks: { secret },
