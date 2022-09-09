@@ -498,7 +498,7 @@ Media type previews and formats can be set using `mediaType: { format, previews 
 Example: retrieve the raw content of a `package.json` file
 
 ```js
-const { data } = octokit.rest.repos.getContent({
+const { data } = await octokit.rest.repos.getContent({
   mediaType: {
     format: "raw",
   },
@@ -512,7 +512,7 @@ console.log("package name: %s", JSON.parse(data).name);
 Example: retrieve a repository with topics
 
 ```js
-const { data } = octokit.rest.repos.getContent({
+const { data } = await octokit.rest.repos.getContent({
   mediaType: {
     previews: ["mercy"],
   },
