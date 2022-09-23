@@ -32,7 +32,7 @@ jobs:
       - run: exit 1
         if: ${{ needs.test_matrix.result != 'success' }}
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/cache@1a78ace1311f934d8a2b1bc050fa0c40b7207833
+      - uses: actions/cache@12681847c623a9274356751fdf0a63576ff3f846
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
