@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93
+      - uses: actions/setup-node@v3
         with:
           cache: npm
           node-version: 16
