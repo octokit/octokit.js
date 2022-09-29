@@ -32,12 +32,10 @@ jobs:
       - run: exit 1
         if: ${{ needs.test_matrix.result != 'success' }}
       - uses: actions/checkout@v3
-      - uses: actions/cache@12681847c623a9274356751fdf0a63576ff3f846
+      - uses: actions/setup-node@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: "lts/*"
+          cache: npm
       - run: npm ci
       - run: npm run test:typescript
       - run: npm run lint
