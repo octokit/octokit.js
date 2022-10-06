@@ -51,7 +51,7 @@ name: Release
 
 ### 1. Create a branch for the maintenance version
 
-Find the latest version that was released on the maintenance version. For example, if the current version is 3.1, and you want to release maintenance versions for 2.x, then find the latest 2.x version. Say that's 2.10.9. In that example, create a tag based on this tag
+Find the latest version that was released on the maintenance version. For example, if the current version is 3.1, and you want to release maintenance versions for 2.x, then find the latest 2.x version. Say that's 2.10.9. In that example, create a branch based on this tag
 
 ```
 git checkout -b 2.x v2.10.9
