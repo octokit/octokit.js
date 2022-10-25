@@ -12,7 +12,7 @@
   "repository": "github:octokit/octokit.js",
   "license": "MIT",
   "scripts": {
-    "build": "pika build",
+    "build": "pika-pack build",
     "lint": "prettier --check \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "lint:fix": "prettier --write \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "pretest": "npm run -s lint",
@@ -20,30 +20,32 @@
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^12.0.0",
-    "@octokit/core": "^3.3.1",
-    "@octokit/oauth-app": "^3.3.0",
-    "@octokit/plugin-paginate-rest": "^2.13.3",
-    "@octokit/plugin-rest-endpoint-methods": "^5.0.0",
-    "@octokit/plugin-retry": "^3.0.7",
-    "@octokit/plugin-throttling": "^3.4.1",
-    "@octokit/types": "^6.16.1"
+    "@octokit/app": "^13.0.5",
+    "@octokit/core": "^4.0.4",
+    "@octokit/oauth-app": "^4.0.6",
+    "@octokit/plugin-paginate-rest": "^5.0.0",
+    "@octokit/plugin-rest-endpoint-methods": "^6.0.0",
+    "@octokit/plugin-retry": "^3.0.9",
+    "@octokit/plugin-throttling": "^4.0.1",
+    "@octokit/types": "^8.0.0"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^1.0.2",
-    "@pika/pack": "^0.5.0",
+    "@pika/pack": "^0.3.7",
     "@pika/plugin-build-node": "^0.9.2",
     "@pika/plugin-build-web": "^0.9.2",
     "@pika/plugin-ts-standard-pkg": "^0.9.2",
-    "@types/jest": "^26.0.22",
-    "@types/node": "^14.14.36",
+    "@types/jest": "^29.0.0",
+    "@types/node": "^17.0.44",
+    "@types/node-fetch": "^2.5.10",
     "fetch-mock": "^9.11.0",
-    "jest": "^27.0.0",
+    "jest": "^29.0.0",
     "mockdate": "^3.0.5",
-    "prettier": "2.3.0",
-    "semantic-release": "^17.4.2",
+    "node-fetch": "^2.6.7",
+    "prettier": "2.7.1",
+    "semantic-release": "^19.0.3",
     "semantic-release-plugin-update-version-in-files": "^1.1.0",
-    "ts-jest": "^27.0.0-next.12",
+    "ts-jest": "^29.0.0",
     "typescript": "^4.2.3"
   },
   "@pika/pack": {
@@ -52,7 +54,10 @@
         "@pika/plugin-ts-standard-pkg"
       ],
       [
-        "@pika/plugin-build-node"
+        "@pika/plugin-build-node",
+        {
+          "minNodeVersion": "14"
+        }
       ],
       [
         "@pika/plugin-build-web"
@@ -109,9 +114,7 @@
       ]
     ]
   },
-  "renovate": {
-    "extends": [
-      "github>octokit/.github"
-    ]
+  "engines": {
+    "node": ">= 14"
   }
 }

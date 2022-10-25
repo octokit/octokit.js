@@ -8,3 +8,5 @@ export type App = InstanceType<typeof App>;
 
 export const OAuthApp = DefaultOAuthApp.defaults({ Octokit });
 export type OAuthApp = InstanceType<typeof OAuthApp>;
+
+export { createNodeMiddleware } from "@octokit/app";

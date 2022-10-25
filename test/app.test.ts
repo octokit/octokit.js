@@ -1,7 +1,10 @@
+import { createServer } from "http";
+
 import fetchMock from "fetch-mock";
 import MockDate from "mockdate";
+import fetch from "node-fetch";
 
-import { App, Octokit } from "../src";
+import { App, Octokit, createNodeMiddleware } from "../src";
 
 const APP_ID = 1;
 const PRIVATE_KEY = `-----BEGIN RSA PRIVATE KEY-----
@@ -61,6 +64,7 @@ describe("App", () => {
         request: {
           fetch: mock,
         },
+        throttle: { enabled: false },
       }),
     });
   });
@@ -115,6 +119,7 @@ describe("App", () => {
     for await (const { octokit, repository } of app.eachRepository.iterator()) {
       // https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
       await octokit.request("POST /repos/{owner}/{repo}/dispatches", {
+        // @ts-ignore - https://github.com/octokit/openapi-types.ts/issues/136
         owner: repository.owner.login,
         repo: repository.name,
         event_type: "my_event",
@@ -166,5 +171,84 @@ describe("App", () => {
     });
 
     expect(mock.done()).toBe(true);
+  });
+
+  test("README example: createNodeMiddleware(app)", async () => {
+    expect.assertions(3);
+
+    mock
+      .postOnce(
+        "path:/app/installations/123/access_tokens",
+        {
+          token: "secret123",
+          expires_at: "1970-01-01T01:00:00.000Z",
+          permissions: {
+            metadata: "read",
+          },
+          repository_selection: "all",
+        },
+        {
+          headers: {
+            authorization: `bearer ${BEARER}`,
+          },
+        }
+      )
+      .postOnce(
+        "path:/repos/octokit/octokit.js/issues/1/comments",
+        { body: 1 },
+        {
+          body: {
+            body: "Hello, World!",
+          },
+        }
+      );
+
+    app.webhooks.on("issues.opened", async ({ octokit, payload }) => {
+      await octokit.rest.issues.createComment({
+        owner: payload.repository.owner.login,
+        repo: payload.repository.name,
+        // @ts-ignore - `payload.issue` is currently typed as `never`?
+        issue_number: payload.issue.number,
+        body: "Hello, World!",
+      });
+
+      expect(mock.done()).toBe(true);
+    });
+
+    // Your app can now receive webhook events at `/api/github/webhooks`
+    const server = createServer(createNodeMiddleware(app)).listen();
+
+    // @ts-expect-error - port is typed as undefined
+    const port = server.address().port;
+    const issuePayload = JSON.stringify({
+      repository: {
+        owner: {
+          login: "octokit",
+        },
+        name: "octokit.js",
+      },
+      action: "opened",
+      installation: { id: 123 },
+      issue: { number: 1 },
+    });
+
+    const response = await fetch(
+      `http://localhost:${port}/api/github/webhooks`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-github-event": "issues",
+          "x-github-delivery": "1",
+          "x-hub-signature-256": await app.webhooks.sign(issuePayload),
+        },
+        body: JSON.stringify(issuePayload),
+      }
+    );
+
+    expect(await response.text()).toEqual("ok\n");
+    expect(response.status).toEqual(200);
+
+    server.close();
   });
 });

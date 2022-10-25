@@ -12,10 +12,10 @@ export const Octokit = OctokitCore.plugin(
   retry,
   throttling
 ).defaults({
-  userAgent: `octokit-rest.js/${VERSION}`,
+  userAgent: `octokit.js/${VERSION}`,
   throttle: {
     onRateLimit,
-    onAbuseLimit,
+    onSecondaryRateLimit,
   },
 });
 
@@ -33,9 +33,9 @@ function onRateLimit(retryAfter: number, options: any, octokit: any) {
 }
 
 // istanbul ignore next no need to test internals of the throttle plugin
-function onAbuseLimit(retryAfter: number, options: any, octokit: any) {
+function onSecondaryRateLimit(retryAfter: number, options: any, octokit: any) {
   octokit.log.warn(
-    `Abuse detected for request ${options.method} ${options.url}`
+    `SecondaryRateLimit detected for request ${options.method} ${options.url}`
   );
 
   if (options.request.retryCount === 0) {

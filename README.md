@@ -17,6 +17,7 @@ The `octokit` package integrates the three main Octokit libraries
 - [`Octokit` API Client](#octokit-api-client)
   - [Constructor options](#constructor-options)
   - [Authentication](#authentication)
+  - [Proxy Servers](#proxy-servers-nodejs-only)
   - [REST API](#rest-api)
     - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
     - [`octokit.request()`](#octokitrequest)
@@ -67,7 +68,7 @@ Deno
 Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
         
 ```ts
-import { Octokit, App, Action } from "https://cdn.skypack.dev/octokit?dts";
+import { Octokit, App } from "https://cdn.skypack.dev/octokit?dts";
 ```
 
 </td></tr>
@@ -78,7 +79,7 @@ Node 12+
 Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
 
 ```js
-import { Octokit, App, Action } from "octokit";
+import { Octokit, App } from "octokit";
 ```
 
 </td></tr>
@@ -89,7 +90,7 @@ Node 10 and below
 Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
 
 ```js
-const { Octokit, App, Action } = require("octokit");
+const { Octokit, App } = require("octokit");
 ```
 
 </td></tr>
@@ -274,7 +275,7 @@ The time zone header will determine the timezone used for generating the timesta
 
 `Octokit` implements request throttling using [`@octokit/plugin-throttling`](https://github.com/octokit/plugin-throttling.js/#readme)
 
-By default, requests are retried once and warnings are logged in case hitting a rate or abuse limit
+By default, requests are retried once and warnings are logged in case of hitting a rate or secondary rate limit
 
 ```js
 {
@@ -289,9 +290,9 @@ By default, requests are retried once and warnings are logged in case hitting a 
       return true;
     }
   },
-  onAbuseLimit: (retryAfter, options, octokit) => {
+  onSecondaryRateLimit: (retryAfter, options, octokit) => {
     octokit.log.warn(
-      `Abuse detected for request ${options.method} ${options.url}`
+      `SecondaryRateLimit detected for request ${options.method} ${options.url}`
     );
 
     if (options.request.retryCount === 0) {
@@ -350,7 +351,7 @@ For example, to implement the above using `App`
 ```js
 const app = new App({ appId, privateKey });
 const { data: slug } = await app.octokit.rest.apps.getAuthenticated();
-const { octokit } = await app.getInstallationOctokit(123);
+const octokit = await app.getInstallationOctokit(123);
 await octokit.rest.issues.create({
   owner: "octocat",
   repo: "hello-world",
@@ -360,9 +361,35 @@ await octokit.rest.issues.create({
 
 Learn more about [how authentication strategies work](https://github.com/octokit/authentication-strategies.js/#how-authentication-strategies-work) or how to [create your own](https://github.com/octokit/authentication-strategies.js/#create-your-own-octokit-authentication-strategy-module).
 
+### Proxy Servers (Node.js only)
+
+By default, the `Octokit` API client does not make use of the standard proxy server environment variables. To add support for proxy servers you will need to provide an https client that supports them such as [proxy-agent](https://www.npmjs.com/package/proxy-agent).
+
+For example, this would use a `proxy-agent` generated client that would configure the proxy based on the standard environment variables `http_proxy`, `https_proxy` and `no_proxy`:
+
+```js
+import ProxyAgent from "proxy-agent";
+
+const octokit = new Octokit({
+  request: {
+    agent: new ProxyAgent(),
+  },
+});
+```
+
+If you are writing a module that uses `Octokit` and is designed to be used by other people, you should ensure that consumers can provide an alternative agent for your `Octokit` or as a parameter to specific calls such as:
+
+```js
+octokit.rest.repos.get({
+  owner,
+  repo,
+  request: { agent },
+});
+```
+
 ### REST API
 
-There are two ways of using the GitHub REST API, the [`octokit.rest.*` endpoint methods](#endpoint-methods) and [`octokit.request`](#arbitrary-requests). Both act the same way, the `octokit.rest.*` methods are just added for convenience, they use `octokit.request` internally.
+There are two ways of using the GitHub REST API, the [`octokit.rest.*` endpoint methods](#octokitrest-endpoint-methods) and [`octokit.request`](#octokitrequest). Both act the same way, the `octokit.rest.*` methods are just added for convenience, they use `octokit.request` internally.
 
 For example
 
@@ -433,7 +460,7 @@ The 1st argument is the REST API route as listed in GitHub's API documentation. 
 
 #### Pagination
 
-All REST API endpoints that paginate return the first 30 items by default. If you want to retrieve all items, you an use the pagination API. The pagination API expects the REST API route as first argument, but you can also pass any of the `octokit.rest.*.list*` methods for convenience and better code readability.
+All REST API endpoints that paginate return the first 30 items by default. If you want to retrieve all items, you can use the pagination API. The pagination API expects the REST API route as first argument, but you can also pass any of the `octokit.rest.*.list*` methods for convenience and better code readability.
 
 Example: iterate through all issues in a repository
 
@@ -464,12 +491,14 @@ const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
 
 #### Media Type previews and formats
 
+**Note**: The concept of _preview headers_ has been deprecated from REST API endpoints hosted via `api.github.com` but it still exists in GHES (GitHub Enterprise Server) version 3.2 and below. Instead of using _preview headers_ going forward, new features are now being tested using beta previews that users will have to opt-in to.
+
 Media type previews and formats can be set using `mediaType: { format, previews }` on every request. Required API previews are set automatically on the respective REST API endpoint methods.
 
 Example: retrieve the raw content of a `package.json` file
 
 ```js
-const { data } = octokit.rest.repos.getContent({
+const { data } = await octokit.rest.repos.getContent({
   mediaType: {
     format: "raw",
   },
@@ -483,7 +512,7 @@ console.log("package name: %s", JSON.parse(data).name);
 Example: retrieve a repository with topics
 
 ```js
-const { data } = octokit.rest.repos.getContent({
+const { data } = await octokit.rest.repos.getContent({
   mediaType: {
     previews: ["mercy"],
   },
@@ -493,7 +522,7 @@ const { data } = octokit.rest.repos.getContent({
 console.log("topics on octocat/hello-world: %j", data.topics);
 ```
 
-Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [API previews](https://docs.github.com/en/rest/overview/api-previews).
+Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [previews](https://docs.github.com/en/enterprise-server@3.2/rest/overview/api-previews) used on GitHub Enterprise Server.
 
 ### GraphQL API queries
 
@@ -554,6 +583,9 @@ await octokit.graphql(
     repositoryId: 1,
     name: "important",
     color: "cc0000",
+    mediaType: {
+      previews: ["bane"],
+    },
   }
 );
 ```
@@ -613,7 +645,7 @@ Webhook event requests are signed using the webhook secret, which is also part o
 
 The `app.webhooks.*` APIs provide methods to receiving, verifying, and handling webhook events.
 
-Exmaple: create a comment on new issues
+Example: create a comment on new issues
 
 ```js
 import { App, createNodeMiddleware } from "octokit";
@@ -624,7 +656,7 @@ const app = new App({
   webhooks: { secret },
 });
 
-app.webhooks.on("issue.opened", ({ octokit, payload }) => {
+app.webhooks.on("issues.opened", ({ octokit, payload }) => {
   return octokit.rest.issues.createComment({
     owner: payload.repository.owner.login,
     repo: payload.repository.name,
@@ -685,7 +717,7 @@ app.oauth.on("token.created", async ({ token, octokit }) => {
 require("http").createServer(createNodeMiddleware(app)).listen(3000);
 ```
 
-For serverless environments, you can explicitly exchange the `code` from the OAuth web flow redircet for an access token.
+For serverless environments, you can explicitly exchange the `code` from the OAuth web flow redirect for an access token.
 `app.oauth.createToken()` returns an authentication object and emits the "token.created" event.
 
 ```js
@@ -761,7 +793,7 @@ import express from "express";
 import { App, createNodeMiddleware } from "octokit";
 
 const expressApp = express();
-const octokitApp = new OAuthApp({
+const octokitApp = new App({
   appId,
   privateKey,
   webhooks: { secret },
@@ -777,7 +809,7 @@ expressApp.listen(3000, () => {
 
 ### OAuth for browser apps
 
-You must not expose your app's client secret to the user, so you cannot use the `App` constructor. Instead, you have to a server using the `App` constructor which exposes the `/api/github/oauth/*` routes, through which you can safely implement an OAuth login for apps running in a web browser.
+You must not expose your app's client secret to the user, so you cannot use the `App` constructor. Instead, you have to create a server using the `App` constructor which exposes the `/api/github/oauth/*` routes, through which you can safely implement an OAuth login for apps running in a web browser.
 
 If you set `(User) Authorization callback URL` to your own app, than you need to read out the `?code=...&state=...` query parameters, compare the `state` parameter to the value returned by `app.oauthLoginUrl()` earlier to protect against forgery attacks, then exchange the `code` for an OAuth Authorization token.
 

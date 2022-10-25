@@ -1,30 +1,25 @@
 name: Update Prettier
-on:
+"on":
   push:
     branches:
-      - "renovate/prettier-*"
+      - renovate/prettier-*
   workflow_dispatch: {}
 jobs:
   update_prettier:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          version: 12
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          cache: npm
+          node-version: 16
       - run: npm ci
       - run: npm run lint:fix
       - uses: gr2m/create-or-update-pull-request-action@v1.x
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOKITBOT_PAT }}
         with:
-          title: "Prettier updated"
-          body: "An update to prettier required updates to your code."
+          title: Prettier updated
+          body: An update to prettier required updates to your code.
           branch: ${{ github.ref }}
           commit-message: "style: prettier"
