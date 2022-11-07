@@ -1,0 +1,49 @@
+name: Feature
+description: Suggest an idea for a new feature or enhancement
+title: "[FEAT]: "
+labels: ["Type: Feature", "Status: Triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill this out!
+  - type: textarea
+    id: describe-need
+    attributes:
+      label: Describe the need
+      description: What do you want to happen? What problem are you trying to solve?
+      placeholder: Describe the need for the feature.
+    validations:
+      required: true
+  - type: input
+    id: sdk_version
+    attributes:
+      label: SDK Version
+      description: Does this feature suggestion apply to a specific SDK version?
+      placeholder: Octokit.rb v6.0.0
+    validations:
+      required: false
+  - type: input
+    id: api_version
+    attributes:
+      label: API Version
+      description: Does this feature suggestion apply to a specific version of the GitHub REST API or GraphQL API?
+      placeholder: ex. v1.1.1
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: |
+        Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+        Please check your logs before submission to ensure sensitive information is redacted.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
