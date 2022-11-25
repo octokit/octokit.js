@@ -323,7 +323,7 @@ Throttling in a cluster is supported using a Redis backend. See [`@octokit/plugi
       </td>
       <td>
 
-Failed requests are retried by default.
+`Octokit` implements request retries using [`@octokit/plugin-retry`](https://github.com/octokit/plugin-retry.js/#readme)
 
 To opt-out of this feature: 
 
