@@ -307,7 +307,7 @@ By default, requests are retried once and warnings are logged in case of hitting
 To opt-out of this feature:
 
 ```js
-new Octokit({ throttle: { enabled: false } })
+new Octokit({ throttle: { enabled: false } });
 ```
 
 Throttling in a cluster is supported using a Redis backend. See [`@octokit/plugin-throttling` Clustering](https://github.com/octokit/plugin-throttling.js/#clustering)
@@ -325,10 +325,10 @@ Throttling in a cluster is supported using a Redis backend. See [`@octokit/plugi
 
 `Octokit` implements request retries using [`@octokit/plugin-retry`](https://github.com/octokit/plugin-retry.js/#readme)
 
-To opt-out of this feature: 
+To opt-out of this feature:
 
 ```js
-new Octokit({ retry: { enabled: false } })
+new Octokit({ retry: { enabled: false } });
 ```
 
 </td>
