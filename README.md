@@ -275,7 +275,7 @@ The time zone header will determine the timezone used for generating the timesta
 
 `Octokit` implements request throttling using [`@octokit/plugin-throttling`](https://github.com/octokit/plugin-throttling.js/#readme)
 
-By default, requests are retried once and warnings are logged in case of hitting a rate or secondary rate limit
+By default, requests are retried once and warnings are logged in case of hitting a rate or secondary rate limit.
 
 ```js
 {
@@ -304,7 +304,32 @@ By default, requests are retried once and warnings are logged in case of hitting
 };
 ```
 
+To opt-out of this feature:
+
+```js
+new Octokit({ throttle: { enabled: false } });
+```
+
 Throttling in a cluster is supported using a Redis backend. See [`@octokit/plugin-throttling` Clustering](https://github.com/octokit/plugin-throttling.js/#clustering)
+
+</td>
+  </tr>
+   <tr>
+      <th>
+        <code>retry</code>
+      </th>
+      <td>
+        <code>Object</code>
+      </td>
+      <td>
+
+`Octokit` implements request retries using [`@octokit/plugin-retry`](https://github.com/octokit/plugin-retry.js/#readme)
+
+To opt-out of this feature:
+
+```js
+new Octokit({ retry: { enabled: false } });
+```
 
 </td>
     </tr>
