@@ -849,7 +849,7 @@ if (code) {
   const path =
     location.pathname +
     location.search.replace(/\b(code|state)=\w+/g, "").replace(/[?&]+$/, "");
-  history.pushState({}, "", path);
+  history.replaceState({}, "", path);
 
   // exchange the code for a token with your backend.
   // If you use https://github.com/octokit/oauth-app.js
@@ -869,7 +869,7 @@ if (code) {
 
   const {
     data: { login },
-  } = octokit.request("GET /user");
+  } = await octokit.request("GET /user");
   alert("Hi there, " + login);
 }
 ```
