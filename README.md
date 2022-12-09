@@ -673,6 +673,7 @@ The `app.webhooks.*` APIs provide methods to receiving, verifying, and handling 
 Example: create a comment on new issues
 
 ```js
+import { createServer } from "node:http":
 import { App, createNodeMiddleware } from "octokit";
 
 const app = new App({
@@ -690,7 +691,7 @@ app.webhooks.on("issues.opened", ({ octokit, payload }) => {
 });
 
 // Your app can now receive webhook events at `/api/github/webhooks`
-require("http").createServer(createNodeMiddleware(app)).listen(3000);
+createServer(createNodeMiddleware(app)).listen(3000);
 ```
 
 For serverless environments, you can explicitly verify and receive an event
@@ -723,6 +724,7 @@ There are some differences:
 Example: Watch a repository when a user logs in using the OAuth web flow
 
 ```js
+import { createServer } from "node:http":
 import { App, createNodeMiddleware } from "octokit";
 
 const app = new App({
@@ -739,7 +741,7 @@ app.oauth.on("token.created", async ({ token, octokit }) => {
 
 // Your app can receive the OAuth redirect at /api/github/oauth/callback
 // Users can initiate the OAuth web flow by opening /api/oauth/login
-require("http").createServer(createNodeMiddleware(app)).listen(3000);
+createServer(createNodeMiddleware(app)).listen(3000);
 ```
 
 For serverless environments, you can explicitly exchange the `code` from the OAuth web flow redirect for an access token.
@@ -767,6 +769,7 @@ const { token } = await app.oauth.createToken({
 Example: Create an OAuth App Server with default scopes
 
 ```js
+import { createServer } from "node:http":
 import { OAuthApp, createNodeMiddleware } from "octokit";
 
 const app = new OAuthApp({
@@ -787,7 +790,7 @@ app.oauth.on("token", async ({ token, octokit }) => {
 
 // Your app can receive the OAuth redirect at /api/github/oauth/callback
 // Users can initiate the OAuth web flow by opening /api/oauth/login
-require("http").createServer(createNodeMiddleware(app)).listen(3000);
+createServer(createNodeMiddleware(app)).listen(3000);
 ```
 
 ### App Server
