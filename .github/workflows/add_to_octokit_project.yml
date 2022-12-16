@@ -5,6 +5,8 @@ on:
     types: [reopened, opened]
   pull_request:
     types: [reopened, opened]
+  pull_request_target:
+    types: [reopened, opened]
 
 jobs:
   add-to-project:
