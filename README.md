@@ -22,7 +22,6 @@ The `octokit` package integrates the three main Octokit libraries
     - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
     - [`octokit.request()`](#octokitrequest)
     - [Pagination](#pagination)
-    - [Media Type previews and formats](#media-type-previews-and-formats)
   - [GraphQL API queries](#graphql-api-queries)
     - [Schema previews](#schema-previews)
 - [App client](#app-client)
@@ -513,42 +512,6 @@ const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
   per_page: 100,
 });
 ```
-
-#### Media Type previews and formats
-
-**Note**: The concept of _preview headers_ has been deprecated from REST API endpoints hosted via `api.github.com` but it still exists in GHES (GitHub Enterprise Server) version 3.2 and below. Instead of using _preview headers_ going forward, new features are now being tested using beta previews that users will have to opt-in to.
-
-Media type previews and formats can be set using `mediaType: { format, previews }` on every request. Required API previews are set automatically on the respective REST API endpoint methods.
-
-Example: retrieve the raw content of a `package.json` file
-
-```js
-const { data } = await octokit.rest.repos.getContent({
-  mediaType: {
-    format: "raw",
-  },
-  owner: "octocat",
-  repo: "hello-world",
-  path: "package.json",
-});
-console.log("package name: %s", JSON.parse(data).name);
-```
-
-Example: retrieve a repository with topics
-
-```js
-const { data } = await octokit.rest.repos.getContent({
-  mediaType: {
-    previews: ["mercy"],
-  },
-  owner: "octocat",
-  repo: "hello-world",
-});
-console.log("topics on octocat/hello-world: %j", data.topics);
-```
-
-Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [previews](https://docs.github.com/en/enterprise-server@3.2/rest/overview/api-previews) used on GitHub Enterprise Server.
-
 ### GraphQL API queries
 
 Octokit also supports GitHub's GraphQL API directly -- you can use the same queries shown in the documentation and available in the GraphQL explorer in your calls with `octokit.graphql`.
