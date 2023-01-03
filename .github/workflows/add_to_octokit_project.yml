@@ -12,6 +12,7 @@ jobs:
   add-to-project:
     name: Add issue to project
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/add-to-project@v0.4.0
         with:
