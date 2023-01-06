@@ -20,7 +20,7 @@
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^13.0.5",
+    "@octokit/app": "^13.1.1",
     "@octokit/core": "^4.0.4",
     "@octokit/oauth-app": "^4.0.6",
     "@octokit/plugin-paginate-rest": "^5.0.0",
