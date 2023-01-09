@@ -3,8 +3,6 @@ name: Add PRs and issues to Octokit org project
 on:
   issues:
     types: [reopened, opened]
-  pull_request:
-    types: [reopened, opened]
   pull_request_target:
     types: [reopened, opened]
 
