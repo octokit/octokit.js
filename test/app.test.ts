@@ -49,7 +49,6 @@ describe("App", () => {
     MockDate.set(0);
     mock = fetchMock.sandbox();
 
-    // @ts-ignore TODO: when running tests with Jest, TS complaints about the `Octokit` param here
     app = new App({
       appId: APP_ID,
       privateKey: PRIVATE_KEY,
@@ -119,7 +118,6 @@ describe("App", () => {
     for await (const { octokit, repository } of app.eachRepository.iterator()) {
       // https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
       await octokit.request("POST /repos/{owner}/{repo}/dispatches", {
-        // @ts-ignore - https://github.com/octokit/openapi-types.ts/issues/136
         owner: repository.owner.login,
         repo: repository.name,
         event_type: "my_event",
@@ -207,7 +205,6 @@ describe("App", () => {
       await octokit.rest.issues.createComment({
         owner: payload.repository.owner.login,
         repo: payload.repository.name,
-        // @ts-ignore - `payload.issue` is currently typed as `never`?
         issue_number: payload.issue.number,
         body: "Hello, World!",
       });
