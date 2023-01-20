@@ -239,7 +239,7 @@ describe("App", () => {
           "x-github-delivery": "1",
           "x-hub-signature-256": await app.webhooks.sign(issuePayload),
         },
-        body: JSON.stringify(issuePayload),
+        body: issuePayload,
       }
     );
 
