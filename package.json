@@ -24,7 +24,7 @@
     "@octokit/core": "^4.0.4",
     "@octokit/oauth-app": "^4.0.6",
     "@octokit/plugin-paginate-rest": "^5.0.0",
-    "@octokit/plugin-rest-endpoint-methods": "^6.0.0",
+    "@octokit/plugin-rest-endpoint-methods": "^7.0.0",
     "@octokit/plugin-retry": "^4.0.3",
     "@octokit/plugin-throttling": "^5.0.0",
     "@octokit/types": "^9.0.0"
