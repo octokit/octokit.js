@@ -27,7 +27,7 @@
     "@octokit/plugin-rest-endpoint-methods": "^6.0.0",
     "@octokit/plugin-retry": "^4.0.3",
     "@octokit/plugin-throttling": "^4.0.1",
-    "@octokit/types": "^8.0.0"
+    "@octokit/types": "^9.0.0"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^1.0.2",
