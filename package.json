@@ -31,10 +31,6 @@
   },
   "devDependencies": {
     "@octokit/tsconfig": "^1.0.2",
-    "@pika/pack": "^0.3.7",
-    "@pika/plugin-build-node": "^0.9.2",
-    "@pika/plugin-build-web": "^0.9.2",
-    "@pika/plugin-ts-standard-pkg": "^0.9.2",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.0.0",
     "@types/node-fetch": "^2.5.10",
@@ -47,22 +43,6 @@
     "semantic-release-plugin-update-version-in-files": "^1.1.0",
     "ts-jest": "^29.0.0",
     "typescript": "^5.0.0"
-  },
-  "@pika/pack": {
-    "pipeline": [
-      [
-        "@pika/plugin-ts-standard-pkg"
-      ],
-      [
-        "@pika/plugin-build-node",
-        {
-          "minNodeVersion": "14"
-        }
-      ],
-      [
-        "@pika/plugin-build-web"
-      ]
-    ]
   },
   "jest": {
     "preset": "ts-jest",
