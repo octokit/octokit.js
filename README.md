@@ -75,7 +75,7 @@ import { Octokit, App } from "https://cdn.skypack.dev/octokit?dts";
 Node 12+
 </th><td>
 
-Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
+Install with <code>npm/pnpm install octokit</code>, or <code>yarn add octokit</code>
 
 ```js
 import { Octokit, App } from "octokit";
@@ -86,7 +86,7 @@ import { Octokit, App } from "octokit";
 Node 10 and below
 </th><td>
 
-Install with <code>npm install octokit</code>, or <code>yarn add octokit</code>
+Install with <code>npm/pnpm install octokit</code>, or <code>yarn add octokit</code>
 
 ```js
 const { Octokit, App } = require("octokit");

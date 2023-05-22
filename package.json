@@ -12,7 +12,7 @@
   "repository": "github:octokit/octokit.js",
   "license": "MIT",
   "scripts": {
-    "build": "pika-pack build",
+    "build": "node scripts/build.mjs && tsc -p tsconfig.json",
     "lint": "prettier --check \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "lint:fix": "prettier --write \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "pretest": "npm run -s lint",
@@ -20,49 +20,31 @@
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^13.1.1",
-    "@octokit/core": "^4.0.4",
-    "@octokit/oauth-app": "^4.0.6",
-    "@octokit/plugin-paginate-rest": "^5.0.0",
-    "@octokit/plugin-rest-endpoint-methods": "^6.0.0",
-    "@octokit/plugin-retry": "^4.0.3",
-    "@octokit/plugin-throttling": "^4.0.1",
-    "@octokit/types": "^8.0.0"
+    "@octokit/app": "^13.1.3",
+    "@octokit/core": "^4.2.1",
+    "@octokit/oauth-app": "^4.2.1",
+    "@octokit/plugin-paginate-rest": "^6.1.0",
+    "@octokit/plugin-rest-endpoint-methods": "^7.1.1",
+    "@octokit/plugin-retry": "^4.1.3",
+    "@octokit/plugin-throttling": "^6.0.0",
+    "@octokit/types": "^9.2.2"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^1.0.2",
-    "@pika/pack": "^0.3.7",
-    "@pika/plugin-build-node": "^0.9.2",
-    "@pika/plugin-build-web": "^0.9.2",
-    "@pika/plugin-ts-standard-pkg": "^0.9.2",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.0.0",
     "@types/node-fetch": "^2.5.10",
+    "esbuild": "^0.17.19",
     "fetch-mock": "^9.11.0",
+    "glob": "^10.2.4",
     "jest": "^29.0.0",
     "mockdate": "^3.0.5",
     "node-fetch": "^2.6.7",
-    "prettier": "2.8.2",
-    "semantic-release": "^19.0.3",
+    "prettier": "2.8.8",
+    "semantic-release": "^21.0.0",
     "semantic-release-plugin-update-version-in-files": "^1.1.0",
     "ts-jest": "^29.0.0",
-    "typescript": "^4.2.3"
-  },
-  "@pika/pack": {
-    "pipeline": [
-      [
-        "@pika/plugin-ts-standard-pkg"
-      ],
-      [
-        "@pika/plugin-build-node",
-        {
-          "minNodeVersion": "14"
-        }
-      ],
-      [
-        "@pika/plugin-build-web"
-      ]
-    ]
+    "typescript": "^5.0.0"
   },
   "jest": {
     "preset": "ts-jest",

@@ -3,8 +3,6 @@ name: Add PRs and issues to Octokit org project
 on:
   issues:
     types: [reopened, opened]
-  pull_request:
-    types: [reopened, opened]
   pull_request_target:
     types: [reopened, opened]
 
@@ -14,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/add-to-project@v0.4.0
+      - uses: actions/add-to-project@v0.5.0
         with:
           project-url: https://github.com/orgs/octokit/projects/10
           github-token: ${{ secrets.OCTOKITBOT_PROJECT_ACTION_TOKEN }}
