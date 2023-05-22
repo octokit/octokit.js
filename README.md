@@ -17,7 +17,7 @@ The `octokit` package integrates the three main Octokit libraries
 - [`Octokit` API Client](#octokit-api-client)
   - [Constructor options](#constructor-options)
   - [Authentication](#authentication)
-  - [Proxy Servers](#proxy-servers-nodejs-only)
+  - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
   - [REST API](#rest-api)
     - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
     - [`octokit.request()`](#octokitrequest)
@@ -512,6 +512,7 @@ const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
   per_page: 100,
 });
 ```
+
 ### GraphQL API queries
 
 Octokit also supports GitHub's GraphQL API directly -- you can use the same queries shown in the documentation and available in the GraphQL explorer in your calls with `octokit.graphql`.
