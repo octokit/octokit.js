@@ -22,6 +22,7 @@ The `octokit` package integrates the three main Octokit libraries
     - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
     - [`octokit.request()`](#octokitrequest)
     - [Pagination](#pagination)
+    - [Media Type formats](#media-type-formats)
   - [GraphQL API queries](#graphql-api-queries)
     - [Schema previews](#schema-previews)
 - [App client](#app-client)
@@ -512,6 +513,7 @@ const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
   per_page: 100,
 });
 ```
+
 #### Media Type formats
 
 Media type formats can be set using `mediaType: { format }` on every request.
