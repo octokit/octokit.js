@@ -23,8 +23,11 @@ If the pull request looks good but does not follow the commit conventions, use t
 
 ## Breaking changes
 
-When merging a breaking change using the PR body as specified above, extra care must be taken. Breaking changes must first be merged into the `beta` branch, where further testing may be conducted and additional breaking changes may be combined before cutting a release. Note the repository for the change: if it's dependent on other repos where the same change must be made, merge the leaf nodes first before the nodes higher up the tree. Your merge order should look something like:
+When merging a breaking change using the PR body as specified above, extra care must be taken. Breaking changes must first be merged into the `beta` branch, where further testing may be conducted and additional breaking changes may be combined before cutting a release. After changes are combined and tested, merge the `beta` branch into `main` as documented above. `beta` branches are intended to be short-lived.
 
+Note the repository for the change: if it's dependent on other repos where the same change must be made, merge the leaf nodes first before the nodes higher up the tree. Your merge order should look something like:
+
+1. octokit/types (when type changes are required)
 1. endpoint
 1. request
 1. plugins
