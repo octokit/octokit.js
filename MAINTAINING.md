@@ -37,7 +37,6 @@ When merging a breaking change using the PR body as specified above, extra care 
 1. octokit/octokit.js
 1. octokit/rest.js
 
-
 ## Maintenance releases
 
 ### 0. Requirements
