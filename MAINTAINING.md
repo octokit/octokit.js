@@ -30,7 +30,7 @@ When merging a breaking change using the PR body as specified above, extra care 
 1. plugins
 1. auth strategies
 1. core
-1. *-methods
+1. \*-methods
 1. oauth-app
 1. webhooks
 1. app
