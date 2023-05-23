@@ -21,6 +21,23 @@ If the pull request looks good but does not follow the commit conventions, use t
 
 ![Screenshot of GitHub's Squash and Merge confirm dialog](assets/squash-and-merge-dialog.png)]
 
+## Breaking changes
+
+When merging a breaking change using the PR body as specified above, extra care must be taken. Breaking changes must first be merged into the `beta` branch, where further testing may be conducted and additional breaking changes may be combined before cutting a release. Note the repository for the change: if it's dependent on other repos where the same change must be made, merge the leaf nodes first before the nodes higher up the tree. Your merge order should look something like:
+
+1. endpoint
+1. request
+1. plugins
+1. auth strategies
+1. core
+1. *-methods
+1. oauth-app
+1. webhooks
+1. app
+1. octokit/octokit.js
+1. octokit/rest.js
+
+
 ## Maintenance releases
 
 ### 0. Requirements
