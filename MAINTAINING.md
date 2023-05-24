@@ -23,7 +23,7 @@ If the pull request looks good but does not follow the commit conventions, use t
 
 ## Breaking changes
 
-When merging a breaking change using the PR body as specified above, extra care must be taken. Breaking changes must first be merged into the `beta` branch, where further testing may be conducted and additional breaking changes may be combined before cutting a release. After changes are combined and tested, merge the `beta` branch into `main` as documented above. `beta` branches are intended to be short-lived.
+When merging a breaking change using the PR body as specified above, extra care must be taken. Breaking changes must first be merged into the `beta` branch, where further testing may be conducted and additional breaking changes may be combined before cutting a release. The `beta` branch should be created for this purpose and based on `main`. Once the first commit to the branch is landed, a draft PR should be created from `beta` to `main` with the title vX, where X is the next major version. After changes are combined and tested, mark the PR as ready for review, get it reviewed, and merge the `beta` branch into `main` as documented above. `beta` branches are intended to be short-lived.
 
 Note the repository for the change: if it's dependent on other repos where the same change must be made, merge the leaf nodes first before the nodes higher up the tree. Your merge order should look something like:
 
