@@ -159,7 +159,7 @@ const octokit = new Octokit({
         <code>authStrategy</code>
       </th>
       <td>
-        <code>Function<code>
+        <code>Function</code>
       </td>
       <td>
 
