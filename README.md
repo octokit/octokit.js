@@ -17,7 +17,7 @@ The `octokit` package integrates the three main Octokit libraries
 - [`Octokit` API Client](#octokit-api-client)
   - [Constructor options](#constructor-options)
   - [Authentication](#authentication)
-  - [Proxy Servers](#proxy-servers-nodejs-only)
+  - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
   - [REST API](#rest-api)
     - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
     - [`octokit.request()`](#octokitrequest)
@@ -159,7 +159,7 @@ const octokit = new Octokit({
         <code>authStrategy</code>
       </th>
       <td>
-        <code>Function<code>
+        <code>Function</code>
       </td>
       <td>
 
