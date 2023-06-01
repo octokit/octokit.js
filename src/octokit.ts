@@ -6,6 +6,8 @@ import { throttling } from "@octokit/plugin-throttling";
 
 import { VERSION } from "./version";
 
+export { RestEndpointMethodTypes } from "@octokit/plugin-rest-endpoint-methods";
+
 export const Octokit = OctokitCore.plugin(
   restEndpointMethods,
   paginateRest,
