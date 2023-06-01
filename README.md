@@ -8,7 +8,7 @@ The `octokit` package integrates the three main Octokit libraries
 2. **App client** (GitHub App & installations, Webhooks, OAuth)
 3. **Action client** (Pre-authenticated API client for single repository)
 
-## Table of contents
+## Table of contents <!-- omit in toc -->
 
 <!-- toc -->
 
@@ -23,6 +23,7 @@ The `octokit` package integrates the three main Octokit libraries
     - [`octokit.request()`](#octokitrequest)
     - [Pagination](#pagination)
     - [Media Type previews and formats](#media-type-previews-and-formats)
+    - [Request error handling](#request-error-handling)
   - [GraphQL API queries](#graphql-api-queries)
     - [Schema previews](#schema-previews)
 - [App client](#app-client)
@@ -548,6 +549,35 @@ console.log("topics on octocat/hello-world: %j", data.topics);
 ```
 
 Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [previews](https://docs.github.com/en/enterprise-server@3.2/rest/overview/api-previews) used on GitHub Enterprise Server.
+
+#### Request error handling
+
+**Standalone module:** [`@octokit/request-error`](https://github.com/octokit/request-error.js/#readme)
+
+For request error handling, import `RequestError` and use `try...catch` statement.
+
+```typescript
+import { RequestError } from 'octokit'
+```
+
+```typescript
+try {
+  // your code here that sends at least one Octokit request
+  await octokit.request("GET /");
+} catch (error) {
+  // Octokit errors always have a `error.status` property which is the http response code nad it's instance of RequestError
+  if (error instanceof RequestError) {
+    // handle Octokit error
+    // error.message; // Oops
+    // error.status; // 500
+    // error.request; // { method, url, headers, body }
+    // error.response; // { url, status, headers, data }
+  } else {
+    // handle all other errors
+    throw error;
+  }
+}
+```
 
 ### GraphQL API queries
 
