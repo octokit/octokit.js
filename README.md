@@ -557,7 +557,7 @@ Learn more about [Media type formats](https://docs.github.com/en/rest/overview/m
 For request error handling, import `RequestError` and use `try...catch` statement.
 
 ```typescript
-import { RequestError } from 'octokit'
+import { RequestError } from "octokit";
 ```
 
 ```typescript
