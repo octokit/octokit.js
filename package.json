@@ -47,7 +47,14 @@
     "typescript": "^5.0.0"
   },
   "jest": {
-    "preset": "ts-jest",
+    "transform": {
+      "^.+\\.(ts|tsx)$": [
+        "ts-jest",
+        {
+          "tsconfig": "test/tsconfig.test.json"
+        }
+      ]
+    },
     "testPathIgnorePatterns": [
       "/docs/"
     ],
