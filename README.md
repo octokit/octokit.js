@@ -54,11 +54,11 @@ The `octokit` package integrates the three main Octokit libraries
 <tr><th>
 Browsers
 </th><td width=100%>
-Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
+Load <code>octokit</code> directly from <a href="https://esm.sh">esm.sh</a>
         
 ```html
 <script type="module">
-import { Octokit, App } from "https://cdn.skypack.dev/octokit";
+import { Octokit, App } from "https://esm.sh/octokit";
 </script>
 ```
 
@@ -66,10 +66,10 @@ import { Octokit, App } from "https://cdn.skypack.dev/octokit";
 <tr><th>
 Deno
 </th><td width=100%>
-Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
+Load <code>octokit</code> directly from <a href="https://esm.sh">esm.sh</a>
         
 ```ts
-import { Octokit, App } from "https://cdn.skypack.dev/octokit?dts";
+import { Octokit, App } from "https://esm.sh/octokit?dts";
 ```
 
 </td></tr>
@@ -897,7 +897,7 @@ if (code) {
   const { token } = await response.json();
   // `token` is the OAuth Access Token that can be use
 
-  const { Octokit } = await import("https://cdn.skypack.dev/@octokit/core");
+  const { Octokit } = await import("https://esm.sh/@octokit/core");
   const octokit = new Octokit({ auth: token });
 
   const {
