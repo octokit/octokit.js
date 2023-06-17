@@ -28,7 +28,7 @@
     "@octokit/plugin-retry": "^4.1.3",
     "@octokit/plugin-throttling": "^5.2.2",
     "@octokit/types": "^9.2.2",
-    "@octokit/request-error": "^4.0.2"
+    "@octokit/request-error": "^v3.0.3"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^2.0.0",
