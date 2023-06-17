@@ -53,6 +53,6 @@ describe("Smoke tests", () => {
       },
     });
 
-    expect(error).toBeInstanceOf(Error);
+    expect(error).toBeInstanceOf(RequestError);
   });
 });
