@@ -44,6 +44,16 @@ describe("Smoke tests", () => {
     ).not.toThrow();
   });
 
+  it("OAuthApp can be used as a type", () => {
+    let app: OAuthApp;
+    app = new OAuthApp({
+      clientId: "",
+      clientSecret: "",
+    });
+
+    expect(app.octokit.request).toBeInstanceOf(Function);
+  });
+
   it("RequestError inherits from Error", () => {
     const error = new RequestError("test", 123, {
       request: {
