@@ -2,7 +2,7 @@
 // THIS CODE IS NOT EXECUTED. IT IS JUST FOR TYPECHECKING
 // ************************************************************
 
-import { App, OAuthApp, Octokit } from "../src";
+import { App, OAuthApp, Octokit, RequestError } from "../src";
 
 function expect<T>(what: T) {}
 
@@ -30,4 +30,14 @@ export async function OctokitTest() {
     }
   );
   expect<number>(issues[0].id);
+
+  const error = new RequestError("test", 123, {
+    request: {
+      method: "GET",
+      url: "https://api.github.com/",
+      headers: {},
+    },
+  });
+
+  expect<RequestError>(error);
 }
