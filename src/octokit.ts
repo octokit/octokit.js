@@ -1,5 +1,6 @@
 import { Octokit as OctokitCore } from "@octokit/core";
 import { paginateRest } from "@octokit/plugin-paginate-rest";
+import { paginateGraphql } from "@octokit/plugin-paginate-graphql";
 import { restEndpointMethods } from "@octokit/plugin-rest-endpoint-methods";
 import { retry } from "@octokit/plugin-retry";
 import { throttling } from "@octokit/plugin-throttling";
@@ -7,10 +8,15 @@ import { throttling } from "@octokit/plugin-throttling";
 import { VERSION } from "./version";
 
 export { RequestError } from "@octokit/request-error";
+export type {
+  PageInfoForward,
+  PageInfoBackward,
+} from "@octokit/plugin-paginate-graphql";
 
 export const Octokit = OctokitCore.plugin(
   restEndpointMethods,
   paginateRest,
+  paginateGraphql,
   retry,
   throttling
 ).defaults({
