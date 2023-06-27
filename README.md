@@ -8,7 +8,7 @@ The `octokit` package integrates the three main Octokit libraries
 2. **App client** (GitHub App & installations, Webhooks, OAuth)
 3. **Action client** (Pre-authenticated API client for single repository)
 
-## Table of contents
+## Table of contents <!-- omit in toc -->
 
 <!-- toc -->
 
@@ -23,6 +23,7 @@ The `octokit` package integrates the three main Octokit libraries
     - [`octokit.request()`](#octokitrequest)
     - [Pagination](#pagination)
     - [Media Type formats](#media-type-formats)
+    - [Request error handling](#request-error-handling)
   - [GraphQL API queries](#graphql-api-queries)
     - [Schema previews](#schema-previews)
 - [App client](#app-client)
@@ -53,11 +54,11 @@ The `octokit` package integrates the three main Octokit libraries
 <tr><th>
 Browsers
 </th><td width=100%>
-Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
+Load <code>octokit</code> directly from <a href="https://esm.sh">esm.sh</a>
         
 ```html
 <script type="module">
-import { Octokit, App } from "https://cdn.skypack.dev/octokit";
+import { Octokit, App } from "https://esm.sh/octokit";
 </script>
 ```
 
@@ -65,10 +66,10 @@ import { Octokit, App } from "https://cdn.skypack.dev/octokit";
 <tr><th>
 Deno
 </th><td width=100%>
-Load <code>octokit</code> directly from <a href="https://cdn.skypack.dev">cdn.skypack.dev</a>
+Load <code>octokit</code> directly from <a href="https://esm.sh">esm.sh</a>
         
 ```ts
-import { Octokit, App } from "https://cdn.skypack.dev/octokit?dts";
+import { Octokit, App } from "https://esm.sh/octokit?dts";
 ```
 
 </td></tr>
@@ -534,6 +535,35 @@ console.log("package name: %s", JSON.parse(data).name);
 
 Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types).
 
+#### Request error handling
+
+**Standalone module:** [`@octokit/request-error`](https://github.com/octokit/request-error.js/#readme)
+
+For request error handling, import `RequestError` and use `try...catch` statement.
+
+```typescript
+import { RequestError } from "octokit";
+```
+
+```typescript
+try {
+  // your code here that sends at least one Octokit request
+  await octokit.request("GET /");
+} catch (error) {
+  // Octokit errors always have a `error.status` property which is the http response code nad it's instance of RequestError
+  if (error instanceof RequestError) {
+    // handle Octokit error
+    // error.message; // Oops
+    // error.status; // 500
+    // error.request; // { method, url, headers, body }
+    // error.response; // { url, status, headers, data }
+  } else {
+    // handle all other errors
+    throw error;
+  }
+}
+```
+
 ### GraphQL API queries
 
 Octokit also supports GitHub's GraphQL API directly -- you can use the same queries shown in the documentation and available in the GraphQL explorer in your calls with `octokit.graphql`.
@@ -852,7 +882,7 @@ if (code) {
   const { token } = await response.json();
   // `token` is the OAuth Access Token that can be use
 
-  const { Octokit } = await import("https://cdn.skypack.dev/@octokit/core");
+  const { Octokit } = await import("https://esm.sh/@octokit/core");
   const octokit = new Octokit({ auth: token });
 
   const {
