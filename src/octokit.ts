@@ -12,7 +12,7 @@ export const Octokit = OctokitCore.plugin(
   restEndpointMethods,
   paginateRest,
   retry,
-  throttling
+  throttling,
 ).defaults({
   userAgent: `octokit.js/${VERSION}`,
   throttle: {
@@ -24,7 +24,7 @@ export const Octokit = OctokitCore.plugin(
 // istanbul ignore next no need to test internals of the throttle plugin
 function onRateLimit(retryAfter: number, options: any, octokit: any) {
   octokit.log.warn(
-    `Request quota exhausted for request ${options.method} ${options.url}`
+    `Request quota exhausted for request ${options.method} ${options.url}`,
   );
 
   if (options.request.retryCount === 0) {
@@ -37,7 +37,7 @@ function onRateLimit(retryAfter: number, options: any, octokit: any) {
 // istanbul ignore next no need to test internals of the throttle plugin
 function onSecondaryRateLimit(retryAfter: number, options: any, octokit: any) {
   octokit.log.warn(
-    `SecondaryRateLimit detected for request ${options.method} ${options.url}`
+    `SecondaryRateLimit detected for request ${options.method} ${options.url}`,
   );
 
   if (options.request.retryCount === 0) {
