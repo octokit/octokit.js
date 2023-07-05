@@ -615,7 +615,7 @@ const { lastIssues } = await octokit.graphql(
   {
     owner: "octokit",
     repo: "graphql.js",
-  }
+  },
 );
 ```
 
@@ -641,7 +641,7 @@ await octokit.graphql(
     mediaType: {
       previews: ["bane"],
     },
-  }
+  },
 );
 ```
 
@@ -790,7 +790,7 @@ const { token } = await app.oauth.createToken({
   async onVerification(verification) {
     await sendMessageToUser(
       request.body.phoneNumber,
-      `Your code is ${verification.user_code}. Enter it at ${verification.verification_uri}`
+      `Your code is ${verification.user_code}. Enter it at ${verification.verification_uri}`,
     );
   },
 });
