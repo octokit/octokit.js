@@ -20,15 +20,15 @@
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^13.1.5",
-    "@octokit/core": "^4.2.1",
-    "@octokit/oauth-app": "^4.2.1",
-    "@octokit/plugin-paginate-rest": "^6.1.0",
-    "@octokit/plugin-rest-endpoint-methods": "^7.1.1",
-    "@octokit/plugin-retry": "^5.0.0",
-    "@octokit/plugin-throttling": "^5.2.2",
-    "@octokit/types": "^9.2.2",
-    "@octokit/request-error": "^v3.0.3"
+    "@octokit/app": "^14.0.0",
+    "@octokit/core": "^5.0.0",
+    "@octokit/oauth-app": "^6.0.0",
+    "@octokit/plugin-paginate-rest": "^8.0.0",
+    "@octokit/plugin-rest-endpoint-methods": "^9.0.0",
+    "@octokit/plugin-retry": "^6.0.0",
+    "@octokit/plugin-throttling": "^7.0.0",
+    "@octokit/request-error": "^5.0.0",
+    "@octokit/types": "^11.1.0"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^2.0.0",
