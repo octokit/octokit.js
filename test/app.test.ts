@@ -81,7 +81,7 @@ describe("App", () => {
           headers: {
             authorization: `bearer ${BEARER}`,
           },
-        }
+        },
       )
       .postOnce(
         "path:/app/installations/123/access_tokens",
@@ -97,7 +97,7 @@ describe("App", () => {
           headers: {
             authorization: `bearer ${BEARER}`,
           },
-        }
+        },
       )
       .getOnce("path:/installation/repositories", {
         total_count: 1,
@@ -148,7 +148,7 @@ describe("App", () => {
           headers: {
             authorization: `bearer ${BEARER}`,
           },
-        }
+        },
       )
       .postOnce(
         "path:/repos/octokit/octokit.js/issues",
@@ -157,7 +157,7 @@ describe("App", () => {
           body: {
             title: "Hello, world!",
           },
-        }
+        },
       );
     const octokit = await app.getInstallationOctokit(123);
 
@@ -189,7 +189,7 @@ describe("App", () => {
           headers: {
             authorization: `bearer ${BEARER}`,
           },
-        }
+        },
       )
       .postOnce(
         "path:/repos/octokit/octokit.js/issues/1/comments",
@@ -198,7 +198,7 @@ describe("App", () => {
           body: {
             body: "Hello, World!",
           },
-        }
+        },
       );
 
     app.webhooks.on("issues.opened", async ({ octokit, payload }) => {
@@ -240,7 +240,7 @@ describe("App", () => {
           "x-hub-signature-256": await app.webhooks.sign(issuePayload),
         },
         body: issuePayload,
-      }
+      },
     );
 
     expect(await response.text()).toEqual("ok\n");

@@ -27,7 +27,7 @@ export async function OctokitTest() {
     {
       owner: "",
       repo: "",
-    }
+    },
   );
   expect<number>(issues[0].id);
 
