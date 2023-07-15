@@ -12,28 +12,30 @@ The `octokit` package integrates the three main Octokit libraries
 
 <!-- toc -->
 
-- [Features](#features)
-- [Usage](#usage)
-- [`Octokit` API Client](#octokit-api-client)
-  - [Constructor options](#constructor-options)
-  - [Authentication](#authentication)
-  - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
-  - [REST API](#rest-api)
-    - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
-    - [`octokit.request()`](#octokitrequest)
-    - [Pagination](#pagination)
-    - [Media Type formats](#media-type-formats)
-    - [Request error handling](#request-error-handling)
-  - [GraphQL API queries](#graphql-api-queries)
-    - [Schema previews](#schema-previews)
-- [App client](#app-client)
-  - [GitHub App](#github-app)
-  - [Webhooks](#webhooks)
-  - [OAuth](#oauth)
-  - [App Server](#app-server)
-  - [OAuth for browser apps](#oauth-for-browser-apps)
-- [Action client](#action-client)
-- [LICENSE](#license)
+- [octokit.js](#octokitjs)
+  - [Features](#features)
+  - [Usage](#usage)
+  - [`Octokit` API Client](#octokit-api-client)
+    - [Constructor options](#constructor-options)
+    - [Authentication](#authentication)
+    - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
+      - [Fetch missing](#fetch-missing)
+    - [REST API](#rest-api)
+      - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
+      - [`octokit.request()`](#octokitrequest)
+      - [Pagination](#pagination)
+      - [Media Type formats](#media-type-formats)
+      - [Request error handling](#request-error-handling)
+    - [GraphQL API queries](#graphql-api-queries)
+      - [Schema previews](#schema-previews)
+  - [App client](#app-client)
+    - [GitHub App](#github-app)
+    - [Webhooks](#webhooks)
+    - [OAuth](#oauth)
+    - [App Server](#app-server)
+    - [OAuth for browser apps](#oauth-for-browser-apps)
+  - [Action client](#action-client)
+  - [LICENSE](#license)
 
 <!-- tocstop -->
 
@@ -410,6 +412,26 @@ octokit.rest.repos.get({
   owner,
   repo,
   request: { agent },
+});
+```
+
+#### Fetch missing
+
+If you get the following error:
+
+> fetch is not set. Please pass a fetch implementation as new Octokit({ request: { fetch }}).
+
+It probably means you are trying to run Octokit with an unsupported version of NodeJS. Octokit requires Node 18 or higher, [which includes a native fetch API](<https://nodejs.org/en/blog/announcements/v18-release-announce#fetch-(experimental)>).
+
+To bypass this problem you can provide your own `fetch` implementation (or a built-in version like `node-fetch`) like this:
+
+```js
+import fetch from "node-fetch";
+
+const octokit = new Octokit({
+  request: {
+    fetch: fetch,
+  },
 });
 ```
 
