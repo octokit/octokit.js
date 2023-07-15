@@ -12,28 +12,29 @@ The `octokit` package integrates the three main Octokit libraries
 
 <!-- toc -->
 
-- [Features](#features)
-- [Usage](#usage)
-- [`Octokit` API Client](#octokit-api-client)
-  - [Constructor options](#constructor-options)
-  - [Authentication](#authentication)
-  - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
-  - [REST API](#rest-api)
-    - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
-    - [`octokit.request()`](#octokitrequest)
-    - [Pagination](#pagination)
-    - [Media Type formats](#media-type-formats)
-    - [Request error handling](#request-error-handling)
-  - [GraphQL API queries](#graphql-api-queries)
-    - [Schema previews](#schema-previews)
-- [App client](#app-client)
-  - [GitHub App](#github-app)
-  - [Webhooks](#webhooks)
-  - [OAuth](#oauth)
-  - [App Server](#app-server)
-  - [OAuth for browser apps](#oauth-for-browser-apps)
-- [Action client](#action-client)
-- [LICENSE](#license)
+- [octokit.js](#octokitjs)
+  - [Features](#features)
+  - [Usage](#usage)
+  - [`Octokit` API Client](#octokit-api-client)
+    - [Constructor options](#constructor-options)
+    - [Authentication](#authentication)
+    - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
+    - [REST API](#rest-api)
+      - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
+      - [`octokit.request()`](#octokitrequest)
+      - [Pagination](#pagination)
+      - [Media Type formats](#media-type-formats)
+      - [Request error handling](#request-error-handling)
+    - [GraphQL API queries](#graphql-api-queries)
+      - [Schema previews](#schema-previews)
+  - [App client](#app-client)
+    - [GitHub App](#github-app)
+    - [Webhooks](#webhooks)
+    - [OAuth](#oauth)
+    - [App Server](#app-server)
+    - [OAuth for browser apps](#oauth-for-browser-apps)
+  - [Action client](#action-client)
+  - [LICENSE](#license)
 
 <!-- tocstop -->
 
@@ -234,12 +235,11 @@ Advanced options
       <td>
 
 - `request.signal`: Use an [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) instance to cancel a request. [`abort-controller`](https://www.npmjs.com/package/abort-controller) is an implementation for Node.
-- `request.fetch`: Replacement for [built-in fetch method](https://github.com/bitinn/node-fetch). Useful for testing with [`fetch-mock`](https://github.com/wheresrhys/fetch-mock)
+- `request.fetch`: Replacement for [built-in fetch method](<https://nodejs.org/en/blog/announcements/v18-release-announce#fetch-(experimental)>).
 
 Node only
 
 - `request.timeout` sets a request timeout, defaults to 0
-- `request.agent`: A [`http(s).Agent`](https://nodejs.org/api/http.html#http_class_http_agent) e.g. for proxy usage
 
 The `request` option can also be set on a per-request basis.
 
@@ -389,16 +389,23 @@ Learn more about [how authentication strategies work](https://github.com/octokit
 
 ### Proxy Servers (Node.js only)
 
-By default, the `Octokit` API client does not make use of the standard proxy server environment variables. To add support for proxy servers you will need to provide an https client that supports them such as [proxy-agent](https://www.npmjs.com/package/proxy-agent).
+By default, the `Octokit` API client does not make use of the standard proxy server environment variables. To add support for proxy servers you will need to provide an https client that supports them such as [undici-proxy-agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
 
-For example, this would use a `proxy-agent` generated client that would configure the proxy based on the standard environment variables `http_proxy`, `https_proxy` and `no_proxy`:
+For example, this would use a `ProxyAgent` to make requests through a proxy server:
 
 ```js
-import ProxyAgent from "proxy-agent";
+import { fetch as undiciFetch, ProxyAgent } from 'undici';
+
+const myFetch = (url, options) => {
+  return undiciFetch(url, {
+    ...options,
+    dispatcher: new ProxyAgent(<your_proxy_url>)
+  })
+}
 
 const octokit = new Octokit({
   request: {
-    agent: new ProxyAgent(),
+     fetch: myFetch
   },
 });
 ```
@@ -406,10 +413,21 @@ const octokit = new Octokit({
 If you are writing a module that uses `Octokit` and is designed to be used by other people, you should ensure that consumers can provide an alternative agent for your `Octokit` or as a parameter to specific calls such as:
 
 ```js
+import { fetch as undiciFetch, ProxyAgent } from 'undici';
+
+const myFetch = (url, options) => {
+  return undiciFetch(url, {
+    ...options,
+    dispatcher: new ProxyAgent(<your_proxy_url>)
+  })
+}
+
 octokit.rest.repos.get({
   owner,
   repo,
-  request: { agent },
+  request: {
+    fetch: myFetch
+  },
 });
 ```
 
