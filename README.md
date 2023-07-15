@@ -389,7 +389,7 @@ Learn more about [how authentication strategies work](https://github.com/octokit
 
 ### Proxy Servers (Node.js only)
 
-By default, the `Octokit` API client does not make use of the standard proxy server environment variables. To add support for proxy servers you will need to provide an https client that supports them such as [undici-proxy-agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
+By default, the `Octokit` API client does not make use of the standard proxy server environment variables. To add support for proxy servers you will need to provide an https client that supports them such as [`undici.ProxyAgent()`](https://undici.nodejs.org/#/docs/api/ProxyAgent).
 
 For example, this would use a `ProxyAgent` to make requests through a proxy server:
 
