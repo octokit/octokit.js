@@ -19,6 +19,7 @@ The `octokit` package integrates the three main Octokit libraries
     - [Constructor options](#constructor-options)
     - [Authentication](#authentication)
     - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
+      - [Fetch missing](#fetch-missing)
     - [REST API](#rest-api)
       - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
       - [`octokit.request()`](#octokitrequest)
@@ -427,6 +428,26 @@ octokit.rest.repos.get({
   repo,
   request: {
     fetch: myFetch
+  },
+});
+```
+
+#### Fetch missing
+
+If you get the following error:
+
+> fetch is not set. Please pass a fetch implementation as new Octokit({ request: { fetch }}).
+
+It probably means you are trying to run Octokit with an unsupported version of NodeJS. Octokit requires Node 18 or higher, [which includes a native fetch API](<https://nodejs.org/en/blog/announcements/v18-release-announce#fetch-(experimental)>).
+
+To bypass this problem you can provide your own `fetch` implementation (or a built-in version like `node-fetch`) like this:
+
+```js
+import fetch from "node-fetch";
+
+const octokit = new Octokit({
+  request: {
+    fetch: fetch,
   },
 });
 ```
