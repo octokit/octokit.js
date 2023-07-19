@@ -19,7 +19,7 @@ describe("Smoke tests", () => {
         new App({
           appId: 123,
           privateKey: "private key here",
-        })
+        }),
     ).not.toThrow();
   });
 
@@ -40,7 +40,7 @@ describe("Smoke tests", () => {
         new OAuthApp({
           clientId: "",
           clientSecret: "",
-        })
+        }),
     ).not.toThrow();
   });
 

@@ -12,28 +12,30 @@ The `octokit` package integrates the three main Octokit libraries
 
 <!-- toc -->
 
-- [Features](#features)
-- [Usage](#usage)
-- [`Octokit` API Client](#octokit-api-client)
-  - [Constructor options](#constructor-options)
-  - [Authentication](#authentication)
-  - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
-  - [REST API](#rest-api)
-    - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
-    - [`octokit.request()`](#octokitrequest)
-    - [Pagination](#pagination)
-    - [Media Type previews and formats](#media-type-previews-and-formats)
-    - [Request error handling](#request-error-handling)
-  - [GraphQL API queries](#graphql-api-queries)
-    - [Schema previews](#schema-previews)
-- [App client](#app-client)
-  - [GitHub App](#github-app)
-  - [Webhooks](#webhooks)
-  - [OAuth](#oauth)
-  - [App Server](#app-server)
-  - [OAuth for browser apps](#oauth-for-browser-apps)
-- [Action client](#action-client)
-- [LICENSE](#license)
+- [octokit.js](#octokitjs)
+  - [Features](#features)
+  - [Usage](#usage)
+  - [`Octokit` API Client](#octokit-api-client)
+    - [Constructor options](#constructor-options)
+    - [Authentication](#authentication)
+    - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
+      - [Fetch missing](#fetch-missing)
+    - [REST API](#rest-api)
+      - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
+      - [`octokit.request()`](#octokitrequest)
+      - [Pagination](#pagination)
+      - [Media Type formats](#media-type-formats)
+      - [Request error handling](#request-error-handling)
+    - [GraphQL API queries](#graphql-api-queries)
+      - [Schema previews](#schema-previews)
+  - [App client](#app-client)
+    - [GitHub App](#github-app)
+    - [Webhooks](#webhooks)
+    - [OAuth](#oauth)
+    - [App Server](#app-server)
+    - [OAuth for browser apps](#oauth-for-browser-apps)
+  - [Action client](#action-client)
+  - [LICENSE](#license)
 
 <!-- tocstop -->
 
@@ -413,6 +415,26 @@ octokit.rest.repos.get({
 });
 ```
 
+#### Fetch missing
+
+If you get the following error:
+
+> fetch is not set. Please pass a fetch implementation as new Octokit({ request: { fetch }}).
+
+It probably means you are trying to run Octokit with an unsupported version of NodeJS. Octokit requires Node 18 or higher, [which includes a native fetch API](<https://nodejs.org/en/blog/announcements/v18-release-announce#fetch-(experimental)>).
+
+To bypass this problem you can provide your own `fetch` implementation (or a built-in version like `node-fetch`) like this:
+
+```js
+import fetch from "node-fetch";
+
+const octokit = new Octokit({
+  request: {
+    fetch: fetch,
+  },
+});
+```
+
 ### REST API
 
 There are two ways of using the GitHub REST API, the [`octokit.rest.*` endpoint methods](#octokitrest-endpoint-methods) and [`octokit.request`](#octokitrequest). Both act the same way, the `octokit.rest.*` methods are just added for convenience, they use `octokit.request` internally.
@@ -515,11 +537,9 @@ const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
 });
 ```
 
-#### Media Type previews and formats
+#### Media Type formats
 
-**Note**: The concept of _preview headers_ has been deprecated from REST API endpoints hosted via `api.github.com` but it still exists in GHES (GitHub Enterprise Server) version 3.2 and below. Instead of using _preview headers_ going forward, new features are now being tested using beta previews that users will have to opt-in to.
-
-Media type previews and formats can be set using `mediaType: { format, previews }` on every request. Required API previews are set automatically on the respective REST API endpoint methods.
+Media type formats can be set using `mediaType: { format }` on every request.
 
 Example: retrieve the raw content of a `package.json` file
 
@@ -535,20 +555,7 @@ const { data } = await octokit.rest.repos.getContent({
 console.log("package name: %s", JSON.parse(data).name);
 ```
 
-Example: retrieve a repository with topics
-
-```js
-const { data } = await octokit.rest.repos.getContent({
-  mediaType: {
-    previews: ["mercy"],
-  },
-  owner: "octocat",
-  repo: "hello-world",
-});
-console.log("topics on octocat/hello-world: %j", data.topics);
-```
-
-Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types) and [previews](https://docs.github.com/en/enterprise-server@3.2/rest/overview/api-previews) used on GitHub Enterprise Server.
+Learn more about [Media type formats](https://docs.github.com/en/rest/overview/media-types).
 
 #### Request error handling
 
@@ -615,7 +622,7 @@ const { lastIssues } = await octokit.graphql(
   {
     owner: "octokit",
     repo: "graphql.js",
-  }
+  },
 );
 ```
 
@@ -641,7 +648,7 @@ await octokit.graphql(
     mediaType: {
       previews: ["bane"],
     },
-  }
+  },
 );
 ```
 
@@ -790,7 +797,7 @@ const { token } = await app.oauth.createToken({
   async onVerification(verification) {
     await sendMessageToUser(
       request.body.phoneNumber,
-      `Your code is ${verification.user_code}. Enter it at ${verification.verification_uri}`
+      `Your code is ${verification.user_code}. Enter it at ${verification.verification_uri}`,
     );
   },
 });
