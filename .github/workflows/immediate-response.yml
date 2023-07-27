@@ -1,0 +1,28 @@
+name: Issue/PR response
+permissions:
+  issues: write
+  pull-requests: write
+on:
+  issues:
+    types:
+      - opened
+  pull_request:
+    types:
+      - opened
+jobs:
+  respond-to-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine issue or PR number
+        id: extract
+        run: echo "NUMBER=${{ github.event.issue.number || github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
+
+      - name: Respond to issue or PR
+        uses: peter-evans/create-or-update-comment@6534843181fc2aeb7f9f1cd3cd4a7b956cada2db
+        with:
+          issue-number: ${{ steps.extract.outputs.NUMBER }}
+          body: >
+            👋 Hi! Thank you for this contribution! Just to let you know, our GitHub SDK team does a round of issue and PR reviews twice a week, every Monday and Friday!
+            We have a [process in place](https://github.com/octokit/.github/blob/main/community/prioritization_response.md#overview) for prioritizing and responding to your input. 
+            Because you are a part of this community please feel free to comment, add to, or pick up any issues/PRs that are labled with `Status: Up for grabs`.
+            You & others like you are the reason all of this works! So thank you & happy coding! 🚀
