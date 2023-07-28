@@ -27,6 +27,7 @@ The `octokit` package integrates the three main Octokit libraries
       - [Media Type formats](#media-type-formats)
       - [Request error handling](#request-error-handling)
     - [GraphQL API queries](#graphql-api-queries)
+      - [Pagination](#pagination-1)
       - [Schema previews](#schema-previews)
   - [App client](#app-client)
     - [GitHub App](#github-app)
@@ -642,6 +643,40 @@ const { lastIssues } = await octokit.graphql(
   },
 );
 ```
+
+#### Pagination
+
+GitHub's GraphQL API returns a maximum of 100 items. If you want to retrieve all items, you can use the pagination API.
+
+Example: get all issues
+
+```js
+const { allIssues } = await octokit.graphql.paginate(
+  `
+    query allIssues($owner: String!, $repo: String!, $num: Int = 10, $cursor: String) {
+      repository(owner: $owner, name: $repo) {
+        issues(first: $num, after: $cursor) {
+          edges {
+            node {
+              title
+            }
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    }
+  `,
+  {
+    owner: "octokit",
+    repo: "graphql.js",
+  },
+);
+```
+
+Learn more about [GitHub's GraphQL Pagination](https://github.com/octokit/plugin-paginate-graphql.js#readme) usage.
 
 #### Schema previews
 
