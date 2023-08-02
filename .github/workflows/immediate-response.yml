@@ -18,7 +18,7 @@ jobs:
         run: echo "NUMBER=${{ github.event.issue.number || github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
 
       - name: Respond to issue or PR
-        uses: peter-evans/create-or-update-comment@716151b9579b05352dbf244d48e968d211889bbc
+        uses: peter-evans/create-or-update-comment@38217c6b94b54c0dbbe75be237257364e2dd2e62
         with:
           issue-number: ${{ steps.extract.outputs.NUMBER }}
           body: >
