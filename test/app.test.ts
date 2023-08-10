@@ -2,7 +2,6 @@ import { createServer } from "http";
 
 import fetchMock from "fetch-mock";
 import MockDate from "mockdate";
-import fetch from "node-fetch";
 
 import { App, Octokit, createNodeMiddleware } from "../src";
 
