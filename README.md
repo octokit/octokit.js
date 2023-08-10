@@ -762,7 +762,7 @@ The `app.webhooks.*` APIs provide methods to receiving, verifying, and handling 
 Example: create a comment on new issues
 
 ```js
-import { createServer } from "node:http":
+import { createServer } from "node:http";
 import { App, createNodeMiddleware } from "octokit";
 
 const app = new App({
@@ -813,7 +813,7 @@ There are some differences:
 Example: Watch a repository when a user logs in using the OAuth web flow
 
 ```js
-import { createServer } from "node:http":
+import { createServer } from "node:http";
 import { App, createNodeMiddleware } from "octokit";
 
 const app = new App({
@@ -858,7 +858,7 @@ const { token } = await app.oauth.createToken({
 Example: Create an OAuth App Server with default scopes
 
 ```js
-import { createServer } from "node:http":
+import { createServer } from "node:http";
 import { OAuthApp, createNodeMiddleware } from "octokit";
 
 const app = new OAuthApp({
