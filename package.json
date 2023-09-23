@@ -24,12 +24,12 @@
     "@octokit/core": "^5.0.0",
     "@octokit/oauth-app": "^6.0.0",
     "@octokit/plugin-paginate-graphql": "^4.0.0",
-    "@octokit/plugin-paginate-rest": "^8.0.0",
-    "@octokit/plugin-rest-endpoint-methods": "^9.0.0",
+    "@octokit/plugin-paginate-rest": "^9.0.0",
+    "@octokit/plugin-rest-endpoint-methods": "^10.0.0",
     "@octokit/plugin-retry": "^6.0.0",
-    "@octokit/plugin-throttling": "^7.0.0",
+    "@octokit/plugin-throttling": "^8.0.0",
     "@octokit/request-error": "^5.0.0",
-    "@octokit/types": "^11.1.0"
+    "@octokit/types": "^12.0.0"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^2.0.0",
