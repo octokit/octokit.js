@@ -43,7 +43,7 @@ The `octokit` package integrates the three main Octokit libraries
 ## Features
 
 - **Complete**. All features of GitHub's platform APIs are covered.
-- **Prescriptive**. All recommended best practises are implemented.
+- **Prescriptive**. All recommended best practices are implemented.
 - **Universal**. Works in all modern browsers, [Node.js](https://nodejs.org/), and [Deno](https://deno.land/).
 - **Tested**. All libraries have a 100% test coverage.
 - **Typed**. All libraries have extensive TypeScript declarations.
@@ -737,7 +737,7 @@ for await (const { octokit, repository } of app.eachRepository.iterator()) {
       foo: "bar",
     },
   });
-  console.log("Event distpatched for %s", repository.full_name);
+  console.log("Event dispatched for %s", repository.full_name);
 }
 ```
 
