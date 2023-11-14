@@ -44,7 +44,7 @@ The `octokit` package integrates the three main Octokit libraries
 
 - **Complete**. All features of GitHub's platform APIs are covered.
 - **Prescriptive**. All recommended best practices are implemented.
-- **Universal**. Works in all modern browsers, [Node.js](https://nodejs.org/), and [Deno](https://deno.land/).
+- **Universal**. Works in all modern browsers, [Node.js](https://nodejs.org/), and [Deno](https://deno.com/).
 - **Tested**. All libraries have a 100% test coverage.
 - **Typed**. All libraries have extensive TypeScript declarations.
 - **Decomposable**. Use only the code you need. You can build your own Octokit in only a few lines of code or use the underlying static methods. Make your own tradeoff between functionality and bundle size.
@@ -69,10 +69,10 @@ import { Octokit, App } from "https://esm.sh/octokit";
 <tr><th>
 Deno
 </th><td width=100%>
-Load <code>octokit</code> directly from <a href="https://esm.sh">esm.sh</a>
+Load <code>octokit</code> directly using <a href="https://docs.deno.com/runtime/manual/node/npm_specifiers"><code>npm:</code> specifiers</a> 
         
 ```ts
-import { Octokit, App } from "https://esm.sh/octokit?dts";
+import { Octokit, App } from "npm:octokit";
 ```
 
 </td></tr>
