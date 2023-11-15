@@ -20,7 +20,7 @@
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^14.0.0",
+    "@octokit/app": "^14.0.2",
     "@octokit/core": "^5.0.0",
     "@octokit/oauth-app": "^6.0.0",
     "@octokit/plugin-paginate-graphql": "^4.0.0",
