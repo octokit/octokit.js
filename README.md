@@ -590,7 +590,7 @@ try {
   // your code here that sends at least one Octokit request
   await octokit.request("GET /");
 } catch (error) {
-  // Octokit errors are instances of RequestError, so they always have an `error.status` property for the HTTP response code.
+  // Octokit errors are instances of RequestError, so they always have an `error.status` property containing the HTTP response code.
   if (error instanceof RequestError) {
     // handle Octokit error
     // error.message; // Oops
