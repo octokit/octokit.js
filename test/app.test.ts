@@ -1,4 +1,4 @@
-import { createServer } from "http";
+import { createServer } from "node:http";
 
 import fetchMock from "fetch-mock";
 import MockDate from "mockdate";

@@ -1,6 +1,6 @@
 // @ts-check
 import esbuild from "esbuild";
-import { copyFile, readFile, writeFile, rm } from "fs/promises";
+import { copyFile, readFile, writeFile, rm } from "node:fs/promises";
 import { glob } from "glob";
 
 /**
