@@ -372,7 +372,7 @@ await octokit.rest.issues.create({
 });
 ```
 
-In most cases you can use the [`App`](#github-app) or [`OAuthApp`](#oauth-app) SDK which provide APIs and internal wiring to cover most usecase.
+You can use the [`App`](#github-app) or [`OAuthApp`](#oauth-app) SDKs which provide APIs and internal wiring to cover most use cases.
 
 For example, to implement the above using `App`
 
