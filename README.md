@@ -372,7 +372,7 @@ await octokit.rest.issues.create({
 });
 ```
 
-In most cases you can use the [`App`](#github-app) or [`OAuthApp`](#oauth-app) SDK which provide APIs and internal wiring to cover most usecase.
+You can use the [`App`](#github-app) or [`OAuthApp`](#oauth-app) SDKs which provide APIs and internal wiring to cover most use cases.
 
 For example, to implement the above using `App`
 
@@ -590,7 +590,7 @@ try {
   // your code here that sends at least one Octokit request
   await octokit.request("GET /");
 } catch (error) {
-  // Octokit errors always have a `error.status` property which is the http response code nad it's instance of RequestError
+  // Octokit errors are instances of RequestError, so they always have an `error.status` property containing the HTTP response code.
   if (error instanceof RequestError) {
     // handle Octokit error
     // error.message; // Oops
