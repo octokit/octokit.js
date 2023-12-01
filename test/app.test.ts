@@ -3,7 +3,7 @@ import { createServer } from "node:http";
 import fetchMock from "fetch-mock";
 import MockDate from "mockdate";
 
-import { App, Octokit, createNodeMiddleware } from "../src";
+import { App, Octokit, createNodeMiddleware } from "../src/index.ts";
 
 const APP_ID = 1;
 const PRIVATE_KEY = `-----BEGIN RSA PRIVATE KEY-----

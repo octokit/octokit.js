@@ -2,7 +2,7 @@
 // THIS CODE IS NOT EXECUTED. IT IS JUST FOR TYPECHECKING
 // ************************************************************
 
-import { App, OAuthApp, Octokit, RequestError } from "../src";
+import { App, OAuthApp, Octokit, RequestError } from "../src/index.ts";
 
 function expect<T>(what: T) {}
 

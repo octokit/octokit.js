@@ -1,4 +1,4 @@
-import { Octokit, App, OAuthApp, RequestError } from "../src";
+import { Octokit, App, OAuthApp, RequestError } from "../src/index.ts";
 
 describe("Smoke tests", () => {
   it("Octokit is a function", () => {
