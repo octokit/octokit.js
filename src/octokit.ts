@@ -15,9 +15,6 @@ export type {
 } from "@octokit/plugin-paginate-graphql";
 
 export const Octokit = OctokitCore.plugin(
-  // There is a problem with TypeScript type hints when using the restEndpointMethods plugin along with the throttling plugin.
-  // It is safe to ignore.
-  // Using any method to make the "error" go away, will cause a real error in tests and the build.
   restEndpointMethods,
   paginateRest,
   paginateGraphql,
