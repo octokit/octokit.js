@@ -5,7 +5,8 @@ import { restEndpointMethods } from "@octokit/plugin-rest-endpoint-methods";
 import { retry } from "@octokit/plugin-retry";
 import { throttling } from "@octokit/plugin-throttling";
 
-import { VERSION } from "./version";
+import { VERSION } from "./version.js";
+import type { EndpointDefaults } from "@octokit/types";
 
 export { RequestError } from "@octokit/request-error";
 export type {
@@ -27,8 +28,14 @@ export const Octokit = OctokitCore.plugin(
   },
 });
 
+export type Octokit = InstanceType<typeof Octokit>;
+
 // istanbul ignore next no need to test internals of the throttle plugin
-function onRateLimit(retryAfter: number, options: any, octokit: any) {
+function onRateLimit(
+  retryAfter: number,
+  options: Required<EndpointDefaults>,
+  octokit: InstanceType<typeof OctokitCore>,
+) {
   octokit.log.warn(
     `Request quota exhausted for request ${options.method} ${options.url}`,
   );
@@ -41,7 +48,11 @@ function onRateLimit(retryAfter: number, options: any, octokit: any) {
 }
 
 // istanbul ignore next no need to test internals of the throttle plugin
-function onSecondaryRateLimit(retryAfter: number, options: any, octokit: any) {
+function onSecondaryRateLimit(
+  retryAfter: number,
+  options: Required<EndpointDefaults>,
+  octokit: InstanceType<typeof OctokitCore>,
+) {
   octokit.log.warn(
     `SecondaryRateLimit detected for request ${options.method} ${options.url}`,
   );
@@ -52,5 +63,3 @@ function onSecondaryRateLimit(retryAfter: number, options: any, octokit: any) {
     return true;
   }
 }
-
-export type Octokit = InstanceType<typeof Octokit>;

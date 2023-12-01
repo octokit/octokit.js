@@ -1,7 +1,7 @@
 import { App as DefaultApp } from "@octokit/app";
 import { OAuthApp as DefaultOAuthApp } from "@octokit/oauth-app";
 
-import { Octokit } from "./octokit";
+import { Octokit } from "./octokit.js";
 
 export const App = DefaultApp.defaults({ Octokit });
 export type App = InstanceType<typeof App>;

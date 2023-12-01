@@ -3,7 +3,8 @@
   "compilerOptions": {
     "emitDeclarationOnly": false,
     "noEmit": true,
-    "verbatimModuleSyntax": false
+    "verbatimModuleSyntax": false,
+    "allowImportingTsExtensions": true
   },
   "include": ["src/**/*"]
 }

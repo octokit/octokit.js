@@ -17,7 +17,7 @@
     "lint:fix": "prettier --write \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "pretest": "npm run -s lint",
     "test": "jest --coverage",
-    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
+    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict --allowImportingTsExtensions test/typescript-validate.ts"
   },
   "dependencies": {
     "@octokit/app": "^14.0.2",
@@ -65,6 +65,9 @@
         "functions": 100,
         "lines": 100
       }
+    },
+    "moduleNameMapper": {
+      "^(.+)\\.jsx?$": "$1"
     }
   },
   "release": {
