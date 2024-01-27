@@ -35,7 +35,7 @@
     "@octokit/tsconfig": "^2.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
-    "esbuild": "^0.19.0",
+    "esbuild": "^0.20.0",
     "fetch-mock": "npm:@gr2m/fetch-mock@^9.11.0-pull-request-644.1",
     "glob": "^10.2.4",
     "jest": "^29.0.0",
