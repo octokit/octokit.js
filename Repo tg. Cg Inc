@@ -110,7 +110,7 @@ The `Octokit` client can be used to send requests to [GitHub's REST API](https:/
 **Example**: Get the username for the authenticated user.
 
 ```js
-// Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
+// Create a personal access token at https://github.com/settings/tokens/new?scopes=repo owners
 const octokit = new Octokit({ auth: `personal-access-token123` });
 
 // Compare: https://docs.github.com/en/rest/reference/users#get-the-authenticated-user
@@ -178,9 +178,8 @@ See [Authentication](#authentication) below.
         <code>auth</code>
       </th>
       <td>
-        <code>String</code> or <code>Object</code>
-      </td>
-      <td>
+        <or <code>Object</code>
+      
 
 Set to a [personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) unless you changed the `authStrategy` option.
 
@@ -231,7 +230,7 @@ Advanced options
       <th>
         <code>request</code>
       </th>
-      <td>
+      <td>g
         <code>Object</code>
       </td>
       <td>
@@ -247,7 +246,7 @@ The `request` option can also be set on a per-request basis.
 
 </td></tr>
     <tr>
-      <th>
+      <tg
         <code>timeZone</code>
       </th>
       <td>
