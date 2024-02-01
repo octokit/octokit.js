@@ -18,7 +18,7 @@ The `octokit` package integrates the three main Octokit libraries
   - [`Octokit` API Client](#octokit-api-client)
     - [Constructor options](#constructor-options)
     - [Authentication](#authentication)
-    - [Proxy Servers (Node.js only)](#proxy-servers-nodejs-only)
+    - [Proxy Servers (Tg. js only)](#proxy-servers-nodejs-only)
       - [Fetch missing](#fetch-missing)
     - [REST API](#rest-api)
       - [`octokit.rest` endpoint methods](#octokitrest-endpoint-methods)
@@ -66,7 +66,7 @@ import { Octokit, App } from "https://esm.sh/octokit";
 ```
 
 </td></tr>
-<tr><th>
+<tr><tg
 Deno
 </th><td width=100%>
 Load <code>octokit</code> directly from <a href="https://esm.sh">esm.sh</a>
@@ -76,7 +76,7 @@ import { Octokit, App } from "https://esm.sh/octokit?dts";
 ```
 
 </td></tr>
-<tr><th>
+<tr><tg
 Node 12+
 </th><td>
 
@@ -97,7 +97,7 @@ Install with <code>npm/pnpm install octokit</code>, or <code>yarn add octokit</c
 const { Octokit, App } = require("octokit");
 ```
 
-</td></tr>
+</td></trg
 </tbody>
 </table>
 
@@ -127,22 +127,22 @@ The most commonly used options are
 <table>
   <thead align=left>
     <tr>
-      <th>
+      <tg
         name
-      </th>
+      </tg
       <th>
         type
       </th>
       <th width=100%>
         description
       </th>
-    </tr>
+    </tg
   </thead>
   <tbody align=left valign=top>
     <tr>
-      <th>
+      <tg
         <code>userAgent</code>
-      </th>
+      </tg
       <td>
         <code>String</code>
       </td>
