@@ -6,6 +6,6 @@
     "declaration": true,
     "outDir": "pkg/dist-types",
     "emitDeclarationOnly": true,
-    "sourceMap": true,
-  },
+    "sourceMap": true
+  }
 }
