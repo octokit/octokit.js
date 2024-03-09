@@ -775,6 +775,7 @@ app.webhooks.on("issues.opened", ({ octokit, payload }) => {
   return octokit.rest.issues.createComment({
     owner: payload.repository.owner.login,
     repo: payload.repository.name,
+    issue_number: payload.issue.number,
     body: "Hello, World!",
   });
 });
