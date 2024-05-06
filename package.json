@@ -18,7 +18,7 @@
     "lint:fix": "prettier --write \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "pretest": "npm run -s lint",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage",
-    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict --allowImportingTsExtensions test/typescript-validate.ts"
+    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --module node16 --strict --allowImportingTsExtensions test/typescript-validate.ts"
   },
   "dependencies": {
     "@octokit/app": "^15.0.0",
@@ -42,7 +42,6 @@
     "jest": "^29.0.0",
     "mockdate": "^3.0.5",
     "prettier": "3.2.5",
-    "semantic-release": "^23.0.0",
     "semantic-release-plugin-update-version-in-files": "^1.1.0",
     "ts-jest": "^29.0.0",
     "typescript": "^5.0.0"
