@@ -77,24 +77,13 @@ import { Octokit, App } from "https://esm.sh/octokit?dts";
 
 </td></tr>
 <tr><th>
-Node 12+
+Node
 </th><td>
 
 Install with <code>npm/pnpm install octokit</code>, or <code>yarn add octokit</code>
 
 ```js
 import { Octokit, App } from "octokit";
-```
-
-</td></tr>
-<tr><th>
-Node 10 and below
-</th><td>
-
-Install with <code>npm/pnpm install octokit</code>, or <code>yarn add octokit</code>
-
-```js
-const { Octokit, App } = require("octokit");
 ```
 
 </td></tr>
