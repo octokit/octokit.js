@@ -1,6 +1,7 @@
 {
   "name": "octokit",
   "version": "0.0.0-development",
+  "type": "module",
   "description": "The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno",
   "keywords": [
     "github",
@@ -16,23 +17,23 @@
     "lint": "prettier --check \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "lint:fix": "prettier --write \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "pretest": "npm run -s lint",
-    "test": "jest --coverage",
-    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict --allowImportingTsExtensions test/typescript-validate.ts"
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage",
+    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --module node16 --strict --allowImportingTsExtensions test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^14.0.2",
-    "@octokit/core": "^5.0.0",
-    "@octokit/oauth-app": "^6.0.0",
-    "@octokit/plugin-paginate-graphql": "^4.0.0",
-    "@octokit/plugin-paginate-rest": "11.3.1",
-    "@octokit/plugin-rest-endpoint-methods": "13.2.2",
-    "@octokit/plugin-retry": "^6.0.0",
-    "@octokit/plugin-throttling": "^8.0.0",
-    "@octokit/request-error": "^5.0.0",
+    "@octokit/app": "^15.0.0",
+    "@octokit/core": "^6.0.0",
+    "@octokit/oauth-app": "^7.0.0",
+    "@octokit/plugin-paginate-graphql": "^5.0.0",
+    "@octokit/plugin-paginate-rest": "^11.0.0",
+    "@octokit/plugin-rest-endpoint-methods": "^13.0.0",
+    "@octokit/plugin-retry": "^7.0.0",
+    "@octokit/plugin-throttling": "^9.0.0",
+    "@octokit/request-error": "^6.0.0",
     "@octokit/types": "^13.0.0"
   },
   "devDependencies": {
-    "@octokit/tsconfig": "^2.0.0",
+    "@octokit/tsconfig": "^3.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
     "esbuild": "^0.21.0",
@@ -46,11 +47,15 @@
     "typescript": "^5.0.0"
   },
   "jest": {
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
     "transform": {
       "^.+\\.(ts|tsx)$": [
         "ts-jest",
         {
-          "tsconfig": "test/tsconfig.test.json"
+          "tsconfig": "test/tsconfig.test.json",
+          "useESM": true
         }
       ]
     },
