@@ -14,8 +14,8 @@
   "license": "MIT",
   "scripts": {
     "build": "node scripts/build.mjs && tsc -p tsconfig.json",
-    "lint": "prettier --check \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
-    "lint:fix": "prettier --write \"{src,test}/**/*.{js,json,ts}\" \"*.{md,json}\"",
+    "lint": "prettier --check \"{src,test,scripts}/**/*.{js,json,ts}\" \"*.{md,json}\"",
+    "lint:fix": "prettier --write \"{src,test,scripts}/**/*.{js,json,ts,mjs}\" \"*.{md,json}\"",
     "pretest": "npm run -s lint",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage",
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --module node16 --strict --allowImportingTsExtensions test/typescript-validate.ts"
