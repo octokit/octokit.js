@@ -36,7 +36,7 @@
     "@octokit/tsconfig": "^3.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
-    "esbuild": "^0.22.0",
+    "esbuild": "^0.23.0",
     "fetch-mock": "^10.0.0",
     "glob": "^10.2.4",
     "jest": "^29.0.0",
