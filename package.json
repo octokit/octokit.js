@@ -37,7 +37,7 @@
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
     "esbuild": "^0.23.0",
-    "fetch-mock": "^10.0.0",
+    "fetch-mock": "^11.0.0",
     "glob": "^11.0.0",
     "jest": "^29.0.0",
     "mockdate": "^3.0.5",
