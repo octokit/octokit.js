@@ -825,7 +825,7 @@ app.oauth.on("token.created", async ({ token, octokit }) => {
 });
 
 // Your app can receive the OAuth redirect at /api/github/oauth/callback
-// Users can initiate the OAuth web flow by opening /api/oauth/login
+// Users can initiate the OAuth web flow by opening /api/github/oauth/login
 createServer(createNodeMiddleware(app)).listen(3000);
 ```
 
