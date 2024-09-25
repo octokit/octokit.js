@@ -18,7 +18,7 @@
     "lint:fix": "prettier --write \"{src,test,scripts}/**/*.{js,json,ts,mjs}\" \"*.{md,json}\"",
     "pretest": "npm run -s lint",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage",
-    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --module node16 --strict --allowImportingTsExtensions test/typescript-validate.ts"
+    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --module node16 --strict --allowImportingTsExtensions --exactOptionalPropertyTypes test/typescript-validate.ts"
   },
   "dependencies": {
     "@octokit/app": "^15.0.0",
@@ -33,7 +33,7 @@
     "@octokit/types": "^13.0.0"
   },
   "devDependencies": {
-    "@octokit/tsconfig": "^3.0.0",
+    "@octokit/tsconfig": "^4.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
     "esbuild": "^0.24.0",
