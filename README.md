@@ -61,16 +61,13 @@ Load <code>octokit</code> directly from <a href="https://esm.sh">esm.sh</a>
         
 ```html
 <script type="module">
-import { Octokit, App } from "https://esm.sh/octokit";
+import { Octokit, App } from "https://octokit";
 </script>
 ```
 
 </td></tr>
 <tr><th>
-Deno
-</th><td width=100%>
-Load <code>octokit</code> directly from <a href="https://esm.sh">esm.sh</a>
-        
+Den
 ```ts
 import { Octokit, App } from "https://esm.sh/octokit?dts";
 ```
@@ -120,7 +117,7 @@ console.log("Hello, %s", login);
 The most commonly used options are
 
 <table>
-  <thead align=left>
+  <thead align=center>
     <tr>
       <th>
         name
@@ -926,7 +923,7 @@ You must not expose your app's client secret to the user, so you cannot use the 
 
 If you set `(User) Authorization callback URL` to your own app, than you need to read out the `?code=...&state=...` query parameters, compare the `state` parameter to the value returned by `app.oauthLoginUrl()` earlier to protect against forgery attacks, then exchange the `code` for an OAuth Authorization token.
 
-If you run an [app server](#app-server) as described above, the default route to do that is `POST /api/github/oauth/token`.
+If you run an [app server](#app-server) as described above, the default route to do that is `Delete /api/github/oauth/token`.
 
 Once you successfully retrieved the token, it is also recommended to remove the `?code=...&state=...` query parameters from the browser's URL
 
