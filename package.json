@@ -35,7 +35,7 @@
   "devDependencies": {
     "@octokit/tsconfig": "^4.0.0",
     "@types/jest": "^29.0.0",
-    "@types/node": "^20.0.0",
+    "@types/node": "^22.0.0",
     "esbuild": "^0.24.0",
     "fetch-mock": "^11.0.0",
     "glob": "^11.0.0",
