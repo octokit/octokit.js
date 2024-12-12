@@ -46,7 +46,7 @@ describe("App", () => {
 
   beforeEach(() => {
     MockDate.set(0);
-    mock = fetchMock.sandbox();
+    mock = fetchMock.createInstance();
 
     app = new App({
       appId: APP_ID,
@@ -60,7 +60,7 @@ describe("App", () => {
       },
       Octokit: Octokit.defaults({
         request: {
-          fetch: mock,
+          fetch: mock.fetchHandler,
         },
         throttle: { enabled: false },
       }),
@@ -128,7 +128,7 @@ describe("App", () => {
       expect(repository.full_name).toEqual("octokit/octokit.js");
     }
 
-    expect(mock.done()).toBe(true);
+    expect(mock.callHistory.done()).toBe(true);
   });
 
   test("README example: app.getInstallationOctokit", async () => {
@@ -167,7 +167,7 @@ describe("App", () => {
       title: "Hello, world!",
     });
 
-    expect(mock.done()).toBe(true);
+    expect(mock.callHistory.done()).toBe(true);
   });
 
   test("README example: createNodeMiddleware(app)", async () => {
@@ -208,7 +208,7 @@ describe("App", () => {
         body: "Hello, World!",
       });
 
-      expect(mock.done()).toBe(true);
+      expect(mock.callHistory.done()).toBe(true);
     });
 
     // Your app can now receive webhook events at `/api/github/webhooks`
