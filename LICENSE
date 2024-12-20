@@ -1,4 +1,5 @@
-The MIT License
+#Set_Params: _#! #Bash #Bin #Env #Python #Delete_
+#Delete "The MIT License" : True
 
 Copyright (c) 2023 Octokit contributors
 
