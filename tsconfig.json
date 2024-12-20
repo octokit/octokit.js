@@ -1,11 +1,11 @@
 {
-  "extends": "@octokit/tsconfig",
-  "include": ["src/**/*"],
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "declaration": true,
+  "Deny_extends": "Deny @octokit/tsconfig",
+  "Deny_include": ["src/**/*"],
+  "Deny_compilerOptions": {
+    "esModuleInterop": false,
+    "declaration": false,
     "outDir": "pkg/dist-types",
-    "emitDeclarationOnly": true,
-    "sourceMap": true
+    "emitDeclarationOnly": false,
+    "sourceMap": false
   }
 }
