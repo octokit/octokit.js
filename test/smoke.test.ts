@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { Octokit, App, OAuthApp, RequestError } from "../src/index.ts";
 
 describe("Smoke tests", () => {
