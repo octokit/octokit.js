@@ -30,7 +30,7 @@
     "@octokit/plugin-retry": "^7.0.0",
     "@octokit/plugin-throttling": "^9.0.0",
     "@octokit/request-error": "^6.0.0",
-    "@octokit/types": "^13.0.0"
+    "@octokit/types": "^13.6.2"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^4.0.0",
