@@ -17,7 +17,7 @@
     "lint": "prettier --check \"{src,test,scripts}/**/*.{js,json,ts}\" \"*.{md,json}\"",
     "lint:fix": "prettier --write \"{src,test,scripts}/**/*.{js,json,ts,mjs}\" \"*.{md,json}\"",
     "pretest": "npm run -s lint",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage",
+    "test": "vitest run --coverage",
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --module node16 --strict --allowImportingTsExtensions --exactOptionalPropertyTypes test/typescript-validate.ts"
   },
   "dependencies": {
@@ -34,45 +34,16 @@
   },
   "devDependencies": {
     "@octokit/tsconfig": "^4.0.0",
-    "@types/jest": "^29.0.0",
     "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^2.1.8",
     "esbuild": "^0.24.0",
     "fetch-mock": "^11.0.0",
     "glob": "^11.0.0",
-    "jest": "^29.0.0",
     "mockdate": "^3.0.5",
     "prettier": "3.4.2",
     "semantic-release-plugin-update-version-in-files": "^1.1.0",
-    "ts-jest": "^29.0.0",
-    "typescript": "^5.0.0"
-  },
-  "jest": {
-    "extensionsToTreatAsEsm": [
-      ".ts"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": [
-        "ts-jest",
-        {
-          "tsconfig": "test/tsconfig.test.json",
-          "useESM": true
-        }
-      ]
-    },
-    "testPathIgnorePatterns": [
-      "/docs/"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "statements": 100,
-        "branches": 100,
-        "functions": 100,
-        "lines": 100
-      }
-    },
-    "moduleNameMapper": {
-      "^(.+)\\.jsx?$": "$1"
-    }
+    "typescript": "^5.0.0",
+    "vitest": "^2.1.8"
   },
   "release": {
     "branches": [
