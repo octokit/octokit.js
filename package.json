@@ -21,16 +21,16 @@
     "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --module node16 --strict --allowImportingTsExtensions --exactOptionalPropertyTypes test/typescript-validate.ts"
   },
   "dependencies": {
-    "@octokit/app": "^15.1.1",
-    "@octokit/core": "^6.0.0",
-    "@octokit/oauth-app": "^7.0.0",
-    "@octokit/plugin-paginate-graphql": "^5.0.0",
-    "@octokit/plugin-paginate-rest": "^11.0.0",
-    "@octokit/plugin-rest-endpoint-methods": "^13.0.0",
-    "@octokit/plugin-retry": "^7.0.0",
-    "@octokit/plugin-throttling": "^9.0.0",
-    "@octokit/request-error": "^6.0.0",
-    "@octokit/types": "^13.6.2"
+    "@octokit/app": "^15.1.2",
+    "@octokit/core": "^6.1.3",
+    "@octokit/oauth-app": "^7.1.4",
+    "@octokit/plugin-paginate-graphql": "^5.2.4",
+    "@octokit/plugin-paginate-rest": "^11.4.0",
+    "@octokit/plugin-rest-endpoint-methods": "^13.3.0",
+    "@octokit/plugin-retry": "^7.1.3",
+    "@octokit/plugin-throttling": "^9.4.0",
+    "@octokit/request-error": "^6.1.6",
+    "@octokit/types": "^13.7.0"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^4.0.0",
