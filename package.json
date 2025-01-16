@@ -35,7 +35,7 @@
   "devDependencies": {
     "@octokit/tsconfig": "^4.0.0",
     "@types/node": "^22.0.0",
-    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/coverage-v8": "^3.0.0",
     "esbuild": "^0.24.0",
     "fetch-mock": "^11.0.0",
     "glob": "^11.0.0",
@@ -43,7 +43,7 @@
     "prettier": "3.4.2",
     "semantic-release-plugin-update-version-in-files": "^1.1.0",
     "typescript": "^5.0.0",
-    "vitest": "^2.1.8"
+    "vitest": "^3.0.0"
   },
   "release": {
     "branches": [
