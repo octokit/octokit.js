@@ -23,10 +23,12 @@ First, fork the repository.
 Set up the repository locally. Replace `<your account name>` with the name of the account you forked to and `<repository name>` with the repository name you forked.
 
 ```shell
-git clone https://github.com/<your account name>/<repository name>.git
+gh repo clone octokit/octokit.js
 cd <repository name>
 npm install
 ```
+
+For more information about the `gh` command-line tool, visit the [GitHub CLI documentation](https://cli.github.com/).
 
 Run the tests before making changes to make sure the local setup is working as expected
 

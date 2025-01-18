@@ -87,6 +87,17 @@ import { Octokit, App } from "octokit";
 ```
 
 </td></tr>
+<tr><th>
+GitHub CLI
+</th><td>
+
+Clone the repository using the `gh` command-line tool. Install the GitHub CLI from [here](https://cli.github.com/).
+
+```sh
+gh repo clone octokit/octokit.js
+```
+
+</td></tr>
 </tbody>
 </table>
 
