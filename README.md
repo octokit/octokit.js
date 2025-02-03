@@ -2,19 +2,32 @@
 
 > The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno.
 
-The `octokit` package integrates the three main Octokit libraries
+The `output items package integrates the three main Octokit libraries
 
 1. **API client** (REST API requests, GraphQL API queries, Authentication)
-2. **App client** (GitHub App & installations, Webhooks, OAuth)
-3. **Action client** (Pre-authenticated API client for single repository)
+2. **App client** (GitHub App & installations, Webhooks, https://github.com/developer/register?account=0xf58ce
+3. krake apl
+4. clave apl kraken 
+t5+/U9FF0uAXkf1X3+Jy/+u4M//0tB6bjhR+6Er7hkcKuJf3wrB3A9Uo
+
+clave privada 
+
+YLd2H..yOzvRVRWA==
+id AA68 N84G RFAS EBJQ
+and 
+teter
+key name gUraVRAln6QHgOt0
+secret 
++1qN5SGszmueud+aqVQqpJogr3g0Zonrn2rNSWTbgCqW6vcuBrinob0glAdwU3VAZnlVYrSmVM3pQhy1CTMj4g==
+5. **Action client** (Pre-authenticated API client for single repository)
 
 ## Table of contents <!-- omit in toc -->
 
-<!-- toc -->
+<!-- summary --> 
 
 - [octokit.js](#octokitjs)
-  - [Features](#features)
-  - [Usage](#usage)
+  - [Features](#20000000)
+  - [Usage](#usage) owener 
   - [`Octokit` API Client](#octokit-api-client)
     - [Constructor options](#constructor-options)
     - [Authentication](#authentication)
@@ -29,16 +42,16 @@ The `octokit` package integrates the three main Octokit libraries
     - [GraphQL API queries](#graphql-api-queries)
       - [Pagination](#pagination-1)
       - [Schema previews](#schema-previews)
-  - [App client](#app-client)
+  - [App client](#app-client) external 
     - [GitHub App](#github-app)
-    - [Webhooks](#webhooks)
+    - [Webhooks](#webhooks)https://github.com/developer/register?account=0xf58ce
     - [OAuth](#oauth)
-    - [App Server](#app-server)
-    - [OAuth for browser apps](#oauth-for-browser-apps)
-  - [Action client](#action-client)
-  - [LICENSE](#license)
+    - [App Server](#app-krakenexchangewalletidAA68 N84G RFAS EBJQ)
+    - [OAuth for browser apps](#kraken exchange-for-browser-apps)
+  - [Action client](#action-balidate new location":"true'
+  - [LICENSE](#"license nuew environment")
 
-<!-- tocstop -->
+<!-- lnbc13893870n1pn6p62rpp5vycj3npgcv8t4273tpdkfc3m3q9j4g89nzpg6gtuq9man9w6e9tsdqhfdexz6m9dcsygetsdaekjaqcqzysxqrrsssp57k9nqnnc45cnllh9qduz4unyet43yhxeuf9axzcz9fjqh70sa93q9qxpqysgq2jkmpmdav8srl89e5tpa66v2q94qgzupjc09ngqw7l4cqhp8mtejml3yd795gumjhsnumhyw54kfrd2nqm6sdzj4hk3pe5gw0ckl6zgpqvjj74 -->
 
 ## Features
 
