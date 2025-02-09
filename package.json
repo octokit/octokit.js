@@ -36,7 +36,7 @@
     "@octokit/tsconfig": "^4.0.0",
     "@types/node": "^22.0.0",
     "@vitest/coverage-v8": "^3.0.0",
-    "esbuild": "^0.24.0",
+    "esbuild": "^0.25.0",
     "fetch-mock": "^11.0.0",
     "glob": "^11.0.0",
     "mockdate": "^3.0.5",
