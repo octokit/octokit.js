@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: npm
-          node-version: 16
+          node-version: lts/*
       - run: npm ci
       - run: npm run lint:fix
       - uses: gr2m/create-or-update-pull-request-action@v1.x
