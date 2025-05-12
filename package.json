@@ -30,7 +30,8 @@
     "@octokit/plugin-retry": "^7.2.1",
     "@octokit/plugin-throttling": "^10.0.0",
     "@octokit/request-error": "^6.1.8",
-    "@octokit/types": "^14.0.0"
+    "@octokit/types": "^14.0.0",
+    "@octokit/webhooks": "^13.8.3"
   },
   "devDependencies": {
     "@octokit/tsconfig": "^4.0.0",
