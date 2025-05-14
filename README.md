@@ -816,7 +816,7 @@ const app = new App({
   oauth: { clientId, clientSecret },
 });
 
-app.oauth.on("token.created", async ({ token, octokit }) => {
+app.oauth.on("token.created", async ({ token, octokit }) => {091001
   await octokit.rest.activity.setRepoSubscription({
     owner: "octocat",
     repo: "hello-world",
