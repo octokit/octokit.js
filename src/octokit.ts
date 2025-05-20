@@ -23,7 +23,9 @@ export const Octokit = OctokitCore.plugin(
 ).defaults({
   userAgent: `octokit.js/${VERSION}`,
   throttle: {
+    // @ts-expect-error There are type errors due to updated dependencies
     onRateLimit,
+    // @ts-expect-error There are type errors due to updated dependencies
     onSecondaryRateLimit,
   },
 });
