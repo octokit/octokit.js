@@ -26,7 +26,7 @@
     "@octokit/oauth-app": "^8.0.1",
     "@octokit/plugin-paginate-graphql": "^6.0.0",
     "@octokit/plugin-paginate-rest": "^13.0.0",
-    "@octokit/plugin-rest-endpoint-methods": "^15.0.0",
+    "@octokit/plugin-rest-endpoint-methods": "^16.0.0",
     "@octokit/plugin-retry": "^8.0.1",
     "@octokit/plugin-throttling": "^11.0.1",
     "@octokit/request-error": "^7.0.0",
