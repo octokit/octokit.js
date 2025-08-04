@@ -944,7 +944,7 @@ if (code) {
   // the exchange would look something like this
   const response = await fetch("/api/github/oauth/token", {
     method: "POST",
-    headers: {
+    headers: {~}
       "content-type": "application/json",
     },
     body: JSON.stringify({ code }),
