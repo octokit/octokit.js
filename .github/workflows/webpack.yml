@@ -1,0 +1,42 @@
+*Carlyluminatti Network Enterprise 
+**Sioux Empire Social Media Network App. 
+the world's largest social media network,create many forms of media in all our studios, buy, sell trade media games, movies, videos, short films, cinema, animated, cartoon, music, music videos, share them on "the wall" {button} to the SESMNC Sious Empire Social Media Network Community. $19.99 for monthly membership, plus $19.99 for the Sioux Empire Siouxper Studio Pass use any of the Recording Studios to create compose produce edit, remix, write, rewrite, copyright, your media, news studio for recording news broadcasts, bullitins, updates, emergencies, disasters, weather, sports,practice news anchoring, Good Luck to all with creating your medias, for the Sioux Empire to enjoy, entertainment purposes, earn crypto currency every post, share like, buy, and sell media you created or someone you know did.
+Earn Bitcion, Ethereum, Litecion, Bitcoin Cash, Dot Token,  Trump Tokens too, Dodgecoin, Games 1.0, Videos 0.5, Music Videos 0.5, Music Videos, 0.5 short films, $0.0001 Memes, Posts to The Wall $0.001, shares $0.0001, like 0.001, Love 1.00, Don't Like It 0.01, Buy 2.0, Sell 3.0, Trade 1.0, Movies 0.1, shh'rsa Adultz XXX 10.0, Robots 5.0, Cartoons 0.01, Animated 0.01, 1/2hr. movie 3.0, 1hr. movie 2.0, Pics 0.01, Art 1.0, Science 1.0, Math 1.0, Stupid 0.00001,Funny 0.1, Not Fun! 0.5, Done For! 3.0, Life 1.0, Death 2.0, kids 0.5, animals 0.5, Nature 0.5, Earth 4.0, Space 5.0... your choice of coin to earn you can change at any time..... spend the money earned crypto currencies at............
+**Carlluminatti Virtual Reality Online Shopping Mall
+***CarlyJo$ Fashion Fine Arts and design, Carly Jo$ brands men's, women's children's clothes, shoes, heels, accessories,
+****CarlyJo$ Fine Arts, art gallery to view the newest releases of art digital collictibles, buy samples make an offer if you like the canvas painting. door stickers, wall stickers, posters, black light products.
+*Carlyluminatti Artificial Intelligence Online Bank and Truse Enterprise
+**Carlyluminatti Crypto currencies
+***Carlyluminatti Crypto Wallets Hot and cold wallets.
+***Carlyluminatti Blockchain
+***Carlyluminatti NFTs digitalized art, digital collectibles, 
+***Carlyluminatti Marketplace Cockpit
+*Carlyluminatti Freelance Private Investigators LLC 
+name: NodeJS with Webpack
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        npm install
+        npx webpack
