@@ -1,7 +1,12 @@
-import { beforeEach, describe, expect, test } from "vitest";
+import { afterEach, beforeEach, describe, expect, test } from "vitest";
 import { createServer } from "node:http";
 
-import fetchMock from "fetch-mock";
+import {
+  MockAgent,
+  type Interceptable,
+  fetch as undiciFetch,
+  type RequestInit,
+} from "undici";
 import MockDate from "mockdate";
 
 import { App, Octokit, createNodeMiddleware } from "../src/index.ts";
@@ -43,11 +48,13 @@ const BEARER =
 
 describe("App", () => {
   let app: InstanceType<typeof App>;
-  let mock: typeof fetchMock;
+  const mockAgent = new MockAgent();
+  mockAgent.disableNetConnect();
+  let mock: Interceptable;
 
   beforeEach(() => {
     MockDate.set(0);
-    mock = fetchMock.sandbox();
+    mock = mockAgent.get("https://api.github.com");
 
     app = new App({
       appId: APP_ID,
@@ -61,45 +68,52 @@ describe("App", () => {
       },
       Octokit: Octokit.defaults({
         request: {
-          fetch: mock,
+          fetch: (url: string, options: RequestInit) => {
+            return undiciFetch(url, {
+              ...options,
+              dispatcher: mockAgent,
+            });
+          },
         },
         throttle: { enabled: false },
       }),
     });
   });
+  afterEach(() => {
+    mock.cleanMocks();
+  });
 
   test("Readme example: `app.eachRepository.iterator`", async () => {
     mock
-      .getOnce(
-        "path:/app/installations",
-        [
-          {
-            id: "123",
-          },
-        ],
-        {
-          headers: {
-            authorization: `bearer ${BEARER}`,
-          },
+      .intercept({
+        method: "GET",
+        path: "/app/installations",
+        headers: { authorization: `bearer ${BEARER}` },
+      })
+      .reply(200, [{ id: 123 }])
+      .times(1);
+    mock
+      .intercept({
+        method: "POST",
+        path: "/app/installations/123/access_tokens",
+        headers: { authorization: `bearer ${BEARER}` },
+      })
+      .reply(200, {
+        token: "secret123",
+        expires_at: "1970-01-01T01:00:00.000Z",
+        permissions: {
+          metadata: "read",
         },
-      )
-      .postOnce(
-        "path:/app/installations/123/access_tokens",
-        {
-          token: "secret123",
-          expires_at: "1970-01-01T01:00:00.000Z",
-          permissions: {
-            metadata: "read",
-          },
-          repository_selection: "all",
-        },
-        {
-          headers: {
-            authorization: `bearer ${BEARER}`,
-          },
-        },
-      )
-      .getOnce("path:/installation/repositories", {
+        repository_selection: "all",
+      })
+      .times(1);
+
+    mock
+      .intercept({
+        method: "GET",
+        path: /^\/installation\/repositories(\?.*)?$/,
+      })
+      .reply(200, {
         total_count: 1,
         repositories: [
           {
@@ -111,9 +125,18 @@ describe("App", () => {
           },
         ],
       })
-      .postOnce("path:/repos/octokit/octokit.js/dispatches", 204, {
-        body: { event_type: "my_event", client_payload: { foo: "bar" } },
-      });
+      .times(1);
+    mock
+      .intercept({
+        method: "POST",
+        path: "/repos/octokit/octokit.js/dispatches",
+        body: JSON.stringify({
+          event_type: "my_event",
+          client_payload: { foo: "bar" },
+        }),
+      })
+      .reply(204)
+      .times(1);
 
     for await (const { octokit, repository } of app.eachRepository.iterator()) {
       // https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
@@ -129,36 +152,34 @@ describe("App", () => {
       expect(repository.full_name).toEqual("octokit/octokit.js");
     }
 
-    expect(mock.done()).toBe(true);
+    expect(mockAgent.assertNoPendingInterceptors()).toBe(true);
   });
 
   test("README example: app.getInstallationOctokit", async () => {
     mock
-      .postOnce(
-        "path:/app/installations/123/access_tokens",
-        {
-          token: "secret123",
-          expires_at: "1970-01-01T01:00:00.000Z",
-          permissions: {
-            metadata: "read",
-          },
-          repository_selection: "all",
+      .intercept({
+        method: "POST",
+        path: "/app/installations/123/access_tokens",
+        headers: { authorization: `bearer ${BEARER}` },
+      })
+      .reply(200, {
+        token: "secret123",
+        expires_at: "1970-01-01T01:00:00.000Z",
+        permissions: {
+          metadata: "read",
         },
-        {
-          headers: {
-            authorization: `bearer ${BEARER}`,
-          },
-        },
-      )
-      .postOnce(
-        "path:/repos/octokit/octokit.js/issues",
-        { id: 1 },
-        {
-          body: {
-            title: "Hello, world!",
-          },
-        },
-      );
+        repository_selection: "all",
+      })
+      .times(1);
+    mock
+      .intercept({
+        method: "POST",
+        path: "/repos/octokit/octokit.js/issues",
+        body: JSON.stringify({ title: "Hello, world!" }),
+      })
+      .reply(201, { id: 1 })
+      .times(1);
+
     const octokit = await app.getInstallationOctokit(123);
 
     // https://docs.github.com/en/rest/reference/issues#create-an-issue
@@ -168,38 +189,35 @@ describe("App", () => {
       title: "Hello, world!",
     });
 
-    expect(mock.done()).toBe(true);
+    expect(mockAgent.assertNoPendingInterceptors()).toBe(true);
   });
 
   test("README example: createNodeMiddleware(app)", async () => {
     expect.assertions(3);
 
     mock
-      .postOnce(
-        "path:/app/installations/123/access_tokens",
-        {
-          token: "secret123",
-          expires_at: "1970-01-01T01:00:00.000Z",
-          permissions: {
-            metadata: "read",
-          },
-          repository_selection: "all",
+      .intercept({
+        method: "POST",
+        path: "/app/installations/123/access_tokens",
+        headers: { authorization: `bearer ${BEARER}` },
+      })
+      .reply(200, {
+        token: "secret123",
+        expires_at: "1970-01-01T01:00:00.000Z",
+        permissions: {
+          metadata: "read",
         },
-        {
-          headers: {
-            authorization: `bearer ${BEARER}`,
-          },
-        },
-      )
-      .postOnce(
-        "path:/repos/octokit/octokit.js/issues/1/comments",
-        { body: 1 },
-        {
-          body: {
-            body: "Hello, World!",
-          },
-        },
-      );
+        repository_selection: "all",
+      })
+      .times(1);
+    mock
+      .intercept({
+        method: "POST",
+        path: "/repos/octokit/octokit.js/issues/1/comments",
+        body: JSON.stringify({ body: "Hello, world!" }),
+      })
+      .reply(201, { body: 1 })
+      .times(1);
 
     app.webhooks.on("issues.opened", async ({ octokit, payload }) => {
       await octokit.rest.issues.createComment({
@@ -209,7 +227,7 @@ describe("App", () => {
         body: "Hello, World!",
       });
 
-      expect(mock.done()).toBe(true);
+      expect(mockAgent.assertNoPendingInterceptors()).toBe(true);
     });
 
     // Your app can now receive webhook events at `/api/github/webhooks`
