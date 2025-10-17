@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test } from "vitest";
 import { createServer } from "node:http";
 
-import fetchMock from "fetch-mock";
+import nock from "nock";
 import MockDate from "mockdate";
 
 import { App, Octokit, createNodeMiddleware } from "../src/index.ts";
@@ -43,11 +43,11 @@ const BEARER =
 
 describe("App", () => {
   let app: InstanceType<typeof App>;
-  let mock: typeof fetchMock;
+  const mock = nock("https://api.github.com");
 
   beforeEach(() => {
     MockDate.set(0);
-    mock = fetchMock.sandbox();
+    nock.cleanAll();
 
     app = new App({
       appId: APP_ID,
@@ -60,9 +60,6 @@ describe("App", () => {
         secret: WEBHOOK_SECRET,
       },
       Octokit: Octokit.defaults({
-        request: {
-          fetch: mock,
-        },
         throttle: { enabled: false },
       }),
     });
@@ -70,50 +67,38 @@ describe("App", () => {
 
   test("Readme example: `app.eachRepository.iterator`", async () => {
     mock
-      .getOnce(
-        "path:/app/installations",
-        [
-          {
-            id: "123",
-          },
-        ],
-        {
-          headers: {
-            authorization: `bearer ${BEARER}`,
-          },
-        },
-      )
-      .postOnce(
-        "path:/app/installations/123/access_tokens",
-        {
-          token: "secret123",
-          expires_at: "1970-01-01T01:00:00.000Z",
-          permissions: {
-            metadata: "read",
-          },
-          repository_selection: "all",
-        },
-        {
-          headers: {
-            authorization: `bearer ${BEARER}`,
-          },
-        },
-      )
-      .getOnce("path:/installation/repositories", {
-        total_count: 1,
-        repositories: [
-          {
-            owner: {
-              login: "octokit",
-            },
-            name: "octokit.js",
-            full_name: "octokit/octokit.js",
-          },
-        ],
+      .get("/app/installations", undefined, {
+        reqheaders: { authorization: `bearer ${BEARER}` },
       })
-      .postOnce("path:/repos/octokit/octokit.js/dispatches", 204, {
-        body: { event_type: "my_event", client_payload: { foo: "bar" } },
+      .reply(200, [{ id: 123 }]);
+    mock
+      .post("/app/installations/123/access_tokens", undefined, {
+        reqheaders: { authorization: `bearer ${BEARER}` },
+      })
+      .reply(200, {
+        token: "secret123",
+        expires_at: "1970-01-01T01:00:00.000Z",
+        permissions: {
+          metadata: "read",
+        },
+        repository_selection: "all",
       });
+    mock.get("/installation/repositories").reply(200, {
+      total_count: 1,
+      repositories: [
+        {
+          owner: { login: "octokit" },
+          name: "octokit.js",
+          full_name: "octokit/octokit.js",
+        },
+      ],
+    });
+    mock
+      .post("/repos/octokit/octokit.js/dispatches", {
+        event_type: "my_event",
+        client_payload: { foo: "bar" },
+      })
+      .reply(204);
 
     for await (const { octokit, repository } of app.eachRepository.iterator()) {
       // https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
@@ -129,36 +114,26 @@ describe("App", () => {
       expect(repository.full_name).toEqual("octokit/octokit.js");
     }
 
-    expect(mock.done()).toBe(true);
+    expect(mock.isDone()).toBe(true);
   });
 
   test("README example: app.getInstallationOctokit", async () => {
     mock
-      .postOnce(
-        "path:/app/installations/123/access_tokens",
-        {
-          token: "secret123",
-          expires_at: "1970-01-01T01:00:00.000Z",
-          permissions: {
-            metadata: "read",
-          },
-          repository_selection: "all",
+      .post("/app/installations/123/access_tokens", undefined, {
+        reqheaders: { authorization: `bearer ${BEARER}` },
+      })
+      .reply(200, {
+        token: "secret123",
+        expires_at: "1970-01-01T01:00:00.000Z",
+        permissions: {
+          metadata: "read",
         },
-        {
-          headers: {
-            authorization: `bearer ${BEARER}`,
-          },
-        },
-      )
-      .postOnce(
-        "path:/repos/octokit/octokit.js/issues",
-        { id: 1 },
-        {
-          body: {
-            title: "Hello, world!",
-          },
-        },
-      );
+        repository_selection: "all",
+      });
+    mock
+      .post("/repos/octokit/octokit.js/issues", { title: "Hello, world!" })
+      .reply(201, { id: 1 });
+
     const octokit = await app.getInstallationOctokit(123);
 
     // https://docs.github.com/en/rest/reference/issues#create-an-issue
@@ -168,38 +143,29 @@ describe("App", () => {
       title: "Hello, world!",
     });
 
-    expect(mock.done()).toBe(true);
+    expect(mock.isDone()).toBe(true);
   });
 
   test("README example: createNodeMiddleware(app)", async () => {
     expect.assertions(3);
 
     mock
-      .postOnce(
-        "path:/app/installations/123/access_tokens",
-        {
-          token: "secret123",
-          expires_at: "1970-01-01T01:00:00.000Z",
-          permissions: {
-            metadata: "read",
-          },
-          repository_selection: "all",
+      .post("/app/installations/123/access_tokens", undefined, {
+        reqheaders: { authorization: `bearer ${BEARER}` },
+      })
+      .reply(200, {
+        token: "secret123",
+        expires_at: "1970-01-01T01:00:00.000Z",
+        permissions: {
+          metadata: "read",
         },
-        {
-          headers: {
-            authorization: `bearer ${BEARER}`,
-          },
-        },
-      )
-      .postOnce(
-        "path:/repos/octokit/octokit.js/issues/1/comments",
-        { body: 1 },
-        {
-          body: {
-            body: "Hello, World!",
-          },
-        },
-      );
+        repository_selection: "all",
+      });
+    mock
+      .post("/repos/octokit/octokit.js/issues/1/comments", {
+        body: "Hello, World!",
+      })
+      .reply(200, { body: 1 });
 
     app.webhooks.on("issues.opened", async ({ octokit, payload }) => {
       await octokit.rest.issues.createComment({
@@ -209,7 +175,7 @@ describe("App", () => {
         body: "Hello, World!",
       });
 
-      expect(mock.done()).toBe(true);
+      expect(mock.isDone()).toBe(true);
     });
 
     // Your app can now receive webhook events at `/api/github/webhooks`
