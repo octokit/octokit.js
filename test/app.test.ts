@@ -1,7 +1,6 @@
 import { beforeEach, describe, expect, test } from "vitest";
 import { createServer } from "node:http";
 
-import fetchMock from "fetch-mock";
 import nock from "nock";
 import MockDate from "mockdate";
 
