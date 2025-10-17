@@ -41,7 +41,7 @@
     "glob": "^11.0.0",
     "mockdate": "^3.0.5",
     "nock": "^14.0.10",
-    "prettier": "3.5.3",
+    "prettier": "3.6.2",
     "semantic-release-plugin-update-version-in-files": "^2.0.0",
     "typescript": "^5.0.0",
     "vitest": "^3.0.0"
