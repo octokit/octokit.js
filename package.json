@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@octokit/tsconfig": "^4.0.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.0.0",
     "@vitest/coverage-v8": "^3.0.0",
     "esbuild": "^0.25.0",
     "glob": "^11.0.0",
