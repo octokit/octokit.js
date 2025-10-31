@@ -25,12 +25,12 @@
     "@octokit/core": "^7.0.5",
     "@octokit/oauth-app": "^8.0.2",
     "@octokit/plugin-paginate-graphql": "^6.0.0",
-    "@octokit/plugin-paginate-rest": "^13.2.0",
-    "@octokit/plugin-rest-endpoint-methods": "^16.1.0",
+    "@octokit/plugin-paginate-rest": "^14.0.0",
+    "@octokit/plugin-rest-endpoint-methods": "^17.0.0",
     "@octokit/plugin-retry": "^8.0.2",
     "@octokit/plugin-throttling": "^11.0.2",
     "@octokit/request-error": "^7.0.1",
-    "@octokit/types": "^15.0.0",
+    "@octokit/types": "^16.0.0",
     "@octokit/webhooks": "^14.0.0"
   },
   "devDependencies": {
