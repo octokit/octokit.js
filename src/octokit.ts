@@ -30,7 +30,7 @@ export const Octokit = OctokitCore.plugin(
 
 export type Octokit = InstanceType<typeof Octokit>;
 
-/* v8 ignore start no need to test internals of the throttle plugin */
+/* v8 ignore next no need to test internals of the throttle plugin -- @preserve */
 function onRateLimit(
   retryAfter: number,
   options: Required<EndpointDefaults>,
@@ -47,6 +47,7 @@ function onRateLimit(
   }
 }
 
+/* v8 ignore next no need to test internals of the throttle plugin -- @preserve */
 function onSecondaryRateLimit(
   retryAfter: number,
   options: Required<EndpointDefaults>,
