@@ -38,7 +38,6 @@
     "@types/node": "^24.0.0",
     "@vitest/coverage-v8": "^4.0.0",
     "esbuild": "^0.27.0",
-    "glob": "^13.0.0",
     "mockdate": "^3.0.5",
     "nock": "^14.0.10",
     "prettier": "3.6.2",
