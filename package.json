@@ -40,7 +40,7 @@
     "esbuild": "^0.27.0",
     "mockdate": "^3.0.5",
     "nock": "^14.0.10",
-    "prettier": "3.6.2",
+    "prettier": "3.7.1",
     "semantic-release-plugin-update-version-in-files": "^2.0.0",
     "tinyglobby": "^0.2.15",
     "typescript": "^5.0.0",
