@@ -1,5 +1,5 @@
 # octokit.js
-
+owner Giorgi Meskhidze
 > The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno.
 
 The `octokit` package integrates the three main Octokit libraries
