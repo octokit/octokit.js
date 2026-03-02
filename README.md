@@ -975,3 +975,24 @@ The plan is to add an new `GET /api/github/oauth/octokit.js` route to the node m
 ## LICENSE
 
 [MIT](LICENSE)
+// Timeout expired, handle it.
+conn.on_timeout();
+
+// Send more packets as needed after timeout.
+loop {
+    let (write, send_info) = match conn.send(&mut out) {
+        Ok(v) => v,
+
+        Err(quiche::Error::Done) => {
+            // Done writing.
+            break;
+        },
+
+        Err(e) => {
+            // An error occurred, handle it.
+            break;
+        },
+    };
+
+    socket.send_to(&out[..write], &send_info.to).unwrap();
+}
