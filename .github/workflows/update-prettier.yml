@@ -15,7 +15,7 @@ jobs:
           node-version: lts/*
       - run: npm ci
       - run: npm run lint:fix
-      - uses: gr2m/create-or-update-pull-request-action@v1.x
+      - uses: gr2m/create-or-update-pull-request-action@v1.10.1
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOKITBOT_PAT }}
         with:
