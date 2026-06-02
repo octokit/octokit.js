@@ -447,6 +447,18 @@ const octokit = new Octokit({
   },
 });
 ```
+## Quick Navigation Guide (Improved Discoverability)
+
+If you're trying to find a specific API quickly:
+
+- Use your browser search (Ctrl + F / Cmd + F)
+- Search for `octokit.rest.` to find REST API methods
+- REST methods are grouped by resource (issues, repos, pulls, etc.)
+
+If you're unsure where something is:
+- Start from the left-side categories in the docs
+- Open a category and use page search inside the page
+- Most GitHub Actions workflows use `octokit.rest.<resource>.<method>()`
 
 ### REST API
 
