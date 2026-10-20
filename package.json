@@ -39,7 +39,7 @@
     "@vitest/coverage-v8": "^4.0.0",
     "esbuild": "^0.28.0",
     "mockdate": "^3.0.5",
-    "nock": "^14.0.10",
+    "nock": "^15.0.0",
     "prettier": "3.7.4",
     "semantic-release-plugin-update-version-in-files": "^2.0.0",
     "tinyglobby": "^0.2.15",
